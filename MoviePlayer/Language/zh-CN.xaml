@@ -1,0 +1,79 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <sys:String x:Key="txtLtcMode">LTC模式</sys:String>
+    <sys:String x:Key="txtLocalMode">本地模式</sys:String>
+    <sys:String x:Key="txtRegister">注册</sys:String>
+    <sys:String x:Key="txtUpdateLog">更新日志</sys:String>
+    <sys:String x:Key="txtAboutUs">关于我们</sys:String>
+    <sys:String x:Key="txtParamSet">参数设置</sys:String>
+    <sys:String x:Key="txtEvEffect">环境特效</sys:String>
+    <sys:String x:Key="txtChairEffect">座椅特效</sys:String>
+    <sys:String x:Key="btnImport">导入影片</sys:String>
+
+
+    <!--调试-->
+    <sys:String x:Key="label1">动作调试</sys:String>
+    <sys:String x:Key="label2">座椅特效</sys:String>
+    <sys:String x:Key="label3">环境特效</sys:String>
+    <sys:String x:Key="labUp">上升</sys:String>
+    <sys:String x:Key="labDown">下降</sys:String>
+    <sys:String x:Key="labNum1">1号</sys:String>
+    <sys:String x:Key="labNum2">2号</sys:String>
+    <sys:String x:Key="labNum3">3号</sys:String>
+    <sys:String x:Key="labNum4">4号</sys:String>
+    <sys:String x:Key="labNum5">5号</sys:String>
+    <sys:String x:Key="labNum6">6号</sys:String>
+    <sys:String x:Key="labCA">CA</sys:String>
+    <sys:String x:Key="labCB">CB</sys:String>
+    <sys:String x:Key="labSmell">气味</sys:String>
+    <sys:String x:Key="labVibration">震动</sys:String>
+    <sys:String x:Key="labSweepLeg">扫腿</sys:String>
+    <sys:String x:Key="labSprayAir">喷气</sys:String>
+    <sys:String x:Key="labSprayWater">喷水</sys:String>
+    <sys:String x:Key="labPushBack">推背</sys:String>
+    <sys:String x:Key="labLightning">闪电</sys:String>
+    <sys:String x:Key="labWind">吹风</sys:String>
+    <sys:String x:Key="labBubble">泡泡</sys:String>
+    <sys:String x:Key="labFog">烟雾</sys:String>
+    <sys:String x:Key="labFire">火焰</sys:String>
+    <sys:String x:Key="labSnow">下雪</sys:String>
+    <sys:String x:Key="labLaser">激光</sys:String>
+    <sys:String x:Key="labRain">下雨</sys:String>
+
+    <!--排片-->
+    <sys:String x:Key="textColum1">开始时间</sys:String>
+    <sys:String x:Key="textColum2">结束时间</sys:String>
+    <sys:String x:Key="textColum3">影片</sys:String>
+    <sys:String x:Key="templateColumn">操作</sys:String>
+    <sys:String x:Key="btnAdd">添加</sys:String>
+    <sys:String x:Key="btnClear">清空</sys:String>
+    <sys:String x:Key="btnSave">保存</sys:String>
+    
+    <!--控制台-->
+    <sys:String x:Key="txtProjector">投影机</sys:String>
+    <sys:String x:Key="txtCompressor">空压机</sys:String>
+    <sys:String x:Key="txtDoor">影厅门</sys:String>
+    <sys:String x:Key="txtLamp">场灯</sys:String>
+    <sys:String x:Key="txtManual">手动开关</sys:String>
+    <sys:String x:Key="txtAutomatic">自动开关</sys:String>
+    
+    <!--属性-->
+    <sys:String x:Key="labProperty">属性</sys:String>
+    <sys:String x:Key="labType">播放器类型</sys:String>
+    <sys:String x:Key="btn4DM">4DM</sys:String>
+    <sys:String x:Key="btn5D">5D</sys:String>
+    <sys:String x:Key="labDOF">自由度</sys:String>
+    <sys:String x:Key="btn2DOF">两自由度</sys:String>
+    <sys:String x:Key="btn3DOF">三自由度</sys:String>
+    <sys:String x:Key="btn6DOF">六自由度</sys:String>
+    <sys:String x:Key="labHeight">行程高度</sys:String>
+    <sys:String x:Key="labProjector">投影机</sys:String>
+    <sys:String x:Key="btnMain">主屏</sys:String>
+    <sys:String x:Key="btnSecond">副屏</sys:String>
+    <sys:String x:Key="btnDefault">恢复默认</sys:String>
+    <sys:String x:Key="btnConfirm">确定</sys:String>
+
+
+</ResourceDictionary>

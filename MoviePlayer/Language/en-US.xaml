@@ -1,0 +1,78 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    
+    <sys:String x:Key="txtLtcMode">LTC Mode</sys:String>
+    <sys:String x:Key="txtLocalMode">Local Mode</sys:String>
+    <sys:String x:Key="txtRegister">Register</sys:String>
+    <sys:String x:Key="txtUpdateLog">Udate Log</sys:String>
+    <sys:String x:Key="txtAboutUs">AboutUS</sys:String>
+    <sys:String x:Key="txtParamSet">Parameters</sys:String>
+    <sys:String x:Key="txtEvEffect">EvEffect</sys:String>
+    <sys:String x:Key="txtChairEffect">ChairEffect</sys:String>
+    <sys:String x:Key="btnImport">Import</sys:String>
+
+    <!--调试-->
+    <sys:String x:Key="label1">ActionTest</sys:String>
+    <sys:String x:Key="label2">ChairEffect</sys:String>
+    <sys:String x:Key="label3">EnvironmentEffect</sys:String>
+    <sys:String x:Key="labUp">Up</sys:String>
+    <sys:String x:Key="labDown">Down</sys:String>
+    <sys:String x:Key="labNum1">No.1</sys:String>
+    <sys:String x:Key="labNum2">No.2</sys:String>
+    <sys:String x:Key="labNum3">No.3</sys:String>
+    <sys:String x:Key="labNum4">No.4</sys:String>
+    <sys:String x:Key="labNum5">No.5</sys:String>
+    <sys:String x:Key="labNum6">No.6</sys:String>
+    <sys:String x:Key="labCA">CA</sys:String>
+    <sys:String x:Key="labCB">CB</sys:String>
+    <sys:String x:Key="labSmell">Smell</sys:String>
+    <sys:String x:Key="labVibration">Vibration</sys:String>
+    <sys:String x:Key="labSweepLeg">SweepLeg</sys:String>
+    <sys:String x:Key="labSprayAir">SprayAir</sys:String>
+    <sys:String x:Key="labSprayWater">SprayWater</sys:String>
+    <sys:String x:Key="labPushBack">PushBack</sys:String>
+    <sys:String x:Key="labLightning">Lightning</sys:String>
+    <sys:String x:Key="labWind">Wind</sys:String>
+    <sys:String x:Key="labBubble">Bubble</sys:String>
+    <sys:String x:Key="labFog">Fog</sys:String>
+    <sys:String x:Key="labFire">Fire</sys:String>
+    <sys:String x:Key="labSnow">Snow</sys:String>
+    <sys:String x:Key="labLaser">Laser</sys:String>
+    <sys:String x:Key="labRain">Rain</sys:String>
+    
+    <!--排片-->
+    <sys:String x:Key="textColum1">StartTime</sys:String>
+    <sys:String x:Key="textColum2">EndTime</sys:String>
+    <sys:String x:Key="textColum3">Film</sys:String>
+    <sys:String x:Key="templateColumn">Action</sys:String>
+    <sys:String x:Key="btnAdd">Add</sys:String>
+    <sys:String x:Key="btnClear">Clear</sys:String>
+    <sys:String x:Key="btnSave">Save</sys:String>
+
+    <!--控制台-->
+    <sys:String x:Key="txtProjector">Projector</sys:String>
+    <sys:String x:Key="txtCompressor">Compressor</sys:String>
+    <sys:String x:Key="txtDoor">Door</sys:String>
+    <sys:String x:Key="txtLamp">Lamp</sys:String>
+    <sys:String x:Key="txtManual">Manual</sys:String>
+    <sys:String x:Key="txtAutomatic">Automatic</sys:String>
+
+    <!--属性-->
+    <sys:String x:Key="labProperty">Property</sys:String>
+    <sys:String x:Key="labType">Type</sys:String>
+    <sys:String x:Key="btn4DM">4DM</sys:String>
+    <sys:String x:Key="btn5D">5D</sys:String>
+    <sys:String x:Key="labDOF">DOF</sys:String>
+    <sys:String x:Key="btn2DOF">2DOF</sys:String>
+    <sys:String x:Key="btn3DOF">3DOF</sys:String>
+    <sys:String x:Key="btn6DOF">6DOF</sys:String>
+    <sys:String x:Key="labHeight">Height</sys:String>
+    <sys:String x:Key="labProjector">Projector</sys:String>
+    <sys:String x:Key="btnMain">Main</sys:String>
+    <sys:String x:Key="btnSecond">Second</sys:String>
+    <sys:String x:Key="btnDefault">Default</sys:String>
+    <sys:String x:Key="btnConfirm">Confirm</sys:String>
+
+
+</ResourceDictionary>
