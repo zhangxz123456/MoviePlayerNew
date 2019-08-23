@@ -177,7 +177,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="XML\FilmList.xml" />
+    <Resource Include="XML\FilmList.xml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="XML\List.xml">
       <SubType>Designer</SubType>
     </Resource>
@@ -253,6 +255,7 @@
     <Resource Include="Resources\Icon_Effect_Vibration.png" />
     <Resource Include="Resources\Icon_Effect_Water.png" />
     <Resource Include="Resources\Icon_Effect_Wind50x50.png" />
+    <Resource Include="Resources\Icon_Pause.png" />
     <Content Include="Resources\Icon_VibrationCheck.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

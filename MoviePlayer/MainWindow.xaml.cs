@@ -99,8 +99,10 @@ namespace MoviePlayer
         DispatcherTimer timerDebug = null;
         DispatcherTimer timerFilm = null;             //监控排片时间与当前时间
         Button[] btnNum;                 //缸
-        Button[] btnEvEffect;           //环境特效 
+        Button[] btnEvEffect;           //环境特效  调试界面
         Button[] btnChairEffect;        //座椅特效
+        CheckBox[] checkBoxEvEffect;           //环境特效  数据显示界面
+        CheckBox[] checkBoxChairEffect;        //座椅特效
 
         public static string playerPath;
         public static string PlayType;               //播放器类型 4DM为4DM播放器 5D为5D播放器
@@ -413,6 +415,9 @@ namespace MoviePlayer
             btnNum = new Button[6] { btnNum1,btnNum2,btnNum3,btnNum4,btnNum5,btnNum6};
             btnEvEffect = new Button[8] { btnLightning,btnWind,btnBubble,btnFog,btnFire,btnSnow,btnLaser,btnRain};
             btnChairEffect = new Button[8] { btnCA,btnCB,btnSmell,btnVibration,btnSweepLeg,btnSprayWater,btnSprayAir,btnPushBack};
+
+            checkBoxEvEffect = new CheckBox[8] { cbEv1, cbEv2, cbEv3, cbEv4, cbEv5, cbEv6, cbEv7, cbEv8 };
+            checkBoxChairEffect = new CheckBox[8] { cbCv7, cbCv8, cbCv1, cbCv2, cbCv3, cbCv4, cbCv5, cbCv6 };
         }
    
 
@@ -722,9 +727,9 @@ namespace MoviePlayer
             switch (tag)
             {
                 case 1:
-                    tabControl.SelectedIndex = tag - 1;
+                   // tabControl.SelectedIndex = tag - 1;
                     tabControlShow.SelectedIndex = tag - 1;
-                    SetNavigationEnable(true);
+                    SetNavigationEnable(false);
                     break;
                 case 2:
                     tabControlShow.SelectedIndex = tag - 1;
@@ -752,13 +757,20 @@ namespace MoviePlayer
                     SetNavigationEnable(true);
                     break;
             }
+            if(tag!=2)
+            {
+                if (timerDebug != null)
+                {
+                    timerDebug.Stop();
+                }
+            }
         }
 
         private void TabControlShow_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (tabSetFlag == 1)
             {
-                SetNavigationEnable(false);
+               // SetNavigationEnable(false);
             }
         }
 
@@ -922,7 +934,7 @@ namespace MoviePlayer
                     
                     break;
                 case 2:
-                    btnImgPlay.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Play_light);
+                    btnImgPlay.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Play_light);                  
                     break;
                 case 3:
                     btnImgStop.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Stop_light);
@@ -1184,7 +1196,7 @@ namespace MoviePlayer
             drawing.Player = UserControlClass.MPPlayer;
             //用Drawing绘制图形
             DrawingBrush brush = new DrawingBrush(drawing);
-            UserControlClass.sc2.FInkCanvas_Player.Background = brush;
+            //UserControlClass.sc2.FInkCanvas_Player.Background = brush;
             NewOpenPlay();
             //timerInit();
             if (timerStart == false)
@@ -1242,6 +1254,8 @@ namespace MoviePlayer
         {
             Debug.WriteLine("player发数据");
             UdpSend.SendWrite(UserControlClass.MPPlayer.Position.TotalSeconds);
+            //ShowData(UserControlClass.MPPlayer.Position.TotalSeconds);
+            showData();
             //UdpSend.SendWrite();
             if (UserControlClass.MPPlayer.Position.TotalSeconds == 0)
             {
@@ -1254,6 +1268,100 @@ namespace MoviePlayer
                     //System.Windows.MessageBox.Show("停止");
                 }
 
+            }
+        }
+
+        private void ClearData()
+        {          
+            pb1.Value = 0;
+            pb2.Value = 0;
+            pb3.Value = 0;
+            txtPbVal1.Text = "0";
+            txtPbVal2.Text = "0";
+            txtPbVal3.Text = "0";
+
+            for (int i = 0; i < 8; i++)
+            {
+                checkBoxEvEffect[i].IsChecked = false;
+
+            }
+
+            for (int i = 0; i < 8; i++)
+            {
+                checkBoxChairEffect[i].IsChecked = false;
+            }
+        }
+
+        private void showData()
+        {
+            int ii;
+
+            if ("5D".Equals(MainWindow.PlayType))
+            {
+
+                ii = (int)Math.Round((UserControlClass.MPPlayer.Position.TotalSeconds * 2400), 0);
+                ii = (int)Math.Round((ii / 50.0), 0);
+            }
+            else
+            {
+                ii = (int)Math.Round((UdpConnect.TimeCode * 2400), 0);
+                ii = (int)Math.Round((ii / 50.0), 0);
+                //label.Content = "TimeCode: " + UdpConnect.strLongTimeCode;
+            }
+
+            //textBox3.Text = ii.ToString();
+
+            try
+            {
+                this.txtPbVal1.Text = Module.actionFile[3 * ii].ToString();
+                this.txtPbVal2.Text = Module.actionFile[3 * ii + 1].ToString();
+                this.txtPbVal3.Text = Module.actionFile[3 * ii + 2].ToString();
+
+                pb1.Value = Module.actionFile[3 * ii];
+                pb2.Value = Module.actionFile[3 * ii + 1];
+                pb3.Value = Module.actionFile[3 * ii + 2];
+
+                Boolean[] ev = new Boolean[8];
+                Boolean[] cEffect = new Boolean[8];
+
+                for (int i = 0, n = 1; i < 8; i++)
+                {
+                    ev[i] = ((Module.effectFile[2 * ii] & n) == 0 ? false : true);
+                    n = n << 1;
+                    if (ev[i] == true)
+                    {
+                        checkBoxEvEffect[i].IsChecked = true;
+                    }
+                    else
+                    {
+                        checkBoxEvEffect[i].IsChecked = false;
+                    }
+                }
+
+                for (int i = 0, n = 1; i < 8; i++)
+                {
+                    cEffect[i] = ((Module.effectFile[2 * ii + 1] & n) == 0 ? false : true);
+                    n = n << 1;
+                    if (cEffect[i] == true)
+                    {
+                        checkBoxChairEffect[i].IsChecked = true;
+                    }
+                    else
+                    {
+                        checkBoxChairEffect[i].IsChecked = false;
+                    }
+                }
+
+            }
+            catch
+            {
+                this.txtPbVal1.Text = "0";
+                this.txtPbVal1.Text = "0";
+                this.txtPbVal1.Text = "0";
+
+                pb1.Value = 0;
+                pb2.Value = 0;
+                pb3.Value = 0;
             }
         }
 
@@ -1283,10 +1391,11 @@ namespace MoviePlayer
             }
             else
             {
-                //UserControlClass.sc2.Close();
+                UserControlClass.sc2.Close();
             }
             Module.timerMovie.Stop();
             UdpSend.movieStop = true;
+            ClearData();
             UdpSend.SendReset();
         }
 
@@ -1569,26 +1678,10 @@ namespace MoviePlayer
                 switch (UserControlClass.MSStatus)
                 {
                     case MediaStatus.Pause:
-                        FileInfo fo = new FileInfo(MainWindow.playerPath + @"\Images\" + "play.jpg");
-                        if (fo.Exists)
-                        {
-                            Uri uriPlay = new Uri(MainWindow.playerPath + @"\Images\" + "play.jpg");
-                            BitmapImage imagePlay = new BitmapImage(uriPlay);
-                            Image imgPlay = new Image();
-                            imgPlay.Source = imagePlay;
-                            //btnPlay.Content = imgPlay;
-                        }
+                        btnImgPlay.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Play);
                         break;
                     case MediaStatus.Play:
-                        FileInfo finfo = new FileInfo(MainWindow.playerPath + @"\Images\" + "pause.jpg");
-                        if (finfo.Exists)
-                        {
-                            Uri uriPause = new Uri(MainWindow.playerPath + @"\Images\" + "pause.jpg");
-                            BitmapImage imagePause = new BitmapImage(uriPause);
-                            Image imgPause = new Image();
-                            imgPause.Source = imagePause;
-                            //btnPlay.Content = imgPause;
-                        }
+                        btnImgPlay.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Pause);
                         break;
                 }
             }
@@ -1802,7 +1895,7 @@ namespace MoviePlayer
                     drawing.Rect = rect;
                     drawing.Player = UserControlClass.MPPlayer;
                     DrawingBrush brush = new DrawingBrush(drawing);
-                    //UserControlClass.sc2.FInkCanvas_Player.Background = brush;
+                    UserControlClass.sc2.FInkCanvas_Player.Background = brush;
                     NewOpenPlay();
                 }
                 else
@@ -2255,7 +2348,7 @@ namespace MoviePlayer
                 sliderTime.Value = 0;
                 UserControlClass.MSStatus = MediaStatus.Pause;
                 TSStatus = TimeStatus.SystemTime;
-                //UserControlClass.sc2.FInkCanvas_Player.Background = Brushes.White;
+                UserControlClass.sc2.FInkCanvas_Player.Background = Brushes.White;
                 PCink = PlayCamera.inkMediaPlay;
                 ChangeshowInk();
                 txtTime.Text = "";
@@ -2267,8 +2360,8 @@ namespace MoviePlayer
                 FileInfo finfo = new FileInfo("" + fullPathName + "");
                 if (finfo.Exists)
                 {
-                    //UserControlClass.sc2.FInkCanvas_Player.Background = Brushes.White;
-                    //UserControlClass.sc2.FInkCanvas_Player.Children.Clear();
+                    UserControlClass.sc2.FInkCanvas_Player.Background = Brushes.White;
+                    UserControlClass.sc2.FInkCanvas_Player.Children.Clear();
 
                     //播放flash文件判断
                     if (UserControlClass.FileName.Contains(".swf"))
@@ -2296,7 +2389,7 @@ namespace MoviePlayer
                     sliderTime.Value = 0;
                     UserControlClass.MSStatus = MediaStatus.Pause;
                     TSStatus = TimeStatus.SystemTime;
-                    //UserControlClass.sc2.FInkCanvas_Player.Background = Brushes.White;
+                    UserControlClass.sc2.FInkCanvas_Player.Background = Brushes.White;
                     PCink = PlayCamera.inkMediaPlay;
                     ChangeshowInk();
                     txtTime.Text = "";
@@ -2572,6 +2665,7 @@ namespace MoviePlayer
                 {
                     Module.timerMovie.Stop();
                     UdpSend.movieStop = true;
+                    ClearData();
                     UdpSend.SendReset();
                 }
             }

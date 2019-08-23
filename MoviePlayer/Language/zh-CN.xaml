@@ -59,7 +59,10 @@
     <sys:String x:Key="txtManual">手动开关</sys:String>
     <sys:String x:Key="txtAutomatic">自动开关</sys:String>
     
-    <!--属性-->
+    <!--设置-->
+    <sys:String x:Key="btnEN">英文</sys:String>
+    <sys:String x:Key="btnCN">中文</sys:String>
+
     <sys:String x:Key="labProperty">属性</sys:String>
     <sys:String x:Key="labType">播放器类型</sys:String>
     <sys:String x:Key="btn4DM">4DM</sys:String>
@@ -72,6 +75,11 @@
     <sys:String x:Key="labProjector">投影机</sys:String>
     <sys:String x:Key="btnMain">主屏</sys:String>
     <sys:String x:Key="btnSecond">副屏</sys:String>
+    <sys:String x:Key="labMode">播放模式</sys:String>
+    <sys:String x:Key="btnLtc">LTC模式</sys:String>
+    <sys:String x:Key="btnLocal">本地模式</sys:String>
+
+
     <sys:String x:Key="btnDefault">恢复默认</sys:String>
     <sys:String x:Key="btnConfirm">确定</sys:String>
 

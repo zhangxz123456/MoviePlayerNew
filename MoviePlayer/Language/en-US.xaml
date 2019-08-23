@@ -58,7 +58,9 @@
     <sys:String x:Key="txtManual">Manual</sys:String>
     <sys:String x:Key="txtAutomatic">Automatic</sys:String>
 
-    <!--属性-->
+    <!--设置-->
+    <sys:String x:Key="btnEN">English</sys:String>
+    <sys:String x:Key="btnCN">Chinese</sys:String>
     <sys:String x:Key="labProperty">Property</sys:String>
     <sys:String x:Key="labType">Type</sys:String>
     <sys:String x:Key="btn4DM">4DM</sys:String>
