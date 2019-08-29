@@ -25,6 +25,7 @@ namespace MoviePlayer.Protocol
         public static bool isRegistered;                      //是否已经成功注册
         public static bool isDebug;                           //是否打开调试界面  
         public static bool connectFlag;                       //是否连接
+        public static string valDate;                         //有效期
 
         UdpSend mysend = new UdpSend();
 
@@ -152,10 +153,10 @@ namespace MoviePlayer.Protocol
                 strTimeCode = strhours + ":" + strminutes + ":" + strseconds;
                 strLongTimeCode = strhours + ":" + strminutes + ":" + strseconds + ":" + strframe;
                 TimeCode = hours + minutes + seconds + frame;
-                //if(isRegistered == true && isDebug == false && "4DM".Equals(MainWindow.PlayType))
-                //{
-                 // UdpSend.SendWrite(TimeCode);              
-                //}
+                if(isRegistered == true && isDebug == false && "4DM".Equals(MainWindow.PlayType))
+                {
+                  UdpSend.SendWrite(TimeCode);              
+                }
                 //UdpSend.QuDong(TimeCode);               //发送驱动器指令
                 //UdpSend.flagSend = (byte)Mcu.ModbusUdp.MBFunctionCode.Write;
             }
@@ -212,7 +213,7 @@ namespace MoviePlayer.Protocol
                 }
                 string reday = Module.deadlineDD.ToString();
                 string redate = reyear + "-" + remonth + "-" + reday;
-
+                valDate = redate;
                 //获取储存在芯片的当前时间
                 string yearWrite;
                 if (RecData[10] > 9)
@@ -227,7 +228,7 @@ namespace MoviePlayer.Protocol
                 string monthWrite = RecData[11].ToString();               
                 string dayWrite = RecData[12].ToString();
                 string dateWrite = yearWrite + "-" + monthWrite + "-" + dayWrite;
-
+                
                 //获取当前电脑的系统时间
                 DateTime dateNow = Convert.ToDateTime(DateTime.Now.ToShortDateString());
 

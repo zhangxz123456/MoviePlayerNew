@@ -64,7 +64,7 @@
     <sys:String x:Key="btnCN">中文</sys:String>
 
     <sys:String x:Key="labProperty">属性</sys:String>
-    <sys:String x:Key="labType">播放器类型</sys:String>
+    <sys:String x:Key="labType">播放类型</sys:String>
     <sys:String x:Key="btn4DM">4DM</sys:String>
     <sys:String x:Key="btn5D">5D</sys:String>
     <sys:String x:Key="labDOF">自由度</sys:String>
@@ -83,5 +83,35 @@
     <sys:String x:Key="btnDefault">恢复默认</sys:String>
     <sys:String x:Key="btnConfirm">确定</sys:String>
 
+     <!--注册窗体-->
+    <sys:String x:Key="txtUserCode">用户码</sys:String>
+    <sys:String x:Key="txtInputReg">注册码</sys:String>
+    <sys:String x:Key="btnUserCode">获取用户码</sys:String>
+    <sys:String x:Key="btnRegCode">注册</sys:String>
+
+    <sys:String x:Key="txtRegStrTitle">有效期:</sys:String>
+
+    <!--菜单项-->
+    <sys:String x:Key="listMenuPlay">播放</sys:String>
+    <sys:String x:Key="listMenuAdd">添加</sys:String>
+    <sys:String x:Key="listMenuDelSel">清空</sys:String>
+    <sys:String x:Key="listMenuDelAll">清空所有</sys:String>
+    <sys:String x:Key="listMenuMode">播放模式</sys:String>
+    <sys:String x:Key="listModeSingle">单个循环</sys:String>
+    <sys:String x:Key="listModeDefault">默认播放</sys:String>
+    <sys:String x:Key="listModeLoop">列表播放</sys:String>
+    
+    <!--登录窗体-->
+    <sys:String x:Key="txtUserName">用户名</sys:String>
+    <sys:String x:Key="txtPassWord">密码</sys:String>
+    <sys:String x:Key="btnLogin">登录</sys:String>
+    
+    <!--提示-->
+    <sys:String x:Key="tipsPlay">播放</sys:String>
+    <sys:String x:Key="tipsTest">调试</sys:String>
+    <sys:String x:Key="tipsRowPiece">排片</sys:String>
+    <sys:String x:Key="tipsControl">控制台</sys:String>
+    <sys:String x:Key="tipsAbout">关于</sys:String>
+    <sys:String x:Key="tipsSetting">设置</sys:String>
 
 </ResourceDictionary>

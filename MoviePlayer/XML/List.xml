@@ -9,14 +9,6 @@
     <Path>D:\电影\1.avi</Path>
   </List>
   <List>
-    <Name>2.mkv</Name>
-    <Path>D:\电影\2.mkv</Path>
-  </List>
-  <List>
-    <Name>3.mp4</Name>
-    <Path>D:\电影\3.mp4</Path>
-  </List>
-  <List>
     <Name>5.avi</Name>
     <Path>D:\电影\5.avi</Path>
   </List>
@@ -27,5 +19,9 @@
   <List>
     <Name>7.mp4</Name>
     <Path>D:\电影\7.mp4</Path>
+  </List>
+  <List>
+    <Name>444.mp4</Name>
+    <Path>D:\电影\444.mp4</Path>
   </List>
 </Lists>

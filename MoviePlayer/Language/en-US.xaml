@@ -76,5 +76,36 @@
     <sys:String x:Key="btnDefault">Default</sys:String>
     <sys:String x:Key="btnConfirm">Confirm</sys:String>
 
+    <!--注册窗体-->
+    <sys:String x:Key="txtUserCode">UserCode</sys:String>
+    <sys:String x:Key="txtInputReg">RegisterCode</sys:String>
+    <sys:String x:Key="btnUserCode">GetUserCode</sys:String>
+    <sys:String x:Key="btnRegCode">Register</sys:String>
+
+    <sys:String x:Key="txtRegStrTitle">Date:</sys:String>
+
+    <!--菜单项-->
+    <sys:String x:Key="listMenuPlay">Play</sys:String>
+    <sys:String x:Key="listMenuAdd">Add</sys:String>
+    <sys:String x:Key="listMenuDelSel">Clear</sys:String>
+    <sys:String x:Key="listMenuDelAll">ClearAll</sys:String>
+    <sys:String x:Key="listMenuMode">PlayMode</sys:String>
+    <sys:String x:Key="listModeSingle">SingleLoop</sys:String>
+    <sys:String x:Key="listModeDefault">DefaultPlay</sys:String>
+    <sys:String x:Key="listModeLoop">ListLoop</sys:String>
+
+    <!--登录窗体-->
+    <sys:String x:Key="txtUserName">UserName</sys:String>
+    <sys:String x:Key="txtPassWord">PassWord</sys:String>
+    <sys:String x:Key="btnLogin">Login</sys:String>
+
+    <!--提示-->
+    <sys:String x:Key="tipsPlay">Play</sys:String>
+    <sys:String x:Key="tipsTest">Test</sys:String>
+    <sys:String x:Key="tipsRowPiece">RowPiece</sys:String>
+    <sys:String x:Key="tipsControl">Control</sys:String>
+    <sys:String x:Key="tipsAbout">About</sys:String>
+    <sys:String x:Key="tipsSetting">Setting</sys:String>
+
 
 </ResourceDictionary>
