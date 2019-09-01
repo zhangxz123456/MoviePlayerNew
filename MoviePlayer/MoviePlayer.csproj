@@ -191,6 +191,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Icon_Bubble.png" />
     <Resource Include="XML\FilmList.xml">
       <SubType>Designer</SubType>
     </Resource>
@@ -222,7 +223,6 @@
     <Resource Include="Resources\Icon_Door.png" />
     <Resource Include="Resources\Icon_Light.png" />
     <Resource Include="Resources\Icon_SprayAir.png" />
-    <Resource Include="Resources\Icon_Bubble.png" />
     <Resource Include="Resources\Icon_CA.png" />
     <Resource Include="Resources\Icon_CB.png" />
     <Resource Include="Resources\Icon_Fire.png" />
@@ -275,6 +275,14 @@
     <Resource Include="Resources\Icon_MenuDelAll.png" />
     <Resource Include="Resources\Icon_MenuDelSel.png" />
     <Resource Include="Resources\Icon_MenuPlay.png" />
+    <Resource Include="Resources\Icon_Connected.png" />
+    <Resource Include="Resources\Icon_UnConnect.png" />
+    <Resource Include="Resources\Icon_UnRegister.png" />
+    <Resource Include="Resources\Icon_Logo.png" />
+    <Resource Include="Resources\Icon_ChairVibration.png" />
+    <Resource Include="Resources\Icon_Reset.png" />
+    <Resource Include="Resources\Icon_Actuator1.png" />
+    <Resource Include="Resources\Icon_BackUp.png" />
     <Content Include="Resources\Icon_VibrationCheck.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

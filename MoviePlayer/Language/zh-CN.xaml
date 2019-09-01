@@ -25,8 +25,8 @@
     <sys:String x:Key="labNum4">4号</sys:String>
     <sys:String x:Key="labNum5">5号</sys:String>
     <sys:String x:Key="labNum6">6号</sys:String>
-    <sys:String x:Key="labCA">CA</sys:String>
-    <sys:String x:Key="labCB">CB</sys:String>
+    <sys:String x:Key="labReset">复位</sys:String>
+    <sys:String x:Key="labChairVibration">振动</sys:String>
     <sys:String x:Key="labSmell">气味</sys:String>
     <sys:String x:Key="labVibration">震动</sys:String>
     <sys:String x:Key="labSweepLeg">扫腿</sys:String>

@@ -118,9 +118,11 @@ namespace MoviePlayer
         private string curPlayDOF;
         private string curPlayProjector;
 
-        byte[] dataNum = new byte[3];
+        byte[] dataNum = new byte[6];
         byte[] dataEvEffect = new byte[8];
         byte[] dataChairEffect = new byte[8];
+        byte dataFrame;   //频率
+        byte dataRate;    //幅度
         public static bool isLogin;
 
         public class Member : INotifyPropertyChanged
@@ -335,8 +337,10 @@ namespace MoviePlayer
             UserControlClass.MPPlayer.MediaOpened += new EventHandler(MPPlayer_MediaOpened);
             Timing.Elapsed += new ElapsedEventHandler(Tim_Elapsed);
             ChangeShowPlay();
-            ChangeShowTime();
+           // ChangeShowTime();
             ChangeshowInk();
+            addMember();
+            ReadFilmList();
             ReadMode();
             ReadVolume();
             SelectXml();
@@ -345,14 +349,14 @@ namespace MoviePlayer
             TypeShow();
             MenuModePlayTick();
 
-            addMember();
-            ReadFilmList();
+           
 
 
         }
 
         private void MainWindow_Closed(object sender, EventArgs e)
         {
+            SaveVolume();
             System.Windows.Application.Current.Shutdown();
         }
 
@@ -416,6 +420,7 @@ namespace MoviePlayer
             btnNum5.Click += BtnNum_Click;
             btnNum6.Click += BtnNum_Click;
 
+
             btnLightning.Click += BtnEvEffect_Click;
             btnWind.Click += BtnEvEffect_Click;
             btnBubble.Click += BtnEvEffect_Click;
@@ -466,6 +471,8 @@ namespace MoviePlayer
             checkBoxEvEffect = new CheckBox[8] { cbEv1, cbEv2, cbEv3, cbEv4, cbEv5, cbEv6, cbEv7, cbEv8 };
             checkBoxChairEffect = new CheckBox[8] { cbCv7, cbCv8, cbCv1, cbCv2, cbCv3, cbCv4, cbCv5, cbCv6 };
         }
+
+       
 
         private void ListModeChoose_Click(object sender, RoutedEventArgs e)
         {
@@ -592,7 +599,20 @@ namespace MoviePlayer
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             SaveType();
-            MessageBox.Show("修改成功，软件将重新启动");
+            RestartSoftWare();
+           
+        }
+
+        private void RestartSoftWare()
+        {
+            if (PlayLanguage.Equals("CN"))
+            {
+                MessageBox.Show("修改成功，软件将重新启动");
+            }
+            else
+            {
+                MessageBox.Show("Modify success,the software will restart");
+            }
             System.Windows.Forms.Application.Restart();
             Application.Current.Shutdown();
         }
@@ -648,12 +668,15 @@ namespace MoviePlayer
             {
                 case "2DOF":
                     btn2DOF.Background = Brushes.DodgerBlue;
+                    txtPbVal2.Visibility = Visibility.Hidden;
+                    pb2.Visibility = Visibility.Hidden;
+                    
                     break;
                 case "3DOF":
-                    btn2DOF.Background = Brushes.DodgerBlue;
+                    btn3DOF.Background = Brushes.DodgerBlue;
                     break;
                 case "6DOF":
-                    btn2DOF.Background = Brushes.DodgerBlue;
+                    btn6DOF.Background = Brushes.DodgerBlue;
                     break;
             }
             if(PlayType.Equals("4DM"))
@@ -686,6 +709,17 @@ namespace MoviePlayer
                 btnNum[i].Opacity = 0.9;
                 btnNum[i].Background = Brushes.Cyan;
                 dataNum[i] = 255;
+                if (i == 3)
+                {
+                    dataFrame = 2;
+                    dataRate = 30;
+                }
+                if (i == 4)
+                {
+                    dataFrame = 2;
+                    dataRate = 40;
+                }
+                // if(i==5)
             }
             else
             {
@@ -693,6 +727,16 @@ namespace MoviePlayer
                 btnNum[i].Opacity = 1;
                 btnNum[i].Background = brush;
                 dataNum[i] = 0;
+                if (i == 3)
+                {
+                    dataFrame = 0;
+                    dataRate = 0;
+                }
+                if (i == 4)
+                {
+                    dataFrame = 0;
+                    dataRate = 0;
+                }
             }
         }
 
@@ -728,14 +772,30 @@ namespace MoviePlayer
             {
                 btnChairEffect[i].Background = Brushes.Cyan;
                 btnChairEffect[i].Opacity = 0.9;
-                dataChairEffect[i] = (Byte)Math.Pow(2, i);
+                if (i == 1)
+                {
+                    dataFrame = 2;
+                    dataRate = 40;
+                }
+                else
+                {
+                    dataChairEffect[i] = (Byte)Math.Pow(2, i);
+                }
             }
             else
             {
                 Brush brush = new SolidColorBrush(Color.FromArgb(0xff,0x93,0x93,0x93));
                 btnChairEffect[i].Background = brush;
                 btnChairEffect[i].Opacity = 1;
-                dataChairEffect[i] = 0;
+                if (i == 1)
+                {
+                    dataFrame = 0;
+                    dataRate = 0;
+                }
+                else
+                {
+                    dataChairEffect[i] = 0;
+                }
             }
         }
 
@@ -765,6 +825,8 @@ namespace MoviePlayer
                 {
                     labConnect.Content = "Unconnected";
                 }
+                imgConnect.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_UnConnect);
+
                 LockSoftWare();
             }
             else      //与中控板已连接
@@ -779,16 +841,19 @@ namespace MoviePlayer
                     {
                         labConnect.Content = "UnRegistered";
                     }
+                    imgConnect.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_UnRegister);
+
                     LockSoftWare();
                 }
                 else  //软件正常打开            
                 {
-                    OpenSoftWare();              
+                    OpenSoftWare();
                     if (isReset == 0)
                     {
                         UdpSend.SendReset();
                         isReset = 1;
                     }
+                    imgConnect.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Connected);
                     if ("CN".Equals(PlayLanguage))
                     {
                         labConnect.Content = "连接成功";
@@ -799,13 +864,14 @@ namespace MoviePlayer
                     }
                     if (Module.hintShow == true)
                     {
+                        btnDateTips.Visibility = Visibility.Visible;
                         if ("CN".Equals(PlayLanguage))
                         {
-                            labDateTips.Content = "提示：软件还有" + Module.deadlineDay + "天到期";
+                            btnDateTips.Content = "提示：软件还有" + Module.deadlineDay + "天到期";
                         }
                         else
                         {
-                            labDateTips.Content = "Tips: The software expires in " + Module.deadlineDay + " days";
+                            btnDateTips.Content = "Tips: The software expires in " + Module.deadlineDay + " days";
                         }
                     }
                     if ("4DM".Equals(PlayType))
@@ -837,6 +903,11 @@ namespace MoviePlayer
             rb6.IsEnabled = true;
             ListView.IsEnabled = true;
             btnImgPlay.IsEnabled = true;
+            if("4DM".Equals(PlayType))
+            {
+                ListView.IsEnabled = false;
+                btnImgPlay.IsEnabled = false;
+            }
         }
 
         private void timerDebugInit()
@@ -879,7 +950,7 @@ namespace MoviePlayer
 
             Debug.WriteLine(eEffect.ToString());
 
-            data = new byte[10] { dataNumOne, dataNumTwo, dataNumThree, 0, 0, 0, 0, 0, cEffect, eEffect };
+            data = new byte[10] { dataNumOne, dataNumTwo, dataNumThree, 0, 0, 0,  dataRate,dataFrame, cEffect, eEffect };
             array = Protocol.ModbusUdp.ArrayAdd(0, (ushort)data.Length, data);
             Data = Protocol.ModbusUdp.MBReqWrite(array);
             UdpSend.UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
@@ -1031,7 +1102,39 @@ namespace MoviePlayer
                               "软件类型：" + MainWindow.PlayType + "\r\n" +
                               "软件语言：" + MainWindow.PlayLanguage + "\r\n" +
                               "自由度：  " + MainWindow.PlayDOF + "\r\n" +
-                              "行程高度：" + MainWindow.PlayHeight;                
+                              "行程高度：" + MainWindow.PlayHeight;
+                txtUpdate.Text =
+                           "shuqee版本更新信息：\r\n" +
+                           "                   V7.1.2 \r\n" +
+                           "更新日期：2019/9/2 \r\n" +
+                           "更新内容：修改软件打开提示，修改调试界面 \r\n" +
+                           "                修复参数设置不正确，声音调节问题   \r\n" +                           
+                           "/**************************************/ \r\n" +
+                           "shuqee版本更新信息：\r\n" +
+                           "                   V7.1.1 \r\n" +
+                           "更新日期：2019/8/20 \r\n" +
+                           "更新内容：更改软件界面 \r\n" +
+                           "                增加控制台功能，增加排片功能，增加参数设置   \r\n" +
+                           "/**************************************/ \r\n" +
+                           "shuqee版本更新信息：\r\n" +
+                           "                   V6.2.4 \r\n" +
+                           "更新日期：2019/4/11 \r\n" +
+                           "更新内容：优化界面，删除冗余代码 \r\n" +                          
+                           "/**************************************/ \r\n" +
+                           "shuqee版本更新信息：\r\n" +
+                           "                   V6.2.3 \r\n" +
+                           "更新日期：2019/3/27 \r\n" +
+                           "更新内容：优化界面，将类型模块语言模块整合一起 \r\n" +
+                           "/**************************************/ \r\n" +
+                           "shuqee版本更新信息：\r\n" +
+                           "                   V6.2.2 \r\n" +
+                           "更新日期：2018/12/5 \r\n" +
+                           "更新内容：优化界面，更改播放影片显示问题 \r\n" +
+                           "/**************************************/ \r\n" +
+                           "shuqee版本更新信息：\r\n" +
+                           "                   V6.2.1 \r\n" +
+                           "更新日期：2018/10/25 \r\n" +
+                           "更新内容：软件整体升级，修改通信方式，增快数据发送频率，增加数据采集点";
             }
             else
             {
@@ -1045,6 +1148,39 @@ namespace MoviePlayer
                                "Software Language: " + MainWindow.PlayLanguage + "\r\n" +
                                "PlayDOF: " + MainWindow.PlayDOF + "\r\n" +
                                "Height: " + MainWindow.PlayHeight + "\r\n";
+
+                txtUpdate.Text =
+                          "Shuqee Version Update Information：\r\n" +
+                          "                   V7.1.2 \r\n" +
+                          "Updated Date：2019/9/2 \r\n" +
+                          "Updated Content：Modify the software tips,Modify the Debug interface \r\n" +
+                          "                              Fixed incorrect parameter setting, sound adjustment problem  \r\n" +
+                          "/**************************************/ \r\n" +
+                          "Shuqee Version Update Information：\r\n" +
+                          "                   V7.1.1 \r\n" +
+                          "Updated Date：2019/8/20 \r\n" +
+                          "Updated Content：Change the software interface \r\n" +
+                          "                       Add the control,Add the Film Row Piece   \r\n" +
+                          "/**************************************/ \r\n" +
+                          "Shuqee Version Update Information：\r\n" +
+                          "                   V6.2.4 \r\n" +
+                          "Updated Date：2019/4/11 \r\n" +
+                          "Updated Content：Optimize the interface and remove redundant code \r\n" +
+                          "/**************************************/ \r\n" +
+                          "Shuqee Version Update Information：\r\n" +
+                          "                   V6.2.3 \r\n" +
+                          "Updated Date：2019/3/27 \r\n" +
+                          "Updated Content：Optimize the interface and integrate the type module language modules together \r\n" +
+                          "/**************************************/ \r\n" +
+                          "Shuqee Version Update Information：\r\n" +
+                          "                   V6.2.2 \r\n" +
+                          "Updated Date：2018/12/5 \r\n" +
+                          "Updated Content：Optimize the interface, change play video display problems \r\n" +
+                          "/**************************************/ \r\n" +
+                          "Shuqee Version Update Information：\r\n" +
+                          "                   V6.2.1 \r\n" +
+                          "Updated Date：2018/10/25 \r\n" +
+                          "Updated Content：Software overall upgrade, modify communication mode,increase data collection points";
             }
         }
 
@@ -1203,10 +1339,10 @@ namespace MoviePlayer
                     changeBackground(2);
                     break;
                 case 4:
-                    //MessageBox.Show("4");
+                    //changeBackground(3);
                     break;
                 case 5:
-                    //MessageBox.Show("5");
+                    //changeBackground(4);
                     break;
                 case 6:
                     //MessageBox.Show("6");
@@ -1224,7 +1360,7 @@ namespace MoviePlayer
         private void BtnChairEffect_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-            int tag = Convert.ToInt32(btn.Tag);
+            int tag = Convert.ToInt32(btn.Tag);        
             changeChairEffect(tag - 1);            
         }
 
@@ -1293,7 +1429,10 @@ namespace MoviePlayer
                     break;
                 case 2:
                     btnParamSetGrid.Background = Brushes.DodgerBlue;
-                    OpenLoginWin();
+                    if (isLogin == false)
+                    {
+                        OpenLoginWin();
+                    }
                     if (isLogin == true)
                     {
                         tabControlSet.SelectedIndex = 1;
@@ -1469,6 +1608,7 @@ namespace MoviePlayer
                     if (CheckEncode(memberData[i].End))
                     {
                         System.Windows.MessageBox.Show(memberData[i].End + "输入有误，不能包含中文字根");
+                        memberData[i].End = "";
                     }
                     else
                     {
@@ -1477,6 +1617,7 @@ namespace MoviePlayer
                 }
             }
             SaveFilmList();
+            RestartSoftWare();
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
@@ -1664,7 +1805,10 @@ namespace MoviePlayer
         private void timerMovie_tick(object sender, EventArgs e)
         {
             Debug.WriteLine("player发数据");
-            UdpSend.SendWrite(UserControlClass.MPPlayer.Position.TotalSeconds);
+            if (UdpConnect.isDebug == false)
+            {
+                UdpSend.SendWrite(UserControlClass.MPPlayer.Position.TotalSeconds);
+            }
             //ShowData(UserControlClass.MPPlayer.Position.TotalSeconds);
             showData();
             //UdpSend.SendWrite();
@@ -1678,7 +1822,6 @@ namespace MoviePlayer
                     Module.timerMovie.Stop();
                     //System.Windows.MessageBox.Show("停止");
                 }
-
             }
         }
 
@@ -3156,7 +3299,6 @@ namespace MoviePlayer
 
                 if (str1 != "" && str2 != "")
                 {
-
                     dt1 = Convert.ToDateTime(str1);
                     dt2 = Convert.ToDateTime(str2);
                     dt3 = DateTime.Now;
@@ -3191,12 +3333,38 @@ namespace MoviePlayer
             if ("4DM".Equals(PlayType))
             {
                 Module.readDefultFile();
-                ListView.IsEnabled = false;
-                btnImgPlay.IsEnabled = false;
-                timerFilmInit();
+                //ListView.IsEnabled = false;
+                //btnImgPlay.IsEnabled = false;
+                if (memberData[0].Start != "" && memberData[0].End!="")
+                {
+                    timerFilmInit();
+                }
             }
         }
 
+        private void btnImgVReduce_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (UserControlClass.FileName != null && UserControlClass.FileName != "")
+            {
+                sliderVol.Value = sliderVol.Value - 0.1;
+                UserControlClass.MPPlayer.Volume = sliderVol.Value;
+            }
+        }
 
+        private void btnImgVadd_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (UserControlClass.FileName != null && UserControlClass.FileName != "")
+            {
+                sliderVol.Value = sliderVol.Value + 0.1;
+                UserControlClass.MPPlayer.Volume = sliderVol.Value;
+            }
+        }
+
+        private void btnDateTips_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterWindow regwin = new RegisterWindow();
+            regwin.ShowDialog();
+        }
+ 
     }
 }

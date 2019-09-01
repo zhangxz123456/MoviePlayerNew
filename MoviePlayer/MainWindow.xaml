@@ -73,8 +73,8 @@
                     <ColumnDefinition MaxWidth="25"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Image Name="btnImgVadd" Source="Resources/Icon_Vol_Add.png" Grid.Column="2" VerticalAlignment="Center" Width="20" Height="20" Tag="5"></Image>
-                <Image Name="btnImgVReduce" Source="Resources/Icon_Vol_Reduce.png" Grid.Column="0" VerticalAlignment="Center" Width="20" Height="20" Tag="6"></Image>
+                <Image Name="btnImgVadd" Source="Resources/Icon_Vol_Add.png" Grid.Column="2" VerticalAlignment="Center" Width="20" Height="20" Tag="5" MouseDown="btnImgVadd_MouseDown"></Image>
+                <Image Name="btnImgVReduce" Source="Resources/Icon_Vol_Reduce.png" Grid.Column="0" VerticalAlignment="Center" Width="20" Height="20" Tag="6" MouseDown="btnImgVReduce_MouseDown"></Image>
                 <Slider Name="sliderVol" Grid.Column="1" VerticalAlignment="Center" ValueChanged="sliderVol_ValueChanged" Maximum="1"></Slider>
             </Grid>
 
@@ -209,7 +209,7 @@
             </TabItem>
         </TabControl>
         <!--内容-->
-        <TabControl Name="tabControlShow" Background="#FF737373" Grid.Column="2" Grid.Row="0"  Style="{DynamicResource TabControlStyle2}" Margin="0,0,0,0">
+        <TabControl Name="tabControlShow" Background="#FF737373" Grid.Column="2" Grid.Row="0"  Style="{DynamicResource TabControlStyle2}" Margin="0,0,0,0" >
             <!--播放-->
             <TabItem Name="tabItemFC1"  Style="{DynamicResource TabItemStyle2}">
                 <TabControl Name="tabControlShowData" Background="#FF737373" Grid.Column="2" Grid.Row="0"  Style="{DynamicResource TabControlStyle2}" SelectionChanged="tabControlShowData_SelectionChanged">
@@ -422,15 +422,21 @@
                             </Grid>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition />
-                                    <RowDefinition Height="100"/>
-                                    <RowDefinition Height="100"/>
-                                    <RowDefinition Height="100"/>
+                                    <RowDefinition Height="80"/>
+                                    <RowDefinition Height="230"/>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="50"/>
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
-                                <Label Name="labConnect"  Grid.Row="1"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="50"></Label>
-                                <Label Name="labLTC" Grid.Row="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="50"></Label>
-                                <Label Name="labDateTips" Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30"></Label>
+                                <Image Name="imgLogo" Source="/Resources/Icon_Logo.png" HorizontalAlignment="Center" Height="200"  Grid.Row="1" Margin="212,15,231,15" ></Image>
+                                <Label Name="labConnect"  Grid.Row="2"  FontSize="30"  HorizontalAlignment="Center" Foreground="White">
+                                </Label>
+                                <Image Name="imgConnect" Grid.Row="2" Height="40"  HorizontalAlignment="Center" Margin="-190,0,0,0"></Image>
+
+                                <Label Name="labLTC" Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="25" Foreground="#FFB9B9B9"></Label>
+                                <!--<Label Name="labDateTips" Grid.Row="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30" Foreground="White"></Label>-->
+                                <Button Name="btnDateTips" Style="{DynamicResource FilletButton}"  Grid.Row="4"  HorizontalAlignment="Center" FontSize="25" Background="#FF939393" Foreground="White" Click="btnDateTips_Click" Visibility="Hidden"></Button>
                             </Grid>
                         </Grid>
                     </TabItem>
@@ -450,6 +456,7 @@
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -459,13 +466,13 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <GridSplitter Width="2" Background="#FF626262" Grid.RowSpan="5" Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Right"></GridSplitter>
-                    <GridSplitter Width="2" Background="#FF626262" Grid.RowSpan="5" Grid.Row="0" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Right"></GridSplitter>
+                    <GridSplitter Width="2" Background="#FF626262" Grid.RowSpan="6" Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Right"></GridSplitter>
+                    <GridSplitter Width="2" Background="#FF626262" Grid.RowSpan="6" Grid.Row="0" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Right"></GridSplitter>
 
                     <Label x:Name="label1" Content="{DynamicResource label1}"  Grid.Row="0" Grid.ColumnSpan="2" Foreground="White" FontSize="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF545454" />
-                    <Label x:Name="label2" Content="{DynamicResource label2}" Grid.Column="2"  Grid.Row="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" Foreground="White" Background="#FF3B3B3B" />
-                    <Label x:Name="label3" Content="{DynamicResource label3}" Grid.Column="4" HorizontalContentAlignment="Center"  Grid.Row="0" VerticalContentAlignment="Center" FontSize="30" Grid.ColumnSpan="2"  Foreground="White" Background="#FF303030"/>
-                    <Button x:Name="btnUp" Style="{DynamicResource FilletButton}" Margin="30,20,30,20"  Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" Foreground="White" HorizontalContentAlignment="Center" Background="#FF939393" FontSize="36" Click="btnUp_Click">
+                    <Label x:Name="label2" Content="{DynamicResource label2}" Grid.Column="2"  Grid.Row="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" Foreground="White" Background="#FF545454" />
+                    <Label x:Name="label3" Content="{DynamicResource label3}" Grid.Column="4" HorizontalContentAlignment="Center"  Grid.Row="0" VerticalContentAlignment="Center" FontSize="30" Grid.ColumnSpan="2"  Foreground="White" Background="#FF545454"/>
+                    <Button x:Name="btnUp" Style="{DynamicResource FilletButton}" Margin="50,20,30,20"  Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" Foreground="White" HorizontalContentAlignment="Center" Background="#FF939393" FontSize="36" Click="btnUp_Click">
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -473,11 +480,11 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_Up.png" Grid.Row="0"></Image>
-                                <Label Name="labUp" Content="{DynamicResource labUp}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labUp" Content="{DynamicResource labUp}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnDown"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="1" Grid.Column="1"  Foreground="White"  Background="#FF939393" FontSize="36" Click="btnDown_Click">
+                    <Button x:Name="btnDown"  Style="{DynamicResource FilletButton}" Margin="30,20,50,20" Grid.Row="1" Grid.Column="1"  Foreground="White"  Background="#FF939393" FontSize="36" Click="btnDown_Click">
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -485,108 +492,117 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_Down.png" Grid.Row="0"></Image>
-                                <Label Name="labDown" Content="{DynamicResource labDown}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labDown" Content="{DynamicResource labDown}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnNum1"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="2" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="1" BorderThickness="0" >
+                    <Button x:Name="btnNum1"  Style="{DynamicResource FilletButton}" Margin="50,20,30,20" Grid.Row="2" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="1" BorderThickness="0">
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Image Source="Resources/Icon_Actuator.png" Grid.Row="0"></Image>
-                                <Label Name="labNum1" Content="{DynamicResource labNum1}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Image Source="Resources/Icon_Actuator1.png" Grid.Row="0"></Image>
+                                <Label Name="labNum1" Content="{DynamicResource labNum1}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnNum2"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="3" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="2">
+                    <Button x:Name="btnNum2"  Style="{DynamicResource FilletButton}" Margin="50,20,30,20" Grid.Row="3" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="2">
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Image Source="Resources/Icon_Actuator.png" Grid.Row="0"></Image>
-                                <Label Name="labNum2" Content="{DynamicResource labNum2}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Image Source="Resources/Icon_Actuator1.png" Grid.Row="0"></Image>
+                                <Label Name="labNum2" Content="{DynamicResource labNum2}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnNum3"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="4" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="3">
+                    <Button x:Name="btnNum3"  Style="{DynamicResource FilletButton}" Margin="50,20,30,20" Grid.Row="4" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="3">
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Image Source="Resources/Icon_Actuator.png" Grid.Row="0"></Image>
-                                <Label Name="labNum3" Content="{DynamicResource labNum3}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Image Source="Resources/Icon_Actuator1.png" Grid.Row="0"></Image>
+                                <Label Name="labNum3" Content="{DynamicResource labNum3}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnNum4"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="4">
+                    <Button x:Name="btnNum4"  Style="{DynamicResource FilletButton}" Margin="30,20,50,20" Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="4" >
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Image Source="Resources/Icon_Actuator.png" Grid.Row="0"></Image>
-                                <Label Name="labNum4" Content="{DynamicResource labNum4}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Image Source="Resources/Icon_Actuator1.png" Grid.Row="0"></Image>
+                                <Label Name="labNum4" Content="{DynamicResource labNum4}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnNum5"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="3" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="5">
+                    <Button x:Name="btnNum5"  Style="{DynamicResource FilletButton}" Margin="30,20,50,20" Grid.Row="3" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="5">
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Image Source="Resources/Icon_Actuator.png" Grid.Row="0"></Image>
-                                <Label Name="labNum5" Content="{DynamicResource labNum5}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Image Source="Resources/Icon_Actuator1.png" Grid.Row="0"></Image>
+                                <Label Name="labNum5" Content="{DynamicResource labNum5}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnNum6"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="4" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="6">
+                    <Button x:Name="btnNum6"  Style="{DynamicResource FilletButton}" Margin="30,20,50,20" Grid.Row="4" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="6">
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Image Source="Resources/Icon_Actuator.png" Grid.Row="0"></Image>
-                                <Label Name="labNum6" Content="{DynamicResource labNum6}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Image Source="Resources/Icon_Actuator1.png" Grid.Row="0"></Image>
+                                <Label Name="labNum6" Content="{DynamicResource labNum6}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
                     <!--座椅特效-->
-                    <Button x:Name="btnCA"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="4" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="1" >
+                    <Button x:Name="btnCA"  Style="{DynamicResource FilletButton}" Margin="50,20,30,20" Grid.Row="4" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="1" >
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Image Source="Resources/Icon_CA.png" Grid.Row="0"></Image>
-                                <Label Name="labCA" Content="{DynamicResource labCA}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Image Source="Resources/Icon_Reset.png" Grid.Row="0">
+                                    <Image.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform AngleX="-1.498"/>
+                                            <RotateTransform/>
+                                            <TranslateTransform X="0.641"/>
+                                        </TransformGroup>
+                                    </Image.RenderTransform>
+                                </Image>
+                                <Label Name="labReset" Content="{DynamicResource labReset}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnCB"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="4" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="2">
+                    <Button x:Name="btnCB"  Style="{DynamicResource FilletButton}" Margin="30,20,50,20" Grid.Row="4" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="2">
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Image Source="Resources/Icon_CB.png" Grid.Row="0"></Image>
-                                <Label Name="labCB" Content="{DynamicResource labCB}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Image Source="Resources/Icon_ChairVibration.png" Grid.Row="0"></Image>
+                                <Label Name="labChairVibration" Content="{DynamicResource labChairVibration}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnSmell"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="3" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="3" >
+                    <Button x:Name="btnSmell"  Style="{DynamicResource FilletButton}" Margin="30,20,50,20" Grid.Row="3" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="3" >
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -594,11 +610,11 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_Smell.png" Grid.Row="0"></Image>
-                                <Label Name="labSmell" Content="{DynamicResource labSmell}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labSmell" Content="{DynamicResource labSmell}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnVibration"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="2" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="4" >
+                    <Button x:Name="btnVibration"  Style="{DynamicResource FilletButton}" Margin="30,20,50,20" Grid.Row="2" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="4" >
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -606,11 +622,11 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_Vibration.png" Grid.Row="0"></Image>
-                                <Label Name="labVibration" Content="{DynamicResource labVibration}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labVibration" Content="{DynamicResource labVibration}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnSweepLeg"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="2" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="5" >
+                    <Button x:Name="btnSweepLeg"  Style="{DynamicResource FilletButton}" Margin="50,20,30,20" Grid.Row="2" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="5" >
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -618,11 +634,11 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_SweepLeg.png" Grid.Row="0"></Image>
-                                <Label Name="labSweepLeg" Content="{DynamicResource labSweepLeg}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labSweepLeg" Content="{DynamicResource labSweepLeg}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnSprayWater"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="1" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="6">
+                    <Button x:Name="btnSprayWater"  Style="{DynamicResource FilletButton}" Margin="30,20,50,20" Grid.Row="1" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="6">
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -630,11 +646,11 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_SprayWater.png" Grid.Row="0"></Image>
-                                <Label Name="labSprayWater" Content="{DynamicResource labSprayWater}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labSprayWater" Content="{DynamicResource labSprayWater}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnSprayAir"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="7">
+                    <Button x:Name="btnSprayAir"  Style="{DynamicResource FilletButton}" Margin="50,20,30,20" Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="7" >
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -642,11 +658,11 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_SprayAir.png" Grid.Row="0"></Image>
-                                <Label Name="labSprayAir" Content="{DynamicResource labSprayAir}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labSprayAir" Content="{DynamicResource labSprayAir}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnPushBack"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="3" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="8" >
+                    <Button x:Name="btnPushBack"  Style="{DynamicResource FilletButton}" Margin="50,20,30,20" Grid.Row="3" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="8" >
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -654,12 +670,12 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_PushBack.png" Grid.Row="0"></Image>
-                                <Label Name="labPushBack" Content="{DynamicResource labPushBack}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labPushBack" Content="{DynamicResource labPushBack}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
                     <!--环境特效-->
-                    <Button x:Name="btnLightning"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="1" Grid.Column="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="1">
+                    <Button x:Name="btnLightning"  Style="{DynamicResource FilletButton}" Margin="30,20,50,20" Grid.Row="1" Grid.Column="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="1">
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -667,11 +683,11 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_Lightning.png" Grid.Row="0"></Image>
-                                <Label Name="labLightning" Content="{DynamicResource labLightning}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labLightning" Content="{DynamicResource labLightning}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnWind"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="1" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="2" >
+                    <Button x:Name="btnWind"  Style="{DynamicResource FilletButton}" Margin="50,20,30,20" Grid.Row="1" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="2" >
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -679,11 +695,11 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_Wind.png" Grid.Row="0"></Image>
-                                <Label Name="labWind" Content="{DynamicResource labWind}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labWind" Content="{DynamicResource labWind}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnBubble"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="2" Grid.Column="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="3">
+                    <Button x:Name="btnBubble"  Style="{DynamicResource FilletButton}" Margin="30,20,50,20" Grid.Row="2" Grid.Column="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="3">
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -691,11 +707,11 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_Bubble.png" Grid.Row="0"></Image>
-                                <Label Name="labBubble" Content="{DynamicResource labBubble}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labBubble" Content="{DynamicResource labBubble}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnFog"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="3" Grid.Column="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="4">
+                    <Button x:Name="btnFog"  Style="{DynamicResource FilletButton}" Margin="30,20,50,20" Grid.Row="3" Grid.Column="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="4">
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -703,11 +719,11 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_Fog.png" Grid.Row="0"></Image>
-                                <Label Name="labFog" Content="{DynamicResource labFog}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labFog" Content="{DynamicResource labFog}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnFire"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="4" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="5" >
+                    <Button x:Name="btnFire"  Style="{DynamicResource FilletButton}" Margin="50,20,30,20" Grid.Row="4" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="5" >
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -715,11 +731,11 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_Fire.png" Grid.Row="0"></Image>
-                                <Label Name="labFire" Content="{DynamicResource labFire}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labFire" Content="{DynamicResource labFire}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnSnow"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="3" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="6" >
+                    <Button x:Name="btnSnow"  Style="{DynamicResource FilletButton}" Margin="50,20,30,20" Grid.Row="3" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="6" >
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -727,11 +743,11 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_Snow.png" Grid.Row="0"></Image>
-                                <Label Name="labSnow" Content="{DynamicResource labSnow}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labSnow" Content="{DynamicResource labSnow}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnLaser"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="4" Grid.Column="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="7">
+                    <Button x:Name="btnLaser"  Style="{DynamicResource FilletButton}" Margin="30,20,50,20" Grid.Row="4" Grid.Column="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="7">
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -739,11 +755,11 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_Laser.png" Grid.Row="0"></Image>
-                                <Label Name="labLaser" Content="{DynamicResource labLaser}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labLaser" Content="{DynamicResource labLaser}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="btnRain"  Style="{DynamicResource FilletButton}" Margin="30,20,30,20" Grid.Row="2" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="8">
+                    <Button x:Name="btnRain"  Style="{DynamicResource FilletButton}" Margin="50,20,30,20" Grid.Row="2" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="8">
                         <Button.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -751,10 +767,83 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Image Source="Resources/Icon_SprayWater.png" Grid.Row="0"></Image>
-                                <Label Name="labRain" Content="{DynamicResource labRain}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15"></Label>
+                                <Label Name="labRain" Content="{DynamicResource labRain}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
                             </Grid>
                         </Button.Content>
                     </Button>
+                    <!--备用-->
+                    <Button x:Name="btnBackUp1"  Style="{DynamicResource FilletButton}" Margin="50,20,30,20" Grid.Row="5" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="8">
+                        <Button.Content>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Source="Resources/Icon_BackUp.png" Grid.Row="0"></Image>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+
+                    <Button x:Name="btnBackUp2"  Style="{DynamicResource FilletButton}" Margin="30,20,50,20" Grid.Row="5" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="8">
+                        <Button.Content>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Source="Resources/Icon_BackUp.png" Grid.Row="0"></Image>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+
+                    <Button x:Name="btnBackUp3"  Style="{DynamicResource FilletButton}" Margin="50,20,30,20" Grid.Row="5" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="8">
+                        <Button.Content>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Source="Resources/Icon_BackUp.png" Grid.Row="0"></Image>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+
+                    <Button x:Name="btnBackUp4"  Style="{DynamicResource FilletButton}" Margin="30,20,50,20" Grid.Row="5" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="8">
+                        <Button.Content>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Source="Resources/Icon_BackUp.png" Grid.Row="0"></Image>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+
+                    <Button x:Name="btnBackUp5"  Style="{DynamicResource FilletButton}" Margin="50,20,30,20" Grid.Row="5" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="8">
+                        <Button.Content>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Source="Resources/Icon_BackUp.png" Grid.Row="0"></Image>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+
+                    <Button x:Name="btnBackUp6"  Style="{DynamicResource FilletButton}" Margin="30,20,50,20" Grid.Row="5" Grid.Column="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="8">
+                        <Button.Content>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Source="Resources/Icon_BackUp.png" Grid.Row="0"></Image>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+
                 </Grid>
             </TabItem>
             <!--电影排片-->
@@ -1005,7 +1094,7 @@
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <Image Grid.Row="0" Grid.RowSpan="3" Source="/Resources/Icon_ShuQee_White.png" Stretch="Fill"/>
-                                <TextBlock x:Name="txtVersion" Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="25" Margin="20,0,0,0" Text="Version: 7.0.0" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtVersion" Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="25" Margin="20,0,0,0" Text="Version: 7.1.2" VerticalAlignment="Center"/>
                                 <TextBlock x:Name="txtRegStrTitle" Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="25" Margin="20,0,520,0" Text="{DynamicResource txtRegStrTitle}"  VerticalAlignment="Center"/>
                                 <TextBlock x:Name="txtRegStr" Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="25" Margin="110,0,0,0" Text=""  VerticalAlignment="Center"/>
                             </Grid>
@@ -1013,6 +1102,7 @@
                         </Grid>
                     </TabItem>
                     <TabItem x:Name="tabItemAbout2" Style="{DynamicResource TabItemStyle2}">
+                        <TextBlock x:Name="txtUpdate" Text=""  Foreground="White" FontSize="15" TextWrapping="Wrap"/>
                     </TabItem>
                 </TabControl>
             </TabItem>

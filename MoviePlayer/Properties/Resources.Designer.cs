@@ -83,6 +83,16 @@ namespace MoviePlayer.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Icon_Connected {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Connected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Icon_Forward {
             get {
                 object obj = ResourceManager.GetObject("Icon_Forward", resourceCulture);
@@ -146,6 +156,26 @@ namespace MoviePlayer.Properties {
         internal static System.Drawing.Bitmap Icon_Stop_light {
             get {
                 object obj = ResourceManager.GetObject("Icon_Stop_light", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_UnConnect {
+            get {
+                object obj = ResourceManager.GetObject("Icon_UnConnect", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_UnRegister {
+            get {
+                object obj = ResourceManager.GetObject("Icon_UnRegister", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

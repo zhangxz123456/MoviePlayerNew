@@ -24,8 +24,8 @@
     <sys:String x:Key="labNum4">No.4</sys:String>
     <sys:String x:Key="labNum5">No.5</sys:String>
     <sys:String x:Key="labNum6">No.6</sys:String>
-    <sys:String x:Key="labCA">CA</sys:String>
-    <sys:String x:Key="labCB">CB</sys:String>
+    <sys:String x:Key="labReset">Reset</sys:String>
+    <sys:String x:Key="labChairVibration">Shake</sys:String>
     <sys:String x:Key="labSmell">Smell</sys:String>
     <sys:String x:Key="labVibration">Vibration</sys:String>
     <sys:String x:Key="labSweepLeg">SweepLeg</sys:String>
