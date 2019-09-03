@@ -219,6 +219,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="150"></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Row="0" Grid.Column="0" Margin="-3" Background="#FF505050">
                                 <Grid.RowDefinitions>
@@ -237,17 +238,27 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <ProgressBar x:Name="pb1" MaxWidth="25" Grid.Row="0" Grid.Column="0" Foreground="Red" Margin="5,5,5,5" Orientation="Vertical" Value="80" Maximum="255"/>
                                 <ProgressBar x:Name="pb2" MaxWidth="25" Grid.Row="0" Grid.Column="1" Foreground="Green" Margin="5,5,5,5" Orientation="Vertical" Value="80" Maximum="255"/>
                                 <ProgressBar x:Name="pb3" MaxWidth="25" Grid.Row="0" Grid.Column="2" Foreground="DodgerBlue" Margin="5,5,5,5" Orientation="Vertical" Value="80" Maximum="255"/>
+                                <ProgressBar x:Name="pb4" MaxWidth="25" Grid.Row="0" Grid.Column="3" Foreground="Orange" Margin="5,5,5,5" Orientation="Vertical" Value="80" Maximum="255"/>
+                                <ProgressBar x:Name="pb5" MaxWidth="25" Grid.Row="0" Grid.Column="4" Foreground="Gray" Margin="5,5,5,5" Orientation="Vertical" Value="80" Maximum="255"/>
+                                <ProgressBar x:Name="pb6" MaxWidth="25" Grid.Row="0" Grid.Column="5" Foreground="Black" Margin="5,5,5,5" Orientation="Vertical" Value="80" Maximum="255"/>
+
                                 <TextBlock x:Name="txtPbVal1" Grid.Row="1" Grid.Column="0" Text="255" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
                                 <TextBlock x:Name="txtPbVal2" Grid.Row="1" Grid.Column="1" Text="255" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
                                 <TextBlock x:Name="txtPbVal3" Grid.Row="1" Grid.Column="2" Text="255" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtPbVal4" Grid.Row="1" Grid.Column="3" Text="255" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtPbVal5" Grid.Row="1" Grid.Column="4" Text="255" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtPbVal6" Grid.Row="1" Grid.Column="5" Text="255" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
 
                                 <!--环境特效显示-->
-                                <TextBlock Background="#FF737373"  Grid.Row="2" Grid.ColumnSpan="3"/>
-                                <Grid Grid.Row="3" Grid.ColumnSpan="3">
+                                <TextBlock Background="#FF737373"  Grid.Row="2" Grid.ColumnSpan="6"/>
+                                <Grid Grid.Row="3" Grid.ColumnSpan="6">
                                     <Grid.RowDefinitions>
                                         <RowDefinition MaxHeight="15"/>
                                         <RowDefinition/>
@@ -276,7 +287,7 @@
                                         </CheckBox>
                                         <CheckBox x:Name="cbEv3" Grid.Row="0" Grid.Column="2" Foreground="White" Width="30" Height="25"  VerticalAlignment="Center" Style="{DynamicResource EffectCheckBoxStyle}">
                                             <Grid Width="23" Height="23" Margin="0,2,0,0">
-                                                <Image Source="/Resources/Icon_Effect_Bubble.png" Stretch="Fill"/>
+                                                <Image Source="/Resources/Icon_Bubble50x50.png" Stretch="Fill"/>
                                             </Grid>
                                         </CheckBox>
                                         <CheckBox x:Name="cbEv4" Grid.Row="0" Grid.Column="3" Foreground="White" Width="30" Height="25" VerticalAlignment="Center" Style="{DynamicResource EffectCheckBoxStyle}">
@@ -308,8 +319,8 @@
                                 </Grid>
 
                                 <!--座椅特效显示-->
-                                <TextBlock Background="#FF737373"  Grid.Row="4" Grid.ColumnSpan="3"/>
-                                <Grid Grid.Row="5" Grid.ColumnSpan="3">
+                                <TextBlock Background="#FF737373"  Grid.Row="4" Grid.ColumnSpan="6"/>
+                                <Grid Grid.Row="5" Grid.ColumnSpan="6">
                                     <Grid.RowDefinitions>
                                         <RowDefinition MaxHeight="15"/>
                                         <RowDefinition/>
@@ -358,22 +369,22 @@
                                         </CheckBox>
                                         <CheckBox x:Name="cbCv7" Grid.Row="1" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="25" Style="{DynamicResource EffectCheckBoxStyle}">
                                             <Grid Width="23" Height="23" Margin="0,2,0,0">
-                                                <Image Source="/Resources/Icon_CA.png" Stretch="Fill"/>
+                                                <Image Source="/Resources/Icon_Reset.png" Stretch="Fill"/>
                                             </Grid>
                                         </CheckBox>
                                         <CheckBox x:Name="cbCv8" Grid.Row="1" Grid.Column="3" Foreground="White" VerticalAlignment="Center" Width="30" Height="25" Style="{DynamicResource EffectCheckBoxStyle}">
                                             <Grid Width="23" Height="23" Margin="0,2,0,0">
-                                                <Image Source="/Resources/Icon_CB.png" Stretch="Fill"/>
+                                                <Image Source="/Resources/Icon_ChairVibration.png" Stretch="Fill"/>
                                             </Grid>
                                         </CheckBox>
                                     </Grid>
                                 </Grid>
 
                                 <!--导入影片-->
-                                <Button x:Name="btnImport" Grid.Row="7" Grid.ColumnSpan="3" Style="{DynamicResource FilletButton}" Margin="10,2,10,3" Content="{DynamicResource btnImport}" Foreground="White" Click="btnImport_Click"/>
-                                <TextBlock Background="#FF737373"  Grid.Row="6" Grid.ColumnSpan="3"/>
-                                <TextBlock Background="#FF737373"  Grid.Row="8" Grid.ColumnSpan="3"/>
-                                <ListView x:Name="ListView" Grid.Row="9"  Grid.ColumnSpan="3" Margin="0,0,0,0" Background="#FF505050" BorderThickness="0" PreviewMouseDoubleClick="ListView_PreviewMouseDoubleClick">
+                                <Button x:Name="btnImport" Grid.Row="7" Grid.ColumnSpan="6" Style="{DynamicResource FilletButton}" Margin="10,2,10,3" Content="{DynamicResource btnImport}" Foreground="White" Click="btnImport_Click"/>
+                                <TextBlock Background="#FF737373"  Grid.Row="6" Grid.ColumnSpan="6"/>
+                                <TextBlock Background="#FF737373"  Grid.Row="8" Grid.ColumnSpan="6"/>
+                                <ListView x:Name="ListView" Grid.Row="9"  Grid.ColumnSpan="6" Margin="0,0,0,0" Background="#FF505050" BorderThickness="0" PreviewMouseDoubleClick="ListView_PreviewMouseDoubleClick">
                                     <ListView.ContextMenu>
                                         <ContextMenu Background="#FF545454">
                                             <MenuItem x:Name="listMenuPlay" Header="{DynamicResource listMenuPlay}" Template="{DynamicResource MenuItemControlTemplate1}" Foreground="White" Tag="1" Background="#FF545454">
@@ -388,7 +399,7 @@
                                             </MenuItem>
                                             <MenuItem x:Name="listMenuMode" Header="{DynamicResource listMenuMode}" Template="{DynamicResource MenuItemControlTemplate2}" Foreground="White" >
                                                 <MenuItem.Icon >
-                                                    <Image  Source="/Resources/Icon_MenuAdd.png"/>
+                                                    <Image Source="/Resources/Icon_MenuPlayMode.png"/>
                                                 </MenuItem.Icon>
                                                 <MenuItem x:Name="listModeSingle" Header="{DynamicResource listModeSingle}" Template="{DynamicResource MenuItemControlTemplate1}" Tag="1" Foreground="White" Background="#FF545454" BorderThickness="0" >
                                                 </MenuItem>
@@ -423,20 +434,46 @@
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="80"/>
-                                    <RowDefinition Height="230"/>
+                                    <RowDefinition Height="210"/>
                                     <RowDefinition Height="50"/>
                                     <RowDefinition Height="50"/>
-                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="40"/>
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
-                                <Image Name="imgLogo" Source="/Resources/Icon_Logo.png" HorizontalAlignment="Center" Height="200"  Grid.Row="1" Margin="212,15,231,15" ></Image>
-                                <Label Name="labConnect"  Grid.Row="2"  FontSize="30"  HorizontalAlignment="Center" Foreground="White">
-                                </Label>
-                                <Image Name="imgConnect" Grid.Row="2" Height="40"  HorizontalAlignment="Center" Margin="-190,0,0,0"></Image>
+                                <Image Name="imgLogo" Source="/Resources/Icon_Logo.png" HorizontalAlignment="Center" Height="150"  Grid.Row="1" Margin="142,52,151,8"/>
+                                <!--<Grid Grid.Row="2" HorizontalAlignment="Center">
+                                    <Image Name="imgConnect"  Height="30" HorizontalAlignment="Center" Margin="-190,0,0,0" VerticalAlignment="Center"></Image>
+                                    <Label Name="labConnect" FontSize="25" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                                </Grid>-->
+                                <Grid Grid.Row="2" HorizontalAlignment="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Name="imgConnect" Grid.Column="0" Height="30" HorizontalAlignment="Right" Margin="0,0,5,0" VerticalAlignment="Center"></Image>
+                                    <Label Name="labConnect" Grid.Column="1" FontSize="25" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                                </Grid>
 
-                                <Label Name="labLTC" Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="25" Foreground="#FFB9B9B9"></Label>
+                                <Label Name="labLTC" Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="#FFB9B9B9"></Label>
                                 <!--<Label Name="labDateTips" Grid.Row="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30" Foreground="White"></Label>-->
-                                <Button Name="btnDateTips" Style="{DynamicResource FilletButton}"  Grid.Row="4"  HorizontalAlignment="Center" FontSize="25" Background="#FF939393" Foreground="White" Click="btnDateTips_Click" Visibility="Hidden"></Button>
+                                <Button Name="btnDateTips" Style="{DynamicResource FilletButton}"  Grid.Row="4"  HorizontalAlignment="Center"  HorizontalContentAlignment="Center" FontSize="20" Background="#FF939393" Foreground="White" Click="btnDateTips_Click" Visibility="Hidden"></Button>
+                            </Grid>
+                            <Grid Grid.Column="2" Background="#FF505050" Margin="0,-5,-5,-5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="350"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition ></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Grid.Row="0" Name="imgFilm" Margin="10,10,10,20" Source="/Resources/Image_Logo.jpg"></Image>
+                                <Label Grid.Row="1" Name="labFilm1" VerticalContentAlignment="Center"></Label>
+                                <Label Grid.Row="2" Name="labFilm2" VerticalContentAlignment="Center"></Label>
+                                <Label Grid.Row="3" Name="labFilm3" VerticalAlignment="Center"></Label>
+                                <Label Grid.Row="4" Name="labFilm4" VerticalContentAlignment="Center"></Label>
+
                             </Grid>
                         </Grid>
                     </TabItem>
@@ -881,7 +918,7 @@
                                 </DataGrid.RowStyle>
 
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn x:Name="textColum1"   Binding="{Binding Start}" MinWidth="235" FontSize="15" CanUserResize="False" CanUserReorder="False" CanUserSort="False" >
+                                    <DataGridTextColumn x:Name="textColum1"   Binding="{Binding Start}" MinWidth="235"  FontSize="15" CanUserResize="False" CanUserReorder="False" CanUserSort="False" >
                                         <DataGridTextColumn.Header>
                                             <TextBlock Text="{DynamicResource textColum1}"></TextBlock>
                                         </DataGridTextColumn.Header>
@@ -1116,8 +1153,8 @@
                                 <RowDefinition Height="20"></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Button Name="btnEN" Content="{DynamicResource btnEN}" Style="{DynamicResource FilletButton}"  Grid.Row="0" Margin="0,0,700,0"  Background="#FF737373" Foreground="White" Tag="1"></Button>
-                            <Button Name="btnCN" Content="{DynamicResource btnCN}" Style="{DynamicResource FilletButton}"  Grid.Row="1" Margin="0,0,700,0"  Background="#FF737373" Foreground="White" Tag="2"></Button>
+                            <Button Name="btnEN" Content="{DynamicResource btnEN}" Style="{DynamicResource FilletButton}"  Grid.Row="0"  Width="100" HorizontalAlignment="Left" Background="#FF737373" Foreground="White" Tag="1"></Button>
+                            <Button Name="btnCN" Content="{DynamicResource btnCN}" Style="{DynamicResource FilletButton}"  Grid.Row="1"  Width="100" HorizontalAlignment="Left" Background="#FF737373" Foreground="White" Tag="2"></Button>
                         </Grid>
                     </TabItem>
                     <TabItem Name="tabItemSet2" Style="{DynamicResource TabItemStyle2}">
@@ -1188,7 +1225,7 @@
                             </Button>
 
                             <Label Content="{DynamicResource labHeight}" Grid.Row="4" Margin="10,0,0,0"  Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
-                            <TextBox Name="txtHeight" Text="1" Grid.Row="4" Grid.Column="1" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
+                            <TextBox Name="txtHeight" Text="" Grid.Row="4" Grid.Column="1" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
                                 <TextBox.Resources>
                                     <Style TargetType="{x:Type Border}">
                                         <Setter Property="CornerRadius" Value="4"/>

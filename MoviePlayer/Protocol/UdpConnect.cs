@@ -65,7 +65,7 @@ namespace MoviePlayer.Protocol
                     //发送UDP心跳包
                     if (monitorTickRx != monitorTick)
                     {
-                        if (monitorTickRx > 0)
+                        if (monitorTickRx >= 0)
                         {
                             monitorTickTimeOut++;
                         }
@@ -74,6 +74,7 @@ namespace MoviePlayer.Protocol
                     if (monitorTickTimeOut == 3)     //计时超过3秒，重新连接
                     {
                         flagValue = false;
+                        connectFlag = false;
                         monitorTick = 0;
                         monitorTickRx = 0;
                         monitorTickTimeOut = 0;

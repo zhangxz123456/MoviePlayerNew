@@ -60,7 +60,7 @@
 
     <!--设置-->
     <sys:String x:Key="btnEN">English</sys:String>
-    <sys:String x:Key="btnCN">Chinese</sys:String>
+    <sys:String x:Key="btnCN">中文</sys:String>
     <sys:String x:Key="labProperty">Property</sys:String>
     <sys:String x:Key="labType">Type</sys:String>
     <sys:String x:Key="btn4DM">4DM</sys:String>

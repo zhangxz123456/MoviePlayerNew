@@ -191,7 +191,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Image_Logo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Icon_Bubble.png" />
+    <Resource Include="Resources\Icon_Reset.png" />
     <Resource Include="XML\FilmList.xml">
       <SubType>Designer</SubType>
     </Resource>
@@ -280,9 +284,10 @@
     <Resource Include="Resources\Icon_UnRegister.png" />
     <Resource Include="Resources\Icon_Logo.png" />
     <Resource Include="Resources\Icon_ChairVibration.png" />
-    <Resource Include="Resources\Icon_Reset.png" />
     <Resource Include="Resources\Icon_Actuator1.png" />
     <Resource Include="Resources\Icon_BackUp.png" />
+    <Resource Include="Resources\Icon_Bubble50x50.png" />
+    <Resource Include="Resources\Icon_MenuPlayMode.png" />
     <Content Include="Resources\Icon_VibrationCheck.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

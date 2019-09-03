@@ -60,7 +60,7 @@
     <sys:String x:Key="txtAutomatic">自动开关</sys:String>
     
     <!--设置-->
-    <sys:String x:Key="btnEN">英文</sys:String>
+    <sys:String x:Key="btnEN">English</sys:String>
     <sys:String x:Key="btnCN">中文</sys:String>
 
     <sys:String x:Key="labProperty">属性</sys:String>

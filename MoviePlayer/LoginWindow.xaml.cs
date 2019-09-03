@@ -33,7 +33,7 @@ namespace MoviePlayer
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string s = txtPassWord.Password;
-            if (txtUserName.Text.Equals("shuqee") && s == "123456")
+            if (txtUserName.Text.Equals("shuqee") && s == "shuqee2019")
             {
                 MainWindow.isLogin = true;
                 this.Close();

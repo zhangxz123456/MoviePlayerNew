@@ -109,7 +109,7 @@ namespace MoviePlayer
         public static string PlayType;               //播放器类型 4DM为4DM播放器 5D为5D播放器
         public static string PlayLanguage;           //播放器语言 EN为英文播放器 CN为中文播放器   
         public static string PlayDOF;                //自由度类型 2DOF为两自由度播放器 3DOF为三自由度播放器
-        public static double PlayHeight;             //高度数据  1为原始数据 0.9为百分90行程数据
+        public static double PlayHeight;             //高度数据  100为原始数据 90为百分90行程数据
         public static string PlayProjector;          //设置播放画面显示在主屏还是副屏  参数分别为0或1
         private int isReset;                         //验证软件正常打开后发复位指令（只发第一次）
         private bool isSleep;
@@ -670,10 +670,11 @@ namespace MoviePlayer
                     btn2DOF.Background = Brushes.DodgerBlue;
                     txtPbVal2.Visibility = Visibility.Hidden;
                     pb2.Visibility = Visibility.Hidden;
-                    
+                    TypeShowAction();
                     break;
                 case "3DOF":
                     btn3DOF.Background = Brushes.DodgerBlue;
+                    TypeShowAction();
                     break;
                 case "6DOF":
                     btn6DOF.Background = Brushes.DodgerBlue;
@@ -698,6 +699,30 @@ namespace MoviePlayer
             txtHeight.Text = PlayHeight.ToString() ;
         }
 
+        private void TypeShowAction()
+        {
+            pb4.Visibility = Visibility.Hidden;
+            pb5.Visibility = Visibility.Hidden;
+            pb6.Visibility = Visibility.Hidden;
+            txtPbVal4.Visibility = Visibility.Hidden;
+            txtPbVal5.Visibility = Visibility.Hidden;
+            txtPbVal6.Visibility = Visibility.Hidden;
+
+            Grid.SetColumn(txtPbVal1, 0);
+            Grid.SetColumnSpan(txtPbVal1, 2);
+            Grid.SetColumn(txtPbVal2, 2);
+            Grid.SetColumnSpan(txtPbVal2, 2);
+            Grid.SetColumn(txtPbVal3, 4);
+            Grid.SetColumnSpan(txtPbVal3, 2);
+
+            Grid.SetColumn(pb1, 0);
+            Grid.SetColumnSpan(pb1, 2);
+            Grid.SetColumn(pb2, 2);
+            Grid.SetColumnSpan(pb2, 2);
+            Grid.SetColumn(pb3, 4);
+            Grid.SetColumnSpan(pb3, 2);
+        }
+
         /// <summary>
         /// 点击对应的缸改变背景颜色
         /// </summary>
@@ -708,18 +733,7 @@ namespace MoviePlayer
             {
                 btnNum[i].Opacity = 0.9;
                 btnNum[i].Background = Brushes.Cyan;
-                dataNum[i] = 255;
-                if (i == 3)
-                {
-                    dataFrame = 2;
-                    dataRate = 30;
-                }
-                if (i == 4)
-                {
-                    dataFrame = 2;
-                    dataRate = 40;
-                }
-                // if(i==5)
+                dataNum[i] = 255;               
             }
             else
             {
@@ -727,16 +741,6 @@ namespace MoviePlayer
                 btnNum[i].Opacity = 1;
                 btnNum[i].Background = brush;
                 dataNum[i] = 0;
-                if (i == 3)
-                {
-                    dataFrame = 0;
-                    dataRate = 0;
-                }
-                if (i == 4)
-                {
-                    dataFrame = 0;
-                    dataRate = 0;
-                }
             }
         }
 
@@ -826,7 +830,6 @@ namespace MoviePlayer
                     labConnect.Content = "Unconnected";
                 }
                 imgConnect.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_UnConnect);
-
                 LockSoftWare();
             }
             else      //与中控板已连接
@@ -842,7 +845,6 @@ namespace MoviePlayer
                         labConnect.Content = "UnRegistered";
                     }
                     imgConnect.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_UnRegister);
-
                     LockSoftWare();
                 }
                 else  //软件正常打开            
@@ -891,7 +893,7 @@ namespace MoviePlayer
             rb4.IsEnabled = false;
             rb6.IsEnabled = false;
             ListView.IsEnabled = false;
-            btnImgPlay.IsEnabled = false;
+            btnImgPlay.IsEnabled = false;         
         }
 
         private void OpenSoftWare()
@@ -930,12 +932,12 @@ namespace MoviePlayer
             byte[] array;          //data+addr+len 
             byte[] Data;           //最终发送的数据
 
-            //dataNumOne = (byte)(dataNum[2] * MainWindow.PlayHeight);
-            //dataNumTwo = (byte)(dataNum[1] * MainWindow.PlayHeight);
-            //dataNumThree = (byte)(dataNum[0] * MainWindow.PlayHeight);
-            dataNumOne = dataNum[2];
-            dataNumTwo = dataNum[1];
-            dataNumThree = dataNum[0];
+            dataNumOne = (byte)(dataNum[2] * MainWindow.PlayHeight / 100);
+            dataNumTwo = (byte)(dataNum[1] * MainWindow.PlayHeight / 100);
+            dataNumThree = (byte)(dataNum[0] * MainWindow.PlayHeight / 100);
+            //dataNumOne = dataNum[2];
+            //dataNumTwo = dataNum[1];
+            //dataNumThree = dataNum[0];
 
             for (int i = 0; i < 8; i++)
             {
@@ -1102,7 +1104,7 @@ namespace MoviePlayer
                               "软件类型：" + MainWindow.PlayType + "\r\n" +
                               "软件语言：" + MainWindow.PlayLanguage + "\r\n" +
                               "自由度：  " + MainWindow.PlayDOF + "\r\n" +
-                              "行程高度：" + MainWindow.PlayHeight;
+                              "行程高度：" + MainWindow.PlayHeight + "%";
                 txtUpdate.Text =
                            "shuqee版本更新信息：\r\n" +
                            "                   V7.1.2 \r\n" +
@@ -1147,7 +1149,7 @@ namespace MoviePlayer
                                "Software Type: " + MainWindow.PlayType + "\r\n" +
                                "Software Language: " + MainWindow.PlayLanguage + "\r\n" +
                                "PlayDOF: " + MainWindow.PlayDOF + "\r\n" +
-                               "Height: " + MainWindow.PlayHeight + "\r\n";
+                               "Height: " + MainWindow.PlayHeight + "%"+"\r\n";
 
                 txtUpdate.Text =
                           "Shuqee Version Update Information：\r\n" +
@@ -1268,6 +1270,7 @@ namespace MoviePlayer
             }
             if (tag != 2)
             {
+                UdpSend.SendReset();
                 if (timerDebug != null)
                 {
                     timerDebug.Stop();
@@ -1339,13 +1342,13 @@ namespace MoviePlayer
                     changeBackground(2);
                     break;
                 case 4:
-                    //changeBackground(3);
+                    changeBackground(3);
                     break;
                 case 5:
-                    //changeBackground(4);
+                    changeBackground(4);
                     break;
                 case 6:
-                    //MessageBox.Show("6");
+                    changeBackground(5);
                     break;
             }
         }
@@ -1360,8 +1363,12 @@ namespace MoviePlayer
         private void BtnChairEffect_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-            int tag = Convert.ToInt32(btn.Tag);        
-            changeChairEffect(tag - 1);            
+            int tag = Convert.ToInt32(btn.Tag);
+            if ("4DM".Equals(MainWindow.PlayType) && tag == 6)
+            {
+                changeChairEffect(6);
+            }
+            changeChairEffect(tag - 1);
         }
 
 
@@ -1403,7 +1410,7 @@ namespace MoviePlayer
                        tabItemAbout2.IsSelected = true; 
                         break;
                 case 3: btnAboutUsGrid.Background = Brushes.DodgerBlue;
-                    tabItemAbout3.IsSelected = true;
+                        tabItemAbout3.IsSelected = true;
                         break;
             }
         }
@@ -1807,9 +1814,15 @@ namespace MoviePlayer
             Debug.WriteLine("player发数据");
             if (UdpConnect.isDebug == false)
             {
-                UdpSend.SendWrite(UserControlClass.MPPlayer.Position.TotalSeconds);
+                if ("6DOF".Equals(PlayDOF))
+                {
+                    UdpSend.SendWrite6DOF(UserControlClass.MPPlayer.Position.TotalSeconds);
+                }
+                else
+                {
+                    UdpSend.SendWrite(UserControlClass.MPPlayer.Position.TotalSeconds);
+                }
             }
-            //ShowData(UserControlClass.MPPlayer.Position.TotalSeconds);
             showData();
             //UdpSend.SendWrite();
             if (UserControlClass.MPPlayer.Position.TotalSeconds == 0)
@@ -1820,7 +1833,6 @@ namespace MoviePlayer
                 {
                     Module.timerMovie.IsEnabled = false;
                     Module.timerMovie.Stop();
-                    //System.Windows.MessageBox.Show("停止");
                 }
             }
         }
@@ -1867,28 +1879,50 @@ namespace MoviePlayer
 
             try
             {
-                this.txtPbVal1.Text = Module.actionFile[3 * ii].ToString();
-                this.txtPbVal2.Text = Module.actionFile[3 * ii + 1].ToString();
-                this.txtPbVal3.Text = Module.actionFile[3 * ii + 2].ToString();
+                if("6DOF".Equals(PlayDOF))
+                {
+                    this.txtPbVal1.Text = Module.actionFile[6 * ii].ToString();
+                    this.txtPbVal2.Text = Module.actionFile[6 * ii + 1].ToString();
+                    this.txtPbVal3.Text = Module.actionFile[6 * ii + 2].ToString();
+                    this.txtPbVal4.Text = Module.actionFile[6 * ii + 3].ToString();
+                    this.txtPbVal5.Text = Module.actionFile[6 * ii + 4].ToString();
+                    this.txtPbVal6.Text = Module.actionFile[6 * ii + 5].ToString();
 
-                pb1.Value = Module.actionFile[3 * ii];
-                pb2.Value = Module.actionFile[3 * ii + 1];
-                pb3.Value = Module.actionFile[3 * ii + 2];
+                    pb1.Value = Module.actionFile[6 * ii];
+                    pb2.Value = Module.actionFile[6 * ii + 1];
+                    pb3.Value = Module.actionFile[6 * ii + 2];
+                    pb4.Value = Module.actionFile[6 * ii + 3];
+                    pb5.Value = Module.actionFile[6 * ii + 4];
+                    pb6.Value = Module.actionFile[6 * ii + 5];
+
+                }
+                else
+                {
+                    this.txtPbVal1.Text = Module.actionFile[3 * ii].ToString();
+                    this.txtPbVal2.Text = Module.actionFile[3 * ii + 1].ToString();
+                    this.txtPbVal3.Text = Module.actionFile[3 * ii + 2].ToString();
+
+                    pb1.Value = Module.actionFile[3 * ii];
+                    pb2.Value = Module.actionFile[3 * ii + 1];
+                    pb3.Value = Module.actionFile[3 * ii + 2];
+                }
 
                 Boolean[] ev = new Boolean[8];
                 Boolean[] cEffect = new Boolean[8];
-
+                Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
                 for (int i = 0, n = 1; i < 8; i++)
                 {
                     ev[i] = ((Module.effectFile[2 * ii] & n) == 0 ? false : true);
                     n = n << 1;
                     if (ev[i] == true)
                     {
-                        checkBoxEvEffect[i].IsChecked = true;
+                        //checkBoxEvEffect[i].IsChecked = true;
+                        checkBoxEvEffect[i].Background = Brushes.DodgerBlue;
                     }
                     else
                     {
-                        checkBoxEvEffect[i].IsChecked = false;
+                        //checkBoxEvEffect[i].IsChecked = false;                      
+                        checkBoxEvEffect[i].Background = brush;
                     }
                 }
 
@@ -1898,11 +1932,13 @@ namespace MoviePlayer
                     n = n << 1;
                     if (cEffect[i] == true)
                     {
-                        checkBoxChairEffect[i].IsChecked = true;
+                        // checkBoxChairEffect[i].IsChecked = true;
+                        checkBoxChairEffect[i].Background = Brushes.DodgerBlue;
                     }
                     else
                     {
-                        checkBoxChairEffect[i].IsChecked = false;
+                        //checkBoxChairEffect[i].IsChecked = false;
+                        checkBoxChairEffect[i].Background = brush;
                     }
                 }
 
@@ -1912,10 +1948,16 @@ namespace MoviePlayer
                 this.txtPbVal1.Text = "0";
                 this.txtPbVal2.Text = "0";
                 this.txtPbVal3.Text = "0";
+                this.txtPbVal4.Text = "0";
+                this.txtPbVal5.Text = "0";
+                this.txtPbVal6.Text = "0";
 
                 pb1.Value = 0;
                 pb2.Value = 0;
                 pb3.Value = 0;
+                pb4.Value = 0;
+                pb5.Value = 0;
+                pb6.Value = 0;
             }
         }
 
@@ -3266,10 +3308,10 @@ namespace MoviePlayer
                         if (compareDateTime(memberData[i].Start, memberData[i].End))
                         {
                             //MessageBox.Show("开始" + s + FilmSetting.memberData[i].FullMovieName);
-                            //labCurrentFilm.Content = "当前影片：" + memberData[i].MovieName;
+                            labFilm1.Content = "当前影片：" + memberData[i].MovieName;
                             if (i < 9)
                             {
-                               // labNextFilm.Content = "下一场影片：" + FilmSetting.memberData[i + 1].MovieName;
+                                labFilm2.Content = "下一场影片：" + memberData[i + 1].MovieName;
                             }
                             Module.readDefultFile(memberData[i].FullMovieName);
                         }

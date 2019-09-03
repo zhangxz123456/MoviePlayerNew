@@ -71,31 +71,31 @@ namespace MoviePlayer.Protocol
             {
                 if (num3 > Module.actionFile.Length)
                 {
-                    //if ("2DOF".Equals(MainWindow.PlayDOF))
-                    //{
+                    if ("2DOF".Equals(MainWindow.PlayDOF))
+                    {
                         //两自由度数据
                         data[0] = 127;                      //1号缸            
                         data[1] = 127;                      //2号缸
                         data[2] = 127;                      //3号缸
-                    //}
-                    //else
-                    //{
+                    }
+                    else
+                    {
                         //三自由度数据
-                    //    data[0] = 0;                          //1号缸            
-                    //    data[1] = 0;                          //2号缸
-                    //    data[2] = 0;                          //3号缸
-                    //}
+                        data[0] = 0;                          //1号缸            
+                        data[1] = 0;                          //2号缸
+                        data[2] = 0;                          //3号缸
+                    }
 
                 }
                 else
                 {
-                    //data[0] = (byte)(Module.actionFile[num1] * MainWindow.PlayHeight);      //1号缸            
-                    //data[1] = (byte)(Module.actionFile[num2] * MainWindow.PlayHeight);      //2号缸
-                    //data[2] = (byte)(Module.actionFile[num3] * MainWindow.PlayHeight);                     //3号缸                   
+                    data[0] = (byte)(Module.actionFile[num1] * MainWindow.PlayHeight / 100);      //1号缸            
+                    data[1] = (byte)(Module.actionFile[num2] * MainWindow.PlayHeight / 100);      //2号缸
+                    data[2] = (byte)(Module.actionFile[num3] * MainWindow.PlayHeight / 100);                     //3号缸                   
 
-                    data[0] = Module.actionFile[num1];
-                    data[1] = Module.actionFile[num2];
-                    data[2] = Module.actionFile[num3];
+                    //data[0] = Module.actionFile[num1];
+                    //data[1] = Module.actionFile[num2];
+                    //data[2] = Module.actionFile[num3];
                 }
 
                 data[3] = 0;                                                    //4号缸
@@ -145,8 +145,98 @@ namespace MoviePlayer.Protocol
             timeCodeTemp = num1;
         }
 
+        public static void SendWrite6DOF(double pos)
+        {
+            byte[] data;
+            ushort addr;
+            ushort len;
+            byte[] array;          //data+addr+len 
+            byte[] Data;           //最终发送的数据
+            pos = pos * 2400;
+            Debug.WriteLine(pos);
+            addr = 0;
+            len = 10;
+            data = new byte[len];
 
-        
+            int num1 = 6 * (int)(pos / 50);                  //actionFile数组下标
+            int num2 = 6 * (int)(pos / 50) + 1;
+            int num3 = 6 * (int)(pos / 50) + 2;
+            int num4 = 6 * (int)(pos / 50) + 2;
+            int num5 = 6 * (int)(pos / 50) + 2;
+            int num6 = 6 * (int)(pos / 50) + 2;
+
+            int numEffect1 = 2 * (int)(pos / 50);                  //effectFile数组下标
+            int numEffect2 = 2 * (int)(pos / 50) + 1;
+            if (num1 - timeCodeTemp > 9 && num1 - timeCodeTemp < 0)
+            {
+                num1 = timeCodeTemp + 3;
+                num2 = timeCodeTemp + 4;
+                num3 = timeCodeTemp + 5;
+            }
+            Debug.WriteLine(num1 + " " + num2 + " " + num3);
+            try
+            {
+                if (num3 > Module.actionFile.Length)
+                {
+                    //六自由度数据
+                    data[0] = 0;                      //1号缸            
+                    data[1] = 0;                      //2号缸
+                    data[2] = 0;                      //3号缸
+                    data[3] = 0;                      //4号缸            
+                    data[4] = 0;                      //5号缸
+                    data[5] = 0;                      //6号缸
+                }
+                else
+                {
+                    data[0] = (byte)(Module.actionFile[num1] * MainWindow.PlayHeight / 100);      //1号缸            
+                    data[1] = (byte)(Module.actionFile[num2] * MainWindow.PlayHeight / 100);      //2号缸
+                    data[2] = (byte)(Module.actionFile[num3] * MainWindow.PlayHeight / 100);      //3号缸                   
+                    data[3] = (byte)(Module.actionFile[num4] * MainWindow.PlayHeight / 100);      //4号缸            
+                    data[4] = (byte)(Module.actionFile[num5] * MainWindow.PlayHeight / 100);      //5号缸
+                    data[5] = (byte)(Module.actionFile[num6] * MainWindow.PlayHeight / 100);      //6号缸    
+                }
+                if (Module.shakeFile != null)
+                {
+                    if (numEffect2 > Module.shakeFile.Length)
+                    {
+                        data[6] = 0;                                                 //振幅  
+                        data[7] = 0;                                                 //频率 
+                    }
+                    else
+                    {
+                        data[6] = Module.shakeFile[numEffect1];
+                        data[7] = Module.shakeFile[numEffect2];
+                    }
+                }
+
+                if (numEffect2 > Module.effectFile.Length)
+                {
+                    data[8] = 0;                                                 //座椅特效  
+                    //data[9] = 0;                                               //环境特效 
+                    data[9] = dataLight;
+                }
+                else
+                {
+
+                    data[8] = Module.effectFile[numEffect2];                          //座椅特效  
+                    //data[9] = Module.effectFile[num4];                        //环境特效 
+                    data[9] = (byte)(Module.effectFile[numEffect1] | dataLight);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+
+            array = ModbusUdp.ArrayAdd(addr, len, data);
+            Data = ModbusUdp.MBReqWrite(array);
+
+            UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
+            timeCodeTemp = num1;
+        }
+
+
+
         /// <summary>
         /// 影片结束发送复位指令
         /// </summary>
@@ -161,23 +251,20 @@ namespace MoviePlayer.Protocol
             addr = 0;
             len = 10;
             data = new byte[len];
-            //if ("2DOF".Equals(MainWindow.PlayDOF))
-            //{
-            //   //两自由度数据
-            //    data[0] = 127;
-            //    data[1] = 127;
-            //    data[2] = 127;
-            //}
-            //else
-            //{
-            //    //三自由度数据
-            //    data[0] = 0;
-            //    data[1] = 0;
-            //    data[2] = 0;
-            //}
-            data[1] = 0;
-            data[2] = 0;
-            data[3] = 0;
+            if ("2DOF".Equals(MainWindow.PlayDOF))
+            {
+               //两自由度数据
+               data[0] = 127;
+               data[1] = 127;
+               data[2] = 127;
+            }
+            else
+            {
+                //三自由度数据
+                data[0] = 0;
+                data[1] = 0;
+                data[2] = 0;
+            }
 
             //复位指令
 
@@ -189,42 +276,11 @@ namespace MoviePlayer.Protocol
             {
                 data[8] = 1;
             }
-
             array = ModbusUdp.ArrayAdd(addr, len, data);
             Data = ModbusUdp.MBReqWrite(array);
             UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
         }
-        public static void SendWrite()
-        {
-            byte[] data;
-            ushort addr;
-            ushort len;
-            byte[] array;          //data+addr+len 
-            byte[] Data;           //最终发送的数据
-
-            addr = 0;
-            len = 10;
-            data = new byte[len];
-
-            //Debug.WriteLine(num+"======="+numOne);
-            data[0] = 255;
-            data[1] = 255;
-            data[2] = 255;
-            data[3] = 0;                                                    //4号缸
-            data[4] = 0;                                                    //5号缸
-            data[5] = 0;                                                    //6号缸
-            data[6] = 0;                                                    //保留
-            data[7] = 0;                                                    //保留              
-            data[8] = 0;                                                    //座椅特效  
-            data[9] = 0;                                                    //环境特效 
-
-            array = ModbusUdp.ArrayAdd(addr, len, data);
-            Data = ModbusUdp.MBReqWrite(array);
-            UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
-          
-        }
-
-
+   
         /// <summary>
         /// int整型转换成byte数组
         /// </summary>
