@@ -288,6 +288,7 @@
     <Resource Include="Resources\Icon_BackUp.png" />
     <Resource Include="Resources\Icon_Bubble50x50.png" />
     <Resource Include="Resources\Icon_MenuPlayMode.png" />
+    <Resource Include="Resources\Icon_Pause_light.png" />
     <Content Include="Resources\Icon_VibrationCheck.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -212,7 +212,7 @@
         <TabControl Name="tabControlShow" Background="#FF737373" Grid.Column="2" Grid.Row="0"  Style="{DynamicResource TabControlStyle2}" Margin="0,0,0,0" >
             <!--播放-->
             <TabItem Name="tabItemFC1"  Style="{DynamicResource TabItemStyle2}">
-                <TabControl Name="tabControlShowData" Background="#FF737373" Grid.Column="2" Grid.Row="0"  Style="{DynamicResource TabControlStyle2}" SelectionChanged="tabControlShowData_SelectionChanged">
+                <TabControl Name="tabControlShowData" Background="#FF737373" Grid.Column="2" Grid.Row="0"  Style="{DynamicResource TabControlStyle2}">
                     <TabItem Name="tabItemFC11" Style="{DynamicResource TabItemStyle2}">
                         <!--播放界面-->
                         <Grid>
@@ -468,7 +468,7 @@
                                     <RowDefinition Height="30"></RowDefinition>
                                     <RowDefinition ></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Image Grid.Row="0" Name="imgFilm" Margin="10,10,10,20" Source="/Resources/Image_Logo.jpg"></Image>
+                                <Image Grid.Row="0" Name="imgFilm" Margin="10,0,10,30" Source="/Resources/Image_Logo.jpg"></Image>
                                 <Label Grid.Row="1" Name="labFilm1" VerticalContentAlignment="Center"></Label>
                                 <Label Grid.Row="2" Name="labFilm2" VerticalContentAlignment="Center"></Label>
                                 <Label Grid.Row="3" Name="labFilm3" VerticalAlignment="Center"></Label>
@@ -1131,7 +1131,7 @@
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <Image Grid.Row="0" Grid.RowSpan="3" Source="/Resources/Icon_ShuQee_White.png" Stretch="Fill"/>
-                                <TextBlock x:Name="txtVersion" Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="25" Margin="20,0,0,0" Text="Version: 7.1.2" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtVersion" Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="25" Margin="20,0,0,0" Text="Version: 7.1.3" VerticalAlignment="Center"/>
                                 <TextBlock x:Name="txtRegStrTitle" Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="25" Margin="20,0,520,0" Text="{DynamicResource txtRegStrTitle}"  VerticalAlignment="Center"/>
                                 <TextBlock x:Name="txtRegStr" Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="25" Margin="110,0,0,0" Text=""  VerticalAlignment="Center"/>
                             </Grid>
@@ -1165,6 +1165,7 @@
                                 <RowDefinition Height="50"></RowDefinition>
                                 <RowDefinition Height="50"></RowDefinition>
                                 <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
                                 <RowDefinition ></RowDefinition>
                                 <RowDefinition Height="70"></RowDefinition>
                             </Grid.RowDefinitions>
@@ -1179,25 +1180,7 @@
                                 <ColumnDefinition Width="150"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Label Content="{DynamicResource labProperty}" Grid.Row="0" Margin="10,8,10,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Left"></Label>
-
-                            <Label Content="{DynamicResource labType}" Grid.Row="2" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
-                            <Button x:Name="btn4DM" Content="{DynamicResource btn4DM}" Style="{DynamicResource FilletButton}" Grid.Row="2" Grid.Column="1" Margin="22,10,15,10" Tag="1">
-                                <Button.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#FF737373" Offset="0"/>
-                                        <GradientStop Color="#FF999999" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Button.Background>
-                            </Button>
-                            <Button x:Name="btn5D" Content="{DynamicResource btn5D}"  Style="{DynamicResource FilletButton}" Grid.Row="2" Grid.Column="2" Margin="13,10,20,10" Tag="2">
-                                <Button.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#FF737373" Offset="0"/>
-                                        <GradientStop Color="#FF999999" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Button.Background>
-                            </Button>
-
+                            
                             <Label Content="{DynamicResource labDOF}" Grid.Row="1" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
                             <Button x:Name="btn2DOF" Tag="1" Content="{DynamicResource btn2DOF}" Style="{DynamicResource FilletButton}" Grid.Row="1" Grid.Column="1" Margin="22,10,15,10">
                                 <Button.Background>
@@ -1223,16 +1206,24 @@
                                     </LinearGradientBrush>
                                 </Button.Background>
                             </Button>
-
-                            <Label Content="{DynamicResource labHeight}" Grid.Row="4" Margin="10,0,0,0"  Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
-                            <TextBox Name="txtHeight" Text="" Grid.Row="4" Grid.Column="1" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="4"/>
-                                        <Setter Property="BorderBrush" Value="#FF999999"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
+                            
+                            <Label Content="{DynamicResource labType}" Grid.Row="2" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                            <Button x:Name="btn4DM" Content="{DynamicResource btn4DM}" Style="{DynamicResource FilletButton}" Grid.Row="2" Grid.Column="1" Margin="22,10,15,10" Tag="1">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                            <Button x:Name="btn5D" Content="{DynamicResource btn5D}"  Style="{DynamicResource FilletButton}" Grid.Row="2" Grid.Column="2" Margin="13,10,20,10" Tag="2">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
 
                             <Label Content="{DynamicResource labProjector}" Grid.Row="3" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
                             <Button x:Name="btnMain" Content="{DynamicResource btnMain}" Grid.Row="3" Style="{DynamicResource FilletButton}" Grid.Column="1" Margin="22,10,15,10" Tag="1" >
@@ -1251,6 +1242,35 @@
                                     </LinearGradientBrush>
                                 </Button.Background>
                             </Button>
+
+                            <Label Content="{DynamicResource labProjector}" Grid.Row="4" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                            <Button x:Name="btnDebugMode" Content="{DynamicResource btnMain}" Grid.Row="4" Style="{DynamicResource FilletButton}" Grid.Column="1" Margin="22,10,15,10" Tag="1" >
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                            <Button x:Name="btnDeaufltMode" Content="{DynamicResource btnSecond}" Style="{DynamicResource FilletButton}" Grid.Row="4" Grid.Column="2" Margin="13,10,20,10" Tag="2">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+
+                            <Label Content="{DynamicResource labHeight}" Grid.Row="5" Margin="10,0,0,0"  Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                            <TextBox Name="txtHeight" Text="" Grid.Row="5" Grid.Column="1" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                        <Setter Property="BorderBrush" Value="#FF999999"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+
 
                             <Button x:Name="btnDefault" Content="{DynamicResource btnDefault}" Style="{DynamicResource FilletButton}" Grid.Row="6" Grid.Column="6"  Margin="33,20,16,10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="101" Height="40">
                                 <Button.Background>

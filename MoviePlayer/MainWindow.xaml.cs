@@ -48,6 +48,7 @@ namespace MoviePlayer
     ///
     public enum MediaStatus
     {
+        PlayInit,
         /// <summary>
         ///播放
         /// </summary>
@@ -315,8 +316,7 @@ namespace MoviePlayer
             ChangeLanguage(PlayLanguage);
             changeWinVersionLanguage();
             this.Loaded += MainWindow_Loaded;
-            this.Closed += MainWindow_Closed;
-            
+            this.Closed += MainWindow_Closed;          
             ControlRegister();
             //Thread.Sleep(1000);
             //定义系统时间计时器
@@ -542,6 +542,7 @@ namespace MoviePlayer
                     curPlayProjector = "1";
                     break;
             }
+            
         }
 
         private void BtnType_Click(object sender, RoutedEventArgs e)
@@ -1107,6 +1108,11 @@ namespace MoviePlayer
                               "行程高度：" + MainWindow.PlayHeight + "%";
                 txtUpdate.Text =
                            "shuqee版本更新信息：\r\n" +
+                           "                   V7.1.3 \r\n" +
+                           "更新日期：2019/9/4 \r\n" +
+                           "更新内容：增加六自由度，修改4DM喷气 \r\n" +
+                           "/**************************************/ \r\n" +
+                           "shuqee版本更新信息：\r\n" +
                            "                   V7.1.2 \r\n" +
                            "更新日期：2019/9/2 \r\n" +
                            "更新内容：修改软件打开提示，修改调试界面 \r\n" +
@@ -1127,12 +1133,7 @@ namespace MoviePlayer
                            "                   V6.2.3 \r\n" +
                            "更新日期：2019/3/27 \r\n" +
                            "更新内容：优化界面，将类型模块语言模块整合一起 \r\n" +
-                           "/**************************************/ \r\n" +
-                           "shuqee版本更新信息：\r\n" +
-                           "                   V6.2.2 \r\n" +
-                           "更新日期：2018/12/5 \r\n" +
-                           "更新内容：优化界面，更改播放影片显示问题 \r\n" +
-                           "/**************************************/ \r\n" +
+                           "/**************************************/ \r\n" +                           
                            "shuqee版本更新信息：\r\n" +
                            "                   V6.2.1 \r\n" +
                            "更新日期：2018/10/25 \r\n" +
@@ -1153,6 +1154,11 @@ namespace MoviePlayer
 
                 txtUpdate.Text =
                           "Shuqee Version Update Information：\r\n" +
+                          "                   V7.1.3 \r\n" +
+                          "Updated Date：2019/9/4 \r\n" +
+                          "Updated Content：Add the 6DOF \r\n" +                          
+                          "/**************************************/ \r\n" +
+                          "Shuqee Version Update Information：\r\n" +
                           "                   V7.1.2 \r\n" +
                           "Updated Date：2019/9/2 \r\n" +
                           "Updated Content：Modify the software tips,Modify the Debug interface \r\n" +
@@ -1168,12 +1174,7 @@ namespace MoviePlayer
                           "                   V6.2.4 \r\n" +
                           "Updated Date：2019/4/11 \r\n" +
                           "Updated Content：Optimize the interface and remove redundant code \r\n" +
-                          "/**************************************/ \r\n" +
-                          "Shuqee Version Update Information：\r\n" +
-                          "                   V6.2.3 \r\n" +
-                          "Updated Date：2019/3/27 \r\n" +
-                          "Updated Content：Optimize the interface and integrate the type module language modules together \r\n" +
-                          "/**************************************/ \r\n" +
+                          "/**************************************/ \r\n" +                         
                           "Shuqee Version Update Information：\r\n" +
                           "                   V6.2.2 \r\n" +
                           "Updated Date：2018/12/5 \r\n" +
@@ -1241,16 +1242,17 @@ namespace MoviePlayer
                     SetNavigationEnable(false);
                     break;
                 case 2:
-                    tabControlShow.SelectedIndex = tag - 1;
-                    SetNavigationEnable(false);
-                    timerDebugInit();
-                    UdpConnect.isDebug = true;
+                    if (UserControlClass.MSStatus != MediaStatus.Play && UdpConnect.TimeCode==0)
+                    {
+                        tabControlShow.SelectedIndex = tag - 1;
+                        SetNavigationEnable(false);
+                        timerDebugInit();
+                        UdpConnect.isDebug = true;
+                    }
                     break;
                 case 3:
                     tabControlShow.SelectedIndex = tag - 1;
                     SetNavigationEnable(false);
-                   // addMember();
-                   // ReadFilmList();
                     break;
                 case 4:
                     tabControlShow.SelectedIndex = tag - 1;
@@ -1342,13 +1344,22 @@ namespace MoviePlayer
                     changeBackground(2);
                     break;
                 case 4:
-                    changeBackground(3);
+                    if ("6DOF".Equals(PlayDOF))
+                    {
+                        changeBackground(3);
+                    }
                     break;
                 case 5:
-                    changeBackground(4);
+                    if ("6DOF".Equals(PlayDOF))
+                    {
+                        changeBackground(4);
+                    }
                     break;
                 case 6:
-                    changeBackground(5);
+                    if ("6DOF".Equals(PlayDOF))
+                    {
+                        changeBackground(5);
+                    }
                     break;
             }
         }
@@ -1494,11 +1505,17 @@ namespace MoviePlayer
             switch(tag)
             {
                 case 1:
-                    btnImgBack.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Back_light);
-                    
+                    btnImgBack.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Back_light);                 
                     break;
                 case 2:
-                    btnImgPlay.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Play_light);                  
+                    if (UserControlClass.MSStatus == MediaStatus.Play)
+                    {
+                        btnImgPlay.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Pause_light);
+                    }
+                    else
+                    {
+                        btnImgPlay.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Play_light);
+                    }
                     break;
                 case 3:
                     btnImgStop.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Stop_light);
@@ -1531,7 +1548,14 @@ namespace MoviePlayer
                     btnImgBack.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Back);
                     break;
                 case 2:
-                    btnImgPlay.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Play);
+                    if (UserControlClass.MSStatus == MediaStatus.Play)
+                    {
+                        btnImgPlay.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Pause);
+                    }
+                    else
+                    {
+                        btnImgPlay.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Play);
+                    }
                     break;
                 case 3:
                     btnImgStop.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Stop);
@@ -1845,16 +1869,16 @@ namespace MoviePlayer
             txtPbVal1.Text = "0";
             txtPbVal2.Text = "0";
             txtPbVal3.Text = "0";
+            Brush brush = new SolidColorBrush(Color.FromArgb(0xff,0x99,0x99,0x99));
 
             for (int i = 0; i < 8; i++)
             {
-                checkBoxEvEffect[i].IsChecked = false;
-
+                checkBoxEvEffect[i].Background = brush;
             }
 
             for (int i = 0; i < 8; i++)
             {
-                checkBoxChairEffect[i].IsChecked = false;
+                checkBoxChairEffect[i].Background = brush;
             }
         }
 
@@ -1972,7 +1996,7 @@ namespace MoviePlayer
             sliderTime.Value = 0;
             UserControlClass.MPPlayer.Position = new TimeSpan(0, 0, 0);
             UserControlClass.MPPlayer.Stop();
-            UserControlClass.MSStatus = MediaStatus.Play;
+            UserControlClass.MSStatus = MediaStatus.Pause;
             TSStatus = TimeStatus.FileTime;
             ChangeShowPlay();
             //重复播放
@@ -2126,66 +2150,6 @@ namespace MoviePlayer
 
         }
 
-
-
-        #region  播放列表右键菜单
-        /// <summary>
-        /// 播放列表鼠标右击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //void itemDelete_Click(object sender, RoutedEventArgs e)
-        //{
-        //    System.Windows.Controls.MenuItem item = (System.Windows.Controls.MenuItem)sender;
-        //    string stringName = item.Tag.ToString();
-        //    switch (stringName)
-        //    {
-        //        case "ListPlay":
-        //            int play = ListView.SelectedIndex;
-        //            if (play != -1)
-        //            {
-        //                memoryPlay = false;
-        //                ListPlay(ListView.SelectedItem.ToString());
-        //            }
-        //            break;
-
-        //        case "Delete":
-        //            RemoveFiles();
-        //            break;
-
-        //        case "DeleteAll":
-        //            RemoveAllFiles();
-        //            break;
-        //    }
-        //}
-
-        /// <summary>
-        /// 获取播放列表鼠标右击下拉菜单
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //public System.Windows.Controls.ContextMenu getListMenu()
-        //{
-        //    //System.Windows.Controls.MenuItem itemDelete;
-        //    //System.Windows.Controls.ContextMenu contextMenu = new System.Windows.Controls.ContextMenu();
-
-        //    //itemDelete = new System.Windows.Controls.MenuItem();
-        //    //itemDelete.Tag = "Delete";
-        //    //itemDelete.Header = "  删   除  ";
-        //    //itemDelete.Click += new RoutedEventHandler(itemDelete_Click);
-        //    //contextMenu.Items.Add(itemDelete);
-
-        //    //itemDelete = new System.Windows.Controls.MenuItem();
-        //    //itemDelete.Tag = "DeleteAll";
-        //    //itemDelete.Header = "删 除 所 有";
-        //    //itemDelete.Click += new RoutedEventHandler(itemDelete_Click);
-        //    //contextMenu.Items.Add(itemDelete);
-
-        //    //return contextMenu;
-        //}
-        #endregion
-
-
         /// <summary>
         /// 窗体初始化
         /// </summary>
@@ -2221,7 +2185,6 @@ namespace MoviePlayer
         /// <param name="e"></param>
         private void SetPosition()
         {
-            //System.Windows.MessageBox.Show((count++).ToString());
             if (string.IsNullOrEmpty(UserControlClass.FileName))
             {
                 return;
@@ -2231,18 +2194,11 @@ namespace MoviePlayer
             }
             else
             {
-                int num = ((UserControlClass.MPPlayer.Position.Hours * 0xe10) + (UserControlClass.MPPlayer.Position.Minutes * 60)) + UserControlClass.MPPlayer.Position.Seconds;
-                //double dbNum =   UserControlClass.MPPlayer.Position.Ticks / 10000000;
-                //int intNum = (int)Math.Round(dbNum);
+                int num = ((UserControlClass.MPPlayer.Position.Hours * 0xe10) + (UserControlClass.MPPlayer.Position.Minutes * 60)) + UserControlClass.MPPlayer.Position.Seconds;                
                 string str = SetTime(UserControlClass.MPPlayer.Position.Hours) + ":" + SetTime(UserControlClass.MPPlayer.Position.Minutes) + ":" + SetTime(UserControlClass.MPPlayer.Position.Seconds);
                 txtTime.Text = string.Format("{0}/{1}", SetTime(UserControlClass.MPPlayer.Position.Hours) + ":" + SetTime(UserControlClass.MPPlayer.Position.Minutes) + ":" + SetTime(UserControlClass.MPPlayer.Position.Seconds), MediaCountTime);
                 sliderTime.Value = num;
-                string next = SetTime(UserControlClass.MPPlayer.Position.Hours) + ":" + SetTime(UserControlClass.MPPlayer.Position.Minutes) + ":" + SetTime(UserControlClass.MPPlayer.Position.Seconds);
-                if (next.Equals(MediaCountTime))
-                {
-                    // NextPlayer();
-                    // PlayNextPre();
-                }
+                string next = SetTime(UserControlClass.MPPlayer.Position.Hours) + ":" + SetTime(UserControlClass.MPPlayer.Position.Minutes) + ":" + SetTime(UserControlClass.MPPlayer.Position.Seconds);            
                 ChangeShowPlay();
             }
         }
@@ -2262,7 +2218,7 @@ namespace MoviePlayer
                     case MediaStatus.Pause:
                         btnImgPlay.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Play);
                         break;
-                    case MediaStatus.Play:
+                    case MediaStatus.Play:                     
                         btnImgPlay.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Pause);
                         break;
                 }
@@ -2304,7 +2260,6 @@ namespace MoviePlayer
             Microsoft.Win32.OpenFileDialog OpenFile = new Microsoft.Win32.OpenFileDialog();
             OpenFile.FileName = fullPathName;
             UserControlClass.FileName = OpenFile.SafeFileName;
-            // System.Windows.Forms.MessageBox.Show( UserControlClass.FileName+"");
             FileInfo finfo = new FileInfo("" + fullPathName + "");
             if (finfo.Exists)
             {
@@ -3181,10 +3136,6 @@ namespace MoviePlayer
         /// </summary>
         private void btnPlayClickFun()
         {
-            //this.ListView.Select();
-            //ListView.Focus();
-            //ListView.SelectedIndex = 2;
-
             int index = ListView.SelectedIndex;
             if (ListView.SelectedValue != null)
             {
@@ -3287,12 +3238,6 @@ namespace MoviePlayer
         {
             btnStopClickFun();
         }
-     
-
-        private void tabControlShowData_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
 
         private void timerFilm_tick(object sender, EventArgs e)
         {
@@ -3375,8 +3320,6 @@ namespace MoviePlayer
             if ("4DM".Equals(PlayType))
             {
                 Module.readDefultFile();
-                //ListView.IsEnabled = false;
-                //btnImgPlay.IsEnabled = false;
                 if (memberData[0].Start != "" && memberData[0].End!="")
                 {
                     timerFilmInit();
