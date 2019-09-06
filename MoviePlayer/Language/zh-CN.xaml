@@ -78,7 +78,9 @@
     <sys:String x:Key="labMode">播放模式</sys:String>
     <sys:String x:Key="btnLtc">LTC模式</sys:String>
     <sys:String x:Key="btnLocal">本地模式</sys:String>
-
+    <sys:String x:Key="labPermission">权限</sys:String>
+    <sys:String x:Key="btnAdmin">管理员</sys:String>
+    <sys:String x:Key="btnUser">用户</sys:String>
 
     <sys:String x:Key="btnDefault">恢复默认</sys:String>
     <sys:String x:Key="btnConfirm">确定</sys:String>

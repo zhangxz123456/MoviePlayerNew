@@ -163,9 +163,7 @@ namespace MoviePlayer
                 UserControlClass.MPPlayer.Close();
                 Player.sliderTime.Value = 0;
                 UserControlClass.FileName = null;
-                player.TSStatus = TimeStatus.SystemTime;
                 player.txtTime.Text = "";
-                player.ChangeShowTime();
                 player.Activate();
                 player.WindowState = WindowState.Normal;
             }

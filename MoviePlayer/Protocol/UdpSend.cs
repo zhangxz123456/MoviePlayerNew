@@ -265,9 +265,7 @@ namespace MoviePlayer.Protocol
                 data[1] = 0;
                 data[2] = 0;
             }
-
             //复位指令
-
             if (movieStop == true)
             {
                 data[8] = 0;
@@ -280,7 +278,27 @@ namespace MoviePlayer.Protocol
             Data = ModbusUdp.MBReqWrite(array);
             UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
         }
-   
+
+
+        /// <summary>
+        /// 影片结束发送复位指令
+        /// </summary>
+        public static void SendZero()
+        {
+            byte[] data;
+            ushort addr;
+            ushort len;
+            byte[] array;          //data+addr+len 
+            byte[] Data;           //最终发送的数据
+
+            addr = 0;
+            len = 10;
+            data = new byte[len];      
+            array = ModbusUdp.ArrayAdd(addr, len, data);
+            Data = ModbusUdp.MBReqWrite(array);
+            UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
+        }
+
         /// <summary>
         /// int整型转换成byte数组
         /// </summary>

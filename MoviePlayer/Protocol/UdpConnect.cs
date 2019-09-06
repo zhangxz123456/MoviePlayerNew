@@ -71,7 +71,7 @@ namespace MoviePlayer.Protocol
                         }
                     }
 
-                    if (monitorTickTimeOut == 3)     //计时超过3秒，重新连接
+                    if (monitorTickTimeOut == 5)     //计时超过5秒，重新连接
                     {
                         flagValue = false;
                         connectFlag = false;

@@ -75,6 +75,9 @@
     <sys:String x:Key="btnSecond">Second</sys:String>
     <sys:String x:Key="btnDefault">Default</sys:String>
     <sys:String x:Key="btnConfirm">Confirm</sys:String>
+    <sys:String x:Key="labPermission">Permission</sys:String>
+    <sys:String x:Key="btnAdmin">Admin</sys:String>
+    <sys:String x:Key="btnUser">User</sys:String>
 
     <!--注册窗体-->
     <sys:String x:Key="txtUserCode">UserCode</sys:String>

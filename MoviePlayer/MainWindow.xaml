@@ -79,7 +79,7 @@
             </Grid>
 
             <!--时间进度条-->
-            <Slider Name="sliderTime" Grid.Column="2" VerticalAlignment="Center" Margin="10,0,5,0" ValueChanged="sliderTime_ValueChanged"></Slider>
+            <Slider Name="sliderTime" Grid.Column="2" VerticalAlignment="Center" Margin="10,0,5,0" ValueChanged="sliderTime_ValueChanged" PreviewMouseDown="sliderTime_PreviewMouseDown" PreviewMouseUp="sliderTime_PreviewMouseUp"></Slider>
 
             <!--显示时间-->
             <TextBlock Name="txtTime" Text="00:00:00/00:00:00" Grid.Column="3" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Right" Margin="0,0,5,0"></TextBlock>
@@ -94,7 +94,7 @@
                         <RowDefinition MaxHeight="30"></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Button Name="btnLtcMode" Tag="1"  Background="#FF545454" Style="{DynamicResource ButtonStyle1}" Grid.Row="0" Click="btnLtcMode_Click">
+                    <Button Name="btnLtcMode" Tag="1"  Background="#FF545454" Style="{DynamicResource ButtonStyle1}" Grid.Row="0" >
                         <Button.Content>
                             <Grid Width="149" Height="30" x:Name="btnLtcModeGrid">
                                 <Grid.ColumnDefinitions>
@@ -384,7 +384,7 @@
                                 <Button x:Name="btnImport" Grid.Row="7" Grid.ColumnSpan="6" Style="{DynamicResource FilletButton}" Margin="10,2,10,3" Content="{DynamicResource btnImport}" Foreground="White" Click="btnImport_Click"/>
                                 <TextBlock Background="#FF737373"  Grid.Row="6" Grid.ColumnSpan="6"/>
                                 <TextBlock Background="#FF737373"  Grid.Row="8" Grid.ColumnSpan="6"/>
-                                <ListView x:Name="ListView" Grid.Row="9"  Grid.ColumnSpan="6" Margin="0,0,0,0" Background="#FF505050" BorderThickness="0" PreviewMouseDoubleClick="ListView_PreviewMouseDoubleClick">
+                                <ListView x:Name="ListView" Grid.Row="9"  Grid.ColumnSpan="6" Margin="0,0,0,0" Background="#FF505050" BorderThickness="0" PreviewMouseDoubleClick="ListView_PreviewMouseDoubleClick" SelectionChanged="ListView_SelectionChanged">
                                     <ListView.ContextMenu>
                                         <ContextMenu Background="#FF545454">
                                             <MenuItem x:Name="listMenuPlay" Header="{DynamicResource listMenuPlay}" Template="{DynamicResource MenuItemControlTemplate1}" Foreground="White" Tag="1" Background="#FF545454">
@@ -485,7 +485,7 @@
                 </TabControl>
             </TabItem>
             <!--调试-->
-            <TabItem Name="tabItemFC2"  Style="{DynamicResource TabItemStyle2}" BorderThickness="1" Unloaded="tabItemFC2_Unloaded">
+            <TabItem Name="tabItemFC2"  Style="{DynamicResource TabItemStyle2}" BorderThickness="1" >
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition />
@@ -1243,8 +1243,8 @@
                                 </Button.Background>
                             </Button>
 
-                            <Label Content="{DynamicResource labProjector}" Grid.Row="4" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
-                            <Button x:Name="btnDebugMode" Content="{DynamicResource btnMain}" Grid.Row="4" Style="{DynamicResource FilletButton}" Grid.Column="1" Margin="22,10,15,10" Tag="1" >
+                            <Label Content="{DynamicResource labPermission}" Grid.Row="4" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                            <Button x:Name="btnAdmin" Content="{DynamicResource btnAdmin}" Grid.Row="4" Style="{DynamicResource FilletButton}" Grid.Column="1" Margin="22,10,15,10" Tag="1" >
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="0"/>
@@ -1252,7 +1252,7 @@
                                     </LinearGradientBrush>
                                 </Button.Background>
                             </Button>
-                            <Button x:Name="btnDeaufltMode" Content="{DynamicResource btnSecond}" Style="{DynamicResource FilletButton}" Grid.Row="4" Grid.Column="2" Margin="13,10,20,10" Tag="2">
+                            <Button x:Name="btnUser" Content="{DynamicResource btnUser}" Style="{DynamicResource FilletButton}" Grid.Row="4" Grid.Column="2" Margin="13,10,20,10" Tag="2">
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="0"/>
@@ -1272,7 +1272,7 @@
                             </TextBox>
 
 
-                            <Button x:Name="btnDefault" Content="{DynamicResource btnDefault}" Style="{DynamicResource FilletButton}" Grid.Row="6" Grid.Column="6"  Margin="33,20,16,10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="101" Height="40">
+                            <Button x:Name="btnDefault" Content="{DynamicResource btnDefault}" Style="{DynamicResource FilletButton}" Grid.Row="7" Grid.Column="6"  Margin="33,20,16,10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="101" Height="40">
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="0"/>
@@ -1280,7 +1280,7 @@
                                     </LinearGradientBrush>
                                 </Button.Background>
                             </Button>
-                            <Button x:Name="btnConfirm" Content="{DynamicResource btnConfirm}" Style="{DynamicResource FilletButton}" Grid.Row="6" Grid.Column="7"  Margin="11,20,39,10" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" >
+                            <Button x:Name="btnConfirm" Content="{DynamicResource btnConfirm}" Style="{DynamicResource FilletButton}" Grid.Row="7" Grid.Column="7"  Margin="11,20,39,10" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" >
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="0"/>

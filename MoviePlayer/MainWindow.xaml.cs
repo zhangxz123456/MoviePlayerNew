@@ -59,20 +59,6 @@ namespace MoviePlayer
         Pause
     }
     /// <summary>
-    /// 播放器的计时器状态
-    /// </summary>
-    public enum TimeStatus
-    {
-        /// <summary>
-        /// 系统时间
-        /// </summary>
-        SystemTime,
-        /// <summary>
-        /// 文件时间
-        /// </summary>
-        FileTime
-    }
-    /// <summary>
     /// 视频\摄像屏幕显示与隐藏
     /// </summary>
     public enum PlayCamera
@@ -87,8 +73,6 @@ namespace MoviePlayer
         inkCameraPlay
     }
 
-
-
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
@@ -100,11 +84,11 @@ namespace MoviePlayer
         DispatcherTimer timerJudge = null;
         DispatcherTimer timerDebug = null;
         DispatcherTimer timerFilm = null;             //监控排片时间与当前时间
-        Button[] btnNum;                 //缸
-        Button[] btnEvEffect;           //环境特效  调试界面
-        Button[] btnChairEffect;        //座椅特效
-        CheckBox[] checkBoxEvEffect;           //环境特效  数据显示界面
-        CheckBox[] checkBoxChairEffect;        //座椅特效
+        Button[] btnNum;                              //缸
+        Button[] btnEvEffect;                        //环境特效  调试界面
+        Button[] btnChairEffect;                     //座椅特效
+        CheckBox[] checkBoxEvEffect;                //环境特效  数据显示界面
+        CheckBox[] checkBoxChairEffect;              //座椅特效
 
         public static string playerPath;
         public static string PlayType;               //播放器类型 4DM为4DM播放器 5D为5D播放器
@@ -112,12 +96,14 @@ namespace MoviePlayer
         public static string PlayDOF;                //自由度类型 2DOF为两自由度播放器 3DOF为三自由度播放器
         public static double PlayHeight;             //高度数据  100为原始数据 90为百分90行程数据
         public static string PlayProjector;          //设置播放画面显示在主屏还是副屏  参数分别为0或1
+        public static string PlayPermission;         //用户权限 TRUE为管理员模式 FALSE为用户模式
         private int isReset;                         //验证软件正常打开后发复位指令（只发第一次）
         private bool isSleep;
 
         private string curPlayType;
         private string curPlayDOF;
         private string curPlayProjector;
+        private string curPermission;
 
         byte[] dataNum = new byte[6];
         byte[] dataEvEffect = new byte[8];
@@ -186,7 +172,7 @@ namespace MoviePlayer
         }
 
         #region   播放变量声明
-        
+
         /// <summary>
         /// 列表-名称
         /// </summary>
@@ -231,11 +217,7 @@ namespace MoviePlayer
         ///<summary>
         ///播放器声音状态
         /// </summary>
-        private SoundStatus SSStatus = SoundStatus.Sound;
-        ///<summary>
-        ///播放器计时器状态
-        /// </summary>
-        private TimeStatus tSStatus = TimeStatus.SystemTime;
+        private SoundStatus SSStatus = SoundStatus.Sound;      
         /// <summary>
         /// 播放器声音数值
         /// </summary>
@@ -284,18 +266,7 @@ namespace MoviePlayer
         /// 标识是否记忆播放
         /// </summary>
         private bool memoryPlay = true;
-       
-        public TimeStatus TSStatus
-        {
-            get
-            {
-                return tSStatus;
-            }
-            set
-            {
-                tSStatus = value;
-            }
-        }
+
         ///// <summary>
         ///// 第二个窗体
         ///// </summary>
@@ -316,7 +287,7 @@ namespace MoviePlayer
             ChangeLanguage(PlayLanguage);
             changeWinVersionLanguage();
             this.Loaded += MainWindow_Loaded;
-            this.Closed += MainWindow_Closed;          
+            this.Closed += MainWindow_Closed;
             ControlRegister();
             //Thread.Sleep(1000);
             //定义系统时间计时器
@@ -331,13 +302,13 @@ namespace MoviePlayer
             // lv.ContextMenu=getLVMenu();
             //UserControlClass.NullBorderWin(this);
 
-            timerJudgeInit();
+            TimerJudgeInit();
 
             UserControlClass.MPPlayer.MediaEnded += new EventHandler(MPPlayer_MediaEnded);
             UserControlClass.MPPlayer.MediaOpened += new EventHandler(MPPlayer_MediaOpened);
             Timing.Elapsed += new ElapsedEventHandler(Tim_Elapsed);
             ChangeShowPlay();
-           // ChangeShowTime();
+            //ChangeShowTime();
             ChangeshowInk();
             addMember();
             ReadFilmList();
@@ -348,15 +319,12 @@ namespace MoviePlayer
             NewLoaded();
             TypeShow();
             MenuModePlayTick();
-
-           
-
-
         }
 
         private void MainWindow_Closed(object sender, EventArgs e)
         {
             SaveVolume();
+            UdpSend.SendZero();
             System.Windows.Application.Current.Shutdown();
         }
 
@@ -364,8 +332,12 @@ namespace MoviePlayer
         #endregion
 
         #region   方法
+
+        /// <summary>
+        /// 获取软件当前路径
+        /// </summary>
         private void GetPlayerPath()
-        {           
+        {
             playerPath = AppDomain.CurrentDomain.BaseDirectory.Substring(0, AppDomain.CurrentDomain.BaseDirectory.Length - 5);
         }
 
@@ -454,6 +426,9 @@ namespace MoviePlayer
             btnMain.Click += BtnScreen_Click;
             btnSecond.Click += BtnScreen_Click;
 
+            btnUser.Click += BtnPermission_Click;
+            btnAdmin.Click += BtnPermission_Click;
+
             listMenuAdd.Click += ListMenu_Click;
             listMenuPlay.Click += ListMenu_Click;
             listMenuDel.Click += ListMenu_Click;
@@ -464,146 +439,43 @@ namespace MoviePlayer
             listModeLoop.Click += ListModeChoose_Click;
 
 
-            btnNum = new Button[6] { btnNum1,btnNum2,btnNum3,btnNum4,btnNum5,btnNum6};
-            btnEvEffect = new Button[8] { btnLightning,btnWind,btnBubble,btnFog,btnFire,btnSnow,btnLaser,btnRain};
-            btnChairEffect = new Button[8] { btnCA,btnCB,btnSmell,btnVibration,btnSweepLeg,btnSprayWater,btnSprayAir,btnPushBack};
+            btnNum = new Button[6] { btnNum1, btnNum2, btnNum3, btnNum4, btnNum5, btnNum6 };
+            btnEvEffect = new Button[8] { btnLightning, btnWind, btnBubble, btnFog, btnFire, btnSnow, btnLaser, btnRain };
+            btnChairEffect = new Button[8] { btnCA, btnCB, btnSmell, btnVibration, btnSweepLeg, btnSprayWater, btnSprayAir, btnPushBack };
 
             checkBoxEvEffect = new CheckBox[8] { cbEv1, cbEv2, cbEv3, cbEv4, cbEv5, cbEv6, cbEv7, cbEv8 };
             checkBoxChairEffect = new CheckBox[8] { cbCv7, cbCv8, cbCv1, cbCv2, cbCv3, cbCv4, cbCv5, cbCv6 };
         }
 
-       
 
-        private void ListModeChoose_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// 选择语言文件
+        /// </summary>
+        /// <param name="_currentLan"></param>
+        private void ChangeLanguage(String _currentLan)
         {
-            System.Windows.Controls.MenuItem menu = (System.Windows.Controls.MenuItem)sender;
-            int tag = Convert.ToInt32(menu.Tag);
-            switch (tag)
+            ResourceDictionary dict = new ResourceDictionary();
+
+            if (_currentLan == "EN")
             {
-                case 1:
-                    listModeSingle.IsChecked = true;
-                    listModeDefault.IsChecked = false;
-                    listModeLoop.IsChecked = false;
-                    ModePlayTag = "RepeatPlay";
-                    break;
-                case 2:
-                    listModeSingle.IsChecked = false;
-                    listModeDefault.IsChecked = true;
-                    listModeLoop.IsChecked = false;
-                    ModePlayTag = "DefaultPlay";
-                    break;
-                case 3:
-                    listModeSingle.IsChecked = false;
-                    listModeDefault.IsChecked = false;
-                    listModeLoop.IsChecked = true;
-                    ModePlayTag = "LoopPlay";
-                    break;
-            }
-            SaveMode();
-        }
+                dict.Source = new Uri(@"Language\en-US.xaml", UriKind.Relative);
 
-        private void ListMenu_Click(object sender, RoutedEventArgs e)
-        {
-            System.Windows.Controls.MenuItem menu = (System.Windows.Controls.MenuItem)sender;
-            int tag = Convert.ToInt32 (menu.Tag);
-            switch (tag)
+                _currentLan = "CN";
+            }
+            else
             {
-                case 1:
-                    btnPlayClickFun();
-                    break;
-                case 2:
-                    AddFiles();
-                    break;
-                case 3:
-                    RemoveFiles();
-                    break;
-                case 4:
-                    RemoveAllFiles();
-                    break;                      
+                dict.Source = new Uri(@"Language\zh-CN.xaml", UriKind.Relative);
+                _currentLan = "EN";
             }
+
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(dict);
+            Application.Current.Resources.MergedDictionaries[0] = dict;
         }
 
-        private void BtnScreen_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = sender as Button;
-            int tag = Convert.ToInt32(btn.Tag);
-            //UI
-            Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
-            btnMain.Background = brush;
-            btnSecond.Background = brush;
-            switch (tag)
-            {
-                case 1:
-                    btnMain.Background = Brushes.DodgerBlue;
-                    curPlayProjector = "0";
-                    break;
-                case 2:
-                    btnSecond.Background = Brushes.DodgerBlue;
-                    curPlayProjector = "1";
-                    break;
-            }
-            
-        }
-
-        private void BtnType_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = sender as Button;
-            int tag = Convert.ToInt32(btn.Tag);
-            //UI
-            Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
-            btn4DM.Background = brush;
-            btn5D.Background = brush;
-            switch (tag)
-            {
-                case 1:
-                    btn4DM.Background = Brushes.DodgerBlue;
-                    curPlayType = "4DM";
-                    break;
-                case 2:
-                    btn5D.Background = Brushes.DodgerBlue;
-                    curPlayType = "5D";
-                    break;
-            }
-        }
-
-        private void BtnDefault_Click(object sender, RoutedEventArgs e)
-        {
-            //throw new NotImplementedException();
-        }
-
-        private void BtnDOF_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = sender as Button;
-            int tag = Convert.ToInt32(btn.Tag);
-            //UI
-            Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
-            btn2DOF.Background = brush;
-            btn3DOF.Background = brush;
-            btn6DOF.Background = brush;
-            switch (tag)
-            {
-                case 1:                    
-                    btn2DOF.Background = Brushes.DodgerBlue;
-                    curPlayDOF = "2DOF";                    
-                    break;
-                case 2:
-                    btn3DOF.Background = Brushes.DodgerBlue;
-                    curPlayDOF = "3DOF";
-                    break;
-                case 3:
-                    btn6DOF.Background = Brushes.DodgerBlue;
-                    curPlayDOF = "6DOF";
-                    break;
-            }
-        }
-
-        private void BtnConfirm_Click(object sender, RoutedEventArgs e)
-        {
-            SaveType();
-            RestartSoftWare();
-           
-        }
-
+        /// <summary>
+        /// 软件重新启动方法
+        /// </summary>
         private void RestartSoftWare()
         {
             if (PlayLanguage.Equals("CN"))
@@ -618,6 +490,9 @@ namespace MoviePlayer
             Application.Current.Shutdown();
         }
 
+        /// <summary>
+        /// 保存参数设置数据
+        /// </summary>
         private void SaveType()
         {
             string path = MainWindow.playerPath + @"\XML\" + "Type.xml";
@@ -632,10 +507,14 @@ namespace MoviePlayer
                 element["Style"].InnerText = curPlayType;
                 element["Projector"].InnerText = curPlayProjector;
                 element["Height"].InnerText = txtHeight.Text;
+                element["Permission"].InnerText = curPermission;
                 xmlDoc.Save(path);
             }
         }
 
+        /// <summary>
+        /// 保存当前选择的语言状态
+        /// </summary>
         private void SaveLang()
         {
             string path = MainWindow.playerPath + @"\XML\" + "Type.xml";
@@ -651,11 +530,15 @@ namespace MoviePlayer
             }
         }
 
+        /// <summary>
+        /// 软件类型与属性状态显示
+        /// </summary>
         private void TypeShow()
         {
             curPlayDOF = PlayDOF;
             curPlayProjector = PlayProjector;
             curPlayType = PlayType;
+            curPermission = PlayPermission;
             if (PlayLanguage.Equals("EN"))
             {
                 btnEN.Background = Brushes.DodgerBlue;
@@ -681,7 +564,8 @@ namespace MoviePlayer
                     btn6DOF.Background = Brushes.DodgerBlue;
                     break;
             }
-            if(PlayType.Equals("4DM"))
+
+            if (PlayType.Equals("4DM"))
             {
                 btn4DM.Background = Brushes.DodgerBlue;
             }
@@ -689,7 +573,8 @@ namespace MoviePlayer
             {
                 btn5D.Background = Brushes.DodgerBlue;
             }
-            if(PlayProjector.Equals("0"))
+
+            if (PlayProjector.Equals("0"))
             {
                 btnMain.Background = Brushes.DodgerBlue;
             }
@@ -697,9 +582,20 @@ namespace MoviePlayer
             {
                 btnSecond.Background = Brushes.DodgerBlue;
             }
-            txtHeight.Text = PlayHeight.ToString() ;
+            if(PlayPermission.Equals("TRUE"))
+            {
+                btnAdmin.Background = Brushes.DodgerBlue;
+            }
+            else
+            {
+                btnUser.Background = Brushes.DodgerBlue;
+            }
+            txtHeight.Text = PlayHeight.ToString();
         }
 
+        /// <summary>
+        /// 动作数据栏显示切换
+        /// </summary>
         private void TypeShowAction()
         {
             pb4.Visibility = Visibility.Hidden;
@@ -734,7 +630,7 @@ namespace MoviePlayer
             {
                 btnNum[i].Opacity = 0.9;
                 btnNum[i].Background = Brushes.Cyan;
-                dataNum[i] = 255;               
+                dataNum[i] = 255;
             }
             else
             {
@@ -744,7 +640,6 @@ namespace MoviePlayer
                 dataNum[i] = 0;
             }
         }
-
 
         /// <summary>
         /// 点击对应的环境特效改变背景颜色
@@ -789,7 +684,7 @@ namespace MoviePlayer
             }
             else
             {
-                Brush brush = new SolidColorBrush(Color.FromArgb(0xff,0x93,0x93,0x93));
+                Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x93, 0x93, 0x93));
                 btnChairEffect[i].Background = brush;
                 btnChairEffect[i].Opacity = 1;
                 if (i == 1)
@@ -804,88 +699,59 @@ namespace MoviePlayer
             }
         }
 
-        private void timerJudgeInit()
+        /// <summary>
+        /// 比较传入时间与当前系统时间
+        /// </summary>
+        /// <param name="str1"></param>
+        /// <param name="str2"></param>
+        /// <returns></returns>
+        private bool compareDateTime(string str1, string str2)
         {
-            //udp程序启动定时器
-            timerJudge = new DispatcherTimer();
-            timerJudge.Interval = TimeSpan.FromSeconds(0.01);   //定时器周期为10ms 
-            timerJudge.Tick += new EventHandler(timerJudge_tick);
-            timerJudge.Start();
-        }
-        private void timerJudge_tick(object sender, EventArgs e)
-        {
-            if (isSleep == false)
+            try
             {
-                Thread.Sleep(2000);
-                isSleep = true;
-            }
+                DateTime dt1 = new DateTime();
+                DateTime dt2 = new DateTime();
+                DateTime dt3 = new DateTime();
 
-            if (UdpConnect.connectFlag == false)  //未与中控板连接    
-            {
-                if ("CN".Equals(PlayLanguage))
+                if (str1 != "" && str2 != "")
                 {
-                    labConnect.Content = "未连接";
+                    dt1 = Convert.ToDateTime(str1);
+                    dt2 = Convert.ToDateTime(str2);
+                    dt3 = DateTime.Now;
                 }
-                else
+                if (str1 != "" && str2 == "")
                 {
-                    labConnect.Content = "Unconnected";
+                    dt1 = Convert.ToDateTime(str1);
+                    dt3 = DateTime.Now;
+                    return DateTime.Compare(dt3, dt1) >= 0;
                 }
-                imgConnect.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_UnConnect);
-                LockSoftWare();
+                return DateTime.Compare(dt3, dt1) >= 0 && DateTime.Compare(dt3, dt2) < 0;
+
             }
-            else      //与中控板已连接
+            catch (Exception)
             {
-                if (UdpConnect.isRegistered == false)  //软件到期或者未注册        
-                {                    
-                    if ("CN".Equals(PlayLanguage))
-                    {
-                        labConnect.Content = "未注册";
-                    }
-                    else
-                    {
-                        labConnect.Content = "UnRegistered";
-                    }
-                    imgConnect.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_UnRegister);
-                    LockSoftWare();
-                }
-                else  //软件正常打开            
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 4DM模式选择
+        /// </summary>
+        private void SelectMode()
+        {
+            if ("4DM".Equals(PlayType))
+            {
+                Module.readDefultFile();
+                if (memberData[0].Start != "" && memberData[0].End != "")
                 {
-                    OpenSoftWare();
-                    if (isReset == 0)
-                    {
-                        UdpSend.SendReset();
-                        isReset = 1;
-                    }
-                    imgConnect.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Connected);
-                    if ("CN".Equals(PlayLanguage))
-                    {
-                        labConnect.Content = "连接成功";
-                    }
-                    else
-                    {
-                        labConnect.Content = "Connected";
-                    }
-                    if (Module.hintShow == true)
-                    {
-                        btnDateTips.Visibility = Visibility.Visible;
-                        if ("CN".Equals(PlayLanguage))
-                        {
-                            btnDateTips.Content = "提示：软件还有" + Module.deadlineDay + "天到期";
-                        }
-                        else
-                        {
-                            btnDateTips.Content = "Tips: The software expires in " + Module.deadlineDay + " days";
-                        }
-                    }
-                    if ("4DM".Equals(PlayType))
-                    {
-                        labLTC.Content = "TimeCode: " + UdpConnect.strLongTimeCode;
-                        showData();                       
-                    }
+                    TimerFilmInit();
                 }
             }
         }
 
+        /// <summary>
+        /// 屏蔽部分按钮功能
+        /// </summary>
         private void LockSoftWare()
         {
             rb1.IsEnabled = false;
@@ -894,9 +760,12 @@ namespace MoviePlayer
             rb4.IsEnabled = false;
             rb6.IsEnabled = false;
             ListView.IsEnabled = false;
-            btnImgPlay.IsEnabled = false;         
+            btnImgPlay.IsEnabled = false;
         }
 
+        /// <summary>
+        /// 开放按钮功能
+        /// </summary>
         private void OpenSoftWare()
         {
             rb1.IsEnabled = true;
@@ -906,59 +775,16 @@ namespace MoviePlayer
             rb6.IsEnabled = true;
             ListView.IsEnabled = true;
             btnImgPlay.IsEnabled = true;
-            if("4DM".Equals(PlayType))
+            if ("4DM".Equals(PlayType))
             {
                 ListView.IsEnabled = false;
                 btnImgPlay.IsEnabled = false;
             }
         }
 
-        private void timerDebugInit()
-        {
-            timerDebug = new DispatcherTimer();
-            timerDebug.Interval = TimeSpan.FromSeconds(0.05);
-            timerDebug.Tick += new EventHandler(TimerDebug_Tick);
-            timerDebug.Start();
-        }
-
-        private void TimerDebug_Tick(object sender, EventArgs e)
-        {
-            byte eEffect = 0;
-            byte cEffect = 0;
-            byte dataNumOne = 0;                  //1号缸的数据
-            byte dataNumTwo = 0;                  //2号缸的数据 
-            byte dataNumThree = 0;                //3号缸的数据
-
-            byte[] data;
-            byte[] array;          //data+addr+len 
-            byte[] Data;           //最终发送的数据
-
-            dataNumOne = (byte)(dataNum[2] * MainWindow.PlayHeight / 100);
-            dataNumTwo = (byte)(dataNum[1] * MainWindow.PlayHeight / 100);
-            dataNumThree = (byte)(dataNum[0] * MainWindow.PlayHeight / 100);
-            //dataNumOne = dataNum[2];
-            //dataNumTwo = dataNum[1];
-            //dataNumThree = dataNum[0];
-
-            for (int i = 0; i < 8; i++)
-            {
-                eEffect += dataEvEffect[i];
-                //label9.Content = eEffect.ToString();
-            }
-            // eEffect = dataEvEffect[0];
-            for (int i = 0; i < 8; i++)
-            {
-                cEffect += dataChairEffect[i];
-            }
-
-            Debug.WriteLine(eEffect.ToString());
-
-            data = new byte[10] { dataNumOne, dataNumTwo, dataNumThree, 0, 0, 0,  dataRate,dataFrame, cEffect, eEffect };
-            array = Protocol.ModbusUdp.ArrayAdd(0, (ushort)data.Length, data);
-            Data = Protocol.ModbusUdp.MBReqWrite(array);
-            UdpSend.UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
-        }
-
+        /// <summary>
+        /// 排片列表成员初始化
+        /// </summary>
         private void addMember()
         {
             memberData = new ObservableCollection<Member>();
@@ -1015,7 +841,6 @@ namespace MoviePlayer
             return str;
         }
 
-
         /// <summary>
         /// 检查传入的字符串是否有中文字根
         /// </summary>
@@ -1026,6 +851,10 @@ namespace MoviePlayer
             return System.Text.Encoding.UTF8.GetBytes(srcString).Length > srcString.Length;
         }
 
+
+        /// <summary>
+        /// 读取排片配置文件的内容
+        /// </summary>
         private void ReadFilmList()
         {
             string xml = AppDomain.CurrentDomain.BaseDirectory.Substring(0, AppDomain.CurrentDomain.BaseDirectory.Length - 5) + @"\XML\" + "FilmList.xml";
@@ -1063,9 +892,9 @@ namespace MoviePlayer
                 PlayDOF = element["DOF"].InnerText;
                 PlayHeight = Double.Parse(element["Height"].InnerText);
                 PlayProjector = element["Projector"].InnerText;
+                PlayPermission = element["Permission"].InnerText;
             }
         }
-
 
         /// <summary>
         /// 保存排片数据到FilmList.xml文件中
@@ -1092,11 +921,14 @@ namespace MoviePlayer
             }
         }
 
+        /// <summary>
+        /// 显示软件版本信息以及公司信息
+        /// </summary>
         private void changeWinVersionLanguage()
         {
             if ("CN".Equals(MainWindow.PlayLanguage))
-            {                
-                txtCompany.Text = 
+            {
+                txtCompany.Text =
                               "网址：www.shuqee.cn \r\n" +
                               "电话：020 34885536  \r\n" +
                               "地址：广州市番禺区石基镇市莲路富城工业园3号楼 \r\n" +
@@ -1116,7 +948,7 @@ namespace MoviePlayer
                            "                   V7.1.2 \r\n" +
                            "更新日期：2019/9/2 \r\n" +
                            "更新内容：修改软件打开提示，修改调试界面 \r\n" +
-                           "                修复参数设置不正确，声音调节问题   \r\n" +                           
+                           "                修复参数设置不正确，声音调节问题   \r\n" +
                            "/**************************************/ \r\n" +
                            "shuqee版本更新信息：\r\n" +
                            "                   V7.1.1 \r\n" +
@@ -1127,13 +959,13 @@ namespace MoviePlayer
                            "shuqee版本更新信息：\r\n" +
                            "                   V6.2.4 \r\n" +
                            "更新日期：2019/4/11 \r\n" +
-                           "更新内容：优化界面，删除冗余代码 \r\n" +                          
+                           "更新内容：优化界面，删除冗余代码 \r\n" +
                            "/**************************************/ \r\n" +
                            "shuqee版本更新信息：\r\n" +
                            "                   V6.2.3 \r\n" +
                            "更新日期：2019/3/27 \r\n" +
                            "更新内容：优化界面，将类型模块语言模块整合一起 \r\n" +
-                           "/**************************************/ \r\n" +                           
+                           "/**************************************/ \r\n" +
                            "shuqee版本更新信息：\r\n" +
                            "                   V6.2.1 \r\n" +
                            "更新日期：2018/10/25 \r\n" +
@@ -1141,7 +973,7 @@ namespace MoviePlayer
             }
             else
             {
-                txtCompany.Text = 
+                txtCompany.Text =
                                "Website：www.shuqee.com \r\n" +
                                "Telephone：0086 020-34885536 \r\n" +
                                "Address：Bldg 3.Fucheng industrial park,shilian road,shiji village,shiji town,panyu district,guangzhou,CN.\r\n" +
@@ -1150,13 +982,13 @@ namespace MoviePlayer
                                "Software Type: " + MainWindow.PlayType + "\r\n" +
                                "Software Language: " + MainWindow.PlayLanguage + "\r\n" +
                                "PlayDOF: " + MainWindow.PlayDOF + "\r\n" +
-                               "Height: " + MainWindow.PlayHeight + "%"+"\r\n";
+                               "Height: " + MainWindow.PlayHeight + "%" + "\r\n";
 
                 txtUpdate.Text =
                           "Shuqee Version Update Information：\r\n" +
                           "                   V7.1.3 \r\n" +
                           "Updated Date：2019/9/4 \r\n" +
-                          "Updated Content：Add the 6DOF \r\n" +                          
+                          "Updated Content：Add the 6DOF \r\n" +
                           "/**************************************/ \r\n" +
                           "Shuqee Version Update Information：\r\n" +
                           "                   V7.1.2 \r\n" +
@@ -1174,7 +1006,7 @@ namespace MoviePlayer
                           "                   V6.2.4 \r\n" +
                           "Updated Date：2019/4/11 \r\n" +
                           "Updated Content：Optimize the interface and remove redundant code \r\n" +
-                          "/**************************************/ \r\n" +                         
+                          "/**************************************/ \r\n" +
                           "Shuqee Version Update Information：\r\n" +
                           "                   V6.2.2 \r\n" +
                           "Updated Date：2018/12/5 \r\n" +
@@ -1210,7 +1042,7 @@ namespace MoviePlayer
                 Grid.SetColumn(tabControlShow, 2);
                 Grid.SetColumnSpan(tabControlShow, 1);
                 tabSetFlag = 1;
-                
+
             }
             else
             {
@@ -1237,16 +1069,15 @@ namespace MoviePlayer
             switch (tag)
             {
                 case 1:
-                   // tabControl.SelectedIndex = tag - 1;
                     tabControlShow.SelectedIndex = tag - 1;
                     SetNavigationEnable(false);
                     break;
                 case 2:
-                    if (UserControlClass.MSStatus != MediaStatus.Play && UdpConnect.TimeCode==0)
+                    if (UserControlClass.MSStatus != MediaStatus.Play && UdpConnect.TimeCode == 0 || PlayPermission == "TRUE")
                     {
                         tabControlShow.SelectedIndex = tag - 1;
                         SetNavigationEnable(false);
-                        timerDebugInit();
+                        TimerDebugInit();
                         UdpConnect.isDebug = true;
                     }
                     break;
@@ -1272,6 +1103,7 @@ namespace MoviePlayer
             }
             if (tag != 2)
             {
+                UdpSend.movieStop = true;
                 UdpSend.SendReset();
                 if (timerDebug != null)
                 {
@@ -1285,7 +1117,7 @@ namespace MoviePlayer
         {
             if (tabSetFlag == 1)
             {
-               // SetNavigationEnable(false);
+                // SetNavigationEnable(false);
             }
         }
 
@@ -1316,7 +1148,7 @@ namespace MoviePlayer
             {
                 btnLocModeGrid.Background = Brushes.DodgerBlue;
                 btnLtcModeGrid.Background = brush;
-                tabControlShowData.SelectedIndex = 1;                
+                tabControlShowData.SelectedIndex = 1;
             }
         }
 
@@ -1364,13 +1196,6 @@ namespace MoviePlayer
             }
         }
 
-        private void BtnEvEffect_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = sender as Button;
-            int tag = Convert.ToInt32(btn.Tag);
-            changeEvEffect(tag - 1);
-        }
-
         private void BtnChairEffect_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
@@ -1382,27 +1207,46 @@ namespace MoviePlayer
             changeChairEffect(tag - 1);
         }
 
-
-        /// <summary>
-        /// 调试部分-按钮事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnDebug_Click(object sender,RoutedEventArgs e)
+        private void BtnEvEffect_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
             int tag = Convert.ToInt32(btn.Tag);
-            //UI
-            Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x54, 0x54, 0x54));                                
+            changeEvEffect(tag - 1);
         }
-        
+
+        /// <summary>
+        /// 播放列表菜单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ListMenu_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Controls.MenuItem menu = (System.Windows.Controls.MenuItem)sender;
+            int tag = Convert.ToInt32(menu.Tag);
+            switch (tag)
+            {
+                case 1:
+                    btnPlayClickFun();
+                    break;
+                case 2:
+                    AddFiles();
+                    break;
+                case 3:
+                    RemoveFiles();
+                    break;
+                case 4:
+                    RemoveAllFiles();
+                    break;
+            }
+        }
+
 
         /// <summary>
         /// 关于部分-按钮事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BtnAbout_Click(object sender,RoutedEventArgs e)
+        private void BtnAbout_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
             int tag = Convert.ToInt32(btn.Tag);
@@ -1413,16 +1257,19 @@ namespace MoviePlayer
             btnAboutUsGrid.Background = brush;
             switch (tag)
             {
-                case 1: btnRegisterGrid.Background = Brushes.DodgerBlue;
-                        RegisterWindow regWin = new RegisterWindow();
-                        regWin.ShowDialog();
-                        break;
-                case 2: btnUpdateLogGrid.Background = Brushes.DodgerBlue;
-                       tabItemAbout2.IsSelected = true; 
-                        break;
-                case 3: btnAboutUsGrid.Background = Brushes.DodgerBlue;
-                        tabItemAbout3.IsSelected = true;
-                        break;
+                case 1:
+                    btnRegisterGrid.Background = Brushes.DodgerBlue;
+                    RegisterWindow regWin = new RegisterWindow();
+                    regWin.ShowDialog();
+                    break;
+                case 2:
+                    btnUpdateLogGrid.Background = Brushes.DodgerBlue;
+                    tabItemAbout2.IsSelected = true;
+                    break;
+                case 3:
+                    btnAboutUsGrid.Background = Brushes.DodgerBlue;
+                    tabItemAbout3.IsSelected = true;
+                    break;
             }
         }
 
@@ -1431,7 +1278,7 @@ namespace MoviePlayer
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private  void BtnSet_Click(object sender,RoutedEventArgs e)
+        private void BtnSet_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
             int tag = Convert.ToInt32(btn.Tag);
@@ -1457,13 +1304,13 @@ namespace MoviePlayer
                     }
                     break;
             }
-           
+
         }
 
         private void OpenLoginWin()
         {
             LoginWindow loginWin = new LoginWindow();
-            loginWin.ShowDialog();        
+            loginWin.ShowDialog();
         }
 
         private void BtnSetLang_Click(object sender, RoutedEventArgs e)
@@ -1502,10 +1349,10 @@ namespace MoviePlayer
             Image img = sender as Image;
             int tag = Convert.ToInt32(img.Tag);
 
-            switch(tag)
+            switch (tag)
             {
                 case 1:
-                    btnImgBack.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Back_light);                 
+                    btnImgBack.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Back_light);
                     break;
                 case 2:
                     if (UserControlClass.MSStatus == MediaStatus.Play)
@@ -1595,7 +1442,7 @@ namespace MoviePlayer
         {
             dataNum[0] = 0;
             dataNum[1] = 0;
-            dataNum[2] = 0; 
+            dataNum[2] = 0;
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -1659,42 +1506,191 @@ namespace MoviePlayer
             memberData[dataGrid.SelectedIndex].FullMovieName = "";
         }
 
+        private void btnImport_Click(object sender, RoutedEventArgs e)
+        {
+            AddFiles();
+        }
+
+        private void btnImgPlay_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            btnPlayClickFun();
+        }
+
+        private void btnImgBack_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (UserControlClass.FileName != null && UserControlClass.FileName != "")
+            {
+                UserControlClass.MPPlayer.Position = UserControlClass.MPPlayer.Position - TimeSpan.FromSeconds(20);
+            }
+        }
+
+        private void btnImgNext_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (UserControlClass.FileName != null && UserControlClass.FileName != "")
+            {
+                UserControlClass.MPPlayer.Position = UserControlClass.MPPlayer.Position + TimeSpan.FromSeconds(20);
+            }
+        }
+
+        private void btnImgStop_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            btnStopClickFun();
+        }
+
+        private void btnImgVReduce_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (UserControlClass.FileName != null && UserControlClass.FileName != "")
+            {
+                sliderVol.Value = sliderVol.Value - 0.1;
+                UserControlClass.MPPlayer.Volume = sliderVol.Value;
+            }
+        }
+
+        private void btnImgVadd_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (UserControlClass.FileName != null && UserControlClass.FileName != "")
+            {
+                sliderVol.Value = sliderVol.Value + 0.1;
+                UserControlClass.MPPlayer.Volume = sliderVol.Value;
+            }
+        }
+
+        private void btnDateTips_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterWindow regwin = new RegisterWindow();
+            regwin.ShowDialog();
+        }
+
+        private void BtnConfirm_Click(object sender, RoutedEventArgs e)
+        {
+            SaveType();
+            RestartSoftWare();
+        }
+
+
+        private void ListModeChoose_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Controls.MenuItem menu = (System.Windows.Controls.MenuItem)sender;
+            int tag = Convert.ToInt32(menu.Tag);
+            switch (tag)
+            {
+                case 1:
+                    listModeSingle.IsChecked = true;
+                    listModeDefault.IsChecked = false;
+                    listModeLoop.IsChecked = false;
+                    ModePlayTag = "RepeatPlay";
+                    break;
+                case 2:
+                    listModeSingle.IsChecked = false;
+                    listModeDefault.IsChecked = true;
+                    listModeLoop.IsChecked = false;
+                    ModePlayTag = "DefaultPlay";
+                    break;
+                case 3:
+                    listModeSingle.IsChecked = false;
+                    listModeDefault.IsChecked = false;
+                    listModeLoop.IsChecked = true;
+                    ModePlayTag = "LoopPlay";
+                    break;
+            }
+            SaveMode();
+        }
+
+        private void BtnScreen_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            int tag = Convert.ToInt32(btn.Tag);
+            //UI
+            Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
+            btnMain.Background = brush;
+            btnSecond.Background = brush;
+            switch (tag)
+            {
+                case 1:
+                    btnMain.Background = Brushes.DodgerBlue;
+                    curPlayProjector = "0";
+                    break;
+                case 2:
+                    btnSecond.Background = Brushes.DodgerBlue;
+                    curPlayProjector = "1";
+                    break;
+            }
+
+        }
+
+        private void BtnType_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            int tag = Convert.ToInt32(btn.Tag);
+            //UI
+            Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
+            btn4DM.Background = brush;
+            btn5D.Background = brush;
+            switch (tag)
+            {
+                case 1:
+                    btn4DM.Background = Brushes.DodgerBlue;
+                    curPlayType = "4DM";
+                    break;
+                case 2:
+                    btn5D.Background = Brushes.DodgerBlue;
+                    curPlayType = "5D";
+                    break;
+            }
+        }
+
+        private void BtnDefault_Click(object sender, RoutedEventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        private void BtnDOF_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            int tag = Convert.ToInt32(btn.Tag);
+            //UI
+            Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
+            btn2DOF.Background = brush;
+            btn3DOF.Background = brush;
+            btn6DOF.Background = brush;
+            switch (tag)
+            {
+                case 1:
+                    btn2DOF.Background = Brushes.DodgerBlue;
+                    curPlayDOF = "2DOF";
+                    break;
+                case 2:
+                    btn3DOF.Background = Brushes.DodgerBlue;
+                    curPlayDOF = "3DOF";
+                    break;
+                case 3:
+                    btn6DOF.Background = Brushes.DodgerBlue;
+                    curPlayDOF = "6DOF";
+                    break;
+            }
+        }
+
+        private void BtnPermission_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            int tag = Convert.ToInt32(btn.Tag);
+            Brush brush = new SolidColorBrush(Color.FromArgb(0xff,0x99,0x99,0x99));
+            btnAdmin.Background = brush;
+            btnUser.Background = brush;
+            switch(tag)
+            {
+                case 1:
+                    btnAdmin.Background = Brushes.DodgerBlue;
+                    curPermission = "TRUE";
+                    break;
+                case 2:
+                    btnUser.Background = Brushes.DodgerBlue;
+                    curPermission = "FALSE";
+                    break;
+            }
+        }
+
         #endregion
-
-        private void btnLtcMode_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
-
-        private void tabItemFC2_Unloaded(object sender, RoutedEventArgs e)
-        {
-           // MessageBox.Show("窗体 2");
-        }
-
-    
-
-        private void ChangeLanguage(String _currentLan)
-        {
-            ResourceDictionary dict = new ResourceDictionary();
-
-            if (_currentLan == "EN")
-            {
-                dict.Source = new Uri(@"Language\en-US.xaml", UriKind.Relative);
-
-                _currentLan = "CN";
-            }
-            else
-            {
-                dict.Source = new Uri(@"Language\zh-CN.xaml", UriKind.Relative);
-                _currentLan = "EN";
-            }
-
-            Application.Current.Resources.MergedDictionaries.Clear();
-            Application.Current.Resources.MergedDictionaries.Add(dict);
-            Application.Current.Resources.MergedDictionaries[0] = dict;
-        }
-
-    
 
         #region 播放窗体
         ///<summary>
@@ -1702,7 +1698,7 @@ namespace MoviePlayer
         /// </summary>
         private void timer_Tick(object sender, EventArgs e)
         {
-           // txtTime.Text = DateTime.Now.Hour.ToString("D2") + " : " + DateTime.Now.Minute.ToString("D2") + " : " + DateTime.Now.Second.ToString("D2");
+            // txtTime.Text = DateTime.Now.Hour.ToString("D2") + " : " + DateTime.Now.Minute.ToString("D2") + " : " + DateTime.Now.Second.ToString("D2");
 
             //中控指令
             //if (Module.controlCommand.Length == 12 || Module.controlCommand.Length == 13)
@@ -1848,7 +1844,6 @@ namespace MoviePlayer
                 }
             }
             showData();
-            //UdpSend.SendWrite();
             if (UserControlClass.MPPlayer.Position.TotalSeconds == 0)
             {
                 count++;
@@ -1861,15 +1856,19 @@ namespace MoviePlayer
             }
         }
 
+
+        /// <summary>
+        /// 清空数据显示栏的数据
+        /// </summary>
         private void ClearData()
-        {          
+        {
             pb1.Value = 0;
             pb2.Value = 0;
             pb3.Value = 0;
             txtPbVal1.Text = "0";
             txtPbVal2.Text = "0";
             txtPbVal3.Text = "0";
-            Brush brush = new SolidColorBrush(Color.FromArgb(0xff,0x99,0x99,0x99));
+            Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
 
             for (int i = 0; i < 8; i++)
             {
@@ -1882,6 +1881,10 @@ namespace MoviePlayer
             }
         }
 
+
+        /// <summary>
+        /// 显示动作数据与特效数据
+        /// </summary>
         private void showData()
         {
             int ii;
@@ -1898,12 +1901,9 @@ namespace MoviePlayer
                 ii = (int)Math.Round((ii / 50.0), 0);
                 //label.Content = "TimeCode: " + UdpConnect.strLongTimeCode;
             }
-
-            //textBox3.Text = ii.ToString();
-
             try
             {
-                if("6DOF".Equals(PlayDOF))
+                if ("6DOF".Equals(PlayDOF))
                 {
                     this.txtPbVal1.Text = Module.actionFile[6 * ii].ToString();
                     this.txtPbVal2.Text = Module.actionFile[6 * ii + 1].ToString();
@@ -1940,12 +1940,10 @@ namespace MoviePlayer
                     n = n << 1;
                     if (ev[i] == true)
                     {
-                        //checkBoxEvEffect[i].IsChecked = true;
                         checkBoxEvEffect[i].Background = Brushes.DodgerBlue;
                     }
                     else
                     {
-                        //checkBoxEvEffect[i].IsChecked = false;                      
                         checkBoxEvEffect[i].Background = brush;
                     }
                 }
@@ -1956,12 +1954,10 @@ namespace MoviePlayer
                     n = n << 1;
                     if (cEffect[i] == true)
                     {
-                        // checkBoxChairEffect[i].IsChecked = true;
                         checkBoxChairEffect[i].Background = Brushes.DodgerBlue;
                     }
                     else
                     {
-                        //checkBoxChairEffect[i].IsChecked = false;
                         checkBoxChairEffect[i].Background = brush;
                     }
                 }
@@ -1992,12 +1988,10 @@ namespace MoviePlayer
         /// <param name="e"></param>
         public void MPPlayer_MediaEnded(object sender, EventArgs e)
         {
-            //System.Windows.MessageBox.Show("停止");
             sliderTime.Value = 0;
             UserControlClass.MPPlayer.Position = new TimeSpan(0, 0, 0);
             UserControlClass.MPPlayer.Stop();
             UserControlClass.MSStatus = MediaStatus.Pause;
-            TSStatus = TimeStatus.FileTime;
             ChangeShowPlay();
             //重复播放
             if (ModePlayTag == "RepeatPlay" || ModePlayTag == "LoopPlay")
@@ -2006,7 +2000,6 @@ namespace MoviePlayer
                 string Currentname = UserControlClass.FileName;
                 //string aa = fullPathName;
                 ListPlay(Currentname);
-                ChangeShowTime();
                 ChangeShowPlay();
             }
             else
@@ -2067,7 +2060,6 @@ namespace MoviePlayer
             IsChangeValue = false;
         }
 
-  
 
         /// <summary>
         /// 声音轴控制
@@ -2102,7 +2094,6 @@ namespace MoviePlayer
                     ScreenJug();
                     memoryPlay = true;
                     ListPlay(ListView.SelectedItem.ToString());
-                    //textBox.Text = ListView.SelectedItem.ToString();
                     UserControlClass.MSStatus = MediaStatus.Pause;
                 }
             }
@@ -2122,9 +2113,9 @@ namespace MoviePlayer
             switch (ModePlayTag)
             {
                 case "RepeatPlay":
-                   listModeSingle.IsChecked = true;
-                   listModeDefault.IsChecked = false;
-                   listModeLoop.IsChecked = false;
+                    listModeSingle.IsChecked = true;
+                    listModeDefault.IsChecked = false;
+                    listModeLoop.IsChecked = false;
                     break;
                 case "DefaultPlay":
                     listModeSingle.IsChecked = false;
@@ -2194,11 +2185,11 @@ namespace MoviePlayer
             }
             else
             {
-                int num = ((UserControlClass.MPPlayer.Position.Hours * 0xe10) + (UserControlClass.MPPlayer.Position.Minutes * 60)) + UserControlClass.MPPlayer.Position.Seconds;                
+                int num = ((UserControlClass.MPPlayer.Position.Hours * 0xe10) + (UserControlClass.MPPlayer.Position.Minutes * 60)) + UserControlClass.MPPlayer.Position.Seconds;
                 string str = SetTime(UserControlClass.MPPlayer.Position.Hours) + ":" + SetTime(UserControlClass.MPPlayer.Position.Minutes) + ":" + SetTime(UserControlClass.MPPlayer.Position.Seconds);
                 txtTime.Text = string.Format("{0}/{1}", SetTime(UserControlClass.MPPlayer.Position.Hours) + ":" + SetTime(UserControlClass.MPPlayer.Position.Minutes) + ":" + SetTime(UserControlClass.MPPlayer.Position.Seconds), MediaCountTime);
                 sliderTime.Value = num;
-                string next = SetTime(UserControlClass.MPPlayer.Position.Hours) + ":" + SetTime(UserControlClass.MPPlayer.Position.Minutes) + ":" + SetTime(UserControlClass.MPPlayer.Position.Seconds);            
+                string next = SetTime(UserControlClass.MPPlayer.Position.Hours) + ":" + SetTime(UserControlClass.MPPlayer.Position.Minutes) + ":" + SetTime(UserControlClass.MPPlayer.Position.Seconds);
                 ChangeShowPlay();
             }
         }
@@ -2218,7 +2209,7 @@ namespace MoviePlayer
                     case MediaStatus.Pause:
                         btnImgPlay.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Play);
                         break;
-                    case MediaStatus.Play:                     
+                    case MediaStatus.Play:
                         btnImgPlay.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Pause);
                         break;
                 }
@@ -2254,7 +2245,6 @@ namespace MoviePlayer
                     }
                 }
             }
-            //SavePlayTime();
             PCink = PlayCamera.inkMediaPlay;
             ChangeshowInk();
             Microsoft.Win32.OpenFileDialog OpenFile = new Microsoft.Win32.OpenFileDialog();
@@ -2278,13 +2268,8 @@ namespace MoviePlayer
                     {
                         UserControlClass.MPPlayer.Close();
                     }
-                    //ListNodeName
                     ListNodeName = UserControlClass.FileName;
                     Open(fullPathName);
-                    //系统时间与播放时间切换
-                    TSStatus = TimeStatus.FileTime;
-                    ChangeShowTime();
-                    //SelectPlayTime();
                     double time = 0;
                     int intTime = 0;
                     if (memoryPlay)
@@ -2306,14 +2291,12 @@ namespace MoviePlayer
                 UserControlClass.MPPlayer.Close();
                 sliderTime.Value = 0;
                 UserControlClass.MSStatus = MediaStatus.Pause;
-                TSStatus = TimeStatus.SystemTime;
                 UserControlClass.sc2.Close();
                 UserControlClass.sc2.FInkCanvas_Player.Background = Brushes.White;
                 PCink = PlayCamera.inkMediaPlay;
                 ChangeshowInk();
                 txtTime.Text = "";
                 ChangeShowPlay();
-                ChangeShowTime();
                 RemoveFiles();
             }
         }
@@ -2383,7 +2366,6 @@ namespace MoviePlayer
         private void NewOpenPlay()
         {
             Play();
-            //ChangeshowInk();
             if ((UserControlClass.FileName.Contains(".mp3")) | (UserControlClass.FileName.Contains(".wma")) | (UserControlClass.FileName.Contains(".wav")) | (UserControlClass.FileName.Contains(".mid")))
             {
                 //UserControlClass.sc2.FInkCanvas_Player.Background = Brushes.White;
@@ -2405,8 +2387,6 @@ namespace MoviePlayer
                 }
                 SelectXml();
             }
-            //显示播放文件名
-           // tbText.Text = UserControlClass.FileName;
             ListView.SelectedValue = UserControlClass.FileName;
         }
 
@@ -2478,26 +2458,7 @@ namespace MoviePlayer
             return currentTime < 10 ? "0" + currentTime.ToString() : currentTime.ToString();
         }
 
-        /// <summary>
-        /// 显示与隐藏系统时间\文件时间
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void ChangeShowTime()
-        {
-            switch (TSStatus)
-            {
-                case TimeStatus.SystemTime:
-                    //tbSeek.Visibility = Visibility.Hidden;
-                    //tbTime.Visibility = Visibility.Visible;
-                    break;
-                case TimeStatus.FileTime:
-                   // tbTime.Visibility = Visibility.Hidden;
-                   // tbSeek.Visibility = Visibility.Visible;
-                    break;
-            }
-        }
-     
+
         /// <summary>
         /// 保存选择的播放模式
         /// </summary>
@@ -2535,8 +2496,8 @@ namespace MoviePlayer
                 ModePlayTag = element["Change"].InnerText;
                 ModeLightTag = element["ModeLight"].InnerText;
             }
-            //MenuModePlayTick(ModePlayTag, ModeLightTag);
         }
+
         /// <summary>
         /// 读取声音大小信息
         /// </summary>
@@ -2788,153 +2749,7 @@ namespace MoviePlayer
             return fullPathName;
         }
 
-        /// <summary>
-        /// 定义播放上一部
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PrePlayer()
-        {
-            FileInfo fileInfo = new FileInfo(MainWindow.playerPath + @"\XML\" + "List.xml");
-            //System.Windows.Forms.MessageBox.Show(""+ fileInfo);
-            if (fileInfo.Exists)
-            {
-                XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.Load(MainWindow.playerPath + @"\XML\" + "List.xml");
-                XmlNode xmlNode = xmlDoc.SelectSingleNode("Lists");
-                string lists = xmlNode.InnerText;
-                //System.Windows.Forms.MessageBox.Show(""+ lists);
-                if (!string.IsNullOrEmpty(lists) && !string.IsNullOrEmpty(UserControlClass.FileName))
-                {
-                    XmlNodeList nodes = xmlNode.SelectNodes("List");
-                    int i = 0;
-                    foreach (XmlNode node in nodes)
-                    {
-                        XmlElement element = (XmlElement)node;
-                        i++;
-                        if (UserControlClass.FileName.Equals(element["Name"].InnerText))
-                        {
-                            number = i;
-                        }
 
-                    }
-                    string name = "";
-                    if (ModePlayTag.Equals("RepeatPlay"))
-                    {
-                        name = ListView.Items[number - 1].ToString();
-                    }
-                    else
-                        if (ModePlayTag.Equals("OrderPlay"))
-                    {
-                        if (number == 1)
-                        {
-                            name = "";
-                        }
-                        else
-                        {
-                            name = ListView.Items[number - 2].ToString();
-                        }
-                    }
-                    else
-                            if (ModePlayTag.Equals("LoopPlay"))
-                    {
-                        if (number == 1)
-                        {
-                            name = ListView.Items[ListView.Items.Count - 1].ToString();
-                        }
-                        else
-                        {
-                            name = ListView.Items[number - 2].ToString();
-                        }
-                    }
-                    if (name == "")
-                    {
-                        fullPathName = "";
-                    }
-                    else
-                    {
-                        foreach (XmlNode node in nodes)
-                        {
-                            XmlElement element = (XmlElement)node;
-                            if (name.Equals(element["Name"].InnerText))
-                            {
-                                fullPathName = element["Path"].InnerText;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// 实现播放（上一部，下一部）
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PlayNextPre()
-        {
-            PCink = PlayCamera.inkMediaPlay;
-            ChangeshowInk();
-            Microsoft.Win32.OpenFileDialog OpenFile = new Microsoft.Win32.OpenFileDialog();
-            OpenFile.FileName = fullPathName;
-            UserControlClass.FileName = OpenFile.SafeFileName;
-
-            if (string.IsNullOrEmpty(fullPathName))
-            {
-                UserControlClass.MPPlayer.Close();
-                sliderTime.Value = 0;
-                UserControlClass.MSStatus = MediaStatus.Pause;
-                TSStatus = TimeStatus.SystemTime;
-                UserControlClass.sc2.FInkCanvas_Player.Background = Brushes.White;
-                PCink = PlayCamera.inkMediaPlay;
-                ChangeshowInk();
-                txtTime.Text = "";
-                ChangeShowPlay();
-                ChangeShowTime();
-            }
-            else
-            {
-                FileInfo finfo = new FileInfo("" + fullPathName + "");
-                if (finfo.Exists)
-                {
-                    UserControlClass.sc2.FInkCanvas_Player.Background = Brushes.White;
-                    UserControlClass.sc2.FInkCanvas_Player.Children.Clear();
-
-                    //播放flash文件判断
-                    if (UserControlClass.FileName.Contains(".swf"))
-                    {
-
-                    }
-                    else
-                    {
-                        Pause();
-                        //播放视频文件
-                        if (UserControlClass.MPPlayer.HasVideo)
-                        {
-                            UserControlClass.MPPlayer.Close();
-                        }
-                        Open(fullPathName);
-                        //系统时间与播放时间切换
-                        TSStatus = TimeStatus.FileTime;
-                        ChangeShowTime();
-                        UserControlClass.MPPlayer.Play();
-                    }
-                }
-                else
-                {
-                    UserControlClass.MPPlayer.Close();
-                    sliderTime.Value = 0;
-                    UserControlClass.MSStatus = MediaStatus.Pause;
-                    TSStatus = TimeStatus.SystemTime;
-                    UserControlClass.sc2.FInkCanvas_Player.Background = Brushes.White;
-                    PCink = PlayCamera.inkMediaPlay;
-                    ChangeshowInk();
-                    txtTime.Text = "";
-                    ChangeShowPlay();
-                    ChangeShowTime();
-                }
-            }
-        }
         /// <summary>
         /// 定义添加文件（按钮）
         /// </summary>
@@ -3045,14 +2860,14 @@ namespace MoviePlayer
             if (UserControlClass.sc2 == null || UserControlClass.sc2.IsVisible == false)
             {
                 UserControlClass.sc2 = new SecondScreen();
-            //    //把当前的player对象传给公共类
+                //把当前的player对象传给公共类
                 UserControlClass.sc2.Player = this;
                 UserControlClass.sc2.Show();
             }
             else
             {
                 //把当前的player对象传给公共类
-               UserControlClass.sc2.Player = this;
+                UserControlClass.sc2.Player = this;
                 UserControlClass.sc2.Activate();
                 UserControlClass.sc2.WindowState = WindowState.Normal;
             }
@@ -3063,23 +2878,6 @@ namespace MoviePlayer
                 this.WindowState = WindowState.Minimized;
             }
         }
-        /// <summary>
-        /// 初始位置为设置第一个屏的正中间位置
-        /// </summary>
-        private void Currentjug()
-        {
-            System.Windows.Forms.Screen[] sc;
-            sc = System.Windows.Forms.Screen.AllScreens;
-            if (sc.Length > 1)
-            {
-                var handle = new WindowInteropHelper(this).Handle;
-                //获取当前显示器屏幕
-                System.Windows.Forms.Screen screen = System.Windows.Forms.Screen.FromHandle(handle);
-                this.Left = (screen.WorkingArea.Width - this.Width) / 2;
-                this.Top = (screen.WorkingArea.Height - this.Height) / 2;
-            }
-        }
-
 
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -3186,13 +2984,11 @@ namespace MoviePlayer
                     UserControlClass.MPPlayer.Close();
                     sliderTime.Value = 0;
                     UserControlClass.FileName = null;
-                    TSStatus = TimeStatus.SystemTime;
                     UserControlClass.sc2.Close();
                     UserControlClass.sc2.FInkCanvas_Player.Background = Brushes.White;
                     PCink = PlayCamera.inkMediaPlay;
                     ChangeshowInk();
                     txtTime.Text = "";
-                    ChangeShowTime();
                 }
                 if (Module.timerMovie != null)
                 {
@@ -3204,42 +3000,27 @@ namespace MoviePlayer
             }
         }
 
-
-
         #endregion
 
-        private void btnImport_Click(object sender, RoutedEventArgs e)
+        #region 定时器初始化与定时器响应方法
+
+        /// <summary>
+        /// 排片定时器初始化
+        /// </summary>
+        private void TimerFilmInit()
         {
-            AddFiles();
+            timerFilm = new DispatcherTimer();
+            timerFilm.Interval = TimeSpan.FromSeconds(10);
+            timerFilm.Tick += new EventHandler(TimerFilm_Tick);
+            timerFilm.Start();
         }
 
-        private void btnImgPlay_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            btnPlayClickFun();
-        }
-
-        private void btnImgBack_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (UserControlClass.FileName != null && UserControlClass.FileName != "")
-            {
-                UserControlClass.MPPlayer.Position = UserControlClass.MPPlayer.Position - TimeSpan.FromSeconds(20);
-            }
-        }
-
-        private void btnImgNext_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (UserControlClass.FileName != null && UserControlClass.FileName != "")
-            {
-                UserControlClass.MPPlayer.Position = UserControlClass.MPPlayer.Position + TimeSpan.FromSeconds(20);
-            }
-        }
-
-        private void btnImgStop_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            btnStopClickFun();
-        }
-
-        private void timerFilm_tick(object sender, EventArgs e)
+        /// <summary>
+        /// 排片响应方法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TimerFilm_Tick(object sender, EventArgs e)
         {
             if ("4DM".Equals(PlayType))
             {
@@ -3276,80 +3057,150 @@ namespace MoviePlayer
             }
         }
 
-        private bool compareDateTime(string str1, string str2)
-        {
-            try
-            {
-                DateTime dt1 = new DateTime();
-                DateTime dt2 = new DateTime();
-                DateTime dt3 = new DateTime();
 
-                if (str1 != "" && str2 != "")
+        /// <summary>
+        /// 判断定时器初始化
+        /// </summary>
+        private void TimerJudgeInit()
+        {
+            timerJudge = new DispatcherTimer();
+            timerJudge.Interval = TimeSpan.FromSeconds(0.01);    //定时器周期为10ms 
+            timerJudge.Tick += new EventHandler(TimerJudge_Tick);
+            timerJudge.Start();
+        }
+
+
+        /// <summary>
+        /// 判断软件当前的状态
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TimerJudge_Tick(object sender, EventArgs e)
+        {
+            if (isSleep == false)
+            {
+                Thread.Sleep(2000);
+                isSleep = true;
+            }
+
+            if (UdpConnect.connectFlag == false)  //未与中控板连接    
+            {
+                if ("CN".Equals(PlayLanguage))
                 {
-                    dt1 = Convert.ToDateTime(str1);
-                    dt2 = Convert.ToDateTime(str2);
-                    dt3 = DateTime.Now;
+                    labConnect.Content = "未连接";
                 }
-                if (str1 != "" && str2 == "")
+                else
                 {
-                    dt1 = Convert.ToDateTime(str1);
-                    dt3 = DateTime.Now;
-                    return DateTime.Compare(dt3, dt1) >= 0;
+                    labConnect.Content = "Unconnected";
                 }
-                return DateTime.Compare(dt3, dt1) >= 0 && DateTime.Compare(dt3, dt2) < 0;
-
+                imgConnect.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_UnConnect);
+                LockSoftWare();
             }
-            catch (Exception)
+            else      //与中控板已连接
             {
-                //throw;
-                return false;
-            }
-
-        }
-
-        private void timerFilmInit()
-        {
-            timerFilm = new DispatcherTimer();
-            timerFilm.Interval = TimeSpan.FromSeconds(10);
-            timerFilm.Tick += new EventHandler(timerFilm_tick);
-            timerFilm.Start();
-        }
-
-        private void SelectMode()
-        {
-            if ("4DM".Equals(PlayType))
-            {
-                Module.readDefultFile();
-                if (memberData[0].Start != "" && memberData[0].End!="")
+                if (UdpConnect.isRegistered == false)  //软件到期或者未注册        
                 {
-                    timerFilmInit();
+                    if ("CN".Equals(PlayLanguage))
+                    {
+                        labConnect.Content = "未注册";
+                    }
+                    else
+                    {
+                        labConnect.Content = "UnRegistered";
+                    }
+                    imgConnect.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_UnRegister);
+                    LockSoftWare();
+                }
+                else  //软件正常打开            
+                {
+                    OpenSoftWare();
+                    if (isReset == 0)
+                    {
+                        UdpSend.SendReset();
+                        isReset = 1;
+                    }
+                    imgConnect.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Connected);
+                    if ("CN".Equals(PlayLanguage))
+                    {
+                        labConnect.Content = "连接成功";
+                    }
+                    else
+                    {
+                        labConnect.Content = "Connected";
+                    }
+                    if (Module.hintShow == true)
+                    {
+                        btnDateTips.Visibility = Visibility.Visible;
+                        if ("CN".Equals(PlayLanguage))
+                        {
+                            btnDateTips.Content = "提示：软件还有" + Module.deadlineDay + "天到期";
+                        }
+                        else
+                        {
+                            btnDateTips.Content = "Tips: The software expires in " + Module.deadlineDay + " days";
+                        }
+                    }
+                    if ("4DM".Equals(PlayType))
+                    {
+                        labLTC.Content = "TimeCode: " + UdpConnect.strLongTimeCode;
+                        showData();
+                    }
                 }
             }
         }
 
-        private void btnImgVReduce_MouseDown(object sender, MouseButtonEventArgs e)
+        /// <summary>
+        /// 调试定时器初始化
+        /// </summary>
+        private void TimerDebugInit()
         {
-            if (UserControlClass.FileName != null && UserControlClass.FileName != "")
-            {
-                sliderVol.Value = sliderVol.Value - 0.1;
-                UserControlClass.MPPlayer.Volume = sliderVol.Value;
-            }
+            timerDebug = new DispatcherTimer();
+            timerDebug.Interval = TimeSpan.FromSeconds(0.05);
+            timerDebug.Tick += new EventHandler(TimerDebug_Tick);
+            timerDebug.Start();
         }
 
-        private void btnImgVadd_MouseDown(object sender, MouseButtonEventArgs e)
+        /// <summary>
+        /// 调试定时器方法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TimerDebug_Tick(object sender, EventArgs e)
         {
-            if (UserControlClass.FileName != null && UserControlClass.FileName != "")
+            byte eEffect = 0;
+            byte cEffect = 0;
+            byte dataNumOne = 0;                  //1号缸的数据
+            byte dataNumTwo = 0;                  //2号缸的数据 
+            byte dataNumThree = 0;                //3号缸的数据
+
+            byte[] data;
+            byte[] array;          //data+addr+len 
+            byte[] Data;           //最终发送的数据
+
+            dataNumOne = (byte)(dataNum[2] * MainWindow.PlayHeight / 100);
+            dataNumTwo = (byte)(dataNum[1] * MainWindow.PlayHeight / 100);
+            dataNumThree = (byte)(dataNum[0] * MainWindow.PlayHeight / 100);
+
+            for (int i = 0; i < 8; i++)
             {
-                sliderVol.Value = sliderVol.Value + 0.1;
-                UserControlClass.MPPlayer.Volume = sliderVol.Value;
+                eEffect += dataEvEffect[i];
+                //label9.Content = eEffect.ToString();
             }
+            // eEffect = dataEvEffect[0];
+            for (int i = 0; i < 8; i++)
+            {
+                cEffect += dataChairEffect[i];
+            }
+
+            Debug.WriteLine(eEffect.ToString());
+
+            data = new byte[10] { dataNumOne, dataNumTwo, dataNumThree, 0, 0, 0, dataRate, dataFrame, cEffect, eEffect };
+            array = Protocol.ModbusUdp.ArrayAdd(0, (ushort)data.Length, data);
+            Data = Protocol.ModbusUdp.MBReqWrite(array);
+            UdpSend.UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
         }
 
-        private void btnDateTips_Click(object sender, RoutedEventArgs e)
-        {
-            RegisterWindow regwin = new RegisterWindow();
-            regwin.ShowDialog();
-        }
- 
+        #endregion
+
     }
 }

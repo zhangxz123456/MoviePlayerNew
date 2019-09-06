@@ -2,7 +2,8 @@
 <Type>
   <Style>5D</Style>
   <Language>CN</Language>
-  <DOF>3DOF</DOF>
+  <DOF>2DOF</DOF>
   <Height>100</Height>
   <Projector>0</Projector>
+  <Permission>FALSE</Permission>
 </Type>
