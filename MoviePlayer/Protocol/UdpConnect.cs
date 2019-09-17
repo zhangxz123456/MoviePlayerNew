@@ -58,6 +58,7 @@ namespace MoviePlayer.Protocol
                     UdpSend.UdpSendData(data, data.Length, UdpInit.BroadcastRemotePoint);
                     Debug.WriteLine("Search server");
                     Debug.WriteLine("连接" + data);
+                    //Module.WriteLogFile("重新连接");
                 }
 
                 else
@@ -79,6 +80,7 @@ namespace MoviePlayer.Protocol
                         monitorTickRx = 0;
                         monitorTickTimeOut = 0;
                         Debug.WriteLine("Connect lose...");
+                        Module.WriteLogFile("连接丢失");
                     }
 
                     if (monitorTick < 0xff)

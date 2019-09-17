@@ -8,6 +8,7 @@
     <sys:String x:Key="txtUpdateLog">Udate Log</sys:String>
     <sys:String x:Key="txtAboutUs">AboutUS</sys:String>
     <sys:String x:Key="txtParamSet">Parameters</sys:String>
+    <sys:String x:Key="txtProjectorSet">ProjectorSet</sys:String>
     <sys:String x:Key="txtEvEffect">EvEffect</sys:String>
     <sys:String x:Key="txtChairEffect">ChairEffect</sys:String>
     <sys:String x:Key="btnImport">Import</sys:String>
@@ -79,6 +80,13 @@
     <sys:String x:Key="btnAdmin">Admin</sys:String>
     <sys:String x:Key="btnUser">User</sys:String>
 
+    <sys:String x:Key="labProjectorType">ProjectorType</sys:String>
+    <sys:String x:Key="labProjector1">Projector1</sys:String>
+    <sys:String x:Key="labProjector2">Projector2</sys:String>
+    <sys:String x:Key="labProjectorIp">IpAddress</sys:String>
+    <sys:String x:Key="labProjectorPort">Port</sys:String>
+
+
     <!--注册窗体-->
     <sys:String x:Key="txtUserCode">UserCode</sys:String>
     <sys:String x:Key="txtInputReg">RegisterCode</sys:String>
@@ -109,6 +117,5 @@
     <sys:String x:Key="tipsControl">Control</sys:String>
     <sys:String x:Key="tipsAbout">About</sys:String>
     <sys:String x:Key="tipsSetting">Setting</sys:String>
-
 
 </ResourceDictionary>

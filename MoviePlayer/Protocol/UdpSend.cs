@@ -161,9 +161,9 @@ namespace MoviePlayer.Protocol
             int num1 = 6 * (int)(pos / 50);                  //actionFile数组下标
             int num2 = 6 * (int)(pos / 50) + 1;
             int num3 = 6 * (int)(pos / 50) + 2;
-            int num4 = 6 * (int)(pos / 50) + 2;
-            int num5 = 6 * (int)(pos / 50) + 2;
-            int num6 = 6 * (int)(pos / 50) + 2;
+            int num4 = 6 * (int)(pos / 50) + 3;
+            int num5 = 6 * (int)(pos / 50) + 4;
+            int num6 = 6 * (int)(pos / 50) + 5;
 
             int numEffect1 = 2 * (int)(pos / 50);                  //effectFile数组下标
             int numEffect2 = 2 * (int)(pos / 50) + 1;
@@ -218,7 +218,7 @@ namespace MoviePlayer.Protocol
                 else
                 {
 
-                    data[8] = Module.effectFile[numEffect2];                          //座椅特效  
+                    data[8] = Module.effectFile[numEffect2];                    //座椅特效  
                     //data[9] = Module.effectFile[num4];                        //环境特效 
                     data[9] = (byte)(Module.effectFile[numEffect1] | dataLight);
                 }

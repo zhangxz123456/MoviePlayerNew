@@ -117,6 +117,7 @@
     <Compile Include="SecondScreen.xaml.cs">
       <DependentUpon>SecondScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TCPServer\Class1.cs" />
     <Page Include="Forms\Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

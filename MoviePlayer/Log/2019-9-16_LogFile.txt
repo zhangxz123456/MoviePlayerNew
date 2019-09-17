@@ -1,0 +1,102 @@
+11:40:19 2019年9月16日 
+   重新连接
+11:40:52 2019年9月16日 
+   重新连接
+11:41:00 2019年9月16日 
+   消息:值不能为 null。
+参数名: ptr
+   在 System.Runtime.InteropServices.Marshal.GetDelegateForFunctionPointer(IntPtr ptr, Type t)
+   在 MoviePlayer.RegisterWindow.loadDllFile(String funcname, Int32 k, String userCode) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\RegisterWindow.xaml.cs:行号 252
+   在 MoviePlayer.RegisterWindow.getMd5FromFile() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\RegisterWindow.xaml.cs:行号 217
+   在 MoviePlayer.RegisterWindow.txtUserCode_TextChanged(Object sender, TextChangedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\RegisterWindow.xaml.cs:行号 126
+   在 System.Windows.Controls.TextChangedEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.TextBoxBase.OnTextChanged(TextChangedEventArgs e)
+   在 System.Windows.Controls.Primitives.TextBoxBase.OnTextContainerChanged(Object sender, TextContainerChangedEventArgs e)
+   在 System.Windows.Controls.TextBox.OnTextContainerChanged(Object sender, TextContainerChangedEventArgs e)
+   在 System.Windows.Documents.TextContainerChangedEventHandler.Invoke(Object sender, TextContainerChangedEventArgs e)
+   在 System.Windows.Documents.TextContainer.EndChange(Boolean skipEvents)
+   在 System.Windows.Documents.TextContainer.System.Windows.Documents.ITextContainer.EndChange(Boolean skipEvents)
+   在 System.Windows.Documents.TextRangeBase.EndChange(ITextRange thisRange, Boolean disableScroll, Boolean skipEvents)
+   在 System.Windows.Documents.TextRange.System.Windows.Documents.ITextRange.EndChange(Boolean disableScroll, Boolean skipEvents)
+   在 System.Windows.Documents.TextRange.ChangeBlock.System.IDisposable.Dispose()
+   在 System.Windows.Controls.TextBox.OnTextPropertyChanged(String oldText, String newText)
+   在 System.Windows.Controls.TextBox.OnTextPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.Controls.TextBox.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.TextBox.set_Text(String value)
+   在 MoviePlayer.RegisterWindow.change(TextBox text1) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\RegisterWindow.xaml.cs:行号 87
+   在 MoviePlayer.RegisterWindow.btnGetUserCode_Click(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\RegisterWindow.xaml.cs:行号 73
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ButtonBase.OnClick()
+   在 System.Windows.Controls.Button.OnClick()
+   在 System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(MouseButtonEventArgs e)
+   在 System.Windows.UIElement.OnMouseLeftButtonUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   在 System.Windows.UIElement.OnMouseUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+13:30:57 2019年9月16日 
+   连接丢失
+15:41:08 2019年9月16日 
+   连接丢失
+15:57:30 2019年9月16日 
+   连接丢失
+16:14:45 2019年9月16日 
+   连接丢失
+16:28:28 2019年9月16日 
+   连接丢失
+16:39:05 2019年9月16日 
+   连接丢失
+16:57:00 2019年9月16日 
+   连接丢失
+16:58:36 2019年9月16日 
+   调用线程无法访问此对象，因为另一个线程拥有该对象。
+16:59:20 2019年9月16日 
+   调用线程无法访问此对象，因为另一个线程拥有该对象。
+16:59:58 2019年9月16日 
+   调用线程无法访问此对象，因为另一个线程拥有该对象。
+17:02:11 2019年9月16日 
+   调用线程无法访问此对象，因为另一个线程拥有该对象。
+17:08:36 2019年9月16日 
+   连接丢失
+17:08:53 2019年9月16日 
+   调用线程无法访问此对象，因为另一个线程拥有该对象。
+17:24:06 2019年9月16日 
+   调用线程无法访问此对象，因为另一个线程拥有该对象。
+17:44:50 2019年9月16日 
+   连接丢失
+17:46:08 2019年9月16日 
+   调用线程无法访问此对象，因为另一个线程拥有该对象。
+17:53:46 2019年9月16日 
+   调用线程无法访问此对象，因为另一个线程拥有该对象。

@@ -177,6 +177,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"></RowDefinition>
                         <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <!--语言-->
@@ -202,6 +203,18 @@
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Resources/Icon_Set50X50.png" Grid.Column="0" Margin="0,5,0,5" MaxHeight="17"></Image>
                                 <TextBlock Name="txtParamSet" Text="{DynamicResource txtParamSet}" Foreground="White" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+                    <Button Name="btnProjectorSet" Tag="3"  Background="#FF545454" Style="{DynamicResource ButtonStyle1}" Grid.Row="2">
+                        <Button.Content>
+                            <Grid Width="149" x:Name="btnProjectorSetGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition MaxWidth="30"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="Resources/Icon_Projector.png" Grid.Column="0" Margin="0,5,0,5" MaxHeight="17"></Image>
+                                <TextBlock Name="txtProjectorSet" Text="{DynamicResource txtProjectorSet}" Foreground="White" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -994,9 +1007,9 @@
                                 <RowDefinition Height="40"/>
                             </Grid.RowDefinitions>
                             <Image Source="Resources/Image_Projector.png" Grid.Row="0" Margin="50,10,0,0" />
-                            <CheckBox Style="{DynamicResource SliderCheckBox}" Grid.Row="1" Margin="50,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" />
+                            <CheckBox Name="checkProjector1" Style="{DynamicResource SliderCheckBox}" Grid.Row="1" Margin="50,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" Tag="1"/>
                             <Image Source="Resources/Image_Projector.png" Grid.Row="2" Margin="50,10,0,0" />
-                            <CheckBox Style="{DynamicResource SliderCheckBox}" Grid.Row="3" Margin="50,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" />
+                            <CheckBox Name="checkProjector3" Style="{DynamicResource SliderCheckBox}" Grid.Row="3" Margin="50,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" Tag="3" />
                         </Grid>
                         <Grid  Margin="0,0,0,0" Grid.Row="1" Grid.Column="3" Background="#FF737373" Grid.ColumnSpan="3" >
                             <Grid.RowDefinitions>
@@ -1006,9 +1019,9 @@
                                 <RowDefinition Height="40"/>
                             </Grid.RowDefinitions>
                             <Image Source="Resources/Image_Projector.png" Grid.Row="0" Margin="0,10,60,0" VerticalAlignment="Bottom"/>
-                            <CheckBox Style="{DynamicResource SliderCheckBox}" Grid.Row="1"  Margin="0,0,60,0" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                            <CheckBox Name="checkProjector2" Style="{DynamicResource SliderCheckBox}" Grid.Row="1"  Margin="0,0,60,0" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Center" Tag="2"  />
                             <Image Source="Resources/Image_Projector.png" Grid.Row="2" Margin="0,10,60,0" VerticalAlignment="Bottom"/>
-                            <CheckBox Style="{DynamicResource SliderCheckBox}" Grid.Row="3" Margin="0,0,60,0" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}"   VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                            <CheckBox Name="checkProjector4" Style="{DynamicResource SliderCheckBox}" Grid.Row="3" Margin="0,0,60,0" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}"   VerticalAlignment="Center" HorizontalAlignment="Center" Tag="4" />
                         </Grid>
                     </Grid>
                     <Grid  x:Name="gridDoor" Margin="-1,1,0,-1"  Background="#FF878787" Grid.Row="1">
@@ -1180,7 +1193,7 @@
                                 <ColumnDefinition Width="150"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Label Content="{DynamicResource labProperty}" Grid.Row="0" Margin="10,8,10,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Left"></Label>
-                            
+
                             <Label Content="{DynamicResource labDOF}" Grid.Row="1" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
                             <Button x:Name="btn2DOF" Tag="1" Content="{DynamicResource btn2DOF}" Style="{DynamicResource FilletButton}" Grid.Row="1" Grid.Column="1" Margin="22,10,15,10">
                                 <Button.Background>
@@ -1206,7 +1219,7 @@
                                     </LinearGradientBrush>
                                 </Button.Background>
                             </Button>
-                            
+
                             <Label Content="{DynamicResource labType}" Grid.Row="2" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
                             <Button x:Name="btn4DM" Content="{DynamicResource btn4DM}" Style="{DynamicResource FilletButton}" Grid.Row="2" Grid.Column="1" Margin="22,10,15,10" Tag="1">
                                 <Button.Background>
@@ -1290,6 +1303,85 @@
                             </Button>
                         </Grid>
                     </TabItem>
+                    <TabItem Name="tabItemSet3" Style="{DynamicResource TabItemStyle2}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition ></RowDefinition>
+                                <RowDefinition Height="70"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110"></ColumnDefinition>
+                                <ColumnDefinition Width="90"></ColumnDefinition>
+                                <ColumnDefinition Width="90"></ColumnDefinition>
+                                <ColumnDefinition Width="90"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="{DynamicResource labProjectorType}" Grid.Row="0" Margin="-1,8,0,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Left"></Label>
+                            <ComboBox x:Name="comboBox" HorizontalAlignment="Center" Grid.Row="0"  VerticalAlignment="Center"  Grid.ColumnSpan="2"  Grid.Column="1" Background="Black" Margin="20,20,16,20" Width="144">
+                                <ComboBoxItem Content="松下"></ComboBoxItem>
+                                <ComboBoxItem Content="索尼"></ComboBoxItem>
+                            </ComboBox>
+                            <Label Content="{DynamicResource labProjector1}" Grid.Row="1" Margin="-1,8,0,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Left"></Label>
+                            <Label Content="{DynamicResource labProjectorIp}" Grid.Row="2" Margin="-1,8,0,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Center"></Label>
+                            <Label Content="{DynamicResource labProjectorPort}" Grid.Row="3" Margin="-1,8,0,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Center"></Label>
+                            <TextBox Name="txtIpProjector1" Text="" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                        <Setter Property="BorderBrush" Value="#FF999999"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <TextBox Name="txtPortProjector1" Text="" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                        <Setter Property="BorderBrush" Value="#FF999999"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+
+                            <Label Content="{DynamicResource labProjector2}" Grid.Row="4" Margin="-1,8,0,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Left"></Label>
+                            <Label Content="{DynamicResource labProjectorIp}" Grid.Row="5" Margin="-1,8,0,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Center"></Label>
+                            <Label Content="{DynamicResource labProjectorPort}" Grid.Row="6" Margin="-1,8,0,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Center"></Label>
+                            <TextBox Name="txtIpProjector2" Text="" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                        <Setter Property="BorderBrush" Value="#FF999999"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <TextBox Name="txtPortProjector2" Text="" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                        <Setter Property="BorderBrush" Value="#FF999999"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <Button x:Name="btnConfirmProjector" Content="{DynamicResource btnConfirm}" Style="{DynamicResource FilletButton}" Grid.Row="8" Grid.Column="7"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" >
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+
+                        </Grid>
+                    </TabItem>
+
                 </TabControl>
 
             </TabItem>

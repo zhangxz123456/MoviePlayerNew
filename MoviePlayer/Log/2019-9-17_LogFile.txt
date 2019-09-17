@@ -1,0 +1,165 @@
+15:18:09 2019年9月17日 
+   连接丢失
+15:40:45 2019年9月17日 
+   连接丢失
+15:54:54 2019年9月17日 
+   连接丢失
+15:55:26 2019年9月17日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.ControlPlayAgain(Boolean isConnect) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 3553
+   在 MoviePlayer.MainWindow.btnPlayClickFun() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 3103
+   在 MoviePlayer.MainWindow.btnImgPlay_MouseDown(Object sender, MouseButtonEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1669
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:56:46 2019年9月17日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.ControlPlay(Boolean isConnect, Int32 num) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 3523
+   在 MoviePlayer.MainWindow.btnPlayClickFun() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 3103
+   在 MoviePlayer.MainWindow.btnImgPlay_MouseDown(Object sender, MouseButtonEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1669
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:58:40 2019年9月17日 
+   消息:远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer)
+   在 MoviePlayer.MainWindow.ControlPlayAgain(Boolean isConnect) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 3553
+   在 MoviePlayer.MainWindow.btnPlayClickFun() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 3112
+   在 MoviePlayer.MainWindow.btnImgPlay_MouseDown(Object sender, MouseButtonEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1669
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+16:05:38 2019年9月17日 
+   连接有误
+16:05:40 2019年9月17日 
+   连接有误
+16:09:08 2019年9月17日 
+   连接有误
+16:09:10 2019年9月17日 
+   连接有误
+16:09:20 2019年9月17日 
+   连接有误
+16:09:24 2019年9月17日 
+   连接有误
+16:09:29 2019年9月17日 
+   一个封锁操作被对 WSACancelBlockingCall 的调用中断。
+16:09:53 2019年9月17日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.CloseTCPServer() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 3486
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 347
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+16:09:56 2019年9月17日 
+   一个封锁操作被对 WSACancelBlockingCall 的调用中断。
+16:11:04 2019年9月17日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.CloseTCPServer() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 3486
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 347
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+16:11:06 2019年9月17日 
+   一个封锁操作被对 WSACancelBlockingCall 的调用中断。
+16:12:07 2019年9月17日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.CloseTCPServer() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 3486
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 347
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+16:12:08 2019年9月17日 
+   一个封锁操作被对 WSACancelBlockingCall 的调用中断。
+16:13:40 2019年9月17日 
+   无法访问已释放的对象。
+对象名:“System.Net.Sockets.Socket”。
+16:14:05 2019年9月17日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.CloseTCPServer() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 3492
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 347
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+16:14:06 2019年9月17日 
+   一个封锁操作被对 WSACancelBlockingCall 的调用中断。
+16:41:32 2019年9月17日 
+   连接丢失
+16:57:20 2019年9月17日 
+   连接丢失
+17:19:42 2019年9月17日 
+   连接丢失
+17:34:52 2019年9月17日 
+   连接丢失
+17:50:16 2019年9月17日 
+   连接丢失
+17:50:25 2019年9月17日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:1037
+17:50:28 2019年9月17日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:1037
+17:51:08 2019年9月17日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:1037
+17:53:01 2019年9月17日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:1037

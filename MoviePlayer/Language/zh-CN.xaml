@@ -8,6 +8,7 @@
     <sys:String x:Key="txtUpdateLog">更新日志</sys:String>
     <sys:String x:Key="txtAboutUs">关于我们</sys:String>
     <sys:String x:Key="txtParamSet">参数设置</sys:String>
+    <sys:String x:Key="txtProjectorSet">投影机设置</sys:String>
     <sys:String x:Key="txtEvEffect">环境特效</sys:String>
     <sys:String x:Key="txtChairEffect">座椅特效</sys:String>
     <sys:String x:Key="btnImport">导入影片</sys:String>
@@ -81,6 +82,12 @@
     <sys:String x:Key="labPermission">权限</sys:String>
     <sys:String x:Key="btnAdmin">管理员</sys:String>
     <sys:String x:Key="btnUser">用户</sys:String>
+
+    <sys:String x:Key="labProjectorType">投影机类型</sys:String>
+    <sys:String x:Key="labProjector1">投影机1</sys:String>
+    <sys:String x:Key="labProjector2">投影机2</sys:String>
+    <sys:String x:Key="labProjectorIp">IP地址</sys:String>
+    <sys:String x:Key="labProjectorPort">端口号</sys:String>
 
     <sys:String x:Key="btnDefault">恢复默认</sys:String>
     <sys:String x:Key="btnConfirm">确定</sys:String>

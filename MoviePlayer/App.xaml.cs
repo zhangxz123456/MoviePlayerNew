@@ -17,8 +17,30 @@ namespace MoviePlayer
         bool sysLang;
         public App()
         {
+            //在异常由应用程序引发但未进行处理时发生。主要指的是UI线程。
+            this.DispatcherUnhandledException += new System.Windows.Threading.DispatcherUnhandledExceptionEventHandler(App_DispatcherUnhandledException);
+            //  当某个异常未被捕获时出现。主要指的是非UI线程
+            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
             sysLang = IsChineseSimple();
             this.Startup += new StartupEventHandler(App_StartUp);
+        }
+
+        void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            //可以记录日志并转向错误bug窗口友好提示用户
+            if (e.ExceptionObject is System.Exception)
+            {
+                Exception ex = (System.Exception)e.ExceptionObject;
+                MessageBox.Show(ex.Message);
+                Module.WriteLogFile(ex.Message);
+            }
+        }
+        void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            //可以记录日志并转向错误bug窗口友好提示用户
+            e.Handled = true;
+            MessageBox.Show("Error:" + e.Exception.Message);
+            Module.WriteLogFile("消息:" + e.Exception.Message + "\r\n" + e.Exception.StackTrace);
         }
 
         void App_StartUp(object sender, StartupEventArgs e)

@@ -529,7 +529,7 @@ namespace MoviePlayer
         public static void WriteLogFile(string input)
         {
             ///指定日志文件的目录
-            string fname = ".\\" +
+            string fname = MainWindow.playerPath + @"\Log\" +
             DateTime.Now.Year + '-' +
             DateTime.Now.Month + '-' +
             DateTime.Now.Day + "_LogFile" + ".txt";

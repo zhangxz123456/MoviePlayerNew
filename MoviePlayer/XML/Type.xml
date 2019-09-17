@@ -2,8 +2,16 @@
 <Type>
   <Style>5D</Style>
   <Language>CN</Language>
-  <DOF>2DOF</DOF>
+  <DOF>3DOF</DOF>
   <Height>100</Height>
   <Projector>0</Projector>
   <Permission>FALSE</Permission>
+  <Projector1>
+    <IP>3234</IP>
+    <Port>23442</Port>
+  </Projector1>
+  <Projector2>
+    <IP>234234</IP>
+    <Port>2342424</Port>
+  </Projector2>
 </Type>

@@ -25,6 +25,8 @@ using System.Timers;
 using System.Xml.XPath;
 using System.Windows.Interop;
 using System.Threading;
+using System.Net.Sockets;
+using System.Net;
 
 namespace MoviePlayer
 {
@@ -97,6 +99,11 @@ namespace MoviePlayer
         public static double PlayHeight;             //高度数据  100为原始数据 90为百分90行程数据
         public static string PlayProjector;          //设置播放画面显示在主屏还是副屏  参数分别为0或1
         public static string PlayPermission;         //用户权限 TRUE为管理员模式 FALSE为用户模式
+        public static string PlayProjector1IP;
+        public static string PlayProjector1Port;
+        public static string PlayProjector2IP;
+        public static string PlayProjector2Port;
+
         private int isReset;                         //验证软件正常打开后发复位指令（只发第一次）
         private bool isSleep;
 
@@ -111,6 +118,19 @@ namespace MoviePlayer
         byte dataFrame;   //频率
         byte dataRate;    //幅度
         public static bool isLogin;
+        //用于客户端的Socket
+        Socket tcpClient;
+        //用于服务器通信的Socket
+        Socket socketSend;
+        //用于监听的SOCKET
+        Socket socketWatch;
+        //用于客户端控制融合软件
+        Socket tcpControlClient;
+
+        //创建监听连接的线程
+        Thread AcceptSocketThread;
+        //接收客户端发送消息的线程
+        Thread threadReceive;
 
         public class Member : INotifyPropertyChanged
         {
@@ -275,6 +295,8 @@ namespace MoviePlayer
         UdpInit myUdpInit = new UdpInit();
         public bool timerStart;
         int count;
+
+
         #region 构造函数
         public MainWindow()
         {
@@ -319,12 +341,15 @@ namespace MoviePlayer
             NewLoaded();
             TypeShow();
             MenuModePlayTick();
+            MyServer();
+            
         }
 
         private void MainWindow_Closed(object sender, EventArgs e)
         {
             SaveVolume();
             UdpSend.SendZero();
+            CloseTCPServer();
             System.Windows.Application.Current.Shutdown();
         }
 
@@ -353,6 +378,17 @@ namespace MoviePlayer
             rb5.Checked += Rb_Checked;
             rb6.Checked += Rb_Checked;
 
+            checkProjector1.Checked += Projector_Checked;
+            checkProjector2.Checked += Projector_Checked;
+            checkProjector3.Checked += Projector_Checked;
+            checkProjector4.Checked += Projector_Checked;
+
+            checkProjector1.Click += Projector_Click;
+            checkProjector2.Click += Projector_Click;
+            checkProjector3.Click += Projector_Click;
+            checkProjector4.Click += Projector_Click;
+
+
             rb1.Click += Rb_Click;
             rb2.Click += Rb_Click;
             rb3.Click += Rb_Click;
@@ -371,6 +407,7 @@ namespace MoviePlayer
 
             btnLang.Click += BtnSet_Click;
             btnParamSet.Click += BtnSet_Click;
+            btnProjectorSet.Click += BtnSet_Click;
 
             btnImgBack.MouseEnter += BtnImgBack_MouseEnter;
             btnImgBack.MouseLeave += BtnImgBack_MouseLeave;
@@ -411,6 +448,7 @@ namespace MoviePlayer
             btnSprayAir.Click += BtnChairEffect_Click;
             btnPushBack.Click += BtnChairEffect_Click;
 
+            btnConfirmProjector.Click += BtnConfirmProjector_Click;
             btnConfirm.Click += BtnConfirm_Click;
             btnDefault.Click += BtnDefault_Click;
             btnEN.Click += BtnSetLang_Click;
@@ -447,7 +485,126 @@ namespace MoviePlayer
             checkBoxChairEffect = new CheckBox[8] { cbCv7, cbCv8, cbCv1, cbCv2, cbCv3, cbCv4, cbCv5, cbCv6 };
         }
 
+      
 
+        #region 控制台控制投影机
+        private void Projector_Click(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkbox = sender as CheckBox;
+            int tag = Convert.ToInt32(checkbox.Tag);
+            switch (tag)
+            {
+                case 1:
+                    if (checkProjector1.IsChecked == true)
+                    {
+                        bool isConnect = TcpClientConnect(txtIpProjector1.Text, txtPortProjector1.Text);
+                        OpenProjector(isConnect);
+                    }
+                    else
+                    {
+                        bool isConnect = TcpClientConnect(txtIpProjector1.Text, txtPortProjector1.Text);
+                        CloseProjector(isConnect);
+                    }
+                    break;
+                case 2:
+                    if (checkProjector2.IsChecked == true)
+                    {
+                        bool isConnect = TcpClientConnect(txtIpProjector2.Text, txtPortProjector2.Text);
+                        OpenProjector(isConnect);
+                    }
+                    else
+                    {
+                        bool isConnect = TcpClientConnect(txtIpProjector2.Text, txtPortProjector2.Text);
+                        CloseProjector(isConnect);
+                    }
+                    break;
+                case 3:
+                    if (checkProjector3.IsChecked == true)
+                    {
+                        MessageBox.Show("3开");
+                    }
+                    else
+                    {
+                        MessageBox.Show("3关");
+                    }
+                    break;
+                case 4:
+                    if (checkProjector4.IsChecked == true)
+                    {
+                        MessageBox.Show("4开");
+                    }
+                    else
+                    {
+                        MessageBox.Show("4关");
+                    }
+                    break;
+            }
+        }
+
+        private void Projector_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkbox = sender as CheckBox;
+            int tag = Convert.ToInt32(checkbox.Tag);
+            switch(tag)
+            {
+                case 1:
+                    //MessageBox.Show("1");
+                    break;
+                case 2:
+                    //MessageBox.Show("2");
+                    break;
+                case 3:
+                    //MessageBox.Show("3");
+                    break;
+                case 4:
+                    //MessageBox.Show("4");
+                    break;
+            }
+        }
+
+        private bool TcpClientConnect(string ip, string port)
+        {
+            try
+            {
+                tcpClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                tcpClient.Connect(UdpInit.transformIP(ip, port));
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("连接有误");
+                return false;
+            }
+        }
+
+        private void TcpClientClose()
+        {
+            if (tcpClient.Connected)
+            {
+                tcpClient.Close();
+            }
+        }
+
+        private void OpenProjector(bool isConnect)
+        {          
+            if (isConnect)
+            {
+                byte[] data1 = { 0x30, 0x30, 0x50, 0x4F, 0x4E, 0x0D };
+                tcpClient.Send(data1);
+                TcpClientClose();
+            }
+        }
+
+        private void CloseProjector(bool isConnect)
+        {            
+            if (isConnect)
+            {
+                byte[] data2 = { 0x30, 0x30, 0x50, 0x4F, 0x46, 0x0D };
+                tcpClient.Send(data2);
+                TcpClientClose();
+            }
+        }
+        #endregion
         /// <summary>
         /// 选择语言文件
         /// </summary>
@@ -511,6 +668,32 @@ namespace MoviePlayer
                 xmlDoc.Save(path);
             }
         }
+
+        /// <summary>
+        /// 保存参数设置数据
+        /// </summary>
+        private void SaveProjector()
+        {
+            string path = MainWindow.playerPath + @"\XML\" + "Type.xml";
+            FileInfo finfo = new FileInfo(path);
+            if (finfo.Exists)
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(path);
+                XmlNode childNodes = xmlDoc.SelectSingleNode("Type");
+                XmlNode childNodeNext = childNodes.SelectSingleNode("Projector1");
+                XmlElement element = (XmlElement)childNodeNext;
+                element["IP"].InnerText = txtIpProjector1.Text;
+                element["Port"].InnerText = txtPortProjector1.Text;
+                childNodeNext = childNodes.SelectSingleNode("Projector2");
+                element = (XmlElement)childNodeNext;
+                element["IP"].InnerText = txtIpProjector2.Text;
+                element["Port"].InnerText = txtPortProjector2.Text;
+                xmlDoc.Save(path);
+            }
+        }
+
+
 
         /// <summary>
         /// 保存当前选择的语言状态
@@ -893,6 +1076,26 @@ namespace MoviePlayer
                 PlayHeight = Double.Parse(element["Height"].InnerText);
                 PlayProjector = element["Projector"].InnerText;
                 PlayPermission = element["Permission"].InnerText;
+
+                XmlNode childNodeNext = childNodes.SelectSingleNode("Projector1");
+                XmlElement elementNext = (XmlElement)childNodeNext;
+                PlayProjector1IP = elementNext["IP"].InnerText;
+                PlayProjector1Port = elementNext["Port"].InnerText;
+
+                childNodeNext = childNodes.SelectSingleNode("Projector2");
+                elementNext = (XmlElement)childNodeNext;
+                PlayProjector2IP = elementNext["IP"].InnerText;
+                PlayProjector2Port = elementNext["Port"].InnerText;
+
+                XmlNodeList nodes = childNodes.SelectNodes("Projector1");
+                foreach (XmlNode node in nodes)
+                {
+                    XmlElement element1 = (XmlElement)node;
+                    string[] subItems = new string[3];
+                    subItems[0] = element1["IP"].InnerText;
+                    subItems[1] = element1["Port"].InnerText;
+                }
+
             }
         }
 
@@ -1042,7 +1245,6 @@ namespace MoviePlayer
                 Grid.SetColumn(tabControlShow, 2);
                 Grid.SetColumnSpan(tabControlShow, 1);
                 tabSetFlag = 1;
-
             }
             else
             {
@@ -1286,6 +1488,7 @@ namespace MoviePlayer
             Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x54, 0x54, 0x54));
             btnLangGrid.Background = brush;
             btnParamSetGrid.Background = brush;
+            btnProjectorSet.Background = brush;
             switch (tag)
             {
                 case 1:
@@ -1303,8 +1506,17 @@ namespace MoviePlayer
                         tabControlSet.SelectedIndex = 1;
                     }
                     break;
+                case 3:
+                    btnProjectorSet.Background = Brushes.DodgerBlue;
+                    tabControlSet.SelectedIndex = 2;
+                    break;
             }
 
+        }
+
+        private void BtnConfirmProjector_Click(object sender, RoutedEventArgs e)
+        {
+            SaveProjector();
         }
 
         private void OpenLoginWin()
@@ -2095,6 +2307,8 @@ namespace MoviePlayer
                     memoryPlay = true;
                     ListPlay(ListView.SelectedItem.ToString());
                     UserControlClass.MSStatus = MediaStatus.Pause;
+                    bool isConnect = TcpControlClientConnect("192.168.1.109","1037");
+                    ControlPlay(isConnect,index);
                 }
             }
             catch (Exception)
@@ -2946,11 +3160,18 @@ namespace MoviePlayer
                         memoryPlay = true;
                         ListPlay(ListView.SelectedItem.ToString());
                         UserControlClass.MSStatus = MediaStatus.Pause;
+                        bool isConnect = TcpControlClientConnect("192.168.1.109", "1037");
+                        ControlPlay(isConnect,index);
                     }
                 }
                 if (UserControlClass.MSStatus == MediaStatus.Pause)
                 {
                     UserControlClass.MSStatus = MediaStatus.Play;
+                    if (UserControlClass.FileName == filename)
+                    {
+                        bool isConnect = TcpControlClientConnect("192.168.1.109","1037");
+                        ControlPlayAgain(isConnect);
+                    }
                     if (UserControlClass.sc2.WindowState == WindowState.Minimized)
                     {
                         UserControlClass.sc2.Activate();
@@ -2962,6 +3183,8 @@ namespace MoviePlayer
                 {
                     UserControlClass.MSStatus = MediaStatus.Pause;
                     Pause();
+                    bool isConnect = TcpControlClientConnect("192.168.1.109", "1037");
+                    ControlPause(isConnect);
                 }
                 ChangeShowPlay();
             }
@@ -2989,6 +3212,8 @@ namespace MoviePlayer
                     PCink = PlayCamera.inkMediaPlay;
                     ChangeshowInk();
                     txtTime.Text = "";
+                    bool isConnect = TcpControlClientConnect("192.168.1.109", "1037");
+                    ControlStop(isConnect);
                 }
                 if (Module.timerMovie != null)
                 {
@@ -3199,6 +3424,202 @@ namespace MoviePlayer
             Data = Protocol.ModbusUdp.MBReqWrite(array);
             UdpSend.UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
         }
+
+        #endregion
+
+        #region TCP服务器
+        /// <summary>
+        /// 开始监听
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MyServer()
+        {
+            //当点击开始监听的时候 在服务器端创建一个负责监听IP地址和端口号的Socket
+            socketWatch = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            //获取ip地址
+            IPAddress ip = IPAddress.Parse("192.168.1.109");
+            //创建端口号
+            IPEndPoint point = new IPEndPoint(ip, 1036);
+            //绑定IP地址和端口号
+            socketWatch.Bind(point);
+            //this.txt_Log.AppendText("监听成功" + " \r \n");
+            //开始监听:设置最大可以同时连接多少个请求
+            socketWatch.Listen(10);
+
+            //创建线程
+            AcceptSocketThread = new Thread(new ParameterizedThreadStart(StartListen));
+            AcceptSocketThread.IsBackground = true;
+            AcceptSocketThread.Start(socketWatch);
+        }
+
+        /// <summary>
+        /// 等待客户端的连接，并且创建与之通信用的Socket
+        /// </summary>
+        /// <param name="obj"></param>
+        private void StartListen(object obj)
+        {
+            Socket socketWatch = obj as Socket;
+            while (true)
+            {
+                //等待客户端的连接，并且创建一个用于通信的Socket
+                socketSend = socketWatch.Accept();
+                //获取远程主机的ip地址和端口号
+                string strIp = socketSend.RemoteEndPoint.ToString();
+                string strMsg = "远程主机：" + socketSend.RemoteEndPoint + "连接成功";
+
+                //定义接收客户端消息的线程
+                threadReceive = new Thread(new ParameterizedThreadStart(ReceiveData));
+                threadReceive.IsBackground = true;
+                threadReceive.Start(socketSend);
+
+            }
+        }
+
+        /// <summary>
+        /// 服务器端不停的接收客户端发送的消息
+        /// </summary>
+        /// <param name="obj"></param>
+        private void ReceiveData(object obj)
+        {
+            Socket socketSend = obj as Socket;
+            while (true)
+            {
+                //客户端连接成功后，服务器接收客户端发送的消息
+                byte[] buffer = new byte[2048];
+                //实际接收到的有效字节数
+                int count = socketSend.Receive(buffer);
+                if (count == 0)//count 表示客户端关闭，要退出循环
+                {
+                    break;
+                }
+                else
+                {
+                    if (count == 5)
+                    {
+                        if (buffer[0] == 0xff && buffer[1] == 0x30 && buffer[2] == 0x4a)
+                        {
+                            this.Dispatcher.Invoke(new Action(() =>
+                            {
+                                ListView.SelectedIndex = (int)buffer[3];
+                                btnPlayClickFun();
+                            }));
+                        }
+                    }
+                    if (count == 4)
+                    {
+                        if (buffer[0] == 0xff && buffer[1] == 0x31 && buffer[2] == 0x4b)
+                        {
+                            this.Dispatcher.Invoke(new Action(() =>
+                            {
+                                btnPlayClickFun();
+                            }));
+                        }
+                        if (buffer[0] == 0xff && buffer[1] == 0x32 && buffer[2] == 0x4c)
+                        {
+                            string index = buffer[3].ToString();
+                            this.Dispatcher.Invoke(new Action(() =>
+                            {
+                                btnStopClickFun();
+                            }));
+                        }
+                        if (buffer[0] == 0xff && buffer[1] == 0x33 && buffer[2] == 0x4d)
+                        {
+                            this.Dispatcher.Invoke(new Action(() =>
+                            {
+                                btnPlayClickFun();
+                            }));
+                        }
+                    }
+
+                }
+            }
+        }
+
+        /// <summary>
+        /// 停止监听
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CloseTCPServer()
+        {
+            //AcceptSocketThread.Abort();
+            //threadReceive.Abort();
+            //socketWatch.Close();
+            //if (socketSend != null)
+            //{
+            //    socketSend.Close();
+            //}
+            //终止线程
+        }
+        #endregion
+
+        #region TCP客户端
+        private bool TcpControlClientConnect(string ip, string port)
+        {
+            try
+            {
+                tcpControlClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                tcpControlClient.Connect(UdpInit.transformIP(ip, port));
+                return true;
+            }
+            catch(Exception e)
+            {
+                //MessageBox.Show("连接有误"+e.Message);
+                Module.WriteLogFile(e.Message);
+                return false;
+            }
+        }
+
+        private void TcpControlClientClose()
+        {
+            if (tcpControlClient.Connected)
+            {
+                tcpControlClient.Close();
+            }
+        }
+
+        private void ControlPlay(bool isConnect,int num)
+        {
+            if (isConnect)
+            {
+                num = num + 1;
+                byte[] data1 = { 0xFF, 0x30, 0x4A, (byte)num, 0xEE };
+                tcpControlClient.Send(data1);
+                TcpControlClientClose();
+            }
+        }
+
+        private void ControlPause(bool isConnect)
+        {
+            if (isConnect)
+            {
+                byte[] data2 = { 0xFF, 0x31, 0x4B, 0xEE};
+                tcpControlClient.Send(data2);
+                TcpControlClientClose();
+            }
+        }
+
+        private void ControlStop(bool isConnect)
+        {
+            if (isConnect)
+            {
+                byte[] data2 = { 0xFF, 0x32, 0x4C, 0xEE};
+                tcpControlClient.Send(data2);
+                TcpControlClientClose();
+            }
+        }
+
+        private void ControlPlayAgain(bool isConnect)
+        {
+            if (isConnect)
+            {
+                byte[] data2 = { 0xFF, 0x33, 0x4D, 0xEE};
+                tcpControlClient.Send(data2);
+                TcpControlClientClose();
+            }
+        }
+
 
         #endregion
 
