@@ -79,10 +79,17 @@
     <sys:String x:Key="labPermission">Permission</sys:String>
     <sys:String x:Key="btnAdmin">Admin</sys:String>
     <sys:String x:Key="btnUser">User</sys:String>
+    <sys:String x:Key="labControl">Control</sys:String>
+    <sys:String x:Key="btnServer">Server</sys:String>
+    <sys:String x:Key="btnClient">Client</sys:String>
 
+    <sys:String x:Key="ProjectorBrandPan">Panasonic</sys:String>
+    <sys:String x:Key="ProjectorBrandSony">Sony</sys:String>
     <sys:String x:Key="labProjectorType">ProjectorType</sys:String>
     <sys:String x:Key="labProjector1">Projector1</sys:String>
     <sys:String x:Key="labProjector2">Projector2</sys:String>
+    <sys:String x:Key="labProjector3">Projector3</sys:String>
+    <sys:String x:Key="labProjector4">Projector4</sys:String>
     <sys:String x:Key="labProjectorIp">IpAddress</sys:String>
     <sys:String x:Key="labProjectorPort">Port</sys:String>
 

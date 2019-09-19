@@ -130,7 +130,7 @@ namespace MoviePlayer.Protocol
         /// <summary>
         /// 获取本地ip地址
         /// </summary>
-        private string GetLocalIP()
+        public static  string GetLocalIP()
         {
             try
             {

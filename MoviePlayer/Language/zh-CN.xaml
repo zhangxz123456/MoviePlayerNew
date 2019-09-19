@@ -82,10 +82,18 @@
     <sys:String x:Key="labPermission">权限</sys:String>
     <sys:String x:Key="btnAdmin">管理员</sys:String>
     <sys:String x:Key="btnUser">用户</sys:String>
+    <sys:String x:Key="labControl">控制</sys:String>
+    <sys:String x:Key="btnServer">服务器</sys:String>
+    <sys:String x:Key="btnClient">客户端</sys:String>
 
+
+    <sys:String x:Key="ProjectorBrandPan">松下</sys:String>
+    <sys:String x:Key="ProjectorBrandSony">索尼</sys:String>
     <sys:String x:Key="labProjectorType">投影机类型</sys:String>
     <sys:String x:Key="labProjector1">投影机1</sys:String>
     <sys:String x:Key="labProjector2">投影机2</sys:String>
+    <sys:String x:Key="labProjector3">投影机3</sys:String>
+    <sys:String x:Key="labProjector4">投影机4</sys:String>
     <sys:String x:Key="labProjectorIp">IP地址</sys:String>
     <sys:String x:Key="labProjectorPort">端口号</sys:String>
 
