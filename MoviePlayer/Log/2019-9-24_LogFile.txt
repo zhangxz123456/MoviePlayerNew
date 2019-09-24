@@ -1,0 +1,36 @@
+12:39:43 2019年9月24日 
+   连接丢失
+15:16:30 2019年9月24日 
+   消息:在使用 ItemsSource 之前，项集合必须为空。
+   在 System.Windows.Controls.ItemCollection.SetItemsSource(IEnumerable value, Func`2 GetSourceItem)
+   在 System.Windows.Controls.ItemsControl.OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.InvalidateProperty(DependencyProperty dp, Boolean preserveCurrentValue)
+   在 System.Windows.Data.BindingExpressionBase.Invalidate(Boolean isASubPropertyChange)
+   在 System.Windows.Data.BindingExpression.TransferValue(Object newValue, Boolean isASubPropertyChange)
+   在 System.Windows.Data.BindingExpression.Activate(Object item)
+   在 System.Windows.Data.BindingExpression.AttachToContext(AttachAttempt attempt)
+   在 System.Windows.Data.BindingExpression.MS.Internal.Data.IDataBindEngineClient.AttachToContext(Boolean lastChance)
+   在 MS.Internal.Data.DataBindEngine.Task.Run(Boolean lastChance)
+   在 MS.Internal.Data.DataBindEngine.Run(Object arg)
+   在 MS.Internal.Data.DataBindEngine.OnLayoutUpdated(Object sender, EventArgs e)
+   在 System.Windows.ContextLayoutManager.fireLayoutUpdateEvent()
+   在 System.Windows.ContextLayoutManager.UpdateLayout()
+   在 System.Windows.UIElement.UpdateLayout()
+   在 System.Windows.Interop.HwndSource.SetLayoutSize()
+   在 System.Windows.Interop.HwndSource.set_RootVisualInternal(Visual value)
+   在 System.Windows.Interop.HwndSource.set_RootVisual(Visual value)
+   在 System.Windows.Window.SetRootVisual()
+   在 System.Windows.Window.SetRootVisualAndUpdateSTC()
+   在 System.Windows.Window.SetupInitialState(Double requestedTop, Double requestedLeft, Double requestedWidth, Double requestedHeight)
+   在 System.Windows.Window.CreateSourceWindow(Boolean duringShow)
+   在 System.Windows.Window.CreateSourceWindowDuringShow()
+   在 System.Windows.Window.SafeCreateWindowDuringShow()
+   在 System.Windows.Window.ShowHelper(Object booleanBox)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+16:14:21 2019年9月24日 
+   连接丢失

@@ -1,48 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Lists>
   <List0>
-    <StartTime>11:40</StartTime>
-    <StopTime>11:41</StopTime>
-    <MovieName>新建文件夹</MovieName>
-    <FullMoviePath>C:\Users\shuqee\Desktop\新建文件夹</FullMoviePath>
+    <MovieNo>1</MovieNo>
+    <StartTime>
+    </StartTime>
+    <StopTime>
+    </StopTime>
+    <MovieName>二代妖精</MovieName>
+    <FullMoviePath>C:\Users\shuqee\Desktop\电影动作文件\二代妖精</FullMoviePath>
   </List0>
   <List1>
-    <StartTime>11:42</StartTime>
-    <StopTime>11:43</StopTime>
-    <MovieName>新建文件夹 (3)</MovieName>
-    <FullMoviePath>C:\Users\shuqee\Desktop\新建文件夹 (3)</FullMoviePath>
+    <MovieNo>2</MovieNo>
+    <StartTime>
+    </StartTime>
+    <StopTime>
+    </StopTime>
+    <MovieName>黑狍</MovieName>
+    <FullMoviePath>C:\Users\shuqee\Desktop\电影动作文件\黑狍</FullMoviePath>
   </List1>
   <List2>
-    <StartTime>11:44</StartTime>
-    <StopTime>11:45</StopTime>
-    <MovieName>新建文件夹 (4)</MovieName>
-    <FullMoviePath>C:\Users\shuqee\Desktop\新建文件夹 (4)</FullMoviePath>
+    <MovieNo>3</MovieNo>
+    <StartTime>
+    </StartTime>
+    <StopTime>
+    </StopTime>
+    <MovieName>机器之血</MovieName>
+    <FullMoviePath>C:\Users\shuqee\Desktop\电影动作文件\机器之血</FullMoviePath>
   </List2>
   <List3>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
     </StopTime>
-    <MovieName>6.0动作软件</MovieName>
-    <FullMoviePath>C:\Users\shuqee\Desktop\6.0动作软件</FullMoviePath>
+    <MovieName>
+    </MovieName>
+    <FullMoviePath>
+    </FullMoviePath>
   </List3>
   <List4>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
     </StopTime>
-    <MovieName>7.0发布软件</MovieName>
-    <FullMoviePath>C:\Users\shuqee\Desktop\7.0发布软件</FullMoviePath>
+    <MovieName>
+    </MovieName>
+    <FullMoviePath>
+    </FullMoviePath>
   </List4>
   <List5>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
     </StopTime>
-    <MovieName>5DPlayerV6.3</MovieName>
-    <FullMoviePath>C:\Users\shuqee\Desktop\5DPlayerV6.3</FullMoviePath>
+    <MovieName>
+    </MovieName>
+    <FullMoviePath>
+    </FullMoviePath>
   </List5>
   <List6>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
@@ -53,6 +76,8 @@
     </FullMoviePath>
   </List6>
   <List7>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
@@ -63,6 +88,8 @@
     </FullMoviePath>
   </List7>
   <List8>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
@@ -73,6 +100,8 @@
     </FullMoviePath>
   </List8>
   <List9>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
@@ -83,6 +112,8 @@
     </FullMoviePath>
   </List9>
   <List10>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
@@ -93,6 +124,8 @@
     </FullMoviePath>
   </List10>
   <List11>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
@@ -103,6 +136,8 @@
     </FullMoviePath>
   </List11>
   <List12>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
@@ -113,6 +148,8 @@
     </FullMoviePath>
   </List12>
   <List13>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
@@ -123,6 +160,8 @@
     </FullMoviePath>
   </List13>
   <List14>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
@@ -133,6 +172,8 @@
     </FullMoviePath>
   </List14>
   <List15>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
@@ -143,6 +184,8 @@
     </FullMoviePath>
   </List15>
   <List16>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
@@ -153,6 +196,8 @@
     </FullMoviePath>
   </List16>
   <List17>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
@@ -163,6 +208,8 @@
     </FullMoviePath>
   </List17>
   <List18>
+    <MovieNo>
+    </MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>

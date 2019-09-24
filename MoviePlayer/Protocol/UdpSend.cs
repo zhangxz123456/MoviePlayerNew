@@ -17,7 +17,7 @@ namespace MoviePlayer.Protocol
         public static byte flagSend;
         public static double count;
         public static int rate;
-        public static int tempRate;        
+        public static int tempRate;
         public static int range;
         public static int playCount;
         public static bool shakeFlag;
@@ -25,13 +25,13 @@ namespace MoviePlayer.Protocol
         public static int timeCodeTemp;
         public static bool movieStop;
         public static byte dataLight;
-       
+
         public UdpSend()
         {
             Thread ThreadUdpSend = new Thread(new ThreadStart(Send));
             ThreadUdpSend.IsBackground = true; //设置为后台线程
             ThreadUdpSend.Start();
-            
+
             //构造函数
         }
 
@@ -45,7 +45,7 @@ namespace MoviePlayer.Protocol
 
         public static void SendWrite(double pos)
         {
-            byte[] data;           
+            byte[] data;
             ushort addr;
             ushort len;
             byte[] array;          //data+addr+len 
@@ -126,7 +126,7 @@ namespace MoviePlayer.Protocol
                 }
                 else
                 {
-                    
+
                     data[8] = Module.effectFile[num5];                          //座椅特效  
                     //data[9] = Module.effectFile[num4];                        //环境特效 
                     data[9] = (byte)(Module.effectFile[num4] | dataLight);
@@ -141,7 +141,7 @@ namespace MoviePlayer.Protocol
             array = ModbusUdp.ArrayAdd(addr, len, data);
             Data = ModbusUdp.MBReqWrite(array);
 
-            UdpSendData(Data, Data.Length, UdpInit.RemotePoint);          
+            UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
             timeCodeTemp = num1;
         }
 
@@ -176,7 +176,7 @@ namespace MoviePlayer.Protocol
             Debug.WriteLine(num1 + " " + num2 + " " + num3);
             try
             {
-                if (num3 > Module.actionFile.Length)
+                if (num6 > Module.actionFile.Length)
                 {
                     //六自由度数据
                     data[0] = 0;                      //1号缸            
@@ -217,7 +217,6 @@ namespace MoviePlayer.Protocol
                 }
                 else
                 {
-
                     data[8] = Module.effectFile[numEffect2];                    //座椅特效  
                     //data[9] = Module.effectFile[num4];                        //环境特效 
                     data[9] = (byte)(Module.effectFile[numEffect1] | dataLight);
@@ -235,6 +234,124 @@ namespace MoviePlayer.Protocol
             timeCodeTemp = num1;
         }
 
+        public static void SendTotal(double pos)
+        {
+            byte[] data;
+            ushort addr;
+            ushort len;
+            byte[] array;          //data+addr+len 
+            byte[] Data;           //最终发送的数据
+            pos = pos * 2400;
+            Debug.WriteLine(pos);
+            addr = 0;
+            len = 10;
+            data = new byte[len];
+            int num1 = 3 * (int)(pos / 50);                  //actionFile2DOF与actionFile3DOF数组下标
+            int num2 = 3 * (int)(pos / 50) + 1;
+            int num3 = 3 * (int)(pos / 50) + 2;
+
+            int numEffect1 = 2 * (int)(pos / 50);                  //effectFile与shakeFile数组下标
+            int numEffect2 = 2 * (int)(pos / 50) + 1;
+            switch (MainWindow.PlayDOF)
+            {
+                case "2DOF":
+                    if (Module.actionFile2DOF != null)
+                    {
+                        if (num3 > Module.actionFile.Length)
+                        {
+                            data[0] = 127;
+                            data[1] = 127;
+                            data[2] = 127;
+                        }
+                        else
+                        {
+                            data[0] = (byte)(Module.actionFile2DOF[num1] * MainWindow.PlayHeight / 100);      //1号缸            
+                            data[1] = (byte)(Module.actionFile2DOF[num2] * MainWindow.PlayHeight / 100);      //2号缸
+                            data[2] = (byte)(Module.actionFile2DOF[num3] * MainWindow.PlayHeight / 100);      //3号缸  
+                        }
+                    }
+                    break;
+                case "3DOF":
+                    if (Module.actionFile3DOF != null)
+                    {
+                        if (num3 > Module.actionFile.Length)
+                        {
+                            data[0] = 0;
+                            data[1] = 0;
+                            data[2] = 0;
+
+                        }
+                        else
+                        {
+                            data[0] = (byte)(Module.actionFile3DOF[num1] * MainWindow.PlayHeight / 100);      //1号缸            
+                            data[1] = (byte)(Module.actionFile3DOF[num2] * MainWindow.PlayHeight / 100);      //2号缸
+                            data[2] = (byte)(Module.actionFile3DOF[num3] * MainWindow.PlayHeight / 100);      //3号缸  
+                        }
+                    }
+                    break;
+                case "6DOF":
+                    int num6DOF1 = 6 * (int)(pos / 50);                  //actionFile6DOF数组下标
+                    int num6DOF2 = 6 * (int)(pos / 50) + 1;
+                    int num6DOF3 = 6 * (int)(pos / 50) + 2;
+                    int num6DOF4 = 6 * (int)(pos / 50) + 3;
+                    int num6DOF5 = 6 * (int)(pos / 50) + 4;
+                    int num6DOF6 = 6 * (int)(pos / 50) + 5;
+                    if (Module.actionFile6DOF != null)
+                    {
+                        if (num6DOF6 > Module.actionFile.Length)
+                        {
+                            //六自由度数据
+                            data[0] = 0;                      //1号缸            
+                            data[1] = 0;                      //2号缸
+                            data[2] = 0;                      //3号缸
+                            data[3] = 0;                      //4号缸            
+                            data[4] = 0;                      //5号缸
+                            data[5] = 0;                      //6号缸
+                        }
+                        else
+                        {
+                            data[0] = (byte)(Module.actionFile6DOF[num6DOF1] * MainWindow.PlayHeight / 100);      //1号缸            
+                            data[1] = (byte)(Module.actionFile6DOF[num6DOF2] * MainWindow.PlayHeight / 100);      //2号缸
+                            data[2] = (byte)(Module.actionFile6DOF[num6DOF3] * MainWindow.PlayHeight / 100);      //3号缸                   
+                            data[3] = (byte)(Module.actionFile6DOF[num6DOF4] * MainWindow.PlayHeight / 100);      //4号缸            
+                            data[4] = (byte)(Module.actionFile6DOF[num6DOF5] * MainWindow.PlayHeight / 100);      //5号缸
+                            data[5] = (byte)(Module.actionFile6DOF[num6DOF6] * MainWindow.PlayHeight / 100);      //6号缸    
+                        }
+                    }
+                    break;
+            }
+
+            if (Module.shakeFile != null)
+            {
+                if (numEffect2 > Module.shakeFile.Length)
+                {
+                    data[6] = 0;                                                 //振幅  
+                    data[7] = 0;                                                 //频率 
+                }
+                else
+                {
+                    data[6] = Module.shakeFile[numEffect1];
+                    data[7] = Module.shakeFile[numEffect2];
+                }
+            }
+            if (Module.effectFile != null)
+            {
+                if (numEffect2 > Module.effectFile.Length)
+                {
+                    data[8] = 0;
+                    data[9] = dataLight;
+                }
+                else
+                {
+                    data[8] = Module.effectFile[numEffect2];                         //座椅特效 
+                    data[9] = (byte)(Module.effectFile[numEffect1] | dataLight);     //环境特效
+                }
+            }
+            array = ModbusUdp.ArrayAdd(addr, len, data);
+            Data = ModbusUdp.MBReqWrite(array);
+            UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
+        }
+
 
 
         /// <summary>
@@ -247,16 +364,16 @@ namespace MoviePlayer.Protocol
             ushort len;
             byte[] array;          //data+addr+len 
             byte[] Data;           //最终发送的数据
-            
+
             addr = 0;
             len = 10;
             data = new byte[len];
             if ("2DOF".Equals(MainWindow.PlayDOF))
             {
-               //两自由度数据
-               data[0] = 127;
-               data[1] = 127;
-               data[2] = 127;
+                //两自由度数据
+                data[0] = 127;
+                data[1] = 127;
+                data[2] = 127;
             }
             else
             {
@@ -293,7 +410,7 @@ namespace MoviePlayer.Protocol
 
             addr = 0;
             len = 10;
-            data = new byte[len];      
+            data = new byte[len];
             array = ModbusUdp.ArrayAdd(addr, len, data);
             Data = ModbusUdp.MBReqWrite(array);
             UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
@@ -437,7 +554,7 @@ namespace MoviePlayer.Protocol
         //    // return data_buf;
         //}
         //#endregion
-   
+
         public static byte[] SendRead()
         {
             byte[] data;
@@ -470,14 +587,14 @@ namespace MoviePlayer.Protocol
             data[0] = Module.deadlineOrPermanent;
             data[1] = Module.deadlineYY;
             data[2] = Module.deadlineMM;
-            data[3] = Module.deadlineDD;    
+            data[3] = Module.deadlineDD;
             data[4] = Module.YY;
             data[5] = Module.MM;
             data[6] = Module.DD;
             data[7] = 1;
 
             array = ModbusUdp.ArrayAdd(addr, len, data);
-            Data = ModbusUdp.MBReqWriteChip(array);       
+            Data = ModbusUdp.MBReqWriteChip(array);
             return Data;
 
         }
@@ -515,7 +632,7 @@ namespace MoviePlayer.Protocol
             return Data;
         }
 
-        
+
         /// <summary>
         /// 发送获取时间码指令
         /// </summary>

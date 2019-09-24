@@ -44,6 +44,7 @@
     <sys:String x:Key="labRain">下雨</sys:String>
 
     <!--排片-->
+    <sys:String x:Key="textColum">序号</sys:String>
     <sys:String x:Key="textColum1">开始时间</sys:String>
     <sys:String x:Key="textColum2">结束时间</sys:String>
     <sys:String x:Key="textColum3">影片</sys:String>

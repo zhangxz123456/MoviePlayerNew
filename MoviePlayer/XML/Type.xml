@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Type>
   <Style>4DM</Style>
-  <Language>EN</Language>
+  <Language>CN</Language>
   <DOF>3DOF</DOF>
   <Height>100</Height>
   <Projector>0</Projector>
   <Permission>FALSE</Permission>
   <Control>SERVER</Control>
-  <ProjectorBrand>Sony</ProjectorBrand>
+  <ProjectorBrand>Panasonic</ProjectorBrand>
   <Projector1>
-    <IP>192.168.1.109</IP>
+    <IP>192.168.1.103</IP>
     <Port>1025</Port>
   </Projector1>
   <Projector2>
-    <IP>192.168.1.109</IP>
+    <IP>192.168.1.104</IP>
     <Port>1026</Port>
   </Projector2>
   <Projector3>
-    <IP>192.168.1.109</IP>
+    <IP>192.168.1.105</IP>
     <Port>1027</Port>
   </Projector3>
   <Projector4>
-    <IP>192.168.1.109</IP>
+    <IP>192.168.1.106</IP>
     <Port>1028</Port>
   </Projector4>
 </Type>

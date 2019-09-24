@@ -30,8 +30,22 @@ namespace MoviePlayer
         public static byte deadlineOrPermanent;         //注册码是否为永久码 
         public static SerialPort com1 = new SerialPort();
         public static byte[] actionFile;
+        public static byte[] actionFile2DOF;
+        public static byte[] actionFile3DOF;
+        public static byte[] actionFile6DOF;
         public static byte[] effectFile;
         public static byte[] shakeFile;
+        public static byte[] shuqeeFile;
+        public static int DOF2StartIndex;
+        public static int DOF3StartIndex;
+        public static int DOF6StartIndex;
+        public static int effectStartIndex;
+        public static int vibrationStartIndex;
+        public static int DOF2Len;
+        public static int DOF3Len;
+        public static int DOF6Len;
+        public static int effectLen;
+        public static int vibrationLen;
         public static string uuidFile;
         public static DispatcherTimer timerMovie = null;
         public static bool hintShow;                   //是否显示提示信息
@@ -523,6 +537,61 @@ namespace MoviePlayer
         }
 
         /// <summary>
+        /// 读取A-D，A-T，A-S文件
+        /// </summary>
+        /// <param name="filePath">文件路径名</param>
+        public static void readDefultFile(string s1,string s2)
+        {
+            try
+            {
+                string filePathD = s1 + "\\"+s2+"-D";
+                if (!File.Exists(filePathD))
+                {
+                    using (File.Create(filePathD))
+                    {
+                    }
+                }
+                actionFile = File.ReadAllBytes(filePathD);
+            }
+            catch
+            {
+                //MessageBox.Show("动作文件不存在，请检查");
+                actionFile = null;
+            }
+            try
+            {
+                string filePathT = s1 + "\\" + s2 + "-T";
+                if (!File.Exists(filePathT))
+                {
+                    using (File.Create(filePathT))
+                    {
+                    }
+                }
+                effectFile = File.ReadAllBytes(filePathT);
+            }
+            catch
+            {
+                effectFile = null;
+            }
+            try
+            {
+                string filePathS = s1 + "\\" + s2 + "-S";
+                if (!File.Exists(filePathS))
+                {
+                    using (File.Create(filePathS))
+                    {
+                    }
+                }
+                shakeFile = File.ReadAllBytes(filePathS);
+            }
+            catch
+            {
+                shakeFile = null;
+            }
+
+        }
+
+        /// <summary>
         /// 日志记录
         /// </summary>
         /// <param name="input">记录的内容</param>
@@ -568,6 +637,132 @@ namespace MoviePlayer
                 //关闭流
                 log.Close();
             }
+        }
+
+        public static void DEVFile()
+        {
+            try
+            {
+                string filePathD = MainWindow.playerPath + @"\ActionFile\LG01.dev" ;
+                if (!File.Exists(filePathD))
+                {
+                    using (File.Create(filePathD))
+                    {
+                    }
+                }
+                shuqeeFile = File.ReadAllBytes(filePathD);
+            }
+            catch
+            {
+                //MessageBox.Show("动作文件不存在，请检查");
+                shuqeeFile = null;
+            }
+        }
+
+
+        /// <summary>
+        /// 检验文件是否跟当前使用的中控板相匹配
+        /// </summary>
+        /// <returns></returns>
+        public static bool CheckFile()
+        {
+            byte[] Data = new byte[4];
+            byte[] DataID = new byte[12];
+            Array.Copy(shuqeeFile, Data, 4);
+            Array.Reverse(Data);
+            int FileDEVLen = System.BitConverter.ToInt32(Data, 0);
+            Array.Copy(shuqeeFile, 4, DataID, 0, 12);
+            string uuidFileDEV = "";
+            for (int i = 0; i < DataID.Length; i++)
+            {
+                uuidFileDEV += DataID[i].ToString("X").Length < 2 ? "0" + DataID[i].ToString("X") : DataID[i].ToString("X");
+            }
+            if (uuidFile == uuidFileDEV && FileDEVLen == shuqeeFile.Length)
+            {
+                ReadFileDEVData();
+                return true;
+            }
+            return false;
+        }
+
+
+        public static void ReadFileDEVData()
+        {
+            byte[] data2DOF = new byte[4];
+            byte[] data3DOF = new byte[4];
+            byte[] data6DOF = new byte[4];
+            byte[] dataEffect = new byte[4];
+            byte[] dataVibration = new byte[4];
+
+            byte[] data2DOFLen = new byte[3];
+            byte[] data3DOFLen = new byte[3];
+            byte[] data6DOFLen = new byte[3];
+            byte[] dataEffectLen = new byte[3];
+            byte[] dataVibrationLen = new byte[3];
+
+            Array.Copy(shuqeeFile, 18, data2DOF, 0, 4);
+            Array.Reverse(data2DOF);
+            DOF2StartIndex = System.BitConverter.ToInt32(data2DOF,0);
+
+            Array.Copy(shuqeeFile, 22, data3DOF, 0, 4);
+            Array.Reverse(data3DOF);
+            DOF3StartIndex = System.BitConverter.ToInt32(data3DOF,0);
+
+            Array.Copy(shuqeeFile, 26, data6DOF, 0, 4);
+            Array.Reverse(data6DOF);
+            DOF6StartIndex = System.BitConverter.ToInt32(data6DOF, 0);
+
+            Array.Copy(shuqeeFile, 30, dataEffect, 0, 4);
+            Array.Reverse(dataEffect);
+            effectStartIndex = System.BitConverter.ToInt32(dataEffect, 0);
+
+            Array.Copy(shuqeeFile, 34, dataVibration, 0, 4);
+            Array.Reverse(dataVibration);
+            vibrationStartIndex = System.BitConverter.ToInt32(dataVibration, 0);
+
+            Array.Copy(shuqeeFile, 38, data2DOFLen, 0, 3);
+            DOF2Len = byteArrayToInt(data2DOFLen);
+           
+            Array.Copy(shuqeeFile, 41, data3DOFLen, 0, 3);
+            DOF3Len = byteArrayToInt(data3DOFLen);
+
+            Array.Copy(shuqeeFile, 44, data6DOFLen, 0, 3);
+            DOF6Len = byteArrayToInt(data6DOFLen);
+            //三个字节的不能使用此转换方法
+            //DOF6Len = System.BitConverter.ToInt32(data6DOFLen, 0);
+
+            Array.Copy(shuqeeFile, 47, dataEffectLen, 0, 3);
+            effectLen = byteArrayToInt(dataEffectLen);
+
+            Array.Copy(shuqeeFile, 50, dataVibrationLen, 0, 3);
+            vibrationLen = byteArrayToInt(dataVibrationLen);
+
+            actionFile2DOF = new byte[DOF2Len];
+            actionFile3DOF = new byte[DOF3Len];
+            actionFile6DOF = new byte[DOF6Len];
+            effectFile = new byte[effectLen];
+            shakeFile = new byte[vibrationLen];
+            Array.Copy(shuqeeFile, DOF2StartIndex, actionFile2DOF, 0, DOF2Len);
+            Array.Copy(shuqeeFile, DOF3StartIndex, actionFile3DOF, 0, DOF3Len);
+            Array.Copy(shuqeeFile, DOF6StartIndex, actionFile6DOF, 0, DOF6Len);
+            Array.Copy(shuqeeFile, effectStartIndex, effectFile, 0, effectLen);
+            Array.Copy(shuqeeFile, vibrationStartIndex, shakeFile, 0, vibrationLen);
+        }
+
+        /// <summary>
+        /// 字节数组转换成int整型
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public static int byteArrayToInt(byte[] bytes)
+        {
+            int value = 0; 
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                int shift = (bytes.Length - 1 - i) * 8;
+                value += (bytes[i] & 0xFF) << shift; 
+            }
+            return value;
         }
 
 

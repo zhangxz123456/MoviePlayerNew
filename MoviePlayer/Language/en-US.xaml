@@ -43,6 +43,7 @@
     <sys:String x:Key="labRain">Rain</sys:String>
     
     <!--排片-->
+    <sys:String x:Key="textColum">No</sys:String>
     <sys:String x:Key="textColum1">StartTime</sys:String>
     <sys:String x:Key="textColum2">EndTime</sys:String>
     <sys:String x:Key="textColum3">Film</sys:String>

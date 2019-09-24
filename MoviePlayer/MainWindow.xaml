@@ -59,6 +59,7 @@
                     <ColumnDefinition Width="35"></ColumnDefinition>
                     <ColumnDefinition Width="35"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                <!--<Image Name="btnImgLight" Source="Resources/Image_Light.png" Grid.Column="0" VerticalAlignment="Center" Width="30" Height="30" Tag="1" MouseDown="btnImgBack_MouseDown"></Image>-->
                 <Image Name="btnImgBack" Source="Resources/Icon_Back.png" Grid.Column="1" VerticalAlignment="Center" Width="30" Height="30" Tag="1" MouseDown="btnImgBack_MouseDown"></Image>
                 <Image Name="btnImgPlay" Source="Resources/Icon_Play.png" Grid.Column="2" VerticalAlignment="Center" Width="30" Height="30" Tag="2" MouseDown="btnImgPlay_MouseDown"></Image>
                 <Image Name="btnImgStop" Source="Resources/Icon_Stop.png" Grid.Column="3" VerticalAlignment="Center" Width="30" Height="30" Tag="3" MouseDown="btnImgStop_MouseDown"></Image>
@@ -931,22 +932,27 @@
                                 </DataGrid.RowStyle>
 
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn x:Name="textColum1"   Binding="{Binding Start}" MinWidth="235"  FontSize="15" CanUserResize="False" CanUserReorder="False" CanUserSort="False" >
+                                    <DataGridTextColumn x:Name="textColum"   Binding="{Binding MovieNo}" MinWidth="60"  FontSize="15" CanUserResize="False" CanUserReorder="False" CanUserSort="False" >
+                                        <DataGridTextColumn.Header>
+                                            <TextBlock Text="{DynamicResource textColum}"></TextBlock>
+                                        </DataGridTextColumn.Header>
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn x:Name="textColum1"   Binding="{Binding Start}" MinWidth="220"  FontSize="15" CanUserResize="False" CanUserReorder="False" CanUserSort="False" >
                                         <DataGridTextColumn.Header>
                                             <TextBlock Text="{DynamicResource textColum1}"></TextBlock>
                                         </DataGridTextColumn.Header>
                                     </DataGridTextColumn>
-                                    <DataGridTextColumn x:Name="textColum2"  Binding="{Binding End}" MinWidth="235" FontSize="15">
+                                    <DataGridTextColumn x:Name="textColum2"  Binding="{Binding End}" MinWidth="225" FontSize="15">
                                         <DataGridTextColumn.Header>
                                             <TextBlock Text="{DynamicResource textColum2}"></TextBlock>
                                         </DataGridTextColumn.Header>
                                     </DataGridTextColumn>
-                                    <DataGridTextColumn x:Name="textColum3"  Binding="{Binding MovieName}" MinWidth="235">
+                                    <DataGridTextColumn x:Name="textColum3"  Binding="{Binding MovieName}" MinWidth="220">
                                         <DataGridTextColumn.Header>
                                             <TextBlock Text="{DynamicResource textColum3}"></TextBlock>
                                         </DataGridTextColumn.Header>
                                     </DataGridTextColumn>
-                                    <DataGridTemplateColumn x:Name="templateColumn"  MinWidth="235" CanUserSort="True" CanUserResize="False">
+                                    <DataGridTemplateColumn x:Name="templateColumn"  MinWidth="220" CanUserSort="True" CanUserResize="False">
                                         <DataGridTemplateColumn.Header>
                                             <TextBlock Text="{DynamicResource templateColumn}"></TextBlock>
                                         </DataGridTemplateColumn.Header>
@@ -1152,7 +1158,9 @@
                         </Grid>
                     </TabItem>
                     <TabItem x:Name="tabItemAbout2" Style="{DynamicResource TabItemStyle2}">
-                        <TextBlock x:Name="txtUpdate" Text=""  Foreground="White" FontSize="15" TextWrapping="Wrap"/>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Style="{DynamicResource ScrollViewerStyle}">
+                            <TextBlock x:Name="txtUpdate" Text=""  Foreground="White" FontSize="15" TextWrapping="Wrap" IsEnabled="False" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                        </ScrollViewer>
                     </TabItem>
                 </TabControl>
             </TabItem>
@@ -1341,14 +1349,14 @@
                                 <ColumnDefinition Width="110"></ColumnDefinition>
                                 <ColumnDefinition Width="90"></ColumnDefinition>
                                 <ColumnDefinition Width="90"></ColumnDefinition>
-                                <ColumnDefinition Width="50"></ColumnDefinition>
-                                
+                                <ColumnDefinition Width="20"></ColumnDefinition>
+
                                 <ColumnDefinition Width="110"></ColumnDefinition>
                                 <ColumnDefinition Width="90"></ColumnDefinition>
                                 <ColumnDefinition Width="90"></ColumnDefinition>
-
                                 <ColumnDefinition ></ColumnDefinition>
-                                <ColumnDefinition Width="150"></ColumnDefinition>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Label Content="{DynamicResource labProjectorType}" Grid.Row="0" Margin="-1,8,0,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Left"></Label>
                             <ComboBox x:Name="comboBoxBrand" HorizontalAlignment="Center" Grid.Row="0"  VerticalAlignment="Center"  Grid.ColumnSpan="2"  Grid.Column="1" Background="Black" Margin="20,20,16,20" Width="144">
@@ -1356,7 +1364,7 @@
                                 <ComboBoxItem Content="{DynamicResource ProjectorBrandSony}"></ComboBoxItem>
                                 <ComboBoxItem Content="NEC"></ComboBoxItem>
                             </ComboBox>
-                            
+
                             <Label Content="{DynamicResource labProjector1}" Grid.Row="1" Margin="-1,8,0,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Left"></Label>
                             <Label Content="{DynamicResource labProjectorIp}" Grid.Row="2" Margin="-1,8,0,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Center"></Label>
                             <Label Content="{DynamicResource labProjectorPort}" Grid.Row="3" Margin="-1,8,0,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Center"></Label>
@@ -1438,7 +1446,15 @@
                             </TextBox>
 
 
-                            <Button x:Name="btnConfirmProjector" Content="{DynamicResource btnConfirm}" Style="{DynamicResource FilletButton}" Grid.Row="8" Grid.Column="8"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Margin="16,15,34,15" >
+                            <Button x:Name="btnDefaultProjector" Content="{DynamicResource btnDefault}" Style="{DynamicResource FilletButton}" Grid.Row="8"  Height="35" Width="70" Grid.Column="8" >
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                            <Button x:Name="btnConfirmProjector" Content="{DynamicResource btnConfirm}" Style="{DynamicResource FilletButton}" Grid.Row="8" Grid.Column="9"  Height="35" Width="70" Margin="7,15,23,15">
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="0"/>
