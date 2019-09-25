@@ -73,6 +73,10 @@
     <sys:String x:Key="btn2DOF">两自由度</sys:String>
     <sys:String x:Key="btn3DOF">三自由度</sys:String>
     <sys:String x:Key="btn6DOF">六自由度</sys:String>
+    <sys:String x:Key="labFrame">帧数</sys:String>
+    <sys:String x:Key="btnFrame48">48帧</sys:String>
+    <sys:String x:Key="btnFrame60">60帧</sys:String>
+    <sys:String x:Key="btnFrame120">120帧</sys:String>
     <sys:String x:Key="labHeight">行程高度</sys:String>
     <sys:String x:Key="labProjector">投影机</sys:String>
     <sys:String x:Key="btnMain">主屏</sys:String>

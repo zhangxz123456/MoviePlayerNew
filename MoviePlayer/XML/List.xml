@@ -1,3 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Lists>
+  <List>
+    <Name>1.avi</Name>
+    <Path>D:\电影\1.avi</Path>
+  </List>
+  <List>
+    <Name>2.mkv</Name>
+    <Path>D:\电影\2.mkv</Path>
+  </List>
+  <List>
+    <Name>5.avi</Name>
+    <Path>D:\电影\5.avi</Path>
+  </List>
 </Lists>

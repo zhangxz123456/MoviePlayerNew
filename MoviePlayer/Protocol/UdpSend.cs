@@ -241,7 +241,23 @@ namespace MoviePlayer.Protocol
             ushort len;
             byte[] array;          //data+addr+len 
             byte[] Data;           //最终发送的数据
-            pos = pos * 2400;
+            switch (MainWindow.PlayFrame)
+            {
+                case 48:
+                    pos = pos * 2400;
+                    break;
+                case 60:
+                    pos = pos * 3000;
+                    break;
+                case 120:
+                    pos = pos * 6000;
+                    break; 
+            }
+            //5D模式下默认使用60帧
+            //if (MainWindow.PlayType.Equals("5D"))
+            //{
+            //    pos = pos * 3000;
+            //}
             Debug.WriteLine(pos);
             addr = 0;
             len = 10;
@@ -279,7 +295,6 @@ namespace MoviePlayer.Protocol
                             data[0] = 0;
                             data[1] = 0;
                             data[2] = 0;
-
                         }
                         else
                         {
@@ -351,8 +366,6 @@ namespace MoviePlayer.Protocol
             Data = ModbusUdp.MBReqWrite(array);
             UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
         }
-
-
 
         /// <summary>
         /// 影片结束发送复位指令

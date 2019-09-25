@@ -71,6 +71,10 @@
     <sys:String x:Key="btn2DOF">2DOF</sys:String>
     <sys:String x:Key="btn3DOF">3DOF</sys:String>
     <sys:String x:Key="btn6DOF">6DOF</sys:String>
+    <sys:String x:Key="labFrame">Frame</sys:String>
+    <sys:String x:Key="btnFrame48">48fps</sys:String>
+    <sys:String x:Key="btnFrame60">60fps</sys:String>
+    <sys:String x:Key="btnFrame120">120fps</sys:String>
     <sys:String x:Key="labHeight">Height</sys:String>
     <sys:String x:Key="labProjector">Projector</sys:String>
     <sys:String x:Key="btnMain">Main</sys:String>

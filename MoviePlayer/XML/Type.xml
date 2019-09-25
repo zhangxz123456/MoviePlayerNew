@@ -6,7 +6,9 @@
   <Height>100</Height>
   <Projector>0</Projector>
   <Permission>FALSE</Permission>
-  <Control>SERVER</Control>
+  <Control>
+  </Control>
+  <Frame>60</Frame>
   <ProjectorBrand>Panasonic</ProjectorBrand>
   <Projector1>
     <IP>192.168.1.103</IP>
