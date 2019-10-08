@@ -268,99 +268,106 @@ namespace MoviePlayer.Protocol
 
             int numEffect1 = 2 * (int)(pos / 50);                  //effectFile与shakeFile数组下标
             int numEffect2 = 2 * (int)(pos / 50) + 1;
-            switch (MainWindow.PlayDOF)
+            try
             {
-                case "2DOF":
-                    if (Module.actionFile2DOF != null)
-                    {
-                        if (num3 > Module.actionFile.Length)
+                switch (MainWindow.PlayDOF)
+                {
+                    case "2DOF":
+                        if (Module.actionFile2DOF != null)
                         {
-                            data[0] = 127;
-                            data[1] = 127;
-                            data[2] = 127;
+                            if (num3 > Module.actionFile2DOF.Length)
+                            {
+                                data[0] = 127;
+                                data[1] = 127;
+                                data[2] = 127;
+                            }
+                            else
+                            {
+                                data[0] = (byte)(Module.actionFile2DOF[num1] * MainWindow.PlayHeight / 100);      //1号缸            
+                                data[1] = (byte)(Module.actionFile2DOF[num2] * MainWindow.PlayHeight / 100);      //2号缸
+                                data[2] = (byte)(Module.actionFile2DOF[num3] * MainWindow.PlayHeight / 100);      //3号缸  
+                            }
                         }
-                        else
+                        break;
+                    case "3DOF":
+                        if (Module.actionFile3DOF != null)
                         {
-                            data[0] = (byte)(Module.actionFile2DOF[num1] * MainWindow.PlayHeight / 100);      //1号缸            
-                            data[1] = (byte)(Module.actionFile2DOF[num2] * MainWindow.PlayHeight / 100);      //2号缸
-                            data[2] = (byte)(Module.actionFile2DOF[num3] * MainWindow.PlayHeight / 100);      //3号缸  
+                            if (num3 > Module.actionFile3DOF.Length)
+                            {
+                                data[0] = 0;
+                                data[1] = 0;
+                                data[2] = 0;
+                            }
+                            else
+                            {
+                                data[0] = (byte)(Module.actionFile3DOF[num1] * MainWindow.PlayHeight / 100);      //1号缸            
+                                data[1] = (byte)(Module.actionFile3DOF[num2] * MainWindow.PlayHeight / 100);      //2号缸
+                                data[2] = (byte)(Module.actionFile3DOF[num3] * MainWindow.PlayHeight / 100);      //3号缸  
+                            }
                         }
-                    }
-                    break;
-                case "3DOF":
-                    if (Module.actionFile3DOF != null)
-                    {
-                        if (num3 > Module.actionFile.Length)
+                        break;
+                    case "6DOF":
+                        int num6DOF1 = 6 * (int)(pos / 50);                  //actionFile6DOF数组下标
+                        int num6DOF2 = 6 * (int)(pos / 50) + 1;
+                        int num6DOF3 = 6 * (int)(pos / 50) + 2;
+                        int num6DOF4 = 6 * (int)(pos / 50) + 3;
+                        int num6DOF5 = 6 * (int)(pos / 50) + 4;
+                        int num6DOF6 = 6 * (int)(pos / 50) + 5;
+                        if (Module.actionFile6DOF != null)
                         {
-                            data[0] = 0;
-                            data[1] = 0;
-                            data[2] = 0;
+                            if (num6DOF6 > Module.actionFile6DOF.Length)
+                            {
+                                //六自由度数据
+                                data[0] = 0;                      //1号缸            
+                                data[1] = 0;                      //2号缸
+                                data[2] = 0;                      //3号缸
+                                data[3] = 0;                      //4号缸            
+                                data[4] = 0;                      //5号缸
+                                data[5] = 0;                      //6号缸
+                            }
+                            else
+                            {
+                                data[0] = (byte)(Module.actionFile6DOF[num6DOF1] * MainWindow.PlayHeight / 100);      //1号缸            
+                                data[1] = (byte)(Module.actionFile6DOF[num6DOF2] * MainWindow.PlayHeight / 100);      //2号缸
+                                data[2] = (byte)(Module.actionFile6DOF[num6DOF3] * MainWindow.PlayHeight / 100);      //3号缸                   
+                                data[3] = (byte)(Module.actionFile6DOF[num6DOF4] * MainWindow.PlayHeight / 100);      //4号缸            
+                                data[4] = (byte)(Module.actionFile6DOF[num6DOF5] * MainWindow.PlayHeight / 100);      //5号缸
+                                data[5] = (byte)(Module.actionFile6DOF[num6DOF6] * MainWindow.PlayHeight / 100);      //6号缸    
+                            }
                         }
-                        else
-                        {
-                            data[0] = (byte)(Module.actionFile3DOF[num1] * MainWindow.PlayHeight / 100);      //1号缸            
-                            data[1] = (byte)(Module.actionFile3DOF[num2] * MainWindow.PlayHeight / 100);      //2号缸
-                            data[2] = (byte)(Module.actionFile3DOF[num3] * MainWindow.PlayHeight / 100);      //3号缸  
-                        }
-                    }
-                    break;
-                case "6DOF":
-                    int num6DOF1 = 6 * (int)(pos / 50);                  //actionFile6DOF数组下标
-                    int num6DOF2 = 6 * (int)(pos / 50) + 1;
-                    int num6DOF3 = 6 * (int)(pos / 50) + 2;
-                    int num6DOF4 = 6 * (int)(pos / 50) + 3;
-                    int num6DOF5 = 6 * (int)(pos / 50) + 4;
-                    int num6DOF6 = 6 * (int)(pos / 50) + 5;
-                    if (Module.actionFile6DOF != null)
-                    {
-                        if (num6DOF6 > Module.actionFile.Length)
-                        {
-                            //六自由度数据
-                            data[0] = 0;                      //1号缸            
-                            data[1] = 0;                      //2号缸
-                            data[2] = 0;                      //3号缸
-                            data[3] = 0;                      //4号缸            
-                            data[4] = 0;                      //5号缸
-                            data[5] = 0;                      //6号缸
-                        }
-                        else
-                        {
-                            data[0] = (byte)(Module.actionFile6DOF[num6DOF1] * MainWindow.PlayHeight / 100);      //1号缸            
-                            data[1] = (byte)(Module.actionFile6DOF[num6DOF2] * MainWindow.PlayHeight / 100);      //2号缸
-                            data[2] = (byte)(Module.actionFile6DOF[num6DOF3] * MainWindow.PlayHeight / 100);      //3号缸                   
-                            data[3] = (byte)(Module.actionFile6DOF[num6DOF4] * MainWindow.PlayHeight / 100);      //4号缸            
-                            data[4] = (byte)(Module.actionFile6DOF[num6DOF5] * MainWindow.PlayHeight / 100);      //5号缸
-                            data[5] = (byte)(Module.actionFile6DOF[num6DOF6] * MainWindow.PlayHeight / 100);      //6号缸    
-                        }
-                    }
-                    break;
-            }
+                        break;
+                }
 
-            if (Module.shakeFile != null)
-            {
-                if (numEffect2 > Module.shakeFile.Length)
+                if (Module.shakeFile != null)
                 {
-                    data[6] = 0;                                                 //振幅  
-                    data[7] = 0;                                                 //频率 
+                    if (numEffect2 > Module.shakeFile.Length)
+                    {
+                        data[6] = 0;                                                 //振幅  
+                        data[7] = 0;                                                 //频率 
+                    }
+                    else
+                    {
+                        data[6] = Module.shakeFile[numEffect1];
+                        data[7] = Module.shakeFile[numEffect2];
+                    }
                 }
-                else
+                if (Module.effectFile != null)
                 {
-                    data[6] = Module.shakeFile[numEffect1];
-                    data[7] = Module.shakeFile[numEffect2];
+                    if (numEffect2 > Module.effectFile.Length)
+                    {
+                        data[8] = 0;
+                        data[9] = dataLight;
+                    }
+                    else
+                    {
+                        data[8] = Module.effectFile[numEffect2];                         //座椅特效 
+                        data[9] = (byte)(Module.effectFile[numEffect1] | dataLight);     //环境特效
+                    }
                 }
             }
-            if (Module.effectFile != null)
+            catch(Exception e)
             {
-                if (numEffect2 > Module.effectFile.Length)
-                {
-                    data[8] = 0;
-                    data[9] = dataLight;
-                }
-                else
-                {
-                    data[8] = Module.effectFile[numEffect2];                         //座椅特效 
-                    data[9] = (byte)(Module.effectFile[numEffect1] | dataLight);     //环境特效
-                }
+                Debug.WriteLine(e.Message);
             }
             array = ModbusUdp.ArrayAdd(addr, len, data);
             Data = ModbusUdp.MBReqWrite(array);

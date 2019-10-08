@@ -158,7 +158,8 @@ namespace MoviePlayer.Protocol
                 TimeCode = hours + minutes + seconds + frame;
                 if(isRegistered == true && isDebug == false && "4DM".Equals(MainWindow.PlayType))
                 {
-                  UdpSend.SendWrite(TimeCode);              
+                    //UdpSend.SendWrite(TimeCode); 
+                    UdpSend.SendTotal(TimeCode);             
                 }
                 //UdpSend.QuDong(TimeCode);               //发送驱动器指令
                 //UdpSend.flagSend = (byte)Mcu.ModbusUdp.MBFunctionCode.Write;

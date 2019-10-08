@@ -31,7 +31,7 @@ namespace MoviePlayer
             if (e.ExceptionObject is System.Exception)
             {
                 Exception ex = (System.Exception)e.ExceptionObject;
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
                 Module.WriteLogFile(ex.Message);
             }
         }
@@ -39,7 +39,7 @@ namespace MoviePlayer
         {
             //可以记录日志并转向错误bug窗口友好提示用户
             e.Handled = true;
-            MessageBox.Show("Error:" + e.Exception.Message);
+            //MessageBox.Show("Error:" + e.Exception.Message);
             Module.WriteLogFile("消息:" + e.Exception.Message + "\r\n" + e.Exception.StackTrace);
         }
 

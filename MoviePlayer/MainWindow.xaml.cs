@@ -27,6 +27,7 @@ using System.Windows.Interop;
 using System.Threading;
 using System.Net.Sockets;
 using System.Net;
+using System.Runtime.InteropServices;
 
 namespace MoviePlayer
 {
@@ -311,6 +312,13 @@ namespace MoviePlayer
         UdpInit myUdpInit = new UdpInit();
         public bool timerStart;
         int count;
+        [DllImport("user32.dll", EntryPoint = "SystemParametersInfo")]
+        public static extern int SystemParametersInfo(
+          int uAction,
+          int uParam,
+          string lpvParam,
+          int fuWinIni
+     );
 
 
         #region 构造函数
@@ -321,6 +329,7 @@ namespace MoviePlayer
             myUdpInit.udpInit();
             Module.GetNowTime();
             Module.readUuidFile();
+            SystemParametersInfo(20, 0, Directory.GetCurrentDirectory() + @"\shuqee.bmp", 0x2);
             ReadType();
             ChangeLanguage(PlayLanguage);
             changeWinVersionLanguage();
@@ -506,55 +515,128 @@ namespace MoviePlayer
         {
             CheckBox checkbox = sender as CheckBox;
             int tag = Convert.ToInt32(checkbox.Tag);
+            string ip1 = txtIpProjector1.Text;
+            string port1 = txtPortProjector1.Text;
+            string ip2 = txtIpProjector1.Text;
+            string port2 = txtPortProjector1.Text;
+            string ip3 = txtIpProjector1.Text;
+            string port3 = txtPortProjector1.Text;
+            string ip4 = txtIpProjector1.Text;
+            string port4 = txtPortProjector1.Text;
             switch (tag)
             {
                 case 1:
+                    bool ischeckProjector1;
                     if (checkProjector1.IsChecked == true)
                     {
-                        bool isConnect = TcpClientConnect(txtIpProjector1.Text, txtPortProjector1.Text);
-                        OpenProjector(isConnect);
+                        ischeckProjector1 = true;
                     }
                     else
                     {
-                        bool isConnect = TcpClientConnect(txtIpProjector1.Text, txtPortProjector1.Text);
-                        CloseProjector(isConnect);
+                        ischeckProjector1 = false;
                     }
+                    Thread th1 = new Thread(() =>
+                    {
+                        if (ischeckProjector1 == true)
+                        {
+                            bool isConnect = TcpClientConnect(ip1, port1);
+                            OpenProjector(isConnect);
+
+                        }
+                        else
+                        {
+                            bool isConnect = TcpClientConnect(ip1, port1);
+                            CloseProjector(isConnect);
+                        }
+                    });
+                    th1.Start();
                     break;
                 case 2:
+                    //if (checkProjector2.IsChecked == true)
+                    //{
+                    //    bool isConnect = TcpClientConnect(txtIpProjector2.Text, txtPortProjector2.Text);
+                    //    OpenProjector(isConnect);
+                    //}
+                    //else
+                    //{
+                    //    bool isConnect = TcpClientConnect(txtIpProjector2.Text, txtPortProjector2.Text);
+                    //    CloseProjector(isConnect);
+                    //}
+                    bool ischeckProjector2;
                     if (checkProjector2.IsChecked == true)
                     {
-                        bool isConnect = TcpClientConnect(txtIpProjector2.Text, txtPortProjector2.Text);
-                        OpenProjector(isConnect);
+                        ischeckProjector2 = true;
                     }
                     else
                     {
-                        bool isConnect = TcpClientConnect(txtIpProjector2.Text, txtPortProjector2.Text);
-                        CloseProjector(isConnect);
+                        ischeckProjector2 = false;
                     }
+                    Thread th2 = new Thread(() =>
+                    {
+                        if (ischeckProjector2 == true)
+                        {
+                            bool isConnect = TcpClientConnect(ip2, port2);
+                            OpenProjector(isConnect);
+
+                        }
+                        else
+                        {
+                            bool isConnect = TcpClientConnect(ip2, port2);
+                            CloseProjector(isConnect);
+                        }
+                    });
+                    th2.Start();
                     break;
                 case 3:
+                    bool ischeckProjector3;
                     if (checkProjector3.IsChecked == true)
                     {
-                        bool isConnect = TcpClientConnect(txtIpProjector3.Text, txtPortProjector3.Text);
-                        OpenProjector(isConnect);
+                        ischeckProjector3 = true;
                     }
                     else
                     {
-                        bool isConnect = TcpClientConnect(txtIpProjector3.Text, txtPortProjector3.Text);
-                        CloseProjector(isConnect);
+                        ischeckProjector3 = false;
                     }
+                    Thread th3 = new Thread(() =>
+                    {
+                        if (ischeckProjector3 == true)
+                        {
+                            bool isConnect = TcpClientConnect(ip3, port3);
+                            OpenProjector(isConnect);
+
+                        }
+                        else
+                        {
+                            bool isConnect = TcpClientConnect(ip3, port3);
+                            CloseProjector(isConnect);
+                        }
+                    });
+                    th3.Start();
                     break;
                 case 4:
+                    bool ischeckProjector4;
                     if (checkProjector4.IsChecked == true)
                     {
-                        bool isConnect = TcpClientConnect(txtIpProjector4.Text, txtPortProjector4.Text);
-                        OpenProjector(isConnect);
+                        ischeckProjector4 = true;
                     }
                     else
                     {
-                        bool isConnect = TcpClientConnect(txtIpProjector4.Text, txtPortProjector4.Text);
-                        CloseProjector(isConnect);
+                        ischeckProjector4 = false;
                     }
+                    Thread th4 = new Thread(() =>
+                    {
+                        if (ischeckProjector4 == true)
+                        {
+                            bool isConnect = TcpClientConnect(ip4, port4);
+                            OpenProjector(isConnect);
+                        }
+                        else
+                        {
+                            bool isConnect = TcpClientConnect(ip4, port4);
+                            CloseProjector(isConnect);
+                        }
+                    });
+                    th4.Start();
                     break;
             }
         }
@@ -674,6 +756,15 @@ namespace MoviePlayer
         {
             string path = MainWindow.playerPath + @"\XML\" + "Type.xml";
             FileInfo finfo = new FileInfo(path);
+            if (btnServer.Background == Brushes.DodgerBlue)
+            {
+                curControl = "SERVER";
+            }
+            if (btnClient.Background == Brushes.DodgerBlue)
+            {
+                curControl = "CLIENT";
+            }
+
             if (finfo.Exists)
             {
                 XmlDocument xmlDoc = new XmlDocument();
@@ -827,7 +918,7 @@ namespace MoviePlayer
                 btnClient.Background = brush;
             }
 
-            switch(PlayFrame)
+            switch (PlayFrame)
             {
                 case 48:
                     btnFrame48.Background = Brushes.DodgerBlue;
@@ -1021,12 +1112,18 @@ namespace MoviePlayer
         /// </summary>
         private void SelectMode()
         {
-            if ("4DM".Equals(PlayType) && PlayControl == "")
+            if ("4DM".Equals(PlayType))
             {
-                Module.readDefultFile();
-                if (memberData[0].Start != "" && memberData[0].End != "")
+                //Module.readDefultFile();
+                 Module.DEVFile();
+
+                //if (memberData[0].Start != "" && memberData[0].End != "")
+                //{
+                //    TimerFilmInit();
+                //}
+                if (memberData[0].MovieName != "")
                 {
-                    TimerFilmInit();
+                    ReadFilmListFile(0);
                 }
             }
         }
@@ -1249,6 +1346,12 @@ namespace MoviePlayer
                 txtUpdate.Text =
                            "shuqee版本更新信息：\r\n" +
                            "                   V7.1.4 \r\n" +
+                           "更新日期：2019/10/8 \r\n" +
+                           "更新内容：文件合并与中控板匹配 \r\n" +
+                           "               可接收服务指令 \r\n" +
+                           "/**************************************/ \r\n" +
+                           "shuqee版本更新信息：\r\n" +
+                           "                   V7.1.4 \r\n" +
                            "更新日期：2019/9/23 \r\n" +
                            "更新内容：增加对投影机的控制 \r\n" +
                            "               增加TCP客户端与服务器，可在参数中设置 \r\n" +
@@ -1299,6 +1402,12 @@ namespace MoviePlayer
                                "Height: " + MainWindow.PlayHeight + "%" + "\r\n";
 
                 txtUpdate.Text =
+                          "Shuqee Version Update Information：\r\n" +
+                          "                   V7.1.5 \r\n" +
+                          "Updated Date：2019/10/8 \r\n" +
+                          "Updated Content：Merge File \r\n" +
+                          "                            Server commands can be received \r\n" +
+                          "/**************************************/ \r\n" +
                           "Shuqee Version Update Information：\r\n" +
                           "                   V7.1.4 \r\n" +
                           "Updated Date：2019/9/23 \r\n" +
@@ -1899,13 +2008,17 @@ namespace MoviePlayer
             ListView.SelectedValue = s;
             memberData[ListView.SelectedIndex].MovieName = s;
             memberData[ListView.SelectedIndex].FullMovieName = s1;
+            if (ListView.SelectedIndex == 0)
+            {
+                ReadFilmListFile(0);
+            }
         }
 
         private void SelectXmlMovie()
         {
-            ListView.Items.Clear();
             if (PlayType.Equals("4DM"))
             {
+                ListView.Items.Clear();
                 for (int i = 0; i < memberData.Count; i++)
                 {
                     if (memberData[i].MovieName != "")
@@ -2112,7 +2225,7 @@ namespace MoviePlayer
                     else
                     {
                         btnServer.Background = Brushes.DodgerBlue;
-                        curControl = "SERVER";
+                       // curControl = "SERVER";
                     }
                     break;
                 case 2:
@@ -2124,7 +2237,7 @@ namespace MoviePlayer
                     else
                     {
                         btnClient.Background = Brushes.DodgerBlue;
-                        curControl = "CLIENT";
+                        //curControl = "CLIENT";
                     }
                     break;
             }
@@ -2308,8 +2421,8 @@ namespace MoviePlayer
                 //}
                 UdpSend.SendTotal(UserControlClass.MPPlayer.Position.TotalSeconds);
             }
-            showData();             //默认文件显示数据
-            //showTotalData();      //合并文件显示数据
+            //showData();             //默认文件显示数据
+            showTotalData();          //合并文件显示数据
             if (UserControlClass.MPPlayer.Position.TotalSeconds == 0)
             {
                 count++;
@@ -2451,16 +2564,29 @@ namespace MoviePlayer
         private void showTotalData()
         {
             int ii;
+            double pos = 0;
+            switch (MainWindow.PlayFrame)
+            {
+                case 48:
+                    pos = 2400;
+                    break;
+                case 60:
+                    pos = 3000;
+                    break;
+                case 120:
+                    pos = 6000;
+                    break;
+            }
 
             if ("5D".Equals(MainWindow.PlayType))
             {
 
-                ii = (int)Math.Round((UserControlClass.MPPlayer.Position.TotalSeconds * 2400), 0);
+                ii = (int)Math.Round((UserControlClass.MPPlayer.Position.TotalSeconds * pos), 0);
                 ii = (int)Math.Round((ii / 50.0), 0);
             }
             else
             {
-                ii = (int)Math.Round((UdpConnect.TimeCode * 2400), 0);
+                ii = (int)Math.Round((UdpConnect.TimeCode * pos), 0);
                 ii = (int)Math.Round((ii / 50.0), 0);
                 //label.Content = "TimeCode: " + UdpConnect.strLongTimeCode;
             }
@@ -2469,71 +2595,93 @@ namespace MoviePlayer
                 switch (PlayDOF)
                 {
                     case "2DOF":
-                        this.txtPbVal1.Text = Module.actionFile2DOF[3 * ii].ToString();
-                        this.txtPbVal2.Text = Module.actionFile2DOF[3 * ii + 1].ToString();
-                        this.txtPbVal3.Text = Module.actionFile2DOF[3 * ii + 2].ToString();
+                        if (Module.actionFile2DOF.Length >= 3 * ii + 2)
+                        {
+                            this.txtPbVal1.Text = Module.actionFile2DOF[3 * ii].ToString();
+                            this.txtPbVal2.Text = Module.actionFile2DOF[3 * ii + 1].ToString();
+                            this.txtPbVal3.Text = Module.actionFile2DOF[3 * ii + 2].ToString();
 
-                        pb1.Value = Module.actionFile2DOF[3 * ii];
-                        pb2.Value = Module.actionFile2DOF[3 * ii + 1];
-                        pb3.Value = Module.actionFile2DOF[3 * ii + 2];
+                            pb1.Value = Module.actionFile2DOF[3 * ii];
+                            pb2.Value = Module.actionFile2DOF[3 * ii + 1];
+                            pb3.Value = Module.actionFile2DOF[3 * ii + 2];
+                        }
                         break;
                     case "3DOF":
-                        this.txtPbVal1.Text = Module.actionFile3DOF[3 * ii].ToString();
-                        this.txtPbVal2.Text = Module.actionFile3DOF[3 * ii + 1].ToString();
-                        this.txtPbVal3.Text = Module.actionFile3DOF[3 * ii + 2].ToString();
+                        if (Module.actionFile3DOF.Length >= 3 * ii + 2)
+                        {
+                            this.txtPbVal1.Text = Module.actionFile3DOF[3 * ii].ToString();
+                            this.txtPbVal2.Text = Module.actionFile3DOF[3 * ii + 1].ToString();
+                            this.txtPbVal3.Text = Module.actionFile3DOF[3 * ii + 2].ToString();
 
-                        pb1.Value = Module.actionFile3DOF[3 * ii];
-                        pb2.Value = Module.actionFile3DOF[3 * ii + 1];
-                        pb3.Value = Module.actionFile3DOF[3 * ii + 2];
+                            pb1.Value = Module.actionFile3DOF[3 * ii];
+                            pb2.Value = Module.actionFile3DOF[3 * ii + 1];
+                            pb3.Value = Module.actionFile3DOF[3 * ii + 2];
+                        }
                         break;
                     case "6DOF":
-                        this.txtPbVal1.Text = Module.actionFile6DOF[6 * ii].ToString();
-                        this.txtPbVal2.Text = Module.actionFile6DOF[6 * ii + 1].ToString();
-                        this.txtPbVal3.Text = Module.actionFile6DOF[6 * ii + 2].ToString();
-                        this.txtPbVal4.Text = Module.actionFile6DOF[6 * ii + 3].ToString();
-                        this.txtPbVal5.Text = Module.actionFile6DOF[6 * ii + 4].ToString();
-                        this.txtPbVal6.Text = Module.actionFile6DOF[6 * ii + 5].ToString();
+                        if (Module.actionFile6DOF.Length >= 6 * ii + 5)
+                        {
+                            this.txtPbVal1.Text = Module.actionFile6DOF[6 * ii].ToString();
+                            this.txtPbVal2.Text = Module.actionFile6DOF[6 * ii + 1].ToString();
+                            this.txtPbVal3.Text = Module.actionFile6DOF[6 * ii + 2].ToString();
+                            this.txtPbVal4.Text = Module.actionFile6DOF[6 * ii + 3].ToString();
+                            this.txtPbVal5.Text = Module.actionFile6DOF[6 * ii + 4].ToString();
+                            this.txtPbVal6.Text = Module.actionFile6DOF[6 * ii + 5].ToString();
 
-                        pb1.Value = Module.actionFile6DOF[6 * ii];
-                        pb2.Value = Module.actionFile6DOF[6 * ii + 1];
-                        pb3.Value = Module.actionFile6DOF[6 * ii + 2];
-                        pb4.Value = Module.actionFile6DOF[6 * ii + 3];
-                        pb5.Value = Module.actionFile6DOF[6 * ii + 4];
-                        pb6.Value = Module.actionFile6DOF[6 * ii + 5];
+                            pb1.Value = Module.actionFile6DOF[6 * ii];
+                            pb2.Value = Module.actionFile6DOF[6 * ii + 1];
+                            pb3.Value = Module.actionFile6DOF[6 * ii + 2];
+                            pb4.Value = Module.actionFile6DOF[6 * ii + 3];
+                            pb5.Value = Module.actionFile6DOF[6 * ii + 4];
+                            pb6.Value = Module.actionFile6DOF[6 * ii + 5];
+                        }
                         break;
                 }
 
                 Boolean[] ev = new Boolean[8];
                 Boolean[] cEffect = new Boolean[8];
                 Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
-                for (int i = 0, n = 1; i < 8; i++)
+                if (Module.effectFile.Length >= 2 * ii + 1)
                 {
-                    ev[i] = ((Module.effectFile[2 * ii] & n) == 0 ? false : true);
-                    n = n << 1;
-                    if (ev[i] == true)
+                    for (int i = 0, n = 1; i < 8; i++)
                     {
-                        checkBoxEvEffect[i].Background = Brushes.DodgerBlue;
+                        ev[i] = ((Module.effectFile[2 * ii] & n) == 0 ? false : true);
+                        n = n << 1;
+                        if (ev[i] == true)
+                        {
+                            checkBoxEvEffect[i].Background = Brushes.DodgerBlue;
+                        }
+                        else
+                        {
+                            checkBoxEvEffect[i].Background = brush;
+                        }
+                    }
+
+                    for (int i = 0, n = 1; i < 8; i++)
+                    {
+                        cEffect[i] = ((Module.effectFile[2 * ii + 1] & n) == 0 ? false : true);
+                        n = n << 1;
+                        if (cEffect[i] == true)
+                        {
+                            checkBoxChairEffect[i].Background = Brushes.DodgerBlue;
+                        }
+                        else
+                        {
+                            checkBoxChairEffect[i].Background = brush;
+                        }
+                    }
+                }
+                if (Module.shakeFile.Length >= 2 * ii + 1)
+                {
+                    if (Module.shakeFile[2 * ii + 1] == 2)
+                    {
+                        checkBoxChairEffect[1].Background = Brushes.DodgerBlue;
                     }
                     else
                     {
-                        checkBoxEvEffect[i].Background = brush;
+                        checkBoxChairEffect[1].Background = brush;
                     }
                 }
-
-                for (int i = 0, n = 1; i < 8; i++)
-                {
-                    cEffect[i] = ((Module.effectFile[2 * ii + 1] & n) == 0 ? false : true);
-                    n = n << 1;
-                    if (cEffect[i] == true)
-                    {
-                        checkBoxChairEffect[i].Background = Brushes.DodgerBlue;
-                    }
-                    else
-                    {
-                        checkBoxChairEffect[i].Background = brush;
-                    }
-                }
-
             }
             catch
             {
@@ -2898,7 +3046,8 @@ namespace MoviePlayer
                 }
                 else
                 {
-                    Module.readFile();
+                    //Module.readFile();
+                    Module.readDEVFile();
                     UserControlClass.MPPlayer.Play();
                 }
                 Timing.Start();
@@ -3692,7 +3841,8 @@ namespace MoviePlayer
                                     labFilm2.Content = "Next Movie:" + memberData[i + 1].MovieName;
                                 }
                             }
-                            Module.readDefultFile(memberData[i].FullMovieName);
+                            //Module.readDefultFile(memberData[i].FullMovieName);
+                            Module.DEVFile(memberData[i].FullMovieName);
                         }
                         if (i < 9)
                         {
@@ -3723,7 +3873,8 @@ namespace MoviePlayer
                     {
                         int a = memberData.Count;
                         labFilm1.Content = "当前影片：" + memberData[movieListIndex].MovieName;
-                        Module.readDefultFile(memberData[movieListIndex].FullMovieName);
+                        //Module.readDefultFile(memberData[movieListIndex].FullMovieName);
+                        Module.DEVFile(memberData[movieListIndex].FullMovieName);
                         Thread.Sleep(100);
                         movieListIndex = movieListIndex + 1;
                         if (movieListIndex == movieListIndexs)
@@ -3825,8 +3976,8 @@ namespace MoviePlayer
                     if ("4DM".Equals(PlayType))
                     {
                         labLTC.Content = "TimeCode: " + UdpConnect.strLongTimeCode;
-                        showData();
-                        //showTotalData();
+                        //showData();
+                        showTotalData();
                     }
                 }
             }
@@ -4025,7 +4176,8 @@ namespace MoviePlayer
             {
                 labFilm1.Content = "Current Movie:" + memberData[i].MovieName;
             }
-            Module.readDefultFile(memberData[i].FullMovieName, memberData[i].MovieName);
+            //Module.readDefultFile(memberData[i].FullMovieName, memberData[i].MovieName);
+            Module.DEVFile(memberData[i].FullMovieName, memberData[i].MovieName);
         }
 
         /// <summary>
