@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Type>
-  <Style>5D</Style>
+  <Style>4DM</Style>
   <Language>CN</Language>
-  <DOF>3DOF</DOF>
+  <DOF>2DOF</DOF>
   <Height>100</Height>
   <Projector>0</Projector>
   <Permission>FALSE</Permission>

@@ -320,7 +320,6 @@ namespace MoviePlayer
           int fuWinIni
      );
 
-
         #region 构造函数
         public MainWindow()
         {
@@ -508,205 +507,6 @@ namespace MoviePlayer
 
         }
 
-
-
-        #region 控制台控制投影机
-        private void Projector_Click(object sender, RoutedEventArgs e)
-        {
-            CheckBox checkbox = sender as CheckBox;
-            int tag = Convert.ToInt32(checkbox.Tag);
-            string ip1 = txtIpProjector1.Text;
-            string port1 = txtPortProjector1.Text;
-            string ip2 = txtIpProjector1.Text;
-            string port2 = txtPortProjector1.Text;
-            string ip3 = txtIpProjector1.Text;
-            string port3 = txtPortProjector1.Text;
-            string ip4 = txtIpProjector1.Text;
-            string port4 = txtPortProjector1.Text;
-            switch (tag)
-            {
-                case 1:
-                    bool ischeckProjector1;
-                    if (checkProjector1.IsChecked == true)
-                    {
-                        ischeckProjector1 = true;
-                    }
-                    else
-                    {
-                        ischeckProjector1 = false;
-                    }
-                    Thread th1 = new Thread(() =>
-                    {
-                        if (ischeckProjector1 == true)
-                        {
-                            bool isConnect = TcpClientConnect(ip1, port1);
-                            OpenProjector(isConnect);
-
-                        }
-                        else
-                        {
-                            bool isConnect = TcpClientConnect(ip1, port1);
-                            CloseProjector(isConnect);
-                        }
-                    });
-                    th1.Start();
-                    break;
-                case 2:
-                    //if (checkProjector2.IsChecked == true)
-                    //{
-                    //    bool isConnect = TcpClientConnect(txtIpProjector2.Text, txtPortProjector2.Text);
-                    //    OpenProjector(isConnect);
-                    //}
-                    //else
-                    //{
-                    //    bool isConnect = TcpClientConnect(txtIpProjector2.Text, txtPortProjector2.Text);
-                    //    CloseProjector(isConnect);
-                    //}
-                    bool ischeckProjector2;
-                    if (checkProjector2.IsChecked == true)
-                    {
-                        ischeckProjector2 = true;
-                    }
-                    else
-                    {
-                        ischeckProjector2 = false;
-                    }
-                    Thread th2 = new Thread(() =>
-                    {
-                        if (ischeckProjector2 == true)
-                        {
-                            bool isConnect = TcpClientConnect(ip2, port2);
-                            OpenProjector(isConnect);
-
-                        }
-                        else
-                        {
-                            bool isConnect = TcpClientConnect(ip2, port2);
-                            CloseProjector(isConnect);
-                        }
-                    });
-                    th2.Start();
-                    break;
-                case 3:
-                    bool ischeckProjector3;
-                    if (checkProjector3.IsChecked == true)
-                    {
-                        ischeckProjector3 = true;
-                    }
-                    else
-                    {
-                        ischeckProjector3 = false;
-                    }
-                    Thread th3 = new Thread(() =>
-                    {
-                        if (ischeckProjector3 == true)
-                        {
-                            bool isConnect = TcpClientConnect(ip3, port3);
-                            OpenProjector(isConnect);
-
-                        }
-                        else
-                        {
-                            bool isConnect = TcpClientConnect(ip3, port3);
-                            CloseProjector(isConnect);
-                        }
-                    });
-                    th3.Start();
-                    break;
-                case 4:
-                    bool ischeckProjector4;
-                    if (checkProjector4.IsChecked == true)
-                    {
-                        ischeckProjector4 = true;
-                    }
-                    else
-                    {
-                        ischeckProjector4 = false;
-                    }
-                    Thread th4 = new Thread(() =>
-                    {
-                        if (ischeckProjector4 == true)
-                        {
-                            bool isConnect = TcpClientConnect(ip4, port4);
-                            OpenProjector(isConnect);
-                        }
-                        else
-                        {
-                            bool isConnect = TcpClientConnect(ip4, port4);
-                            CloseProjector(isConnect);
-                        }
-                    });
-                    th4.Start();
-                    break;
-            }
-        }
-
-        private void Projector_Checked(object sender, RoutedEventArgs e)
-        {
-            CheckBox checkbox = sender as CheckBox;
-            int tag = Convert.ToInt32(checkbox.Tag);
-            switch (tag)
-            {
-                case 1:
-                    //MessageBox.Show("1");
-                    break;
-                case 2:
-                    //MessageBox.Show("2");
-                    break;
-                case 3:
-                    //MessageBox.Show("3");
-                    break;
-                case 4:
-                    //MessageBox.Show("4");
-                    break;
-            }
-        }
-
-        private bool TcpClientConnect(string ip, string port)
-        {
-            try
-            {
-                tcpClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                tcpClient.Connect(UdpInit.transformIP(ip, port));
-                return true;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("连接投影机有误");
-                Module.WriteLogFile("连接投影机有误" + "\r\n" + e.Message);
-                return false;
-            }
-        }
-
-        private void TcpClientClose()
-        {
-            if (tcpClient.Connected)
-            {
-                tcpClient.Close();
-            }
-        }
-
-        private void OpenProjector(bool isConnect)
-        {
-            if (isConnect)
-            {
-                //int brand = comboBoxBrand.SelectedIndex;      选中哪个品牌的投影机
-                byte[] data1 = { 0x30, 0x30, 0x50, 0x4F, 0x4E, 0x0D };
-                tcpClient.Send(data1);
-                TcpClientClose();
-            }
-        }
-
-        private void CloseProjector(bool isConnect)
-        {
-            if (isConnect)
-            {
-                byte[] data2 = { 0x30, 0x30, 0x50, 0x4F, 0x46, 0x0D };
-                tcpClient.Send(data2);
-                TcpClientClose();
-            }
-        }
-        #endregion
         /// <summary>
         /// 选择语言文件
         /// </summary>
@@ -820,8 +620,6 @@ namespace MoviePlayer
             }
         }
 
-
-
         /// <summary>
         /// 保存当前选择的语言状态
         /// </summary>
@@ -863,8 +661,12 @@ namespace MoviePlayer
             {
                 case "2DOF":
                     btn2DOF.Background = Brushes.DodgerBlue;
+                    txtPbVal1.Text = "127";
+                    txtPbVal3.Text = "127";
+                    pb1.Value = 127;
+                    pb3.Value = 127;
                     txtPbVal2.Visibility = Visibility.Hidden;
-                    pb2.Visibility = Visibility.Hidden;
+                    pb2.Visibility = Visibility.Hidden;                   
                     TypeShowAction();
                     break;
                 case "3DOF":
@@ -1107,6 +909,22 @@ namespace MoviePlayer
             }
         }
 
+        private bool compareDateTime(string str1)
+        {
+            try
+            {
+                DateTime dt1 = new DateTime();
+                DateTime dt2 = new DateTime();
+                dt1 = Convert.ToDateTime(str1);
+                dt2 = DateTime.Now;
+                return DateTime.Compare(dt2, dt1) < 0;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         /// <summary>
         /// 4DM模式选择
         /// </summary>
@@ -1115,13 +933,12 @@ namespace MoviePlayer
             if ("4DM".Equals(PlayType))
             {
                 //Module.readDefultFile();
-                 Module.DEVFile();
-
-                //if (memberData[0].Start != "" && memberData[0].End != "")
-                //{
-                //    TimerFilmInit();
-                //}
-                if (memberData[0].MovieName != "")
+               // Module.DEVFile();
+                if (memberData[0].Start != "" && memberData[0].End != "" && PlayControl != "SERVER")
+                {
+                    TimerFilmInit();
+                }
+                else if(memberData[0].MovieName != "" && PlayControl == "")
                 {
                     ReadFilmListFile(0);
                 }
@@ -1230,7 +1047,6 @@ namespace MoviePlayer
             return System.Text.Encoding.UTF8.GetBytes(srcString).Length > srcString.Length;
         }
 
-
         /// <summary>
         /// 读取排片配置文件的内容
         /// </summary>
@@ -1296,8 +1112,6 @@ namespace MoviePlayer
                 elementNext = (XmlElement)childNodeNext;
                 PlayProjector4IP = elementNext["IP"].InnerText;
                 PlayProjector4Port = elementNext["Port"].InnerText;
-
-
             }
         }
 
@@ -1342,10 +1156,17 @@ namespace MoviePlayer
                               "软件类型：" + MainWindow.PlayType + "\r\n" +
                               "软件语言：" + MainWindow.PlayLanguage + "\r\n" +
                               "自由度：  " + MainWindow.PlayDOF + "\r\n" +
-                              "行程高度：" + MainWindow.PlayHeight + "%";
+                              "行程高度：" + MainWindow.PlayHeight + "%" +"\r\n"+
+                              "序列号:" + UdpConnect.uuid;
                 txtUpdate.Text =
                            "shuqee版本更新信息：\r\n" +
-                           "                   V7.1.4 \r\n" +
+                           "                   V7.1.6 \r\n" +
+                           "更新日期：2019/10/12 \r\n" +
+                           "更新内容：增加排片操作 \r\n" +
+                           "               支持60帧数据 \r\n" +
+                           "/**************************************/ \r\n" +
+                           "shuqee版本更新信息：\r\n" +
+                           "                   V7.1.5 \r\n" +
                            "更新日期：2019/10/8 \r\n" +
                            "更新内容：文件合并与中控板匹配 \r\n" +
                            "               可接收服务指令 \r\n" +
@@ -1402,6 +1223,11 @@ namespace MoviePlayer
                                "Height: " + MainWindow.PlayHeight + "%" + "\r\n";
 
                 txtUpdate.Text =
+                    "Shuqee Version Update Information：\r\n" +
+                          "                   V7.1.6 \r\n" +
+                          "Updated Date：2019/10/12 \r\n" +
+                          "Updated Content：Support 60 Frame \r\n" +
+                          "/**************************************/ \r\n" +
                           "Shuqee Version Update Information：\r\n" +
                           "                   V7.1.5 \r\n" +
                           "Updated Date：2019/10/8 \r\n" +
@@ -1522,6 +1348,7 @@ namespace MoviePlayer
                     tabControlShow.SelectedIndex = tag - 1;
                     SetNavigationEnable(true);
                     txtRegStr.Text = UdpConnect.valDate;
+                    changeWinVersionLanguage();
                     break;
                 case 6:
                     tabControl.SelectedIndex = 2;
@@ -1703,6 +1530,7 @@ namespace MoviePlayer
             btnRegisterGrid.Background = brush;
             btnUpdateLogGrid.Background = brush;
             btnAboutUsGrid.Background = brush;
+            //changeWinVersionLanguage();
             switch (tag)
             {
                 case 1:
@@ -1806,7 +1634,6 @@ namespace MoviePlayer
                     PlayLanguage = "EN";
                     break;
                 case 2:
-
                     btnCN.Background = Brushes.DodgerBlue;
                     ChangeLanguage("CN");
                     PlayLanguage = "CN";
@@ -2440,12 +2267,37 @@ namespace MoviePlayer
         /// </summary>
         private void ClearData()
         {
-            pb1.Value = 0;
-            pb2.Value = 0;
-            pb3.Value = 0;
-            txtPbVal1.Text = "0";
-            txtPbVal2.Text = "0";
-            txtPbVal3.Text = "0";
+            switch (PlayDOF)
+            {
+                case "2DOF":
+                    pb1.Value = 127;
+                    pb3.Value = 127;
+                    txtPbVal1.Text = "127";
+                    txtPbVal3.Text = "127";
+                    break;
+                case "3DOF":
+                    pb1.Value = 0;
+                    pb2.Value = 0;
+                    pb3.Value = 0;
+                    txtPbVal1.Text = "0";
+                    txtPbVal2.Text = "0";
+                    txtPbVal3.Text = "0";
+                    break;
+                case "6DOF":
+                    pb1.Value = 0;
+                    pb2.Value = 0;
+                    pb3.Value = 0;
+                    pb4.Value = 0;
+                    pb5.Value = 0;
+                    pb6.Value = 0;
+                    txtPbVal1.Text = "0";
+                    txtPbVal2.Text = "0";
+                    txtPbVal3.Text = "0";
+                    txtPbVal4.Text = "0";
+                    txtPbVal5.Text = "0";
+                    txtPbVal6.Text = "0";
+                    break;
+            }
             Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
 
             for (int i = 0; i < 8; i++)
@@ -2685,19 +2537,20 @@ namespace MoviePlayer
             }
             catch
             {
-                this.txtPbVal1.Text = "0";
-                this.txtPbVal2.Text = "0";
-                this.txtPbVal3.Text = "0";
-                this.txtPbVal4.Text = "0";
-                this.txtPbVal5.Text = "0";
-                this.txtPbVal6.Text = "0";
+                ClearData();
+                //this.txtPbVal1.Text = "0";
+                //this.txtPbVal2.Text = "0";
+                //this.txtPbVal3.Text = "0";
+                //this.txtPbVal4.Text = "0";
+                //this.txtPbVal5.Text = "0";
+                //this.txtPbVal6.Text = "0";
 
-                pb1.Value = 0;
-                pb2.Value = 0;
-                pb3.Value = 0;
-                pb4.Value = 0;
-                pb5.Value = 0;
-                pb6.Value = 0;
+                //pb1.Value = 0;
+                //pb2.Value = 0;
+                //pb3.Value = 0;
+                //pb4.Value = 0;
+                //pb5.Value = 0;
+                //pb6.Value = 0;
             }
         }
 
@@ -3789,8 +3642,9 @@ namespace MoviePlayer
         private void TimerFilmInit()
         {
             timerFilm = new DispatcherTimer();
-            timerFilm.Interval = TimeSpan.FromSeconds(10);
+            timerFilm.Interval = TimeSpan.FromSeconds(5);
             timerFilm.Tick += new EventHandler(TimerFilm_Tick);
+            timerFilm.Start();
 
             //测试排片列表循环播放
             //for (int i = 0; i < memberData.Count; i++)
@@ -3842,13 +3696,16 @@ namespace MoviePlayer
                                 }
                             }
                             //Module.readDefultFile(memberData[i].FullMovieName);
-                            Module.DEVFile(memberData[i].FullMovieName);
+                            Module.DEVFile(memberData[i].FullMovieName,memberData[i].MovieName);
                         }
                         if (i < 9)
                         {
-                            if (compareDateTime(memberData[i].End, memberData[i + 1].Start))
+                            if (compareDateTime(memberData[i].End, memberData[i + 1].Start)||compareDateTime(memberData[0].Start))
                             {
-                                Module.actionFile = null;
+                                labFilm1.Content = "";
+                                labFilm2.Content = "";
+                                Module.actionFile2DOF = null;
+                                Module.actionFile3DOF = null;
                                 Module.shakeFile = null;
                                 Module.effectFile = null;
                             }
@@ -3886,11 +3743,6 @@ namespace MoviePlayer
             }
         }
 
-
-
-
-
-
         /// <summary>
         /// 判断定时器初始化
         /// </summary>
@@ -3901,7 +3753,6 @@ namespace MoviePlayer
             timerJudge.Tick += new EventHandler(TimerJudge_Tick);
             timerJudge.Start();
         }
-
 
         /// <summary>
         /// 判断软件当前的状态
@@ -4036,6 +3887,201 @@ namespace MoviePlayer
 
         #endregion
 
+        #region 控制台控制投影机
+        private void Projector_Click(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkbox = sender as CheckBox;
+            int tag = Convert.ToInt32(checkbox.Tag);
+            string ip1 = txtIpProjector1.Text;
+            string port1 = txtPortProjector1.Text;
+            string ip2 = txtIpProjector1.Text;
+            string port2 = txtPortProjector1.Text;
+            string ip3 = txtIpProjector1.Text;
+            string port3 = txtPortProjector1.Text;
+            string ip4 = txtIpProjector1.Text;
+            string port4 = txtPortProjector1.Text;
+            switch (tag)
+            {
+                case 1:
+                    bool ischeckProjector1;
+                    if (checkProjector1.IsChecked == true)
+                    {
+                        ischeckProjector1 = true;
+                    }
+                    else
+                    {
+                        ischeckProjector1 = false;
+                    }
+                    Thread th1 = new Thread(() =>
+                    {
+                        if (ischeckProjector1 == true)
+                        {
+                            bool isConnect = TcpClientConnect(ip1, port1);
+                            OpenProjector(isConnect);
+                        }
+                        else
+                        {
+                            bool isConnect = TcpClientConnect(ip1, port1);
+                            CloseProjector(isConnect);
+                        }
+                    });
+                    th1.Start();
+                    break;
+                case 2:
+                    //if (checkProjector2.IsChecked == true)
+                    //{
+                    //    bool isConnect = TcpClientConnect(txtIpProjector2.Text, txtPortProjector2.Text);
+                    //    OpenProjector(isConnect);
+                    //}
+                    //else
+                    //{
+                    //    bool isConnect = TcpClientConnect(txtIpProjector2.Text, txtPortProjector2.Text);
+                    //    CloseProjector(isConnect);
+                    //}
+                    bool ischeckProjector2;
+                    if (checkProjector2.IsChecked == true)
+                    {
+                        ischeckProjector2 = true;
+                    }
+                    else
+                    {
+                        ischeckProjector2 = false;
+                    }
+                    Thread th2 = new Thread(() =>
+                    {
+                        if (ischeckProjector2 == true)
+                        {
+                            bool isConnect = TcpClientConnect(ip2, port2);
+                            OpenProjector(isConnect);
+                        }
+                        else
+                        {
+                            bool isConnect = TcpClientConnect(ip2, port2);
+                            CloseProjector(isConnect);
+                        }
+                    });
+                    th2.Start();
+                    break;
+                case 3:
+                    bool ischeckProjector3;
+                    if (checkProjector3.IsChecked == true)
+                    {
+                        ischeckProjector3 = true;
+                    }
+                    else
+                    {
+                        ischeckProjector3 = false;
+                    }
+                    Thread th3 = new Thread(() =>
+                    {
+                        if (ischeckProjector3 == true)
+                        {
+                            bool isConnect = TcpClientConnect(ip3, port3);
+                            OpenProjector(isConnect);
+                        }
+                        else
+                        {
+                            bool isConnect = TcpClientConnect(ip3, port3);
+                            CloseProjector(isConnect);
+                        }
+                    });
+                    th3.Start();
+                    break;
+                case 4:
+                    bool ischeckProjector4;
+                    if (checkProjector4.IsChecked == true)
+                    {
+                        ischeckProjector4 = true;
+                    }
+                    else
+                    {
+                        ischeckProjector4 = false;
+                    }
+                    Thread th4 = new Thread(() =>
+                    {
+                        if (ischeckProjector4 == true)
+                        {
+                            bool isConnect = TcpClientConnect(ip4, port4);
+                            OpenProjector(isConnect);
+                        }
+                        else
+                        {
+                            bool isConnect = TcpClientConnect(ip4, port4);
+                            CloseProjector(isConnect);
+                        }
+                    });
+                    th4.Start();
+                    break;
+            }
+        }
+
+        private void Projector_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkbox = sender as CheckBox;
+            int tag = Convert.ToInt32(checkbox.Tag);
+            switch (tag)
+            {
+                case 1:
+                    //MessageBox.Show("1");
+                    break;
+                case 2:
+                    //MessageBox.Show("2");
+                    break;
+                case 3:
+                    //MessageBox.Show("3");
+                    break;
+                case 4:
+                    //MessageBox.Show("4");
+                    break;
+            }
+        }
+
+        private bool TcpClientConnect(string ip, string port)
+        {
+            try
+            {
+                tcpClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                tcpClient.Connect(UdpInit.transformIP(ip, port));
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("连接投影机有误");
+                Module.WriteLogFile("连接投影机有误" + "\r\n" + e.Message);
+                return false;
+            }
+        }
+
+        private void TcpClientClose()
+        {
+            if (tcpClient.Connected)
+            {
+                tcpClient.Close();
+            }
+        }
+
+        private void OpenProjector(bool isConnect)
+        {
+            if (isConnect)
+            {
+                //int brand = comboBoxBrand.SelectedIndex;      选中哪个品牌的投影机
+                byte[] data1 = { 0x30, 0x30, 0x50, 0x4F, 0x4E, 0x0D };
+                tcpClient.Send(data1);
+                TcpClientClose();
+            }
+        }
+
+        private void CloseProjector(bool isConnect)
+        {
+            if (isConnect)
+            {
+                byte[] data2 = { 0x30, 0x30, 0x50, 0x4F, 0x46, 0x0D };
+                tcpClient.Send(data2);
+                TcpClientClose();
+            }
+        }
+        #endregion
+
         #region TCP服务器
         /// <summary>
         /// 开始监听
@@ -4147,6 +4193,15 @@ namespace MoviePlayer
                                 if (PlayType.Equals("5D"))
                                 {
                                     btnStopClickFun();
+                                }
+                                else
+                                {
+                                    labFilm1.Content = "";
+                                    Module.actionFile2DOF = null;
+                                    Module.actionFile3DOF = null;
+                                    Module.actionFile6DOF = null;
+                                    Module.effectFile = null;
+                                    Module.shakeFile = null;
                                 }
                             }));
                         }

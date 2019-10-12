@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Lists>
   <List0>
-    <MovieNo>
-    </MovieNo>
+    <MovieNo>1</MovieNo>
     <StartTime>
     </StartTime>
     <StopTime>
@@ -17,8 +16,10 @@
     </StartTime>
     <StopTime>
     </StopTime>
-    <MovieName>红海</MovieName>
-    <FullMoviePath>C:\Users\shuqee\Desktop\电影动作文件\红海</FullMoviePath>
+    <MovieName>
+    </MovieName>
+    <FullMoviePath>
+    </FullMoviePath>
   </List1>
   <List2>
     <MovieNo>

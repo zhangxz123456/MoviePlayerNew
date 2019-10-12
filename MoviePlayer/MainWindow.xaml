@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoviePlayer"
         mc:Ignorable="d"
-        Title="MoviePlayer Software" Height="700" Width="1000" WindowStartupLocation="CenterScreen" Icon="30001.ico" >
+        Title="MoviePlayer Software" Height="700" MinHeight="700" Width="1000" MinWidth="1000" WindowStartupLocation="CenterScreen" Icon="30001.ico" >
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -23,7 +23,6 @@
             <ColumnDefinition MaxWidth="150"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
         <!--导航栏-->
         <Grid Grid.Row="0" Grid.Column="0" Background="#363636">
             <Grid.RowDefinitions>
@@ -256,19 +255,19 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <ProgressBar x:Name="pb1" MaxWidth="25" Grid.Row="0" Grid.Column="0" Foreground="Red" Margin="5,5,5,5" Orientation="Vertical" Value="80" Maximum="255"/>
-                                <ProgressBar x:Name="pb2" MaxWidth="25" Grid.Row="0" Grid.Column="1" Foreground="Green" Margin="5,5,5,5" Orientation="Vertical" Value="80" Maximum="255"/>
-                                <ProgressBar x:Name="pb3" MaxWidth="25" Grid.Row="0" Grid.Column="2" Foreground="DodgerBlue" Margin="5,5,5,5" Orientation="Vertical" Value="80" Maximum="255"/>
-                                <ProgressBar x:Name="pb4" MaxWidth="25" Grid.Row="0" Grid.Column="3" Foreground="Orange" Margin="5,5,5,5" Orientation="Vertical" Value="80" Maximum="255"/>
-                                <ProgressBar x:Name="pb5" MaxWidth="25" Grid.Row="0" Grid.Column="4" Foreground="Gray" Margin="5,5,5,5" Orientation="Vertical" Value="80" Maximum="255"/>
-                                <ProgressBar x:Name="pb6" MaxWidth="25" Grid.Row="0" Grid.Column="5" Foreground="Black" Margin="5,5,5,5" Orientation="Vertical" Value="80" Maximum="255"/>
+                                <ProgressBar x:Name="pb1" MaxWidth="25" Grid.Row="0" Grid.Column="0" Foreground="Red" Margin="5,5,5,5" Orientation="Vertical" Value="0" Maximum="255"/>
+                                <ProgressBar x:Name="pb2" MaxWidth="25" Grid.Row="0" Grid.Column="1" Foreground="Green" Margin="5,5,5,5" Orientation="Vertical" Value="0" Maximum="255"/>
+                                <ProgressBar x:Name="pb3" MaxWidth="25" Grid.Row="0" Grid.Column="2" Foreground="DodgerBlue" Margin="5,5,5,5" Orientation="Vertical" Value="0" Maximum="255"/>
+                                <ProgressBar x:Name="pb4" MaxWidth="25" Grid.Row="0" Grid.Column="3" Foreground="Orange" Margin="5,5,5,5" Orientation="Vertical" Value="0" Maximum="255"/>
+                                <ProgressBar x:Name="pb5" MaxWidth="25" Grid.Row="0" Grid.Column="4" Foreground="Gray" Margin="5,5,5,5" Orientation="Vertical" Value="0" Maximum="255"/>
+                                <ProgressBar x:Name="pb6" MaxWidth="25" Grid.Row="0" Grid.Column="5" Foreground="Black" Margin="5,5,5,5" Orientation="Vertical" Value="0" Maximum="255"/>
 
-                                <TextBlock x:Name="txtPbVal1" Grid.Row="1" Grid.Column="0" Text="255" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
-                                <TextBlock x:Name="txtPbVal2" Grid.Row="1" Grid.Column="1" Text="255" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
-                                <TextBlock x:Name="txtPbVal3" Grid.Row="1" Grid.Column="2" Text="255" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
-                                <TextBlock x:Name="txtPbVal4" Grid.Row="1" Grid.Column="3" Text="255" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
-                                <TextBlock x:Name="txtPbVal5" Grid.Row="1" Grid.Column="4" Text="255" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
-                                <TextBlock x:Name="txtPbVal6" Grid.Row="1" Grid.Column="5" Text="255" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtPbVal1" Grid.Row="1" Grid.Column="0" Text="0" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtPbVal2" Grid.Row="1" Grid.Column="1" Text="0" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtPbVal3" Grid.Row="1" Grid.Column="2" Text="0" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtPbVal4" Grid.Row="1" Grid.Column="3" Text="0" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtPbVal5" Grid.Row="1" Grid.Column="4" Text="0" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtPbVal6" Grid.Row="1" Grid.Column="5" Text="0" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
 
                                 <!--环境特效显示-->
                                 <TextBlock Background="#FF737373"  Grid.Row="2" Grid.ColumnSpan="6"/>
@@ -1150,7 +1149,7 @@
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <Image Grid.Row="0" Grid.RowSpan="3" Source="/Resources/Icon_ShuQee_White.png" Stretch="Fill"/>
-                                <TextBlock x:Name="txtVersion" Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="25" Margin="20,0,0,0" Text="Version: 7.1.5" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtVersion" Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="25" Margin="20,0,0,0" Text="Version: 7.1.6" VerticalAlignment="Center"/>
                                 <TextBlock x:Name="txtRegStrTitle" Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="25" Margin="20,0,520,0" Text="{DynamicResource txtRegStrTitle}"  VerticalAlignment="Center"/>
                                 <TextBlock x:Name="txtRegStr" Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="25" Margin="110,0,0,0" Text=""  VerticalAlignment="Center"/>
                             </Grid>
@@ -1339,7 +1338,7 @@
                                 </TextBox.Resources>
                             </TextBox>
 
-                            <Button x:Name="btnDefault" Content="{DynamicResource btnDefault}" Style="{DynamicResource FilletButton}" Grid.Row="9" Grid.Column="6"  Margin="33,20,16,10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="101" Height="40">
+                            <Button x:Name="btnDefault" Content="{DynamicResource btnDefault}" Style="{DynamicResource FilletButton}" Grid.Row="9" Grid.Column="6"  Margin="33,20,16,10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="101" Height="40" Visibility="Hidden">
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="0"/>
