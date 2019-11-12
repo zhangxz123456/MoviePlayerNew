@@ -31,7 +31,14 @@
         <TextBox Name ="txtUserCode" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,10,20,10" TextAlignment="Left" Foreground="White" Background="#FF737373" Style="{DynamicResource TextBoxInputStyle}" TextChanged="txtUserCode_TextChanged" IsReadOnly="True" ></TextBox>
         <TextBox Name ="txtRegister" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,10,20,10"  TextWrapping="Wrap" Foreground="White" Background="#FF737373" Style="{DynamicResource TextBoxInputStyle}"></TextBox>
 
-        <Button Name="btnUserCode" Content="{DynamicResource btnUserCode}" Style="{DynamicResource FilletButton}" Grid.Row="2" Grid.Column="1"  Margin="41,10,19,10" Foreground="White" Click="btnGetUserCode_Click"></Button>
+        <Button Name="btnUserCode" Content="{DynamicResource btnUserCode}" Style="{DynamicResource FilletButton}" Grid.Row="2" Grid.Column="1"  Margin="41,10,19,10" Foreground="White" Click="btnGetUserCode_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF737373" Offset="0"/>
+                    <GradientStop Color="#FF737373" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
         <Button Name="btnRegister" Content="{DynamicResource btnRegCode}" Style="{DynamicResource FilletButton}" Grid.Row="2" Grid.Column="2"  Margin="5,10,55,10" Foreground="White" Click="btnRegister_Click"></Button>
     </Grid>
 </Window>

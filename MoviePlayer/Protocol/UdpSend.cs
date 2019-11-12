@@ -375,6 +375,8 @@ namespace MoviePlayer.Protocol
             {
                 Debug.WriteLine(e.Message);
             }
+           
+
             array = ModbusUdp.ArrayAdd(addr, len, data);
             Data = ModbusUdp.MBReqWrite(array);
             UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
@@ -406,7 +408,7 @@ namespace MoviePlayer.Protocol
             //}
             Debug.WriteLine(pos);
             addr = 0;
-            len = 26;
+            len = 42;
             data = new byte[len];
             int num1 = 3 * (int)(pos / 50);                  //actionFile2DOF与actionFile3DOF数组下标
             int num2 = 3 * (int)(pos / 50) + 1;
@@ -521,6 +523,13 @@ namespace MoviePlayer.Protocol
             {
                 Debug.WriteLine(e.Message);
             }
+
+            byte[] data1 = new byte[30];
+            for (int i = 0; i < 30; i++)
+            {
+                data1[i] = (byte)Module.dmx512File[(int)(pos / 50) * 30 + i];
+            }
+            data1.CopyTo(data, 12);           
             array = ModbusUdp.ArrayAdd(addr, len, data);
             Data = ModbusUdp.MBReqWrite(array);
             UdpSendData(Data, Data.Length, UdpInit.RemotePoint);

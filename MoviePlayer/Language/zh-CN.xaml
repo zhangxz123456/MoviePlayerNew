@@ -11,6 +11,7 @@
     <sys:String x:Key="txtProjectorSet">投影机设置</sys:String>
     <sys:String x:Key="txtEvEffect">环境特效</sys:String>
     <sys:String x:Key="txtChairEffect">座椅特效</sys:String>
+    <sys:String x:Key="txtEquipment">设备状态</sys:String>
     <sys:String x:Key="btnImport">导入影片</sys:String>
 
 
@@ -35,6 +36,10 @@
     <sys:String x:Key="labSprayWater">喷水</sys:String>
     <sys:String x:Key="labPushBack">推背</sys:String>
     <sys:String x:Key="labLightning">闪电</sys:String>
+    <sys:String x:Key="labWhite">白光</sys:String>
+    <sys:String x:Key="labRed">红光</sys:String>
+    <sys:String x:Key="labGreen">绿光</sys:String>
+    <sys:String x:Key="labBlue">蓝光</sys:String>
     <sys:String x:Key="labWind">吹风</sys:String>
     <sys:String x:Key="labBubble">泡泡</sys:String>
     <sys:String x:Key="labFog">烟雾</sys:String>
@@ -90,6 +95,9 @@
     <sys:String x:Key="labControl">控制</sys:String>
     <sys:String x:Key="btnServer">服务器</sys:String>
     <sys:String x:Key="btnClient">客户端</sys:String>
+    <sys:String x:Key="lab5DPicture">5D画面</sys:String>
+    <sys:String x:Key="btnShow">显示</sys:String>
+    <sys:String x:Key="btnNotShow">不显示</sys:String>
 
 
     <sys:String x:Key="ProjectorBrandPan">松下</sys:String>
@@ -99,6 +107,10 @@
     <sys:String x:Key="labProjector2">投影机2</sys:String>
     <sys:String x:Key="labProjector3">投影机3</sys:String>
     <sys:String x:Key="labProjector4">投影机4</sys:String>
+    <sys:String x:Key="labProjector5">投影机5</sys:String>
+    <sys:String x:Key="labProjector6">投影机6</sys:String>
+    <sys:String x:Key="labProjector7">投影机7</sys:String>
+    <sys:String x:Key="labProjector8">投影机8</sys:String>
     <sys:String x:Key="labProjectorIp">IP地址</sys:String>
     <sys:String x:Key="labProjectorPort">端口号</sys:String>
 

@@ -118,6 +118,9 @@
       <DependentUpon>SecondScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="TCPServer\Class1.cs" />
+    <Compile Include="WinLightning.xaml.cs">
+      <DependentUpon>WinLightning.xaml</DependentUpon>
+    </Compile>
     <Page Include="Forms\Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="WinLightning.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Common.cs" />
@@ -192,6 +199,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Icon_White.png" />
     <Resource Include="Resources\Image_Logo.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -204,7 +212,9 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="XML\Mode.xml" />
-    <Resource Include="XML\Type.xml" />
+    <Resource Include="XML\Type.xml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="XML\Volume.xml" />
     <Resource Include="Resources\Icon_Resister.png" />
     <Resource Include="Resources\Icon_RowPiece.png" />
@@ -290,6 +300,13 @@
     <Resource Include="Resources\Icon_Bubble50x50.png" />
     <Resource Include="Resources\Icon_MenuPlayMode.png" />
     <Resource Include="Resources\Icon_Pause_light.png" />
+    <Resource Include="Resources\Icon_Blue.png" />
+    <Resource Include="Resources\Icon_BoosterPump.png" />
+    <Resource Include="Resources\Icon_BoosterPumpLittle.png" />
+    <Resource Include="Resources\Icon_Green.png" />
+    <Resource Include="Resources\Icon_radiotube.png" />
+    <Resource Include="Resources\Icon_RadiotubeLittle.png" />
+    <Resource Include="Resources\Icon_Red.png" />
     <Content Include="Resources\Icon_VibrationCheck.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

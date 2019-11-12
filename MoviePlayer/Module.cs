@@ -36,6 +36,8 @@ namespace MoviePlayer
         public static byte[] effectFile;
         public static byte[] shakeFile;
         public static byte[] shuqeeFile;
+        public static byte[] dmx512File;
+        public static byte[] DMXLightning = new byte[10];
         public static int DOF2StartIndex;
         public static int DOF3StartIndex;
         public static int DOF6StartIndex;
@@ -431,6 +433,16 @@ namespace MoviePlayer
             {
                 shuqeeFile = null;
             }
+            try
+            {
+                //actionFile = File.ReadAllBytes(Directory.GetCurrentDirectory() + @"\A-D");
+                dmx512File = File.ReadAllBytes(MainWindow.fullPathName.Substring(0, MainWindow.fullPathName.LastIndexOf(".")) + "-D");
+            }
+            catch
+            {
+                dmx512File = null;
+            }
+
             CheckFile();
         }
 
@@ -681,14 +693,14 @@ namespace MoviePlayer
         {
             try
             {
-                string filePathD = filePath + @"\ShuqeeFile-DTS";
-                if (!File.Exists(filePathD))
+                
+                if (!File.Exists(filePath))
                 {
-                    using (File.Create(filePathD))
+                    using (File.Create(filePath))
                     {
                     }
                 }
-                shuqeeFile = File.ReadAllBytes(filePathD);
+                shuqeeFile = File.ReadAllBytes(filePath);
             }
             catch
             {

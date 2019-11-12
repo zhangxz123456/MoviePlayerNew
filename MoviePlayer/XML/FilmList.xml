@@ -2,24 +2,17 @@
 <Lists>
   <List0>
     <MovieNo>1</MovieNo>
-    <StartTime>
-    </StartTime>
-    <StopTime>
-    </StopTime>
-    <MovieName>二代妖精</MovieName>
-    <FullMoviePath>C:\Users\shuqee\Desktop\电影动作文件\二代妖精</FullMoviePath>
+    <StartTime>23:12</StartTime>
+    <StopTime>22:34</StopTime>
+    <MovieName>MIND2</MovieName>
+    <FullMoviePath>D:\电影\MIND2-DTS</FullMoviePath>
   </List0>
   <List1>
-    <MovieNo>
-    </MovieNo>
-    <StartTime>
-    </StartTime>
-    <StopTime>
-    </StopTime>
-    <MovieName>
-    </MovieName>
-    <FullMoviePath>
-    </FullMoviePath>
+    <MovieNo>2</MovieNo>
+    <StartTime>23:34</StartTime>
+    <StopTime>15:26</StopTime>
+    <MovieName>MIND2</MovieName>
+    <FullMoviePath>D:\电影\MIND2-DTS</FullMoviePath>
   </List1>
   <List2>
     <MovieNo>

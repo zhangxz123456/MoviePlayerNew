@@ -11,6 +11,7 @@
     <sys:String x:Key="txtProjectorSet">ProjectorSet</sys:String>
     <sys:String x:Key="txtEvEffect">EvEffect</sys:String>
     <sys:String x:Key="txtChairEffect">ChairEffect</sys:String>
+    <sys:String x:Key="txtEquipment">Device Status</sys:String>
     <sys:String x:Key="btnImport">Import</sys:String>
 
     <!--调试-->
@@ -34,6 +35,10 @@
     <sys:String x:Key="labSprayWater">SprayWater</sys:String>
     <sys:String x:Key="labPushBack">PushBack</sys:String>
     <sys:String x:Key="labLightning">Lightning</sys:String>
+    <sys:String x:Key="labWhite">White</sys:String>
+    <sys:String x:Key="labRed">Red</sys:String>
+    <sys:String x:Key="labGreen">Green</sys:String>
+    <sys:String x:Key="labBlue">Blue</sys:String>
     <sys:String x:Key="labWind">Wind</sys:String>
     <sys:String x:Key="labBubble">Bubble</sys:String>
     <sys:String x:Key="labFog">Fog</sys:String>
@@ -87,6 +92,9 @@
     <sys:String x:Key="labControl">Control</sys:String>
     <sys:String x:Key="btnServer">Server</sys:String>
     <sys:String x:Key="btnClient">Client</sys:String>
+    <sys:String x:Key="lab5DPicture">5D Picture</sys:String>
+    <sys:String x:Key="btnShow">Show</sys:String>
+    <sys:String x:Key="btnNotShow">NotShow</sys:String>
 
     <sys:String x:Key="ProjectorBrandPan">Panasonic</sys:String>
     <sys:String x:Key="ProjectorBrandSony">Sony</sys:String>
@@ -95,6 +103,10 @@
     <sys:String x:Key="labProjector2">Projector2</sys:String>
     <sys:String x:Key="labProjector3">Projector3</sys:String>
     <sys:String x:Key="labProjector4">Projector4</sys:String>
+    <sys:String x:Key="labProjector5">Projector5</sys:String>
+    <sys:String x:Key="labProjector6">Projector6</sys:String>
+    <sys:String x:Key="labProjector7">Projector7</sys:String>
+    <sys:String x:Key="labProjector8">Projector8</sys:String>
     <sys:String x:Key="labProjectorIp">IpAddress</sys:String>
     <sys:String x:Key="labProjectorPort">Port</sys:String>
 

@@ -26,7 +26,7 @@ namespace MoviePlayer.Protocol
         public static bool isDebug;                           //是否打开调试界面  
         public static bool connectFlag;                       //是否连接
         public static string valDate;                         //有效期
-
+        bool isOver39 = false;
         UdpSend mysend = new UdpSend();
 
         //Player p = new Player();
@@ -145,7 +145,31 @@ namespace MoviePlayer.Protocol
                 double hours = (RecData[6]) * 60 * 60;
                 double minutes = (RecData[7]) * 60;
                 double seconds = RecData[8];
-                double frame = RecData[9] / 24.000;
+                double frame = 0;
+                if (MainWindow.PlayFrame == 48)
+                {
+                    frame = RecData[9] / 24.000;
+                }
+                else if (MainWindow.PlayFrame == 60)
+                {
+                    frame = RecData[9] / 30.000;
+                }
+
+                //巴克服务器
+                //frame = RecData[9] / 60.000;
+                //if (isOver39)
+                //{
+                //    int ii = RecData[9] + 40;
+                //    frame = ii / 60.000;
+                //    if (ii == 59)
+                //    {
+                //        isOver39 = false;
+                //    }
+                //}
+                //if (RecData[9] == 39)
+                //{
+                //    isOver39 = true;
+                //}
 
                 // s[i].ToString("X").Length < 2 ? "0" + s[i].ToString("X") : s[i].ToString("X"));
                 string strhours = RecData[6].ToString().Length < 2 ? "0" + RecData[6].ToString() : RecData[6].ToString();
@@ -255,7 +279,7 @@ namespace MoviePlayer.Protocol
                 int getday = ts.Days;                //到期时间跟电脑时间对比
                 int contractDay = ts1.Days;          //写进芯片的当前时间跟现在电脑时间对比 
 
-                if (getday <= 0||contractDay<0)
+                if (getday <= 0 || contractDay < 0)
                 {
                     //isRegistered = false;
                     Module.deadlineYY = 0;

@@ -1,0 +1,75 @@
+﻿<Window x:Class="MoviePlayer.WinLightning"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MoviePlayer"
+        mc:Ignorable="d"
+        Title="闪电" Height="300" Width="300" ResizeMode="NoResize" Icon="Resources/Icon_Lightning.png">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MyStyle/MyStyle.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Background="#FFCACACA">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnWhite"  Style="{DynamicResource FilletButton}" Margin="30" Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="1">
+            <Button.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Source="Resources/Icon_White.png" Grid.Row="0"></Image>
+                    <Label Name="labWhite" Content="{DynamicResource labWhite}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
+                </Grid>
+            </Button.Content>
+        </Button>
+        <Button x:Name="btnRed"  Style="{DynamicResource FilletButton}" Margin="30" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="2">
+            <Button.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Source="Resources/Icon_Red.png" Grid.Row="0"></Image>
+                    <Label Name="labRed" Content="{DynamicResource labRed}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
+                </Grid>
+            </Button.Content>
+        </Button>
+        <Button x:Name="btnBlue"  Style="{DynamicResource FilletButton}" Margin="30" Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="3">
+            <Button.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Source="Resources/Icon_Blue.png" Grid.Row="0"></Image>
+                    <Label Name="labBlue" Content="{DynamicResource labBlue}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
+                </Grid>
+            </Button.Content>
+        </Button>
+        <Button x:Name="btnGreen"  Style="{DynamicResource FilletButton}" Margin="30" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="4">
+            <Button.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Source="Resources/Icon_Green.png" Grid.Row="0"></Image>
+                    <Label Name="labGreen" Content="{DynamicResource labGreen}" Grid.Row="1" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="10"></Label>
+                </Grid>
+            </Button.Content>
+        </Button>
+
+    </Grid>
+</Window>

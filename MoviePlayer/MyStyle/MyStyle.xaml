@@ -1176,7 +1176,7 @@
                             <Setter Property="Padding" Value="4,-1,0,0"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Background" TargetName="checkBoxBorder" Value="{StaticResource OptionMark.MouseOver.Background}"/>
+                            <!--<Setter Property="Background" TargetName="checkBoxBorder" Value="{StaticResource OptionMark.MouseOver.Background}"/>-->
                             <Setter Property="BorderBrush" TargetName="checkBoxBorder" Value="{StaticResource OptionMark.MouseOver.Border}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">

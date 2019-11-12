@@ -1,28 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Type>
-  <Style>4DM</Style>
+  <Style>5D</Style>
   <Language>CN</Language>
   <DOF>2DOF</DOF>
   <Height>100</Height>
   <Projector>0</Projector>
-  <Permission>FALSE</Permission>
-  <Control>SERVER</Control>
-  <Frame>48</Frame>
+  <Permission>TRUE</Permission>
+  <Control>
+  </Control>
+  <Frame>60</Frame>
+  <PlayPicture>
+  </PlayPicture>
   <ProjectorBrand>松下</ProjectorBrand>
   <Projector1>
-    <IP>192.168.1.109</IP>
-    <Port>1025</Port>
+    <IP>192.168.1.121</IP>
+    <Port>1033</Port>
   </Projector1>
   <Projector2>
-    <IP>192.168.1.104</IP>
-    <Port>1026</Port>
+    <IP>192.168.1.122</IP>
+    <Port>1034</Port>
   </Projector2>
   <Projector3>
-    <IP>192.168.1.105</IP>
-    <Port>1027</Port>
+    <IP>192.168.1.123</IP>
+    <Port>1035</Port>
   </Projector3>
   <Projector4>
-    <IP>192.168.1.106</IP>
-    <Port>1028</Port>
+    <IP>192.168.1.124</IP>
+    <Port>1036</Port>
   </Projector4>
+  <Projector5>
+    <IP>192.168.1.125</IP>
+    <Port>1037</Port>
+  </Projector5>
+  <Projector6>
+    <IP>192.168.1.126</IP>
+    <Port>1038</Port>
+  </Projector6>
+  <Projector7>
+    <IP>192.168.1.127</IP>
+    <Port>1039</Port>
+  </Projector7>
+  <Projector8>
+    <IP>192.168.1.128</IP>
+    <Port>1040</Port>
+  </Projector8>
 </Type>

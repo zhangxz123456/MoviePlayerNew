@@ -92,6 +92,7 @@ namespace MoviePlayer
         Button[] btnChairEffect;                     //座椅特效
         CheckBox[] checkBoxEvEffect;                //环境特效  数据显示界面
         CheckBox[] checkBoxChairEffect;              //座椅特效
+        
 
         public static string playerPath;
         public static string PlayType;               //播放器类型 4DM为4DM播放器 5D为5D播放器
@@ -101,7 +102,8 @@ namespace MoviePlayer
         public static string PlayProjector;          //设置播放画面显示在主屏还是副屏  参数分别为0或1
         public static string PlayPermission;         //用户权限 TRUE为管理员模式 FALSE为用户模式
         public static string PlayControl;            //控制功能 SERVER为TCP服务器 CLIENT为客户端
-        public static int PlayFrame;
+        public static int PlayFrame;                 //帧数控制
+        public static string Play5DPicture;             //设置5D画面是否显示 参数为0或1 0显示 1不显示
         public static string PlayProjector1IP;
         public static string PlayProjector1Port;
         public static string PlayProjector2IP;
@@ -110,6 +112,14 @@ namespace MoviePlayer
         public static string PlayProjector3Port;
         public static string PlayProjector4IP;
         public static string PlayProjector4Port;
+        public static string PlayProjector5IP;
+        public static string PlayProjector5Port;
+        public static string PlayProjector6IP;
+        public static string PlayProjector6Port;
+        public static string PlayProjector7IP;
+        public static string PlayProjector7Port;
+        public static string PlayProjector8IP;
+        public static string PlayProjector8Port;
         public static string PlayProjectorBrand;
 
         private int isReset;                         //验证软件正常打开后发复位指令（只发第一次）
@@ -123,14 +133,15 @@ namespace MoviePlayer
         private string curPermission;
         private string curControl;
         private string curPlayFrame;
+        private string cur5DPicture;
 
         byte[] dataNum = new byte[6];
-        byte[] dataEvEffect = new byte[8];
+        public static byte[] dataEvEffect = new byte[8];
         byte[] dataChairEffect = new byte[8];
         byte dataFrame;   //频率
         byte dataRate;    //幅度
         public static bool isLogin;
-        //用于客户端的Socket
+        //用于客户端的Socket 控制投影机
         Socket tcpClient;
         //用于服务器通信的Socket
         Socket socketSend;
@@ -138,6 +149,8 @@ namespace MoviePlayer
         Socket socketWatch;
         //用于客户端控制融合软件
         Socket tcpControlClient;
+        //用于客户端控制继电器控制器
+        Socket tcpRelayControlClient;
 
         //创建监听连接的线程
         Thread AcceptSocketThread;
@@ -204,7 +217,6 @@ namespace MoviePlayer
                     PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
             public event PropertyChangedEventHandler PropertyChanged;
-
 
         }
 
@@ -341,7 +353,6 @@ namespace MoviePlayer
             UserControlClass.MPPlayer.MediaOpened += new EventHandler(MPPlayer_MediaOpened);
             Timing.Elapsed += new ElapsedEventHandler(Tim_Elapsed);
             ChangeShowPlay();
-            //ChangeShowTime();
             ChangeshowInk();
             addMember();
             ReadFilmList();
@@ -353,21 +364,37 @@ namespace MoviePlayer
             TypeShow();
             MenuModePlayTick();
             MyServer();
-            SelectXmlMovie();
-            //Module.DEVFile();
-            //Module.CheckFile();
+            SelectXmlMovie();         
+            //TcpRelayControlClientInit();
 
+        }
+
+        private void TcpRelayControlClientInit()
+        {
+            Thread th5 = new Thread(() =>
+            {
+                bool a = TcpRelayControlClientConnect("192.168.1.232", "10000");
+                if (a)
+                {
+                    this.Dispatcher.Invoke(new Action(() =>
+                    {
+                        RelayControlInitSend();
+                    }));
+                }
+            });
+            th5.Start();
         }
 
         private void MainWindow_Closed(object sender, EventArgs e)
         {
             SaveVolume();
-            SaveFilmList();
+            //SaveFilmList();
+            SaveFilmPlayList();
+            RelayControlCloseSend();
             UdpSend.SendZero();
             CloseTCPServer();
             System.Windows.Application.Current.Shutdown();
         }
-
 
         #endregion
 
@@ -403,6 +430,10 @@ namespace MoviePlayer
             checkProjector3.Click += Projector_Click;
             checkProjector4.Click += Projector_Click;
 
+            cbDoor.Click += CbDoor_Click;
+            cbLightning.Click += CbLightning_Click;
+            cbBoosterPump.Click += CbBoosterPump_Click;
+            cbRadiotube.Click += CbRadiotube_Click;
 
             rb1.Click += Rb_Click;
             rb2.Click += Rb_Click;
@@ -462,6 +493,11 @@ namespace MoviePlayer
             btnSprayAir.Click += BtnChairEffect_Click;
             btnPushBack.Click += BtnChairEffect_Click;
 
+            //btnBackUp1.Click += BtnBackUp_Click;
+            //btnBackUp2.Click += BtnBackUp2_Click;
+            //btnBackUp3.Click += BtnBackUp3_Click;
+            //btnBackUp4.Click += BtnBackUp4_Click;
+
             btnConfirmProjector.Click += BtnConfirmProjector_Click;
             btnDefaultProjector.Click += BtnDefaultProjector_Click;
             btnConfirm.Click += BtnConfirm_Click;
@@ -489,6 +525,9 @@ namespace MoviePlayer
             btnServer.Click += BtnControl_Click;
             btnClient.Click += BtnControl_Click;
 
+            btnShow.Click += Btn5DPicture_Click;
+            btnNotShow.Click += Btn5DPicture_Click;
+
             listMenuAdd.Click += ListMenu_Click;
             listMenuPlay.Click += ListMenu_Click;
             listMenuDel.Click += ListMenu_Click;
@@ -506,6 +545,110 @@ namespace MoviePlayer
             checkBoxChairEffect = new CheckBox[8] { cbCv7, cbCv8, cbCv1, cbCv2, cbCv3, cbCv4, cbCv5, cbCv6 };
 
         }
+
+        //private void BtnBackUp4_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (btnBackUp4.Opacity == 1)
+        //    {
+        //        btnBackUp4.Opacity = 0.9;
+        //        btnBackUp4.Background = Brushes.Cyan;
+        //        dataEvEffect[0] = 1;
+        //        DMXLightning[0] = 5;
+        //        DMXLightning[1] = 255;
+        //        DMXLightning[2] = 255;
+        //        DMXLightning[3] = 0;
+        //        DMXLightning[4] = 0;
+        //        DMXLightning[5] = 0;
+        //        DMXLightning[6] = 0;
+        //        DMXLightning[7] = 255;
+        //    }
+        //    else
+        //    {
+        //        dataEvEffect[0] = 0;
+        //        Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x93, 0x93, 0x93));
+        //        btnBackUp4.Opacity = 1;
+        //        btnBackUp4.Background = brush;
+        //        DMXLightning = new byte[10];
+        //    }
+        //}
+
+        //private void BtnBackUp3_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (btnBackUp3.Opacity == 1)
+        //    {
+        //        btnBackUp3.Opacity = 0.9;
+        //        btnBackUp3.Background = Brushes.Cyan;
+        //        dataEvEffect[0] = 1;
+        //        DMXLightning[0] = 5;
+        //        DMXLightning[1] = 255;
+        //        DMXLightning[2] = 255;
+        //        DMXLightning[3] = 0;
+        //        DMXLightning[4] = 0;
+        //        DMXLightning[5] = 0;
+        //        DMXLightning[6] = 255;
+        //        DMXLightning[7] = 0;
+        //    }
+        //    else
+        //    {
+        //        dataEvEffect[0] = 0;
+        //        Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x93, 0x93, 0x93));
+        //        btnBackUp3.Opacity = 1;
+        //        btnBackUp3.Background = brush;
+        //        DMXLightning = new byte[10];
+        //    }
+        //}
+
+        //private void BtnBackUp2_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (btnBackUp2.Opacity == 1)
+        //    {
+        //        btnBackUp2.Opacity = 0.9;
+        //        btnBackUp2.Background = Brushes.Cyan;
+        //        dataEvEffect[0] = 1;
+        //        DMXLightning[0] = 5;
+        //        DMXLightning[1] = 255;
+        //        DMXLightning[2] = 255;
+        //        DMXLightning[3] = 0;
+        //        DMXLightning[4] = 0;
+        //        DMXLightning[5] = 255;
+        //        DMXLightning[6] = 0;
+        //        DMXLightning[7] = 0;
+        //    }
+        //    else
+        //    {
+        //        dataEvEffect[0] = 0;
+        //        Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x93, 0x93, 0x93));
+        //        btnBackUp2.Opacity = 1;
+        //        btnBackUp2.Background = brush;
+        //        DMXLightning = new byte[10];
+        //    }
+        //}
+
+        //private void BtnBackUp_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (btnBackUp1.Opacity == 1)
+        //    {
+        //        btnBackUp1.Opacity = 0.9;
+        //        btnBackUp1.Background = Brushes.Cyan;
+        //        dataEvEffect[0] = 1;
+        //        DMXLightning[0] = 5;
+        //        DMXLightning[1] = 255;
+        //        DMXLightning[2] = 255;
+        //        DMXLightning[3] = 0;
+        //        DMXLightning[4] = 0;
+        //        DMXLightning[5] = 255;
+        //        DMXLightning[6] = 255;
+        //        DMXLightning[7] = 100;
+        //    }
+        //    else
+        //    {
+        //        dataEvEffect[0] = 0;
+        //        Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x93, 0x93, 0x93));
+        //        btnBackUp1.Opacity = 1;
+        //        btnBackUp1.Background = brush;
+        //        DMXLightning = new byte[10];                
+        //    }
+        //}
 
         /// <summary>
         /// 选择语言文件
@@ -578,6 +721,7 @@ namespace MoviePlayer
                 element["Permission"].InnerText = curPermission;
                 element["Control"].InnerText = curControl;
                 element["Frame"].InnerText = curPlayFrame;
+                element["PlayPicture"].InnerText = cur5DPicture;
                 xmlDoc.Save(path);
             }
         }
@@ -616,6 +760,28 @@ namespace MoviePlayer
                 element = (XmlElement)childNodeNext;
                 element["IP"].InnerText = txtIpProjector4.Text;
                 element["Port"].InnerText = txtPortProjector4.Text;
+
+                childNodeNext = childNodes.SelectSingleNode("Projector5");
+                element = (XmlElement)childNodeNext;
+                element["IP"].InnerText = txtIpProjector5.Text;
+                element["Port"].InnerText = txtPortProjector5.Text;
+
+                childNodeNext = childNodes.SelectSingleNode("Projector6");
+                element = (XmlElement)childNodeNext;
+                element["IP"].InnerText = txtIpProjector6.Text;
+                element["Port"].InnerText = txtPortProjector6.Text;
+
+                childNodeNext = childNodes.SelectSingleNode("Projector7");
+                element = (XmlElement)childNodeNext;
+                element["IP"].InnerText = txtIpProjector7.Text;
+                element["Port"].InnerText = txtPortProjector7.Text;
+
+                childNodeNext = childNodes.SelectSingleNode("Projector8");
+                element = (XmlElement)childNodeNext;
+                element["IP"].InnerText = txtIpProjector8.Text;
+                element["Port"].InnerText = txtPortProjector8.Text;
+
+
                 xmlDoc.Save(path);
             }
         }
@@ -720,6 +886,15 @@ namespace MoviePlayer
                 btnClient.Background = brush;
             }
 
+            if (Play5DPicture.Equals("0"))
+            {
+                btnShow.Background = Brushes.DodgerBlue;
+            }
+            else
+            {
+                btnNotShow.Background = Brushes.DodgerBlue;
+            }
+
             switch (PlayFrame)
             {
                 case 48:
@@ -742,6 +917,14 @@ namespace MoviePlayer
             txtPortProjector3.Text = PlayProjector3Port;
             txtIpProjector4.Text = PlayProjector4IP;
             txtPortProjector4.Text = PlayProjector4Port;
+            txtIpProjector5.Text = PlayProjector5IP;
+            txtPortProjector5.Text = PlayProjector5Port;
+            txtIpProjector6.Text = PlayProjector6IP;
+            txtPortProjector6.Text = PlayProjector6Port;
+            txtIpProjector7.Text = PlayProjector7IP;
+            txtPortProjector7.Text = PlayProjector7Port;
+            txtIpProjector8.Text = PlayProjector8IP;
+            txtPortProjector8.Text = PlayProjector8Port;
             if (PlayLanguage.Equals("CN"))
             {
                 comboBoxBrand.Text = PlayProjectorBrand;
@@ -1091,6 +1274,7 @@ namespace MoviePlayer
                 PlayPermission = element["Permission"].InnerText;
                 PlayControl = element["Control"].InnerText;
                 PlayFrame = int.Parse(element["Frame"].InnerText);
+                Play5DPicture = element["PlayPicture"].InnerText;
                 PlayProjectorBrand = element["ProjectorBrand"].InnerText;
 
                 XmlNode childNodeNext = childNodes.SelectSingleNode("Projector1");
@@ -1112,6 +1296,26 @@ namespace MoviePlayer
                 elementNext = (XmlElement)childNodeNext;
                 PlayProjector4IP = elementNext["IP"].InnerText;
                 PlayProjector4Port = elementNext["Port"].InnerText;
+
+                childNodeNext = childNodes.SelectSingleNode("Projector5");
+                elementNext = (XmlElement)childNodeNext;
+                PlayProjector5IP = elementNext["IP"].InnerText;
+                PlayProjector5Port = elementNext["Port"].InnerText;
+
+                childNodeNext = childNodes.SelectSingleNode("Projector6");
+                elementNext = (XmlElement)childNodeNext;
+                PlayProjector6IP = elementNext["IP"].InnerText;
+                PlayProjector6Port = elementNext["Port"].InnerText;
+
+                childNodeNext = childNodes.SelectSingleNode("Projector7");
+                elementNext = (XmlElement)childNodeNext;
+                PlayProjector7IP = elementNext["IP"].InnerText;
+                PlayProjector7Port = elementNext["Port"].InnerText;
+
+                childNodeNext = childNodes.SelectSingleNode("Projector8");
+                elementNext = (XmlElement)childNodeNext;
+                PlayProjector8IP = elementNext["IP"].InnerText;
+                PlayProjector8Port = elementNext["Port"].InnerText;
             }
         }
 
@@ -1139,6 +1343,31 @@ namespace MoviePlayer
                 }
             }
         }
+       
+        /// <summary>
+        /// 保存导入到播放列表的文件
+        /// </summary>
+        public void SaveFilmPlayList()
+        {
+            string xml = AppDomain.CurrentDomain.BaseDirectory.Substring(0, AppDomain.CurrentDomain.BaseDirectory.Length - 5) + @"\XML\" + "FilmList.xml";
+            FileInfo finfo = new FileInfo(xml);
+            if (finfo.Exists)
+            {
+                for (int i = 0; i < memberData.Count; i++)
+                {
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load(xml);
+                    XmlNode xmlNode = xmlDoc.SelectSingleNode("Lists").SelectSingleNode("List" + i.ToString());
+                    XmlElement element = (XmlElement)xmlNode;
+                    element["MovieNo"].InnerText = memberData[i].MovieNo;
+                    //element["StartTime"].InnerText = memberData[i].Start;
+                    //element["StopTime"].InnerText = memberData[i].End;
+                    element["MovieName"].InnerText = memberData[i].MovieName;
+                    element["FullMoviePath"].InnerText = memberData[i].FullMovieName;
+                    xmlDoc.Save(xml);
+                }
+            }
+        }
 
         /// <summary>
         /// 显示软件版本信息以及公司信息
@@ -1159,6 +1388,11 @@ namespace MoviePlayer
                               "行程高度：" + MainWindow.PlayHeight + "%" +"\r\n"+
                               "序列号:" + UdpConnect.uuid;
                 txtUpdate.Text =
+                           "shuqee版本更新信息：\r\n" +
+                           "                   V7.1.7 \r\n" +
+                           "更新日期：2019/10/18 \r\n" +
+                           "更新内容：更改4DM文件导入方式 \r\n" +
+                           "/**************************************/ \r\n" +
                            "shuqee版本更新信息：\r\n" +
                            "                   V7.1.6 \r\n" +
                            "更新日期：2019/10/12 \r\n" +
@@ -1223,7 +1457,12 @@ namespace MoviePlayer
                                "Height: " + MainWindow.PlayHeight + "%" + "\r\n";
 
                 txtUpdate.Text =
-                    "Shuqee Version Update Information：\r\n" +
+                          "Shuqee Version Update Information：\r\n" +
+                          "                   V7.1.7 \r\n" +
+                          "Updated Date：2019/10/18 \r\n" +
+                          "Updated Content：Change the way 4DM files are imported \r\n" +
+                          "/**************************************/ \r\n" +
+                          "Shuqee Version Update Information：\r\n" +
                           "                   V7.1.6 \r\n" +
                           "Updated Date：2019/10/12 \r\n" +
                           "Updated Content：Support 60 Frame \r\n" +
@@ -1467,6 +1706,13 @@ namespace MoviePlayer
             Button btn = sender as Button;
             int tag = Convert.ToInt32(btn.Tag);
             changeEvEffect(tag - 1);
+            if (tag == 1)
+            {
+                WinLightning winLightning = new WinLightning();
+                winLightning.Left = 900;
+                winLightning.Top = 320;
+                winLightning.ShowDialog();
+            }
         }
 
         /// <summary>
@@ -1504,7 +1750,8 @@ namespace MoviePlayer
                         //btnPlayClickFun();
                         break;
                     case 2:
-                        AddActiconFile();
+                        //AddActiconFile();
+                        AddActionFileNew();
                         break;
                     case 3:
                         RemoveFileFilmList();
@@ -1601,14 +1848,22 @@ namespace MoviePlayer
             {
                 comboBoxBrand.Text = "Panasonic";
             }
-            txtIpProjector1.Text = "192.168.1.103";
-            txtPortProjector1.Text = "1025";
-            txtIpProjector2.Text = "192.168.1.104";
-            txtPortProjector2.Text = "1026";
-            txtIpProjector3.Text = "192.168.1.105";
-            txtPortProjector3.Text = "1027";
-            txtIpProjector4.Text = "192.168.1.106";
-            txtPortProjector4.Text = "1028";
+            txtIpProjector1.Text = "192.168.1.121";
+            txtPortProjector1.Text = "1033";
+            txtIpProjector2.Text = "192.168.1.122";
+            txtPortProjector2.Text = "1034";
+            txtIpProjector3.Text = "192.168.1.123";
+            txtPortProjector3.Text = "1035";
+            txtIpProjector4.Text = "192.168.1.124";
+            txtPortProjector4.Text = "1036";
+            txtIpProjector5.Text = "192.168.1.125";
+            txtPortProjector5.Text = "1037";
+            txtIpProjector6.Text = "192.168.1.126";
+            txtPortProjector6.Text = "1038";
+            txtIpProjector7.Text = "192.168.1.127";
+            txtPortProjector7.Text = "1039";
+            txtIpProjector8.Text = "192.168.1.128";
+            txtPortProjector8.Text = "1040";
             SaveProjector();
         }
 
@@ -1747,21 +2002,34 @@ namespace MoviePlayer
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Forms.FolderBrowserDialog m_Dialog = new System.Windows.Forms.FolderBrowserDialog();
+            //System.Windows.Forms.FolderBrowserDialog m_Dialog = new System.Windows.Forms.FolderBrowserDialog();
 
-            System.Windows.Forms.DialogResult result = m_Dialog.ShowDialog();
+            //System.Windows.Forms.DialogResult result = m_Dialog.ShowDialog();
 
-            if (result == System.Windows.Forms.DialogResult.Cancel)
+            //if (result == System.Windows.Forms.DialogResult.Cancel)
+            //{
+            //    return;
+            //}
+            //string m_Dir = m_Dialog.SelectedPath.Trim();
+            //DirectoryInfo info = new DirectoryInfo(m_Dir);
+            //string s = info.Name;
+            //string s1 = info.FullName;
+            //memberData[dataGrid.SelectedIndex].MovieName = s;
+            //memberData[dataGrid.SelectedIndex].FullMovieName = s1;
+            //memberData[dataGrid.SelectedIndex].MovieNo = (dataGrid.SelectedIndex + 1).ToString();
+
+            Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
+            ofd.DefaultExt = "-DTS";
+            ofd.Filter = "DTS file|*-DTS";
+            if (ofd.ShowDialog() == true)
             {
-                return;
+                string s = ofd.SafeFileName;
+                string s1 = ofd.FileName;
+                s = s.Replace("-DTS", "");
+                memberData[dataGrid.SelectedIndex].MovieName = s;
+                memberData[dataGrid.SelectedIndex].FullMovieName = s1;
+                memberData[dataGrid.SelectedIndex].MovieNo = (dataGrid.SelectedIndex + 1).ToString();
             }
-            string m_Dir = m_Dialog.SelectedPath.Trim();
-            DirectoryInfo info = new DirectoryInfo(m_Dir);
-            string s = info.Name;
-            string s1 = info.FullName;
-            memberData[dataGrid.SelectedIndex].MovieName = s;
-            memberData[dataGrid.SelectedIndex].FullMovieName = s1;
-            memberData[dataGrid.SelectedIndex].MovieNo = (dataGrid.SelectedIndex + 1).ToString();
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -1810,7 +2078,8 @@ namespace MoviePlayer
         {
             if (PlayType.Equals("4DM"))
             {
-                AddActiconFile();
+                //AddActiconFile();
+                AddActionFileNew();
             }
             else
             {
@@ -1836,6 +2105,27 @@ namespace MoviePlayer
             memberData[ListView.SelectedIndex].MovieName = s;
             memberData[ListView.SelectedIndex].FullMovieName = s1;
             if (ListView.SelectedIndex == 0)
+            {
+                ReadFilmListFile(0);
+            }
+        }
+
+        private void AddActionFileNew()
+        {
+            Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
+            ofd.DefaultExt = "-DTS";
+            ofd.Filter = "DTS file|*-DTS";
+            if (ofd.ShowDialog() == true)
+            {
+                string s = ofd.SafeFileName;
+                string s1 = ofd.FileName;
+                s = s.Replace("-DTS","");
+                ListView.Items.Add(s);
+                ListView.SelectedValue = s;
+                memberData[ListView.SelectedIndex].MovieName = s;
+                memberData[ListView.SelectedIndex].FullMovieName = s1;
+            }
+            if (ListView.SelectedIndex == 0 && PlayControl!="SERVER")
             {
                 ReadFilmListFile(0);
             }
@@ -2094,6 +2384,26 @@ namespace MoviePlayer
                     break;
             }
         }
+
+        private void Btn5DPicture_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            int tag = Convert.ToInt32(btn.Tag);
+            Brush brush = new SolidColorBrush(Color.FromArgb(0xff,0x99,0x99,0x99));
+            btnShow.Background = brush;
+            btnNotShow.Background = brush;
+            switch (tag)
+            {
+                case 1:
+                    btnShow.Background = Brushes.DodgerBlue;
+                    cur5DPicture = "0";
+                    break;
+                case 2:
+                    btnNotShow.Background = Brushes.DodgerBlue;
+                    cur5DPicture = "1";
+                    break;
+            }
+        }
         #endregion
 
         #region 播放窗体
@@ -2246,7 +2556,8 @@ namespace MoviePlayer
                 //{
                 //    UdpSend.SendWrite(UserControlClass.MPPlayer.Position.TotalSeconds);
                 //}
-                UdpSend.SendTotal(UserControlClass.MPPlayer.Position.TotalSeconds);
+                //UdpSend.SendTotal(UserControlClass.MPPlayer.Position.TotalSeconds);
+                UdpSend.SendTotalNew(UserControlClass.MPPlayer.Position.TotalSeconds);
             }
             //showData();             //默认文件显示数据
             showTotalData();          //合并文件显示数据
@@ -2363,6 +2674,7 @@ namespace MoviePlayer
                 Boolean[] ev = new Boolean[8];
                 Boolean[] cEffect = new Boolean[8];
                 Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
+               
                 for (int i = 0, n = 1; i < 8; i++)
                 {
                     ev[i] = ((Module.effectFile[2 * ii] & n) == 0 ? false : true);
@@ -2493,6 +2805,7 @@ namespace MoviePlayer
                 Boolean[] ev = new Boolean[8];
                 Boolean[] cEffect = new Boolean[8];
                 Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
+                Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
                 if (Module.effectFile.Length >= 2 * ii + 1)
                 {
                     for (int i = 0, n = 1; i < 8; i++)
@@ -2501,7 +2814,7 @@ namespace MoviePlayer
                         n = n << 1;
                         if (ev[i] == true)
                         {
-                            checkBoxEvEffect[i].Background = Brushes.DodgerBlue;
+                            checkBoxEvEffect[i].Background = brushOn;
                         }
                         else
                         {
@@ -2515,7 +2828,7 @@ namespace MoviePlayer
                         n = n << 1;
                         if (cEffect[i] == true)
                         {
-                            checkBoxChairEffect[i].Background = Brushes.DodgerBlue;
+                            checkBoxChairEffect[i].Background = brushOn;
                         }
                         else
                         {
@@ -2523,11 +2836,11 @@ namespace MoviePlayer
                         }
                     }
                 }
-                if (Module.shakeFile.Length >= 2 * ii + 1)
+                if (Module.shakeFile.Length >= 2 * ii)
                 {
-                    if (Module.shakeFile[2 * ii + 1] == 2)
+                    if (Module.shakeFile[2 * ii] !=0)
                     {
-                        checkBoxChairEffect[1].Background = Brushes.DodgerBlue;
+                        checkBoxChairEffect[1].Background = brushOn;
                     }
                     else
                     {
@@ -2579,6 +2892,7 @@ namespace MoviePlayer
             {
                 UserControlClass.sc2.Close();
             }
+            RelayControlStopSend();
             Module.timerMovie.Stop();
             UdpSend.movieStop = true;
             ClearData();
@@ -2674,6 +2988,13 @@ namespace MoviePlayer
                         {
                             bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
                             ControlPlay(isConnect, index);
+                        }
+                        if (tcpRelayControlClient != null)
+                        {
+                            if (tcpRelayControlClient.Connected == true)
+                            {
+                                RelayControlPlaySend();
+                            }
                         }
                     }
                 }
@@ -3008,8 +3329,6 @@ namespace MoviePlayer
             }
         }
 
-
-
         /// <summary>
         /// 显示与隐藏视频\摄像屏幕
         /// </summary>
@@ -3039,7 +3358,6 @@ namespace MoviePlayer
         {
             return currentTime < 10 ? "0" + currentTime.ToString() : currentTime.ToString();
         }
-
 
         /// <summary>
         /// 保存选择的播放模式
@@ -3334,7 +3652,6 @@ namespace MoviePlayer
             return fullPathName;
         }
 
-
         /// <summary>
         /// 定义添加文件（按钮）
         /// </summary>
@@ -3366,7 +3683,6 @@ namespace MoviePlayer
                 }
             }
         }
-
 
         /// <summary>
         /// 定义删除列表选项
@@ -3417,7 +3733,6 @@ namespace MoviePlayer
             SelectXmlMovie();
         }
 
-
         /// <summary>
         /// 定义删除列表所有项
         /// </summary>
@@ -3452,30 +3767,32 @@ namespace MoviePlayer
         /// </summary>
         private void ScreenJug()
         {
-            System.Windows.Forms.Screen[] sc;
-            sc = System.Windows.Forms.Screen.AllScreens;
-            if (UserControlClass.sc2 == null || UserControlClass.sc2.IsVisible == false)
+            if (Play5DPicture.Equals("0"))
             {
-                UserControlClass.sc2 = new SecondScreen();
-                //把当前的player对象传给公共类
-                UserControlClass.sc2.Player = this;
-                UserControlClass.sc2.Show();
-            }
-            else
-            {
-                //把当前的player对象传给公共类
-                UserControlClass.sc2.Player = this;
-                UserControlClass.sc2.Activate();
-                UserControlClass.sc2.WindowState = WindowState.Normal;
-            }
-            //获取当前所有显示器的数组
-            //如果有多个屏幕，就定义secondwindow的位置，让他在第二个屏幕全屏显示   
-            if (sc.Length == 1)
-            {
-                this.WindowState = WindowState.Minimized;
+                System.Windows.Forms.Screen[] sc;
+                sc = System.Windows.Forms.Screen.AllScreens;
+                if (UserControlClass.sc2 == null || UserControlClass.sc2.IsVisible == false)
+                {
+                    UserControlClass.sc2 = new SecondScreen();
+                    //把当前的player对象传给公共类
+                    UserControlClass.sc2.Player = this;
+                    UserControlClass.sc2.Show();
+                }
+                else
+                {
+                    //把当前的player对象传给公共类
+                    UserControlClass.sc2.Player = this;
+                    UserControlClass.sc2.Activate();
+                    UserControlClass.sc2.WindowState = WindowState.Normal;
+                }
+                //获取当前所有显示器的数组
+                //如果有多个屏幕，就定义secondwindow的位置，让他在第二个屏幕全屏显示   
+                if (sc.Length == 1)
+                {
+                    this.WindowState = WindowState.Minimized;
+                }
             }
         }
-
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -3525,7 +3842,6 @@ namespace MoviePlayer
             return null;
         }
 
-
         /// <summary>
         /// 点击播放按钮触发函数
         /// </summary>
@@ -3547,6 +3863,13 @@ namespace MoviePlayer
                         {
                             bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
                             ControlPlay(isConnect, index);
+                        }
+                        if (tcpRelayControlClient != null)
+                        {
+                            if (tcpRelayControlClient.Connected == true)
+                            {
+                                RelayControlPlaySend();
+                            }
                         }
                     }
                 }
@@ -3593,7 +3916,8 @@ namespace MoviePlayer
                 {
                     UserControlClass.MSStatus = MediaStatus.Pause;
                     ChangeShowPlay();
-                    UserControlClass.MPPlayer.Close();
+                    //UserControlClass.MPPlayer.Close();
+                    UserControlClass.MPPlayer.Stop();
                     sliderTime.Value = 0;
                     UserControlClass.FileName = null;
                     UserControlClass.sc2.Close();
@@ -3606,6 +3930,7 @@ namespace MoviePlayer
                         bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
                         ControlStop(isConnect);
                     }
+                    RelayControlStopSend();
                 }
                 if (Module.timerMovie != null)
                 {
@@ -3695,8 +4020,8 @@ namespace MoviePlayer
                                     labFilm2.Content = "Next Movie:" + memberData[i + 1].MovieName;
                                 }
                             }
-                            //Module.readDefultFile(memberData[i].FullMovieName);
-                            Module.DEVFile(memberData[i].FullMovieName,memberData[i].MovieName);
+                            Module.DEVFile(memberData[i].FullMovieName);
+                            //Module.DEVFile(memberData[i].FullMovieName,memberData[i].MovieName);
                         }
                         if (i < 9)
                         {
@@ -3801,6 +4126,7 @@ namespace MoviePlayer
                     if (isReset == 0)
                     {
                         UdpSend.SendReset();
+                        TcpRelayControlClientInit();
                         isReset = 1;
                     }
                     imgConnect.Source = Common.ChangeBitmapToImageSource(Properties.Resources.Icon_Connected);
@@ -3858,7 +4184,7 @@ namespace MoviePlayer
             byte dataNumTwo = 0;                  //2号缸的数据 
             byte dataNumThree = 0;                //3号缸的数据
 
-            byte[] data;
+            byte[] data1;
             byte[] array;          //data+addr+len 
             byte[] Data;           //最终发送的数据
 
@@ -3876,10 +4202,22 @@ namespace MoviePlayer
             {
                 cEffect += dataChairEffect[i];
             }
+            if (dataEvEffect[0] == 0)
+            {
+                Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x93, 0x93, 0x93));
+                btnLightning.Background = brush;
+            }
+            else
+            {
+                btnLightning.Background = Brushes.Cyan;
+            }
 
             Debug.WriteLine(eEffect.ToString());
 
-            data = new byte[10] { dataNumOne, dataNumTwo, dataNumThree, 0, 0, 0, dataRate, dataFrame, cEffect, eEffect };
+            data1 = new byte[12] { dataNumOne, dataNumTwo, dataNumThree, 0, 0, 0, dataRate, dataFrame, cEffect, eEffect, 0, 0 };
+            byte[] data = new byte[data1.Length + 30];
+            data1.CopyTo(data,0);
+            Module.DMXLightning.CopyTo(data,data1.Length);
             array = Protocol.ModbusUdp.ArrayAdd(0, (ushort)data.Length, data);
             Data = Protocol.ModbusUdp.MBReqWrite(array);
             UdpSend.UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
@@ -3894,12 +4232,12 @@ namespace MoviePlayer
             int tag = Convert.ToInt32(checkbox.Tag);
             string ip1 = txtIpProjector1.Text;
             string port1 = txtPortProjector1.Text;
-            string ip2 = txtIpProjector1.Text;
-            string port2 = txtPortProjector1.Text;
-            string ip3 = txtIpProjector1.Text;
-            string port3 = txtPortProjector1.Text;
-            string ip4 = txtIpProjector1.Text;
-            string port4 = txtPortProjector1.Text;
+            string ip2 = txtIpProjector2.Text;
+            string port2 = txtPortProjector2.Text;
+            string ip3 = txtIpProjector3.Text;
+            string port3 = txtPortProjector3.Text;
+            string ip4 = txtIpProjector4.Text;
+            string port4 = txtPortProjector4.Text;
             switch (tag)
             {
                 case 1:
@@ -4066,6 +4404,7 @@ namespace MoviePlayer
             {
                 //int brand = comboBoxBrand.SelectedIndex;      选中哪个品牌的投影机
                 byte[] data1 = { 0x30, 0x30, 0x50, 0x4F, 0x4E, 0x0D };
+               // byte[] data1 = {0xFE,0x0F,0x00,0x00,0x00,0x08,0x01,0xFF,0xF1,0xD1};
                 tcpClient.Send(data1);
                 TcpClientClose();
             }
@@ -4076,10 +4415,12 @@ namespace MoviePlayer
             if (isConnect)
             {
                 byte[] data2 = { 0x30, 0x30, 0x50, 0x4F, 0x46, 0x0D };
+                //byte[] data2 = { 0xFE, 0x0F, 0x00, 0x00, 0x00, 0x08, 0x01, 0x00, 0xB1, 0x91 };
                 tcpClient.Send(data2);
-                TcpClientClose();
+               TcpClientClose();
             }
         }
+
         #endregion
 
         #region TCP服务器
@@ -4231,8 +4572,8 @@ namespace MoviePlayer
             {
                 labFilm1.Content = "Current Movie:" + memberData[i].MovieName;
             }
-            //Module.readDefultFile(memberData[i].FullMovieName, memberData[i].MovieName);
-            Module.DEVFile(memberData[i].FullMovieName, memberData[i].MovieName);
+            Module.DEVFile(memberData[i].FullMovieName);
+            //Module.DEVFile(memberData[i].FullMovieName, memberData[i].MovieName);
         }
 
         /// <summary>
@@ -4253,7 +4594,7 @@ namespace MoviePlayer
         }
         #endregion
 
-        #region TCP客户端
+        #region TCP客户端融合软件
         private bool TcpControlClientConnect(string ip, string port)
         {
             try
@@ -4319,6 +4660,304 @@ namespace MoviePlayer
             }
         }
 
+        #endregion
+
+        #region TCP客户端中控继电器
+        /// <summary>
+        /// 客户端连接中控继电器
+        /// </summary>
+        /// <param name="ip"></param>
+        /// <param name="port"></param>
+        /// <returns></returns>
+        private bool TcpRelayControlClientConnect(string ip, string port)
+        {
+            try
+            {
+                tcpRelayControlClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                tcpRelayControlClient.Connect(UdpInit.transformIP(ip, port));
+                return true;
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show("连接有误"+e.Message);
+                Module.WriteLogFile(e.Message);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 关闭中控继电器客户端
+        /// </summary>
+        private void TcpRelayControlClientClose()
+        {
+            if (tcpRelayControlClient != null)
+            {
+                if (tcpRelayControlClient.Connected)
+                {
+                    tcpRelayControlClient.Close();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 中控继电器初始打开的设备
+        /// </summary>
+        private void RelayControlInitSend()
+        {
+            //空压机 点发
+            byte[] data1 = { 0xFE,0x10,0x00,0x0D,0x00,0x02,0x04,0x00,0x04,0x00,0x0A,0xC0,0xE7};
+            SendRelayControl(data1);
+            //电动球阀
+            byte[] data2 = { 0xFE, 0x05, 0x00, 0x03, 0xFF, 0x00, 0x68, 0x35 };
+            SendRelayControl(data2);
+            Thread.Sleep(100);
+            //增压泵
+            byte[] data3 = { 0xFE, 0x05, 0x00, 0x04, 0xFF, 0x00, 0xD9, 0xF4 };
+            SendRelayControl(data3);
+            Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
+            cbBoosterPump.Background = brushOn;
+            cbBoosterPump.Opacity = 0.9;
+            cbRadiotube.Background = brushOn;
+            cbRadiotube.Opacity = 0.9;
+        }
+
+        /// <summary>
+        /// 发送继电器控制指令
+        /// </summary>
+        /// <param name="data1"></param>
+        private void SendRelayControl(byte[] data1)
+        {
+            if (tcpRelayControlClient != null)
+            {
+                if (tcpRelayControlClient.Connected == true)
+                {
+                    tcpRelayControlClient.Send(data1);
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// 中控继电器播放电影控制的设备
+        /// </summary>
+        private void RelayControlPlaySend()
+        {
+            //场灯
+            byte[] data1 = { 0xFE, 0x05, 0x00, 0x00, 0xFF, 0x00, 0x98, 0x35 };
+            SendRelayControl(data1);
+            //门
+            byte[] data2 = { 0xFE, 0x05, 0x00, 0x01, 0xFF, 0x00, 0xC9, 0xF5 };
+            SendRelayControl(data2);
+            Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
+            cbLightning.Background = brushOn;
+            cbLightning.Opacity = 0.9;
+            cbDoor.Background = brushOn;
+            cbDoor.Opacity = 0.9;
+        }
+
+        /// <summary>
+        /// 中控继电器停止播放电影控制的设备
+        /// </summary>
+        private void RelayControlStopSend()
+        {
+            byte[] data1 = { 0xFE, 0x05, 0x00, 0x00, 0x00, 0x00, 0xD9, 0xC5 };
+            SendRelayControl(data1);
+            byte[] data2 = { 0xFE, 0x05, 0x00, 0x01, 0x00, 0x00, 0x88, 0x05 };
+            SendRelayControl(data2);
+            Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
+            cbLightning.Background = brush;
+            cbLightning.Opacity = 1;
+            cbDoor.Background = brush;
+            cbDoor.Opacity = 1;
+        }
+
+        /// <summary>
+        /// 关闭软件后关闭所有设备
+        /// </summary>
+        private void RelayControlCloseSend()
+        {
+            byte[] data1 = { 0xFE, 0x0F, 0x00, 0x00, 0x00, 0x08, 0x01, 0x00, 0xB1, 0x91 };
+            SendRelayControl(data1);
+        }
+
+        private void CbRadiotube_Click(object sender, RoutedEventArgs e)
+        {
+            Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
+            Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
+            MessageBoxResult dr;
+            if (cbRadiotube.Opacity == 1)
+            {
+                if (PlayLanguage.Equals("CN"))
+                {
+                    dr = MessageBox.Show("确定打开阀门吗?", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                else
+                {
+                    dr = MessageBox.Show("Are you sure to open the Radiotube?", "Tips", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                if (dr == MessageBoxResult.OK)
+                {
+                    byte[] data1 = { 0xFE, 0x10, 0x00, 0x0D, 0x00, 0x02, 0x04, 0x00, 0x04, 0x00, 0x0A, 0xC0, 0xE7 };
+                    SendRelayControl(data1);
+                    byte[] data2 = { 0xFE, 0x05, 0x00, 0x03, 0xFF, 0x00, 0x68, 0x35 };
+                    SendRelayControl(data2);
+                    cbRadiotube.Opacity = 0.9;
+                    cbRadiotube.Background = brushOn;
+                }
+            }
+            else
+            {
+                if (PlayLanguage.Equals("CN"))
+                {
+                    dr = MessageBox.Show("确定关闭阀门吗?", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                else
+                {
+                    dr = MessageBox.Show("Are you sure to close the Radiotube?", "Tips", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                if (dr == MessageBoxResult.OK)
+                {
+                    byte[] data1 = { 0xFE, 0x10, 0x00, 0x0D, 0x00, 0x02, 0x04, 0x00, 0x04, 0x00, 0x0A, 0xC0, 0xE7 };
+                    SendRelayControl(data1);
+                    byte[] data2 = { 0xFE, 0x05, 0x00, 0x03, 0x00, 0x00, 0x29, 0xC5 };
+                    SendRelayControl(data2);
+                    cbRadiotube.Opacity = 1;
+                    cbRadiotube.Background = brush;
+                }
+            }
+        }
+
+        private void CbBoosterPump_Click(object sender, RoutedEventArgs e)
+        {
+            Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
+            Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
+            MessageBoxResult dr;
+            if (cbBoosterPump.Opacity == 1)
+            {
+                if (PlayLanguage.Equals("CN"))
+                {
+                    dr = MessageBox.Show("确定打开增压泵吗?", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                else
+                {
+                    dr = MessageBox.Show("Are you sure to open the BoosterPump?", "Tips", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                if (dr == MessageBoxResult.OK)
+                {
+                    byte[] data1 = { 0xFE, 0x05, 0x00, 0x04, 0xFF, 0x00, 0xD9, 0xF4 };
+                    SendRelayControl(data1);
+                    cbBoosterPump.Opacity = 0.9;
+                    cbBoosterPump.Background = brushOn;
+                }
+            }
+            else
+            {
+
+                if (PlayLanguage.Equals("CN"))
+                {
+                    dr = MessageBox.Show("确定关闭增压泵吗?", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                else
+                {
+                    dr = MessageBox.Show("Are you sure to close the BoosterPump?", "Tips", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                if (dr == MessageBoxResult.OK)
+                {
+                    byte[] data1 = { 0xFE, 0x05, 0x00, 0x04, 0x00, 0x00, 0x98, 0x04 };
+                    SendRelayControl(data1);
+                    cbBoosterPump.Opacity = 1;
+                    cbBoosterPump.Background = brush;
+                }
+            }
+        }
+
+        private void CbLightning_Click(object sender, RoutedEventArgs e)
+        {
+            Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
+            Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
+            MessageBoxResult dr;
+            if (cbLightning.Opacity == 1)
+            {
+                if (PlayLanguage.Equals("CN"))
+                {
+                    dr = MessageBox.Show("确定打开灯吗?", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                else
+                {
+                    dr = MessageBox.Show("Are you sure to turn on the light?", "Tips", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                if (dr == MessageBoxResult.OK)
+                {
+                    byte[] data2 = { 0xFE, 0x05, 0x00, 0x00, 0xFF, 0x00, 0x98, 0x35 };
+                    SendRelayControl(data2);
+                    cbLightning.Opacity = 0.9;
+                    cbLightning.Background = brushOn;
+                }
+            }
+            else
+            {
+
+                if (PlayLanguage.Equals("CN"))
+                {
+                    dr = MessageBox.Show("确定关闭灯吗?", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                else
+                {
+                    dr = MessageBox.Show("Are you sure to turn off the light?", "Tips", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                if (dr == MessageBoxResult.OK)
+                {
+                    byte[] data2 = { 0xFE, 0x05, 0x00, 0x00, 0x00, 0x00, 0xD9, 0xC5 };
+                    SendRelayControl(data2);
+                    cbLightning.Opacity = 1;
+                    cbLightning.Background = brush;
+                }
+            }
+        }
+
+        private void CbDoor_Click(object sender, RoutedEventArgs e)
+        {
+            Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
+            Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
+            MessageBoxResult dr;
+            if (cbDoor.Opacity == 1)
+            {
+                if(PlayLanguage.Equals("CN"))
+                {
+                    dr = MessageBox.Show("确定打开门吗?", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                else
+                {
+                    dr = MessageBox.Show("Are you sure to open the door?", "Tips", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                if (dr == MessageBoxResult.OK)
+                {
+                    byte[] data2 = { 0xFE, 0x05, 0x00, 0x01, 0xFF, 0x00, 0xC9, 0xF5 };
+                    SendRelayControl(data2);
+                    cbDoor.Opacity = 0.9;
+                    cbDoor.Background = brushOn;
+                }
+            }
+            else
+            {
+
+                if (PlayLanguage.Equals("CN"))
+                {
+                    dr = MessageBox.Show("确定关闭门吗?", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                else
+                {
+                    dr = MessageBox.Show("Are you sure to close the door?", "Tips", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                if (dr == MessageBoxResult.OK)
+                {
+                    byte[] data2 = { 0xFE, 0x05, 0x00, 0x01, 0x00, 0x00, 0x88, 0x05 };
+                    SendRelayControl(data2);
+                    cbDoor.Opacity = 1;
+                    cbDoor.Background = brush;
+                }
+            }
+        }
 
         #endregion
 
