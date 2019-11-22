@@ -1,0 +1,1529 @@
+10:49:54 2019年11月20日 
+   消息:“对类型“MoviePlayer.MainWindow”的构造函数执行符合指定的绑定约束的调用时引发了异常。”，行号为“6”，行位置为“9”。
+   在 System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   在 System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   在 System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   在 System.Windows.Application.LoadBamlStreamWithSyncInfo(Stream stream, ParserContext pc)
+   在 System.Windows.Application.LoadComponent(Uri resourceLocator, Boolean bSkipJournaledProperties)
+   在 System.Windows.Application.DoStartup()
+   在 System.Windows.Application.<.ctor>b__1_0(Object unused)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+11:20:09 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+11:20:58 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+11:21:17 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+11:22:01 2019年11月20日 
+   连接丢失
+11:22:02 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+11:22:07 2019年11月20日 
+   连接丢失
+11:22:20 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+11:31:18 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+11:57:20 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+11:57:21 2019年11月20日 
+   连接丢失
+11:57:28 2019年11月20日 
+   连接丢失
+11:57:33 2019年11月20日 
+   连接丢失
+11:57:39 2019年11月20日 
+   连接丢失
+11:57:40 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+11:57:42 2019年11月20日 
+   连接丢失
+11:57:46 2019年11月20日 
+   连接丢失
+11:57:56 2019年11月20日 
+   连接丢失
+11:58:02 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+11:58:02 2019年11月20日 
+   连接丢失
+11:58:15 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:34:10 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:34:16 2019年11月20日 
+   连接丢失
+13:34:23 2019年11月20日 
+   连接丢失
+13:34:35 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:35:34 2019年11月20日 
+   连接丢失
+13:35:40 2019年11月20日 
+   连接丢失
+13:35:41 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:35:53 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:38:59 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:39:26 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:42:43 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:42:44 2019年11月20日 
+   连接丢失
+13:42:51 2019年11月20日 
+   连接丢失
+13:43:03 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:45:39 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:46:43 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:47:15 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:49:06 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:50:25 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:52:40 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:53:19 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:55:10 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+13:56:07 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+14:00:35 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+14:01:41 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+14:02:11 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+14:05:17 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+14:05:46 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+14:06:45 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+14:14:46 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+14:19:11 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+14:59:56 2019年11月20日 
+   连接丢失
+15:03:12 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.RelayControlCloseSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4794
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 392
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:03:19 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.RelayControlCloseSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4794
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 392
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:04:00 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.RelayControlCloseSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4794
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 392
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:04:04 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.RelayControlCloseSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4794
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 392
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:05:08 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.RelayControlCloseSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4794
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 392
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:05:12 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.RelayControlCloseSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4794
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 392
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:05:53 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.RelayControlCloseSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4794
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 392
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:06:04 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.RelayControlCloseSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4794
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 392
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:07:10 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.RelayControlCloseSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4794
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 392
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:07:23 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.RelayControlCloseSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4794
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 392
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:07:45 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.MainWindow.RelayControlCloseSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4794
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 392
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:20:01 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+15:24:01 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+15:28:41 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+15:29:11 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+15:41:10 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:41:29 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:41:31 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.DependencyObject.SetCurrentValueInternal(DependencyProperty dp, Object value)
+   在 System.Windows.Controls.RadioButton.OnToggle()
+   在 System.Windows.Controls.Primitives.ToggleButton.OnClick()
+   在 System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(MouseButtonEventArgs e)
+   在 System.Windows.UIElement.OnMouseLeftButtonUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   在 System.Windows.UIElement.OnMouseUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:41:34 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendZero() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 608
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 393
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:41:35 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:41:38 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.DependencyObject.SetCurrentValueInternal(DependencyProperty dp, Object value)
+   在 System.Windows.Controls.RadioButton.OnToggle()
+   在 System.Windows.Controls.Primitives.ToggleButton.OnClick()
+   在 System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(MouseButtonEventArgs e)
+   在 System.Windows.UIElement.OnMouseLeftButtonUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   在 System.Windows.UIElement.OnMouseUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:41:41 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendZero() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 608
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 393
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:41:41 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:41:44 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendZero() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 608
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 393
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:43:23 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:43:26 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.DependencyObject.SetCurrentValueInternal(DependencyProperty dp, Object value)
+   在 System.Windows.Controls.RadioButton.OnToggle()
+   在 System.Windows.Controls.Primitives.ToggleButton.OnClick()
+   在 System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(MouseButtonEventArgs e)
+   在 System.Windows.UIElement.OnMouseLeftButtonUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   在 System.Windows.UIElement.OnMouseUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:43:29 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendZero() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 608
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 393
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:43:30 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:43:34 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendZero() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 608
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 393
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:44:36 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:44:41 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.DependencyObject.SetCurrentValueInternal(DependencyProperty dp, Object value)
+   在 System.Windows.Controls.RadioButton.OnToggle()
+   在 System.Windows.Controls.Primitives.ToggleButton.OnClick()
+   在 System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(MouseButtonEventArgs e)
+   在 System.Windows.UIElement.OnMouseLeftButtonUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   在 System.Windows.UIElement.OnMouseUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:44:56 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:44:58 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.MainWindow.TimerDebug_Tick(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4234
+   在 System.Windows.Threading.DispatcherTimer.FireTick(Object unused)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:45:01 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.DependencyObject.SetCurrentValueInternal(DependencyProperty dp, Object value)
+   在 System.Windows.Controls.RadioButton.OnToggle()
+   在 System.Windows.Controls.Primitives.ToggleButton.OnClick()
+   在 System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(MouseButtonEventArgs e)
+   在 System.Windows.UIElement.OnMouseLeftButtonUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   在 System.Windows.UIElement.OnMouseUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:45:14 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:45:23 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:45:28 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.DependencyObject.SetCurrentValueInternal(DependencyProperty dp, Object value)
+   在 System.Windows.Controls.RadioButton.OnToggle()
+   在 System.Windows.Controls.Primitives.ToggleButton.OnClick()
+   在 System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(MouseButtonEventArgs e)
+   在 System.Windows.UIElement.OnMouseLeftButtonUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   在 System.Windows.UIElement.OnMouseUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:46:39 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:46:44 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.MainWindow.TimerDebug_Tick(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4234
+   在 System.Windows.Threading.DispatcherTimer.FireTick(Object unused)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:46:45 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.DependencyObject.SetCurrentValueInternal(DependencyProperty dp, Object value)
+   在 System.Windows.Controls.RadioButton.OnToggle()
+   在 System.Windows.Controls.Primitives.ToggleButton.OnClick()
+   在 System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(MouseButtonEventArgs e)
+   在 System.Windows.UIElement.OnMouseLeftButtonUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   在 System.Windows.UIElement.OnMouseUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:48:35 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:48:36 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.DependencyObject.SetCurrentValueInternal(DependencyProperty dp, Object value)
+   在 System.Windows.Controls.RadioButton.OnToggle()
+   在 System.Windows.Controls.Primitives.ToggleButton.OnClick()
+   在 System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(MouseButtonEventArgs e)
+   在 System.Windows.UIElement.OnMouseLeftButtonUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   在 System.Windows.UIElement.OnMouseUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:49:40 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:49:42 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.DependencyObject.SetCurrentValueInternal(DependencyProperty dp, Object value)
+   在 System.Windows.Controls.RadioButton.OnToggle()
+   在 System.Windows.Controls.Primitives.ToggleButton.OnClick()
+   在 System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(MouseButtonEventArgs e)
+   在 System.Windows.UIElement.OnMouseLeftButtonUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   在 System.Windows.UIElement.OnMouseUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:50:08 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:50:10 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.DependencyObject.SetCurrentValueInternal(DependencyProperty dp, Object value)
+   在 System.Windows.Controls.RadioButton.OnToggle()
+   在 System.Windows.Controls.Primitives.ToggleButton.OnClick()
+   在 System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(MouseButtonEventArgs e)
+   在 System.Windows.UIElement.OnMouseLeftButtonUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   在 System.Windows.UIElement.OnMouseUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:50:22 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:50:24 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.DependencyObject.SetCurrentValueInternal(DependencyProperty dp, Object value)
+   在 System.Windows.Controls.RadioButton.OnToggle()
+   在 System.Windows.Controls.Primitives.ToggleButton.OnClick()
+   在 System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(MouseButtonEventArgs e)
+   在 System.Windows.UIElement.OnMouseLeftButtonUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   在 System.Windows.UIElement.OnMouseUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:51:15 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:51:17 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 40
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 588
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.DependencyObject.SetCurrentValueInternal(DependencyProperty dp, Object value)
+   在 System.Windows.Controls.RadioButton.OnToggle()
+   在 System.Windows.Controls.Primitives.ToggleButton.OnClick()
+   在 System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(MouseButtonEventArgs e)
+   在 System.Windows.UIElement.OnMouseLeftButtonUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   在 System.Windows.UIElement.OnMouseUpThunk(Object sender, MouseButtonEventArgs e)
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:52:17 2019年11月20日 
+   连接丢失
+15:57:19 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+15:58:31 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+16:05:15 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 41
+   在 MoviePlayer.Protocol.UdpSend.SendReset() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 589
+   在 MoviePlayer.MainWindow.Rb_Checked(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1607
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.Controls.RadioButton.OnChecked(RoutedEventArgs e)
+   在 System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+   在 System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)
+   在 System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)
+   在 System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   在 System.Windows.Controls.Primitives.ToggleButton.set_IsChecked(Nullable`1 value)
+   在 MoviePlayer.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 1528
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   在 System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   在 System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   在 MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   在 System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   在 System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   在 System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   在 System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   在 System.Windows.Interop.HwndTarget.OnResize()
+   在 System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+16:05:35 2019年11月20日 
+   消息:未将对象引用设置到对象的实例。
+   在 MoviePlayer.Protocol.UdpSend.UdpSendData(Byte[] data, Int32 len, EndPoint ip) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 41
+   在 MoviePlayer.Protocol.UdpSend.SendZero() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\Protocol\UdpSend.cs:行号 609
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 393
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+16:11:11 2019年11月20日 
+   连接丢失
+16:12:16 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+16:28:15 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+17:24:38 2019年11月20日 
+   连接丢失
+17:25:53 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+17:26:44 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+17:26:53 2019年11月20日 
+   连接投影机有误
+由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.121:1033
+17:27:36 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000
+17:33:47 2019年11月20日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.232:10000

@@ -56,8 +56,11 @@ namespace MoviePlayer
                     {
                         btnWhite.Opacity = 0.9;
                         btnWhite.Background = Brushes.Cyan;
+                        btnRed.Opacity = 1;
+                        btnBlue.Opacity = 1;
+                        btnGreen.Opacity = 1; ;
                         MainWindow.dataEvEffect[0] = 1;
-                        Module.DMXLightning[0] = 5;
+                        Module.DMXLightning[0] = 10;
                         Module.DMXLightning[1] = 255;
                         Module.DMXLightning[2] = 255;
                         Module.DMXLightning[3] = 0;
@@ -80,10 +83,14 @@ namespace MoviePlayer
                     {
                         btnRed.Opacity = 0.9;
                         btnRed.Background = Brushes.Cyan;
+                        btnWhite.Opacity = 1;
+                        //btnRed.Opacity = 1;
+                        btnBlue.Opacity = 1;
+                        btnGreen.Opacity = 1;
                         MainWindow.dataEvEffect[0] = 1;
-                        Module.DMXLightning[0] = 5;
+                        Module.DMXLightning[0] = 10;
                         Module.DMXLightning[1] = 255;
-                        Module.DMXLightning[2] = 255;
+                        Module.DMXLightning[2] = 0;
                         Module.DMXLightning[3] = 0;
                         Module.DMXLightning[4] = 0;
                         Module.DMXLightning[5] = 255;
@@ -104,10 +111,14 @@ namespace MoviePlayer
                     {
                         btnBlue.Opacity = 0.9;
                         btnBlue.Background = Brushes.Cyan;
+                        btnWhite.Opacity = 1;
+                        btnRed.Opacity = 1;
+                        //btnBlue.Opacity = 1;
+                        btnGreen.Opacity = 1;
                         MainWindow.dataEvEffect[0] = 1;
-                        Module.DMXLightning[0] = 5;
+                        Module.DMXLightning[0] = 10;
                         Module.DMXLightning[1] = 255;
-                        Module.DMXLightning[2] = 255;
+                        Module.DMXLightning[2] = 0;
                         Module.DMXLightning[3] = 0;
                         Module.DMXLightning[4] = 0;
                         Module.DMXLightning[5] = 0;
@@ -128,15 +139,19 @@ namespace MoviePlayer
                     {
                         btnGreen.Opacity = 0.9;
                         btnGreen.Background = Brushes.Cyan;
+                        btnWhite.Opacity = 1;
+                        btnRed.Opacity = 1;
+                        btnBlue.Opacity = 1;
+                        //btnGreen.Opacity = 1;
                         MainWindow.dataEvEffect[0] = 1;
-                        Module.DMXLightning[0] = 5;
+                        Module.DMXLightning[0] = 10;
                         Module.DMXLightning[1] = 255;
-                        Module.DMXLightning[2] = 255;
+                        Module.DMXLightning[2] = 0;
                         Module.DMXLightning[3] = 0;
                         Module.DMXLightning[4] = 0;
                         Module.DMXLightning[5] = 0;
-                        Module.DMXLightning[6] = 0;
-                        Module.DMXLightning[7] = 255;
+                        Module.DMXLightning[6] = 255;
+                        Module.DMXLightning[7] = 0;
                     }
                     else
                     {

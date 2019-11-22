@@ -37,9 +37,12 @@ namespace MoviePlayer.Protocol
 
         public static void UdpSendData(byte[] data, int len, EndPoint ip)
         {
-            UdpInit.mySocket.SendTo(data, len, SocketFlags.None, ip);
-            Debug.WriteLine("Send Data{0}", count++);
-            Debug.WriteLine(ModbusUdp.ByteToHexStr(data));
+            if (UdpInit.mySocket != null)
+            {
+                UdpInit.mySocket.SendTo(data, len, SocketFlags.None, ip);
+                Debug.WriteLine("Send Data{0}", count++);
+                Debug.WriteLine(ModbusUdp.ByteToHexStr(data));
+            }
         }
 
 
@@ -524,12 +527,23 @@ namespace MoviePlayer.Protocol
                 Debug.WriteLine(e.Message);
             }
 
-            byte[] data1 = new byte[30];
-            for (int i = 0; i < 30; i++)
+            if (Module.dmx512File != null)
             {
-                data1[i] = (byte)Module.dmx512File[(int)(pos / 50) * 30 + i];
-            }
-            data1.CopyTo(data, 12);           
+                byte[] data1 = new byte[30];
+                if (((int)(pos / 50)+1) * 30 < Module.dmx512File.Length)
+                {
+
+                    for (int i = 0; i < 30; i++)
+                    {
+                        data1[i] = (byte)Module.dmx512File[(int)(pos / 50) * 30 + i];
+                    }
+                }
+                else
+                {
+                    data1 = new byte[30];
+                }
+                data1.CopyTo(data, 12);
+            }               
             array = ModbusUdp.ArrayAdd(addr, len, data);
             Data = ModbusUdp.MBReqWrite(array);
             UdpSendData(Data, Data.Length, UdpInit.RemotePoint);

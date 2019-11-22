@@ -766,6 +766,14 @@ namespace MoviePlayer
                         shakeFile = null;
                     }
                 }
+                else
+                {
+                    actionFile2DOF = null;
+                    actionFile3DOF = null;
+                    actionFile6DOF = null;
+                    effectFile = null;
+                    shakeFile = null;
+                }
             }
             catch(Exception e)
             {

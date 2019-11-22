@@ -61,7 +61,7 @@ namespace MoviePlayer.Protocol
             }
             catch
             {
-                MessageBox.Show("Network ports are occupied");
+                //MessageBox.Show("Network ports are occupied");
                 //System.Environment.Exit(0);
             }
 

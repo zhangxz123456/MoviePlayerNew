@@ -2,13 +2,12 @@
 <Type>
   <Style>5D</Style>
   <Language>CN</Language>
-  <DOF>2DOF</DOF>
+  <DOF>3DOF</DOF>
   <Height>100</Height>
   <Projector>0</Projector>
-  <Permission>TRUE</Permission>
-  <Control>
-  </Control>
-  <Frame>60</Frame>
+  <Permission>FALSE</Permission>
+  <Control>CLIENT</Control>
+  <Frame>48</Frame>
   <PlayPicture>
   </PlayPicture>
   <ProjectorBrand>松下</ProjectorBrand>
