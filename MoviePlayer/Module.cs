@@ -38,6 +38,7 @@ namespace MoviePlayer
         public static byte[] shuqeeFile;
         public static byte[] dmx512File;
         public static byte[] DMXLightning = new byte[10];
+        public static byte[] DMXSnow = new byte[10];
         public static int DOF2StartIndex;
         public static int DOF3StartIndex;
         public static int DOF6StartIndex;
@@ -436,7 +437,7 @@ namespace MoviePlayer
             try
             {
                 //actionFile = File.ReadAllBytes(Directory.GetCurrentDirectory() + @"\A-D");
-                dmx512File = File.ReadAllBytes(MainWindow.fullPathName.Substring(0, MainWindow.fullPathName.LastIndexOf(".")) + "-D");
+                dmx512File = File.ReadAllBytes(MainWindow.fullPathName.Substring(0, MainWindow.fullPathName.LastIndexOf(".")) + "-DMX");
             }
             catch
             {

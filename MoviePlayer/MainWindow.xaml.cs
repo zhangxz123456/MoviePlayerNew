@@ -92,7 +92,9 @@ namespace MoviePlayer
         Button[] btnChairEffect;                     //座椅特效
         CheckBox[] checkBoxEvEffect;                //环境特效  数据显示界面
         CheckBox[] checkBoxChairEffect;              //座椅特效
-        
+        CheckBox[] checkBoxProjector;
+        TextBox[] textBoxIPProjector;
+        TextBox[] textBoxPortProjector;
 
         public static string playerPath;
         public static string PlayType;               //播放器类型 4DM为4DM播放器 5D为5D播放器
@@ -121,6 +123,8 @@ namespace MoviePlayer
         public static string PlayProjector8IP;
         public static string PlayProjector8Port;
         public static string PlayProjectorBrand;
+        public static string DelayIP;
+        public static string DelayPort;
 
         private int isReset;                         //验证软件正常打开后发复位指令（只发第一次）
         private bool isSleep;
@@ -369,9 +373,9 @@ namespace MoviePlayer
 
         private void TcpRelayControlClientInit()
         {
-            Thread th5 = new Thread(() =>
+            Thread thRelay = new Thread(() =>
             {
-                bool a = TcpRelayControlClientConnect("192.168.1.232", "10000");
+                bool a = TcpRelayControlClientConnect(DelayIP, DelayPort);
                 if (a)
                 {
                     this.Dispatcher.Invoke(new Action(() =>
@@ -380,7 +384,7 @@ namespace MoviePlayer
                     }));
                 }
             });
-            th5.Start();
+            thRelay.Start();
         }
 
         private void MainWindow_Closed(object sender, EventArgs e)
@@ -419,15 +423,15 @@ namespace MoviePlayer
             rb5.Checked += Rb_Checked;
             rb6.Checked += Rb_Checked;
 
-            checkProjector1.Checked += Projector_Checked;
-            checkProjector2.Checked += Projector_Checked;
-            checkProjector3.Checked += Projector_Checked;
-            checkProjector4.Checked += Projector_Checked;
-
+            checkProjectorAll.Click += CheckProjector_Click;
             checkProjector1.Click += Projector_Click;
             checkProjector2.Click += Projector_Click;
             checkProjector3.Click += Projector_Click;
             checkProjector4.Click += Projector_Click;
+            checkProjector5.Click += Projector_Click;
+            checkProjector6.Click += Projector_Click;
+            checkProjector7.Click += Projector_Click;
+            checkProjector8.Click += Projector_Click;
 
             cbDoor.Click += CbDoor_Click;
             cbLightning.Click += CbLightning_Click;
@@ -453,6 +457,7 @@ namespace MoviePlayer
             btnLang.Click += BtnSet_Click;
             btnParamSet.Click += BtnSet_Click;
             btnProjectorSet.Click += BtnSet_Click;
+            btnDelaySet.Click += BtnSet_Click;
 
             btnImgBack.MouseEnter += BtnImgBack_MouseEnter;
             btnImgBack.MouseLeave += BtnImgBack_MouseLeave;
@@ -499,6 +504,7 @@ namespace MoviePlayer
 
             btnConfirmProjector.Click += BtnConfirmProjector_Click;
             btnDefaultProjector.Click += BtnDefaultProjector_Click;
+            btnConfirmDelay.Click += BtnConfirmDelay_Click;
             btnConfirm.Click += BtnConfirm_Click;
             btnDefault.Click += BtnDefault_Click;
             btnEN.Click += BtnSetLang_Click;
@@ -542,8 +548,13 @@ namespace MoviePlayer
 
             checkBoxEvEffect = new CheckBox[8] { cbEv1, cbEv2, cbEv3, cbEv4, cbEv5, cbEv6, cbEv7, cbEv8 };
             checkBoxChairEffect = new CheckBox[8] { cbCv7, cbCv8, cbCv1, cbCv2, cbCv3, cbCv4, cbCv5, cbCv6 };
-
+            checkBoxProjector = new CheckBox[8] { checkProjector1,checkProjector2,checkProjector3,checkProjector4,checkProjector5,checkProjector6,checkProjector7,checkProjector8};
+            textBoxIPProjector = new TextBox[8] { txtIpProjector1,txtIpProjector2,txtIpProjector3,txtIpProjector4,txtIpProjector5,txtIpProjector6,txtIpProjector7,txtIpProjector8};
+            textBoxPortProjector = new TextBox[8] { txtPortProjector1,txtPortProjector2,txtPortProjector3,txtPortProjector4,txtPortProjector5,txtPortProjector6,txtPortProjector7,txtPortProjector8};
         }
+
+
+
 
         //private void BtnBackUp4_Click(object sender, RoutedEventArgs e)
         //{
@@ -733,7 +744,7 @@ namespace MoviePlayer
         }
 
         /// <summary>
-        /// 保存参数设置数据
+        /// 保存投影机参数设置数据
         /// </summary>
         private void SaveProjector()
         {
@@ -788,6 +799,28 @@ namespace MoviePlayer
                 element["Port"].InnerText = txtPortProjector8.Text;
 
 
+                xmlDoc.Save(path);
+            }
+        }
+
+        /// <summary>
+        /// 保存继电器模块参数设置
+        /// </summary>
+        private void SaveDelayModule()
+        {
+            string path = MainWindow.playerPath + @"\XML\" + "Type.xml";
+            FileInfo finfo = new FileInfo(path);
+            if (finfo.Exists)
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(path);
+                XmlNode childNodes = xmlDoc.SelectSingleNode("Type");
+                XmlElement element1 = (XmlElement)childNodes;
+
+                XmlNode childNodeNext = childNodes.SelectSingleNode("DelayModule");
+                XmlElement element = (XmlElement)childNodeNext;
+                element["IPDelay"].InnerText = txtIpDelay.Text;
+                element["PortDelay"].InnerText = txtPortDelay.Text;
                 xmlDoc.Save(path);
             }
         }
@@ -931,6 +964,9 @@ namespace MoviePlayer
             txtPortProjector7.Text = PlayProjector7Port;
             txtIpProjector8.Text = PlayProjector8IP;
             txtPortProjector8.Text = PlayProjector8Port;
+            txtIpDelay.Text = DelayIP;
+            txtPortDelay.Text = DelayPort;
+
             if (PlayLanguage.Equals("CN"))
             {
                 comboBoxBrand.Text = PlayProjectorBrand;
@@ -1016,6 +1052,10 @@ namespace MoviePlayer
                 btnEvEffect[i].Background = Brushes.Cyan;
                 btnEvEffect[i].Opacity = 0.9;
                 dataEvEffect[i] = (Byte)Math.Pow(2, i);
+                if (i == 5)
+                {
+                    Module.DMXSnow = new byte[] { 0x14, 0x0, 0x5A, 0x0, 0x0, 0x2D, 0x0, 0x0, 0x0, 0x0 };
+                }
             }
             else
             {
@@ -1023,6 +1063,10 @@ namespace MoviePlayer
                 btnEvEffect[i].Background = brush;
                 btnEvEffect[i].Opacity = 1;
                 dataEvEffect[i] = 0;
+                if (i == 5)
+                {
+                    Module.DMXSnow = new byte[10];
+                }
             }
         }
 
@@ -1322,6 +1366,11 @@ namespace MoviePlayer
                 elementNext = (XmlElement)childNodeNext;
                 PlayProjector8IP = elementNext["IP"].InnerText;
                 PlayProjector8Port = elementNext["Port"].InnerText;
+
+                childNodeNext = childNodes.SelectSingleNode("DelayModule");
+                elementNext = (XmlElement)childNodeNext;
+                DelayIP = elementNext["IPDelay"].InnerText;
+                DelayPort = elementNext["PortDelay"].InnerText;
             }
         }
 
@@ -1395,6 +1444,11 @@ namespace MoviePlayer
                               "序列号:" + UdpConnect.uuid;
                 txtUpdate.Text =
                            "shuqee版本更新信息：\r\n" +
+                           "                   V7.1.8 \r\n" +
+                           "更新日期：2019/11/26 \r\n" +
+                           "更新内容：增加对中继继电器模块控制 \r\n" +
+                           "/**************************************/ \r\n" +
+                           "shuqee版本更新信息：\r\n" +
                            "                   V7.1.7 \r\n" +
                            "更新日期：2019/10/18 \r\n" +
                            "更新内容：更改4DM文件导入方式 \r\n" +
@@ -1463,6 +1517,11 @@ namespace MoviePlayer
                                "Height: " + MainWindow.PlayHeight + "%" + "\r\n";
 
                 txtUpdate.Text =
+                           "Shuqee Version Update Information：\r\n" +
+                          "                   V7.1.8 \r\n" +
+                          "Updated Date：2019/11/26 \r\n" +
+                          "Updated Content：Add the Delay Module \r\n" +
+                          "/**************************************/ \r\n" +
                           "Shuqee Version Update Information：\r\n" +
                           "                   V7.1.7 \r\n" +
                           "Updated Date：2019/10/18 \r\n" +
@@ -1815,6 +1874,7 @@ namespace MoviePlayer
             btnLangGrid.Background = brush;
             btnParamSetGrid.Background = brush;
             btnProjectorSet.Background = brush;
+            btnDelaySet.Background = brush;
             switch (tag)
             {
                 case 1:
@@ -1835,6 +1895,10 @@ namespace MoviePlayer
                 case 3:
                     btnProjectorSet.Background = Brushes.DodgerBlue;
                     tabControlSet.SelectedIndex = 2;
+                    break;
+                case 4:
+                    btnDelaySet.Background = Brushes.DodgerBlue;
+                    tabControlSet.SelectedIndex = 3;
                     break;
             }
         }
@@ -1871,6 +1935,11 @@ namespace MoviePlayer
             txtIpProjector8.Text = "192.168.1.128";
             txtPortProjector8.Text = "1040";
             SaveProjector();
+        }
+
+        private void BtnConfirmDelay_Click(object sender, RoutedEventArgs e)
+        {
+            SaveDelayModule();
         }
 
         private void OpenLoginWin()
@@ -2997,7 +3066,8 @@ namespace MoviePlayer
                         UserControlClass.MSStatus = MediaStatus.Pause;
                         if (PlayControl.Equals("CLIENT"))
                         {
-                            bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
+                            //bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
+                            bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "10000");
                             ControlPlay(isConnect, index);
                         }
                         RelayControlPlaySend();
@@ -3866,7 +3936,8 @@ namespace MoviePlayer
                         UserControlClass.MSStatus = MediaStatus.Pause;
                         if (PlayControl.Equals("CLIENT"))
                         {
-                            bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
+                            //bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
+                            bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "10000");
                             ControlPlay(isConnect, index);
                         }
                         RelayControlPlaySend();
@@ -3879,7 +3950,8 @@ namespace MoviePlayer
                         UserControlClass.MSStatus = MediaStatus.Play;
                         if (UserControlClass.FileName == filename && PlayControl.Equals("CLIENT"))
                         {
-                            bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
+                            //bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
+                            bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "10000");
                             ControlPlayAgain(isConnect);
                         }
                         if (UserControlClass.sc2.WindowState == WindowState.Minimized)
@@ -3895,7 +3967,8 @@ namespace MoviePlayer
                         Pause();
                         if (PlayControl.Equals("CLIENT"))
                         {
-                            bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
+                            //bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
+                            bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "10000");
                             ControlPause(isConnect);
                         }
                     }
@@ -3929,7 +4002,8 @@ namespace MoviePlayer
                     txtTime.Text = "";
                     if (PlayControl.Equals("CLIENT"))
                     {
-                        bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
+                        //bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
+                        bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "10000");
                         ControlStop(isConnect);
                     }
                     RelayControlStopSend();
@@ -4222,6 +4296,7 @@ namespace MoviePlayer
             byte[] data = new byte[data1.Length + 30];
             data1.CopyTo(data,0);
             Module.DMXLightning.CopyTo(data,data1.Length);
+            Module.DMXSnow.CopyTo(data, data1.Length + Module.DMXLightning.Length);
             array = Protocol.ModbusUdp.ArrayAdd(0, (ushort)data.Length, data);
             Data = Protocol.ModbusUdp.MBReqWrite(array);
             UdpSend.UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
@@ -4242,6 +4317,14 @@ namespace MoviePlayer
             string port3 = txtPortProjector3.Text;
             string ip4 = txtIpProjector4.Text;
             string port4 = txtPortProjector4.Text;
+            string ip5 = txtIpProjector5.Text;
+            string port5 = txtPortProjector5.Text;
+            string ip6 = txtIpProjector6.Text;
+            string port6 = txtPortProjector6.Text;
+            string ip7 = txtIpProjector7.Text;
+            string port7 = txtPortProjector7.Text;
+            string ip8 = txtIpProjector8.Text;
+            string port8 = txtPortProjector8.Text;
             switch (tag)
             {
                 case 1:
@@ -4258,12 +4341,12 @@ namespace MoviePlayer
                     {
                         if (ischeckProjector1 == true)
                         {
-                            bool isConnect = TcpClientConnect(ip1, port1);
+                            bool isConnect = TcpClientConnect(ip1, port1,1);
                             OpenProjector(isConnect);
                         }
                         else
                         {
-                            bool isConnect = TcpClientConnect(ip1, port1);
+                            bool isConnect = TcpClientConnect(ip1, port1,1);
                             CloseProjector(isConnect);
                         }
                     });
@@ -4293,12 +4376,12 @@ namespace MoviePlayer
                     {
                         if (ischeckProjector2 == true)
                         {
-                            bool isConnect = TcpClientConnect(ip2, port2);
+                            bool isConnect = TcpClientConnect(ip2, port2,2);
                             OpenProjector(isConnect);
                         }
                         else
                         {
-                            bool isConnect = TcpClientConnect(ip2, port2);
+                            bool isConnect = TcpClientConnect(ip2, port2,2);
                             CloseProjector(isConnect);
                         }
                     });
@@ -4318,12 +4401,12 @@ namespace MoviePlayer
                     {
                         if (ischeckProjector3 == true)
                         {
-                            bool isConnect = TcpClientConnect(ip3, port3);
+                            bool isConnect = TcpClientConnect(ip3, port3,3);
                             OpenProjector(isConnect);
                         }
                         else
                         {
-                            bool isConnect = TcpClientConnect(ip3, port3);
+                            bool isConnect = TcpClientConnect(ip3, port3,3);
                             CloseProjector(isConnect);
                         }
                     });
@@ -4343,42 +4426,245 @@ namespace MoviePlayer
                     {
                         if (ischeckProjector4 == true)
                         {
-                            bool isConnect = TcpClientConnect(ip4, port4);
+                            bool isConnect = TcpClientConnect(ip4, port4,4);
                             OpenProjector(isConnect);
                         }
                         else
                         {
-                            bool isConnect = TcpClientConnect(ip4, port4);
+                            bool isConnect = TcpClientConnect(ip4, port4,4);
                             CloseProjector(isConnect);
                         }
                     });
                     th4.Start();
                     break;
+                case 5:
+                    bool ischeckProjector5;
+                    if (checkProjector5.IsChecked == true)
+                    {
+                        ischeckProjector5 = true;
+                    }
+                    else
+                    {
+                        ischeckProjector5 = false;
+                    }
+                    Thread th5 = new Thread(() =>
+                    {
+                        if (ischeckProjector5 == true)
+                        {
+                            bool isConnect = TcpClientConnect(ip5, port5,5);
+                            OpenProjector(isConnect);
+                        }
+                        else
+                        {
+                            bool isConnect = TcpClientConnect(ip5, port5,5);
+                            CloseProjector(isConnect);
+                        }
+                    });
+                    th5.Start();
+                    break;
+                case 6:
+                    bool ischeckProjector6;
+                    if (checkProjector6.IsChecked == true)
+                    {
+                        ischeckProjector6 = true;
+                    }
+                    else
+                    {
+                        ischeckProjector6 = false;
+                    }
+                    Thread th6 = new Thread(() =>
+                    {
+                        if (ischeckProjector6 == true)
+                        {
+                            bool isConnect = TcpClientConnect(ip6, port6,6);
+                            OpenProjector(isConnect);
+                        }
+                        else
+                        {
+                            bool isConnect = TcpClientConnect(ip6, port6,6);
+                            CloseProjector(isConnect);
+                        }
+                    });
+                    th6.Start();
+                    break;
+                case 7:
+                    bool ischeckProjector7;
+                    if (checkProjector7.IsChecked == true)
+                    {
+                        ischeckProjector7 = true;
+                    }
+                    else
+                    {
+                        ischeckProjector7 = false;
+                    }
+                    Thread th7 = new Thread(() =>
+                    {
+                        if (ischeckProjector7 == true)
+                        {
+                            bool isConnect = TcpClientConnect(ip7, port7,7);
+                            OpenProjector(isConnect);
+                        }
+                        else
+                        {
+                            bool isConnect = TcpClientConnect(ip7, port7,7);
+                            CloseProjector(isConnect);
+                        }
+                    });
+                    th7.Start();
+                    break;
+                case 8:
+                    bool ischeckProjector8;
+                    if (checkProjector8.IsChecked == true)
+                    {
+                        ischeckProjector8 = true;
+                    }
+                    else
+                    {
+                        ischeckProjector8 = false;
+                    }
+                    Thread th8 = new Thread(() =>
+                    {
+                        if (ischeckProjector8 == true)
+                        {
+                            bool isConnect = TcpClientConnect(ip8, port8,8);
+                            OpenProjector(isConnect);
+                        }
+                        else
+                        {
+                            bool isConnect = TcpClientConnect(ip8, port8,8);
+                            CloseProjector(isConnect);
+                        }
+                    });
+                    th8.Start();
+                    break;
             }
         }
 
-        private void Projector_Checked(object sender, RoutedEventArgs e)
+
+        private void CheckProjector_Click(object sender, RoutedEventArgs e)
         {
             CheckBox checkbox = sender as CheckBox;
             int tag = Convert.ToInt32(checkbox.Tag);
-            switch (tag)
+            string[] ip = new string[8];
+            string[] port = new string[8];
+            int projectorCount;
+            Int32.TryParse(txtProjectorCount.Text, out projectorCount);
+            if (projectorCount <= 0 || projectorCount > 8)
             {
-                case 1:
-                    //MessageBox.Show("1");
-                    break;
-                case 2:
-                    //MessageBox.Show("2");
-                    break;
-                case 3:
-                    //MessageBox.Show("3");
-                    break;
-                case 4:
-                    //MessageBox.Show("4");
-                    break;
+                projectorCount = 1;
             }
+            for (int i = 0; i < projectorCount; i++)
+            {
+                ip[i] = textBoxIPProjector[i].Text;
+                port[i] = textBoxPortProjector[i].Text;
+            }
+            //string ip1 = txtIpProjector1.Text;
+            //string port1 = txtPortProjector1.Text;
+            //string ip2 = txtIpProjector2.Text;
+            //string port2 = txtPortProjector2.Text;
+            //string ip3 = txtIpProjector3.Text;
+            //string port3 = txtPortProjector3.Text;
+            //string ip4 = txtIpProjector4.Text;
+            //string port4 = txtPortProjector4.Text;
+            //string ip5 = txtIpProjector5.Text;
+            //string port5 = txtPortProjector5.Text;
+            //string ip6 = txtIpProjector6.Text;
+            //string port6 = txtPortProjector6.Text;
+            //string ip7 = txtIpProjector7.Text;
+            //string port7 = txtPortProjector7.Text;
+            //string ip8 = txtIpProjector8.Text;
+            //string port8 = txtPortProjector8.Text;
+            bool[] isConnect = new bool[8];
+            bool[] isConnectClose = new bool[8];
+            bool ischeckProjector;
+            if (checkProjectorAll.IsChecked == true)
+            {
+                ischeckProjector = true;
+            }
+            else
+            {
+                ischeckProjector = false;
+            }
+            Thread thAll = new Thread(() =>
+            {
+                if (ischeckProjector == true)
+                {
+                    //isConnect[0] = TcpClientConnect(ip1, port1);
+                    //OpenProjector(isConnect[0]);
+                    ////checkProjector1.IsChecked = true;
+                    //isConnect[1] = TcpClientConnect(ip2, port2);
+                    //OpenProjector(isConnect[1]);
+                    //isConnect[2] = TcpClientConnect(ip3, port3);
+                    //OpenProjector(isConnect[2]);
+                    //isConnect[3] = TcpClientConnect(ip4, port4);
+                    //OpenProjector(isConnect[3]);
+                    //isConnect[4] = TcpClientConnect(ip5, port5);
+                    //OpenProjector(isConnect[4]);
+                    //isConnect[5] = TcpClientConnect(ip6, port6);
+                    //OpenProjector(isConnect[5]);
+                    //isConnect[6] = TcpClientConnect(ip7, port7);
+                    //OpenProjector(isConnect[6]);
+                    //isConnect[7] = TcpClientConnect(ip8, port8);
+                    //OpenProjector(isConnect[7]);
+                    for (int i = 0; i < projectorCount; i++)
+                    {
+                        isConnect[i] = TcpClientConnect(ip[i], port[i],i+1);
+                        OpenProjector(isConnect[i]);
+                    }
+
+                    this.Dispatcher.Invoke(new Action(() =>
+                    {
+                        for (int i = 0; i < projectorCount; i++)
+                        {
+                            if (isConnect[i] == true)
+                            {
+                                checkBoxProjector[i].IsChecked = true;
+                            }
+                        }
+                    }));
+                   
+                }
+                else
+                {
+                    //isConnectClose[0] = TcpClientConnect(ip1, port1);
+                    //CloseProjector(isConnectClose[0]);
+                    //isConnectClose[1] = TcpClientConnect(ip2, port2);
+                    //CloseProjector(isConnectClose[1]);
+                    //isConnectClose[2] = TcpClientConnect(ip3, port3);
+                    //CloseProjector(isConnectClose[2]);
+                    //isConnectClose[3] = TcpClientConnect(ip4, port4);
+                    //CloseProjector(isConnectClose[3]);
+                    //isConnectClose[4] = TcpClientConnect(ip5, port5);
+                    //CloseProjector(isConnectClose[4]);
+                    //isConnectClose[5] = TcpClientConnect(ip6, port6);
+                    //CloseProjector(isConnectClose[5]);
+                    //isConnectClose[6] = TcpClientConnect(ip7, port7);
+                    //CloseProjector(isConnectClose[6]);
+                    //isConnectClose[7] = TcpClientConnect(ip8, port8);
+                    //CloseProjector(isConnectClose[7]);
+                    for (int i = 0; i < projectorCount; i++)
+                    {
+                        isConnectClose[i] = TcpClientConnect(ip[i], port[i],i+1);
+                        CloseProjector(isConnectClose[i]);
+                    }
+                    this.Dispatcher.Invoke(new Action(() =>
+                    {
+                        for (int i = 0; i < projectorCount; i++)
+                        {
+                            if (isConnectClose[i] == true)
+                            {
+                                checkBoxProjector[i].IsChecked = false;
+                            }
+                        }
+                    }));
+                }
+            });
+            thAll.Start();
+          
         }
 
-        private bool TcpClientConnect(string ip, string port)
+
+        private bool TcpClientConnect(string ip, string port,int index)
         {
             try
             {
@@ -4388,8 +4674,8 @@ namespace MoviePlayer
             }
             catch (Exception e)
             {
-                MessageBox.Show("连接投影机有误");
-                Module.WriteLogFile("连接投影机有误" + "\r\n" + e.Message);
+                MessageBox.Show("连接投影机"+index+"有误");
+                Module.WriteLogFile("连接投影机"+index+"有误" + "\r\n" + e.Message);
                 return false;
             }
         }
@@ -4662,8 +4948,9 @@ namespace MoviePlayer
         {
             if (isConnect)
             {
-                byte[] data2 = { 0xFF, 0x33, 0x4D, 0xEE };
-                tcpControlClient.Send(data2);
+                //byte[] data1 = { 0xFF, 0x33, 0x4D, 0xEE };
+                string data1 = "play";
+                tcpControlClient.Send(System.Text.Encoding.Default.GetBytes(data1));
                 TcpControlClientClose();
             }
         }

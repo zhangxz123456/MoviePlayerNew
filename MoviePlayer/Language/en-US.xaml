@@ -9,6 +9,9 @@
     <sys:String x:Key="txtAboutUs">AboutUS</sys:String>
     <sys:String x:Key="txtParamSet">Parameters</sys:String>
     <sys:String x:Key="txtProjectorSet">ProjectorSet</sys:String>
+    <sys:String x:Key="txtDelaySet">DelayModuleSet</sys:String>
+    <sys:String x:Key="labDelay">DelayModule</sys:String>
+    <sys:String x:Key="labParam">Parameters</sys:String>
     <sys:String x:Key="txtEvEffect">EvEffect</sys:String>
     <sys:String x:Key="txtChairEffect">ChairEffect</sys:String>
     <sys:String x:Key="txtEquipment">Device Status</sys:String>
@@ -63,7 +66,9 @@
     <sys:String x:Key="txtDoor">Door</sys:String>
     <sys:String x:Key="txtLamp">Lamp</sys:String>
     <sys:String x:Key="txtManual">Manual</sys:String>
-    <sys:String x:Key="txtAutomatic">Automatic</sys:String>
+    <sys:String x:Key="txtAutomatic">All</sys:String>
+    <sys:String x:Key="labProjectorCount">ProjectorCount</sys:String>
+
 
     <!--设置-->
     <sys:String x:Key="btnEN">English</sys:String>

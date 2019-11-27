@@ -9,6 +9,9 @@
     <sys:String x:Key="txtAboutUs">关于我们</sys:String>
     <sys:String x:Key="txtParamSet">参数设置</sys:String>
     <sys:String x:Key="txtProjectorSet">投影机设置</sys:String>
+    <sys:String x:Key="txtDelaySet">继电器模块设置</sys:String>
+    <sys:String x:Key="labDelay">继电器模块</sys:String>
+    <sys:String x:Key="labParam">参数设置</sys:String>
     <sys:String x:Key="txtEvEffect">环境特效</sys:String>
     <sys:String x:Key="txtChairEffect">座椅特效</sys:String>
     <sys:String x:Key="txtEquipment">设备状态</sys:String>
@@ -64,8 +67,10 @@
     <sys:String x:Key="txtDoor">影厅门</sys:String>
     <sys:String x:Key="txtLamp">场灯</sys:String>
     <sys:String x:Key="txtManual">手动开关</sys:String>
-    <sys:String x:Key="txtAutomatic">自动开关</sys:String>
-    
+    <sys:String x:Key="txtAutomatic">总开关</sys:String>
+    <sys:String x:Key="labProjectorCount">控制投影机总数</sys:String>
+
+
     <!--设置-->
     <sys:String x:Key="btnEN">English</sys:String>
     <sys:String x:Key="btnCN">中文</sys:String>

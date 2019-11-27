@@ -974,7 +974,7 @@
                         <BulletDecorator.Bullet>
                             <Border x:Name="ForegroundPanel"  BorderThickness="1" Width="35" Height="20" CornerRadius="10">
                                 <Canvas>
-                                    <Border Background="#FFE29231" x:Name="CheckFlag"  CornerRadius="10" VerticalAlignment="Center" BorderThickness="1" Width="19" Height="18" RenderTransformOrigin="0.5,0.5">
+                                    <Border Background="White" x:Name="CheckFlag"  CornerRadius="10" VerticalAlignment="Center" BorderThickness="1" Width="19" Height="18" RenderTransformOrigin="0.5,0.5">
                                         <Border.RenderTransform>
                                             <TransformGroup>
                                                 <ScaleTransform/>
@@ -1001,14 +1001,14 @@
                             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
-                            <Setter TargetName="ForegroundPanel" Property="Background" Value="White" />
+                            <Setter TargetName="ForegroundPanel" Property="Background" Value="Red" />
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="BeginStoryboardCheckedTrue" Storyboard="{StaticResource StoryboardIsChecked}" />
                                 <RemoveStoryboard BeginStoryboardName="BeginStoryboardCheckedFalse" />
                             </Trigger.EnterActions>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="ForegroundPanel" Property="Background" Value="#FF1532B6" />
+                            <Setter TargetName="ForegroundPanel" Property="Background" Value="Lime" />
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="BeginStoryboardCheckedFalse" Storyboard="{StaticResource StoryboardIsCheckedOff}" />
                                 <RemoveStoryboard BeginStoryboardName="BeginStoryboardCheckedTrue" />

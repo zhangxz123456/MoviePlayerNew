@@ -178,6 +178,7 @@
                         <RowDefinition Height="30"></RowDefinition>
                         <RowDefinition Height="30"></RowDefinition>
                         <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <!--语言-->
@@ -215,6 +216,18 @@
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Resources/Icon_Projector.png" Grid.Column="0" Margin="0,5,0,5" MaxHeight="17"></Image>
                                 <TextBlock Name="txtProjectorSet" Text="{DynamicResource txtProjectorSet}" Foreground="White" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+                    <Button Name="btnDelaySet" Tag="4"  Background="#FF545454" Style="{DynamicResource ButtonStyle1}" Grid.Row="3">
+                        <Button.Content>
+                            <Grid Width="149" x:Name="btnDelaySetGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition MaxWidth="30"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="Resources/Icon_Delay.png" Grid.Column="0" Margin="0,5,0,5" MaxHeight="17"></Image>
+                                <TextBlock Name="txtDelaySet" Text="{DynamicResource txtDelaySet}" Foreground="White" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -1032,6 +1045,7 @@
                 <Grid x:Name="gridProjector" Margin="-1,0,0,0"  Background="#FF737373">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"/>
+                        <RowDefinition Height="50"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -1061,10 +1075,24 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                       <TextBlock Text="{DynamicResource txtAutomatic}" Foreground="White" Grid.Row="0"  Grid.Column="0" VerticalAlignment="Center"/>
-                     <CheckBox Style="{DynamicResource SliderCheckBox}" Grid.Row="0" Grid.Column="1"  VerticalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" />
+                     <CheckBox Name="checkProjectorAll" Style="{DynamicResource SliderCheckBox}" Grid.Row="0" Grid.Column="1"  VerticalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" />
                     </Grid>
-
-                    <Grid Margin="0,0,0,0" Grid.Row="1" Background="#FF737373" Grid.Column="1" >
+                    <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="{DynamicResource labProjectorCount}" Grid.Column="0"  Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Center"></Label>
+                        <TextBox Name="txtProjectorCount" Text="6" Grid.Column="1"  Height="25" Background="#FF999999" FontSize="12" BorderBrush="#FF999999" Foreground="White" HorizontalAlignment="Left"  Width="50">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="4"/>
+                                    <Setter Property="BorderBrush" Value="#FF999999"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </Grid> 
+                    <Grid Margin="0,0,0,0" Grid.Row="2" Background="#FF737373" Grid.Column="1" >
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition Height="100"/>
@@ -1077,9 +1105,9 @@
                         <Image Source="Resources/Image_Projector.png" Grid.Row="1"  />
                         <CheckBox Name="checkProjector1" Style="{DynamicResource SliderCheckBox}" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" Tag="1"/>
                         <Image Source="Resources/Image_Projector.png" Grid.Row="4"  />
-                        <CheckBox Name="checkProjector3" Style="{DynamicResource SliderCheckBox}" Grid.Row="5"  VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" Tag="3" />
+                        <CheckBox Name="checkProjector5" Style="{DynamicResource SliderCheckBox}" Grid.Row="5"  VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" Tag="5" />
                     </Grid>
-                    <Grid  Margin="0,0,0,0" Grid.Row="1" Grid.Column="3" Background="#FF737373"  >
+                    <Grid  Margin="0,0,0,0" Grid.Row="2" Grid.Column="3" Background="#FF737373"  >
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition Height="100"/>
@@ -1092,9 +1120,9 @@
                         <Image Source="Resources/Image_Projector.png" Grid.Row="1"  />
                         <CheckBox Name="checkProjector2" Style="{DynamicResource SliderCheckBox}" Grid.Row="2"   IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Center" Tag="2"  />
                         <Image Source="Resources/Image_Projector.png" Grid.Row="4"  />
-                        <CheckBox Name="checkProjector4" Style="{DynamicResource SliderCheckBox}" Grid.Row="5"  IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}"   VerticalAlignment="Center" HorizontalAlignment="Center" Tag="4" />
+                        <CheckBox Name="checkProjector6" Style="{DynamicResource SliderCheckBox}" Grid.Row="5"  IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}"   VerticalAlignment="Center" HorizontalAlignment="Center" Tag="6" />
                     </Grid>
-                    <Grid  Margin="0,0,0,0" Grid.Row="1" Background="#FF737373" Grid.Column="5" >
+                    <Grid  Margin="0,0,0,0" Grid.Row="2" Background="#FF737373" Grid.Column="5" >
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition Height="100"/>
@@ -1105,11 +1133,11 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
                         <Image Source="Resources/Image_Projector.png" Grid.Row="1"  />
-                        <CheckBox Name="checkProjector5" Style="{DynamicResource SliderCheckBox}" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" Tag="1"/>
+                        <CheckBox Name="checkProjector3" Style="{DynamicResource SliderCheckBox}" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" Tag="3"/>
                         <Image Source="Resources/Image_Projector.png" Grid.Row="4" />
-                        <CheckBox Name="checkProjector7" Style="{DynamicResource SliderCheckBox}" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" Tag="3" />
+                        <CheckBox Name="checkProjector7" Style="{DynamicResource SliderCheckBox}" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" Tag="7" />
                     </Grid>
-                    <Grid  Margin="0,0,0,0" Grid.Row="1" Grid.Column="7" Background="#FF737373"  >
+                    <Grid  Margin="0,0,0,0" Grid.Row="2" Grid.Column="7" Background="#FF737373"  >
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition Height="100"/>
@@ -1120,9 +1148,9 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
                         <Image Source="Resources/Image_Projector.png" Grid.Row="1" />
-                        <CheckBox Name="checkProjector6" Style="{DynamicResource SliderCheckBox}" Grid.Row="2"  IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Center" Tag="2"  />
+                        <CheckBox Name="checkProjector4" Style="{DynamicResource SliderCheckBox}" Grid.Row="2"  IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Center" Tag="4"  />
                         <Image Source="Resources/Image_Projector.png" Grid.Row="4"  />
-                        <CheckBox Name="checkProjector8" Style="{DynamicResource SliderCheckBox}" Grid.Row="5"  IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}"   VerticalAlignment="Center" HorizontalAlignment="Center" Tag="4" />
+                        <CheckBox Name="checkProjector8" Style="{DynamicResource SliderCheckBox}" Grid.Row="5"  IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}"   VerticalAlignment="Center" HorizontalAlignment="Center" Tag="8" />
                     </Grid>
                 </Grid>
                 <!--<Grid  x:Name="gridDoor" Margin="-1,1,0,-1"  Background="#FF878787" Grid.Row="1">
@@ -1399,7 +1427,7 @@
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <Image Grid.Row="0" Grid.RowSpan="3" Source="/Resources/Icon_ShuQee_White.png" Stretch="Fill"/>
-                                <TextBlock x:Name="txtVersion" Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="25" Margin="20,0,0,0" Text="Version: 7.1.7" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtVersion" Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="25" Margin="20,0,0,0" Text="Version: 7.1.8" VerticalAlignment="Center"/>
                                 <TextBlock x:Name="txtRegStrTitle" Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="25" Margin="20,0,520,0" Text="{DynamicResource txtRegStrTitle}"  VerticalAlignment="Center"/>
                                 <TextBlock x:Name="txtRegStr" Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="25" Margin="110,0,0,0" Text=""  VerticalAlignment="Center"/>
                             </Grid>
@@ -1843,6 +1871,57 @@
                                 </Button.Background>
                             </Button>
 
+                        </Grid>
+                    </TabItem>
+                    <TabItem Name="tabItemSet4" Style="{DynamicResource TabItemStyle2}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition ></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110"></ColumnDefinition>
+                                <ColumnDefinition Width="90"></ColumnDefinition>
+                                <ColumnDefinition Width="90"></ColumnDefinition>
+                                <ColumnDefinition Width="20"></ColumnDefinition>
+
+                                <ColumnDefinition Width="110"></ColumnDefinition>
+                                <ColumnDefinition Width="90"></ColumnDefinition>
+                                <ColumnDefinition Width="90"></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="{DynamicResource labDelay}" Grid.Row="0" Margin="-1,8,0,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Left"></Label>
+                            <Label Content="{DynamicResource labParam}" Grid.Row="1"  Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Left"></Label>
+                            <Label Content="{DynamicResource labProjectorIp}" Grid.Row="2"  Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Center"></Label>
+                            <Label Content="{DynamicResource labProjectorPort}" Grid.Row="3" Margin="-1,8,0,8" Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Center"></Label>
+                            <TextBox Name="txtIpDelay" Text="" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                        <Setter Property="BorderBrush" Value="#FF999999"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <TextBox Name="txtPortDelay" Text="" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                        <Setter Property="BorderBrush" Value="#FF999999"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <Button x:Name="btnConfirmDelay" Content="{DynamicResource btnConfirm}" Style="{DynamicResource FilletButton}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Height="30"  Width="70" >
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
                         </Grid>
                     </TabItem>
                 </TabControl>

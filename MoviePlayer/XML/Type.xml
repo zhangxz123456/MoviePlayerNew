@@ -12,35 +12,39 @@
   </PlayPicture>
   <ProjectorBrand>松下</ProjectorBrand>
   <Projector1>
-    <IP>192.168.1.121</IP>
+    <IP>192.168.1.109</IP>
     <Port>1033</Port>
   </Projector1>
   <Projector2>
-    <IP>192.168.1.122</IP>
+    <IP>192.168.1.109</IP>
     <Port>1034</Port>
   </Projector2>
   <Projector3>
-    <IP>192.168.1.123</IP>
+    <IP>192.168.1.109</IP>
     <Port>1035</Port>
   </Projector3>
   <Projector4>
-    <IP>192.168.1.124</IP>
+    <IP>192.168.1.109</IP>
     <Port>1036</Port>
   </Projector4>
   <Projector5>
-    <IP>192.168.1.125</IP>
+    <IP>192.168.1.109</IP>
     <Port>1037</Port>
   </Projector5>
   <Projector6>
-    <IP>192.168.1.126</IP>
+    <IP>192.168.1.109</IP>
     <Port>1038</Port>
   </Projector6>
   <Projector7>
-    <IP>192.168.1.127</IP>
+    <IP>192.168.1.109</IP>
     <Port>1039</Port>
   </Projector7>
   <Projector8>
-    <IP>192.168.1.128</IP>
+    <IP>192.168.1.109</IP>
     <Port>1040</Port>
   </Projector8>
+  <DelayModule>
+    <IPDelay>192.168.1.109</IPDelay>
+    <PortDelay>10000</PortDelay>
+  </DelayModule>
 </Type>

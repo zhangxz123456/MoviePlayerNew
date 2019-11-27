@@ -39,9 +39,16 @@ namespace MoviePlayer.Protocol
         {
             if (UdpInit.mySocket != null)
             {
-                UdpInit.mySocket.SendTo(data, len, SocketFlags.None, ip);
-                Debug.WriteLine("Send Data{0}", count++);
-                Debug.WriteLine(ModbusUdp.ByteToHexStr(data));
+                try
+                {
+                    UdpInit.mySocket.SendTo(data, len, SocketFlags.None, ip);
+                    Debug.WriteLine("Send Data{0}", count++);
+                    Debug.WriteLine(ModbusUdp.ByteToHexStr(data));
+                }
+                catch (Exception e)
+                {
+                    Module.WriteLogFile(e.Message);
+                }
             }
         }
 
