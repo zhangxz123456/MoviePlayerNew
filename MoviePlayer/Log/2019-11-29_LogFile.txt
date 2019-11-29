@@ -1,0 +1,292 @@
+10:32:29 2019年11月29日 
+   连接丢失
+10:32:33 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+10:34:38 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+10:35:04 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+10:38:03 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+10:38:07 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+10:38:47 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+10:39:37 2019年11月29日 
+   连接投影机1有误
+由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.121:1060
+10:41:26 2019年11月29日 
+   连接投影机2有误
+由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.122:1061
+10:42:39 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+10:43:11 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:12:50 2019年11月29日 
+   连接丢失
+11:12:54 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:13:16 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:13:38 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:14:20 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:19:10 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:20:20 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:20:41 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:24:20 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:24:54 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:25:21 2019年11月29日 
+   消息:“对类型“MoviePlayer.MainWindow”的构造函数执行符合指定的绑定约束的调用时引发了异常。”，行号为“6”，行位置为“9”。
+   在 System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   在 System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   在 System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   在 System.Windows.Application.LoadBamlStreamWithSyncInfo(Stream stream, ParserContext pc)
+   在 System.Windows.Application.LoadComponent(Uri resourceLocator, Boolean bSkipJournaledProperties)
+   在 System.Windows.Application.DoStartup()
+   在 System.Windows.Application.<.ctor>b__1_0(Object unused)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+11:25:24 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:26:06 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:26:39 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:27:35 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:27:54 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:29:13 2019年11月29日 
+   消息:“对类型“MoviePlayer.MainWindow”的构造函数执行符合指定的绑定约束的调用时引发了异常。”，行号为“6”，行位置为“9”。
+   在 System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   在 System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   在 System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   在 System.Windows.Application.LoadBamlStreamWithSyncInfo(Stream stream, ParserContext pc)
+   在 System.Windows.Application.LoadComponent(Uri resourceLocator, Boolean bSkipJournaledProperties)
+   在 System.Windows.Application.DoStartup()
+   在 System.Windows.Application.<.ctor>b__1_0(Object unused)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+11:29:48 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:30:08 2019年11月29日 
+   消息:“对类型“MoviePlayer.MainWindow”的构造函数执行符合指定的绑定约束的调用时引发了异常。”，行号为“6”，行位置为“9”。
+   在 System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   在 System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   在 System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   在 System.Windows.Application.LoadBamlStreamWithSyncInfo(Stream stream, ParserContext pc)
+   在 System.Windows.Application.LoadComponent(Uri resourceLocator, Boolean bSkipJournaledProperties)
+   在 System.Windows.Application.DoStartup()
+   在 System.Windows.Application.<.ctor>b__1_0(Object unused)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+11:30:11 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:31:27 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:32:41 2019年11月29日 
+   消息:“对类型“MoviePlayer.MainWindow”的构造函数执行符合指定的绑定约束的调用时引发了异常。”，行号为“6”，行位置为“9”。
+   在 System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   在 System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   在 System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   在 System.Windows.Application.LoadBamlStreamWithSyncInfo(Stream stream, ParserContext pc)
+   在 System.Windows.Application.LoadComponent(Uri resourceLocator, Boolean bSkipJournaledProperties)
+   在 System.Windows.Application.DoStartup()
+   在 System.Windows.Application.<.ctor>b__1_0(Object unused)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+11:40:39 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:41:05 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:41:30 2019年11月29日 
+   消息:“对类型“MoviePlayer.MainWindow”的构造函数执行符合指定的绑定约束的调用时引发了异常。”，行号为“6”，行位置为“9”。
+   在 System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   在 System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   在 System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   在 System.Windows.Application.LoadBamlStreamWithSyncInfo(Stream stream, ParserContext pc)
+   在 System.Windows.Application.LoadComponent(Uri resourceLocator, Boolean bSkipJournaledProperties)
+   在 System.Windows.Application.DoStartup()
+   在 System.Windows.Application.<.ctor>b__1_0(Object unused)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+11:41:33 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:46:08 2019年11月29日 
+   消息:调用的目标发生了异常。
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes)
+   在 System.Activator.CreateInstance(Type type, Object[] args)
+   在 System.Xaml.Schema.SafeReflectionInvoker.CreateInstanceCritical(Type type, Object[] arguments)
+   在 System.Xaml.Schema.SafeReflectionInvoker.CreateInstance(Type type, Object[] arguments)
+   在 System.Xaml.Schema.XamlTypeInvoker.CreateInstance(Object[] arguments)
+   在 MS.Internal.Xaml.Runtime.ClrObjectRuntime.CreateInstanceWithCtor(XamlType xamlType, Object[] args)
+   在 MS.Internal.Xaml.Runtime.ClrObjectRuntime.CreateInstance(XamlType xamlType, Object[] args)
+   在 System.Xaml.XamlObjectWriter.Logic_CreateAndAssignToParentStart(ObjectWriterContext ctx)
+   在 System.Xaml.XamlObjectWriter.WriteStartMember(XamlMember property)
+   在 System.Xaml.XamlWriter.WriteNode(XamlReader reader)
+   在 System.Windows.Markup.WpfXamlLoader.TransformNodes(XamlReader xamlReader, XamlObjectWriter xamlWriter, Boolean onlyLoadOneNode, Boolean skipJournaledProperties, Boolean shouldPassLineNumberInfo, IXamlLineInfo xamlLineInfo, IXamlLineInfoConsumer xamlLineInfoConsumer, XamlContextStack`1 stack, IStyleConnector styleConnector)
+   在 System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   在 System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   在 System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   在 System.Windows.Application.LoadBamlStreamWithSyncInfo(Stream stream, ParserContext pc)
+   在 System.Windows.Application.LoadComponent(Uri resourceLocator, Boolean bSkipJournaledProperties)
+   在 System.Windows.Application.DoStartup()
+   在 System.Windows.Application.<.ctor>b__1_0(Object unused)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+11:46:10 2019年11月29日 
+   值不能为 null。
+参数名: address
+11:47:02 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:47:40 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:48:22 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:49:41 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:50:43 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:52:04 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:52:12 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:52:22 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:52:44 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:53:18 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:53:39 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:55:01 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:55:31 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:56:02 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:56:17 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:56:34 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+11:58:51 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+13:32:15 2019年11月29日 
+   连接丢失
+13:32:19 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+13:32:30 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+13:32:41 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+13:32:53 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+13:37:20 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+13:37:51 2019年11月29日 
+   连接投影机1有误
+由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.121:1060
+13:39:31 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+13:41:13 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+13:41:24 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+13:41:52 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+13:42:37 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+13:44:39 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:06:00 2019年11月29日 
+   连接丢失
+14:06:04 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:06:13 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:10:21 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:10:34 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:10:46 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:11:16 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:11:33 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:11:37 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:15:35 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:16:28 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:16:32 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:16:35 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:24:49 2019年11月29日 
+   连接丢失
+14:25:24 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10001
+14:26:19 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:26:29 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:27:12 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:27:23 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10000
+14:28:15 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10001
+14:43:07 2019年11月29日 
+   连接丢失
+14:43:11 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10001
+14:44:26 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10001
+14:46:17 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10001
+14:46:38 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10001
+14:47:05 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10001
+14:53:08 2019年11月29日 
+   连接丢失
+15:33:31 2019年11月29日 
+   连接丢失
+15:33:35 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10001
+15:40:37 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10001
+16:00:07 2019年11月29日 
+   连接丢失
+16:00:11 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10001
+16:58:55 2019年11月29日 
+   连接丢失
+16:58:59 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10001
+17:12:49 2019年11月29日 
+   连接丢失
+17:12:53 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10001
+17:14:00 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10001
+17:15:27 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10001
+17:36:46 2019年11月29日 
+   连接丢失
+17:36:50 2019年11月29日 
+   由于目标计算机积极拒绝，无法连接。 192.168.1.109:10001

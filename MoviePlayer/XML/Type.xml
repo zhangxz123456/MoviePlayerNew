@@ -7,44 +7,46 @@
   <Projector>0</Projector>
   <Permission>FALSE</Permission>
   <Control>CLIENT</Control>
+  <Server>TRUE</Server>
+  <Client>FALSE</Client>
   <Frame>48</Frame>
   <PlayPicture>
   </PlayPicture>
   <ProjectorBrand>松下</ProjectorBrand>
   <Projector1>
-    <IP>192.168.1.109</IP>
-    <Port>1033</Port>
+    <IP>192.168.1.121</IP>
+    <Port>1060</Port>
   </Projector1>
   <Projector2>
-    <IP>192.168.1.109</IP>
-    <Port>1034</Port>
+    <IP>192.168.1.122</IP>
+    <Port>1061</Port>
   </Projector2>
   <Projector3>
-    <IP>192.168.1.109</IP>
-    <Port>1035</Port>
+    <IP>192.168.1.123</IP>
+    <Port>1062</Port>
   </Projector3>
   <Projector4>
-    <IP>192.168.1.109</IP>
-    <Port>1036</Port>
+    <IP>192.168.1.124</IP>
+    <Port>1063</Port>
   </Projector4>
   <Projector5>
-    <IP>192.168.1.109</IP>
-    <Port>1037</Port>
+    <IP>192.168.1.125</IP>
+    <Port>1064</Port>
   </Projector5>
   <Projector6>
-    <IP>192.168.1.109</IP>
-    <Port>1038</Port>
+    <IP>192.168.1.126</IP>
+    <Port>1065</Port>
   </Projector6>
   <Projector7>
-    <IP>192.168.1.109</IP>
-    <Port>1039</Port>
+    <IP>192.168.1.127</IP>
+    <Port>1066</Port>
   </Projector7>
   <Projector8>
-    <IP>192.168.1.109</IP>
-    <Port>1040</Port>
+    <IP>192.168.1.128</IP>
+    <Port>1067</Port>
   </Projector8>
   <DelayModule>
     <IPDelay>192.168.1.109</IPDelay>
-    <PortDelay>10000</PortDelay>
+    <PortDelay>10001</PortDelay>
   </DelayModule>
 </Type>

@@ -104,6 +104,8 @@ namespace MoviePlayer
         public static string PlayProjector;          //设置播放画面显示在主屏还是副屏  参数分别为0或1
         public static string PlayPermission;         //用户权限 TRUE为管理员模式 FALSE为用户模式
         public static string PlayControl;            //控制功能 SERVER为TCP服务器 CLIENT为客户端
+        public static string PlayControlServer;
+        public static string PlayControlClient;
         public static int PlayFrame;                 //帧数控制
         public static string Play5DPicture;             //设置5D画面是否显示 参数为0或1 0显示 1不显示
         public static string PlayProjector1IP;
@@ -136,6 +138,8 @@ namespace MoviePlayer
         private string curPlayProjector;
         private string curPermission;
         private string curControl;
+        private string curControlServer;
+        private string curControlClient;
         private string curPlayFrame;
         private string cur5DPicture;
 
@@ -698,14 +702,16 @@ namespace MoviePlayer
             {
                 MessageBox.Show("Modify success,the software will restart");
             }
-            //System.Windows.Forms.Application.Restart();
-            //Application.Current.Shutdown();
-            //Thread.Sleep(1000);
-            Process p = new Process();
-            p.StartInfo.FileName = System.AppDomain.CurrentDomain.BaseDirectory + "MoviePlayer.exe";
-            p.StartInfo.UseShellExecute = false;
-            p.Start();
+
+            System.Windows.Forms.Application.Restart();
             Application.Current.Shutdown();
+            
+            //Thread.Sleep(1000);
+            //Process p = new Process();
+            //p.StartInfo.FileName = System.AppDomain.CurrentDomain.BaseDirectory + "MoviePlayer.exe";
+            //p.StartInfo.UseShellExecute = false;
+            //p.Start();
+            //Application.Current.Shutdown();
             //Environment.Exit(0);
         }
 
@@ -716,14 +722,14 @@ namespace MoviePlayer
         {
             string path = MainWindow.playerPath + @"\XML\" + "Type.xml";
             FileInfo finfo = new FileInfo(path);
-            if (btnServer.Background == Brushes.DodgerBlue)
-            {
-                curControl = "SERVER";
-            }
-            if (btnClient.Background == Brushes.DodgerBlue)
-            {
-                curControl = "CLIENT";
-            }
+            //if (btnServer.Background == Brushes.DodgerBlue)
+            //{
+            //    curControl = "SERVER";
+            //}
+            //if (btnClient.Background == Brushes.DodgerBlue)
+            //{
+            //    curControl = "CLIENT";
+            //}
 
             if (finfo.Exists)
             {
@@ -736,7 +742,9 @@ namespace MoviePlayer
                 element["Projector"].InnerText = curPlayProjector;
                 element["Height"].InnerText = txtHeight.Text;
                 element["Permission"].InnerText = curPermission;
-                element["Control"].InnerText = curControl;
+                //element["Control"].InnerText = curControl;
+                element["Server"].InnerText = curControlServer;
+                element["Client"].InnerText = curControlClient;
                 element["Frame"].InnerText = curPlayFrame;
                 element["PlayPicture"].InnerText = cur5DPicture;
                 xmlDoc.Save(path);
@@ -853,6 +861,8 @@ namespace MoviePlayer
             curPlayType = PlayType;
             curPermission = PlayPermission;
             curPlayFrame = PlayFrame.ToString();
+            curControlClient = PlayControlClient;
+            curControlServer = PlayControlServer;
             if (PlayLanguage.Equals("EN"))
             {
                 btnEN.Background = Brushes.DodgerBlue;
@@ -911,17 +921,35 @@ namespace MoviePlayer
             }
 
             Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
-            if (PlayControl.Equals("SERVER"))
+            //if (PlayControl.Equals("SERVER"))
+            //{
+            //    btnServer.Background = Brushes.DodgerBlue;
+            //}
+            //else if (PlayControl.Equals("CLIENT"))
+            //{
+            //    btnClient.Background = Brushes.DodgerBlue;
+            //}
+            //else
+            //{
+            //    btnServer.Background = brush;
+            //    btnClient.Background = brush;
+            //}
+
+            if(PlayControlServer.Equals("TRUE"))
             {
                 btnServer.Background = Brushes.DodgerBlue;
             }
-            else if (PlayControl.Equals("CLIENT"))
+            else
+            {
+                btnServer.Background = brush;
+            }
+
+            if (PlayControlClient.Equals("TRUE"))
             {
                 btnClient.Background = Brushes.DodgerBlue;
             }
             else
             {
-                btnServer.Background = brush;
                 btnClient.Background = brush;
             }
 
@@ -1165,13 +1193,14 @@ namespace MoviePlayer
         {
             if ("4DM".Equals(PlayType))
             {
-                //Module.readDefultFile();
-               // Module.DEVFile();
-                if (memberData[0].Start != "" && memberData[0].End != "" && PlayControl != "SERVER")
+
+                //if (memberData[0].Start != "" && memberData[0].End != "" && PlayControl != "SERVER")
+                if (memberData[0].Start != "" && memberData[0].End != "" && PlayControlServer != "TRUE")
                 {
                     TimerFilmInit();
                 }
-                else if(memberData[0].MovieName != "" && PlayControl == "")
+                // else if(memberData[0].MovieName != "" && PlayControl == "")
+                else if (memberData[0].MovieName != "" && PlayControlServer == "FALSE")
                 {
                     ReadFilmListFile(0);
                 }
@@ -1322,7 +1351,9 @@ namespace MoviePlayer
                 PlayHeight = Double.Parse(element["Height"].InnerText);
                 PlayProjector = element["Projector"].InnerText;
                 PlayPermission = element["Permission"].InnerText;
-                PlayControl = element["Control"].InnerText;
+                //PlayControl = element["Control"].InnerText;
+                PlayControlServer = element["Server"].InnerText;
+                PlayControlClient=element["Client"].InnerText;
                 PlayFrame = int.Parse(element["Frame"].InnerText);
                 Play5DPicture = element["PlayPicture"].InnerText;
                 PlayProjectorBrand = element["ProjectorBrand"].InnerText;
@@ -1919,21 +1950,21 @@ namespace MoviePlayer
                 comboBoxBrand.Text = "Panasonic";
             }
             txtIpProjector1.Text = "192.168.1.121";
-            txtPortProjector1.Text = "1033";
+            txtPortProjector1.Text = "1060";
             txtIpProjector2.Text = "192.168.1.122";
-            txtPortProjector2.Text = "1034";
+            txtPortProjector2.Text = "1061";
             txtIpProjector3.Text = "192.168.1.123";
-            txtPortProjector3.Text = "1035";
+            txtPortProjector3.Text = "1062";
             txtIpProjector4.Text = "192.168.1.124";
-            txtPortProjector4.Text = "1036";
+            txtPortProjector4.Text = "1063";
             txtIpProjector5.Text = "192.168.1.125";
-            txtPortProjector5.Text = "1037";
+            txtPortProjector5.Text = "1064";
             txtIpProjector6.Text = "192.168.1.126";
-            txtPortProjector6.Text = "1038";
+            txtPortProjector6.Text = "1065";
             txtIpProjector7.Text = "192.168.1.127";
-            txtPortProjector7.Text = "1039";
+            txtPortProjector7.Text = "1066";
             txtIpProjector8.Text = "192.168.1.128";
-            txtPortProjector8.Text = "1040";
+            txtPortProjector8.Text = "1067";
             SaveProjector();
         }
 
@@ -2201,7 +2232,11 @@ namespace MoviePlayer
                 memberData[ListView.SelectedIndex].FullMovieName = s1;
                 SaveFilmPlayList();
             }
-            if (ListView.SelectedIndex == 0 && PlayControl!="SERVER")
+           // if (ListView.SelectedIndex == 0 && PlayControl!="SERVER")
+           // {
+           //     ReadFilmListFile(0);
+           // }
+            if (ListView.SelectedIndex == 0 && PlayControlServer != "TRUE")
             {
                 ReadFilmListFile(0);
             }
@@ -2416,24 +2451,25 @@ namespace MoviePlayer
                     if (btnServer.Background == Brushes.DodgerBlue)
                     {
                         btnServer.Background = brush;
-                        curControl = "";
+                       // curControl = "";
+                        curControlServer = "FALSE";
                     }
                     else
                     {
                         btnServer.Background = Brushes.DodgerBlue;
-                       // curControl = "SERVER";
+                        curControlServer = "TRUE";
                     }
                     break;
                 case 2:
                     if (btnClient.Background == Brushes.DodgerBlue)
                     {
                         btnClient.Background = brush;
-                        curControl = "";
+                        curControlClient = "FALSE";
                     }
                     else
                     {
                         btnClient.Background = Brushes.DodgerBlue;
-                        //curControl = "CLIENT";
+                        curControlClient = "TRUE";
                     }
                     break;
             }
@@ -3064,7 +3100,8 @@ namespace MoviePlayer
                         memoryPlay = true;
                         ListPlay(ListView.SelectedItem.ToString());
                         UserControlClass.MSStatus = MediaStatus.Pause;
-                        if (PlayControl.Equals("CLIENT"))
+                        //if (PlayControl.Equals("CLIENT"))
+                        if(PlayControlClient.Equals("TRUE"))
                         {
                             //bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
                             bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "10000");
@@ -3073,9 +3110,9 @@ namespace MoviePlayer
                         RelayControlPlaySend();
                     }
                 }
-                catch (Exception)
+                catch(Exception error)
                 {
-                    throw;
+                    Module.WriteLogFile(error.Message);
                 }
             }
         }
@@ -3934,7 +3971,8 @@ namespace MoviePlayer
                         memoryPlay = true;
                         ListPlay(ListView.SelectedItem.ToString());
                         UserControlClass.MSStatus = MediaStatus.Pause;
-                        if (PlayControl.Equals("CLIENT"))
+                        //if (PlayControl.Equals("CLIENT"))
+                        if (PlayControlClient.Equals("TRUE"))
                         {
                             //bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
                             bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "10000");
@@ -3948,7 +3986,8 @@ namespace MoviePlayer
                     if (UserControlClass.MSStatus == MediaStatus.Pause)
                     {
                         UserControlClass.MSStatus = MediaStatus.Play;
-                        if (UserControlClass.FileName == filename && PlayControl.Equals("CLIENT"))
+                        //if (UserControlClass.FileName == filename && PlayControl.Equals("CLIENT"))
+                        if (UserControlClass.FileName == filename && PlayControlClient.Equals("TRUE"))
                         {
                             //bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
                             bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "10000");
@@ -3965,7 +4004,8 @@ namespace MoviePlayer
                     {
                         UserControlClass.MSStatus = MediaStatus.Pause;
                         Pause();
-                        if (PlayControl.Equals("CLIENT"))
+                        //if (PlayControl.Equals("CLIENT"))
+                        if (PlayControlClient.Equals("TRUE"))
                         {
                             //bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
                             bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "10000");
@@ -4000,7 +4040,8 @@ namespace MoviePlayer
                     PCink = PlayCamera.inkMediaPlay;
                     ChangeshowInk();
                     txtTime.Text = "";
-                    if (PlayControl.Equals("CLIENT"))
+                    //if (PlayControl.Equals("CLIENT"))
+                    if (PlayControlClient.Equals("TRUE"))
                     {
                         //bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
                         bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "10000");
@@ -4341,7 +4382,7 @@ namespace MoviePlayer
                     {
                         if (ischeckProjector1 == true)
                         {
-                            bool isConnect = TcpClientConnect(ip1, port1,1);
+                            bool isConnect = TcpClientConnect(ip1, port1,1);                            
                             OpenProjector(isConnect);
                         }
                         else
@@ -4349,6 +4390,7 @@ namespace MoviePlayer
                             bool isConnect = TcpClientConnect(ip1, port1,1);
                             CloseProjector(isConnect);
                         }
+
                     });
                     th1.Start();
                     break;
@@ -4674,8 +4716,12 @@ namespace MoviePlayer
             }
             catch (Exception e)
             {
-                MessageBox.Show("连接投影机"+index+"有误");
-                Module.WriteLogFile("连接投影机"+index+"有误" + "\r\n" + e.Message);
+                this.Dispatcher.Invoke(new Action(() =>
+                {
+                    checkBoxProjector[index - 1].IsChecked = false;
+                }));
+                MessageBox.Show("连接投影机" + index + "有误");
+                Module.WriteLogFile("连接投影机" + index + "有误" + "\r\n" + e.Message);
                 return false;
             }
         }
@@ -4707,7 +4753,7 @@ namespace MoviePlayer
                 byte[] data2 = { 0x30, 0x30, 0x50, 0x4F, 0x46, 0x0D };
                 //byte[] data2 = { 0xFE, 0x0F, 0x00, 0x00, 0x00, 0x08, 0x01, 0x00, 0xB1, 0x91 };
                 tcpClient.Send(data2);
-               TcpClientClose();
+                TcpClientClose();
             }
         }
 
@@ -4721,7 +4767,8 @@ namespace MoviePlayer
         /// <param name="e"></param>
         private void MyServer()
         {
-            if (PlayControl.Equals("SERVER"))
+            //if (PlayControl.Equals("SERVER"))
+            if (PlayControlServer.Equals("TRUE"))
             {
                 //当点击开始监听的时候 在服务器端创建一个负责监听IP地址和端口号的Socket
                 socketWatch = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -4813,6 +4860,7 @@ namespace MoviePlayer
                                 if (PlayType.Equals("5D"))
                                 {
                                     btnPlayClickFun();
+                                    //rb2.IsChecked = true;
                                 }
                             }));
                         }
@@ -4836,7 +4884,7 @@ namespace MoviePlayer
                                 }
                             }));
                         }
-                        if (buffer[0] == 0xff && buffer[1] == 0x33 && buffer[2] == 0x4d)  //恢复播放状态
+                        if (buffer[0] == 0xFF && buffer[1] == 0x33 && buffer[2] == 0x4D)  //恢复播放状态
                         {
                             this.Dispatcher.Invoke(new Action(() =>
                             {
@@ -4847,7 +4895,290 @@ namespace MoviePlayer
                             }));
                         }
                     }
+                    if (count == 6)
+                    {
+                        if(buffer[0] == 0xFF && buffer[1] == 0xFA)
+                        {
+                            if (buffer[2] == 0xFF && buffer[3] == 0xFF)
+                            {
+                                this.Dispatcher.Invoke(new Action(() =>
+                                {
+                                    rb2.IsChecked = true;
+                                }));
+                            }
+                            else
+                            {
+                                this.Dispatcher.Invoke(new Action(() =>
+                                {
+                                    rb1.IsChecked = true;
+                                }));
+                            }
+                        }
 
+                        //接收调试座椅数据
+                        if (buffer[0] == 0xFF && buffer[1]==0xFB)
+                        {
+                            switch (buffer[2])
+                            {
+                                case 255:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataNum[0] = 0xFF;
+                                        dataNum[1] = 0xFF;
+                                        dataNum[2] = 0xFF;
+                                        dataNum[3] = 0xFF;
+                                        dataNum[4] = 0xFF;
+                                        dataNum[5] = 0xFF;
+                                    }
+                                    else
+                                    {
+                                        dataNum[0] = 0;
+                                        dataNum[1] = 0;
+                                        dataNum[2] = 0;
+                                        dataNum[3] = 0;
+                                        dataNum[4] = 0;
+                                        dataNum[5] = 0;
+                                    }
+                                    break;
+                                case 1:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataNum[0] = 0xFF;
+                                    }
+                                    else
+                                    {
+                                        dataNum[0] = 0;
+                                    }
+                                    break;
+                                case 2:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataNum[1] = 0xFF;
+                                    }
+                                    else
+                                    {
+                                        dataNum[1] = 0;
+                                    }
+                                    break;
+                                case 3:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataNum[2] = 0xFF;
+                                    }
+                                    else
+                                    {
+                                        dataNum[2] = 0;
+                                    }
+                                    break;
+                                case 4:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataNum[3] = 0xFF;
+                                    }
+                                    else
+                                    {
+                                        dataNum[3] = 0;
+                                    }
+                                    break;
+                                case 5:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataNum[4] = 0xFF;
+                                    }
+                                    else
+                                    {
+                                        dataNum[4] = 0;
+                                    }
+                                    break;
+                                case 6:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataNum[5] = 0xFF;
+                                    }
+                                    else
+                                    {
+                                        dataNum[5] = 0;
+                                    }
+                                    break;
+                            }
+                        }
+                        //接收调试座椅特效数据
+                        if (buffer[0] == 0xFF && buffer[1] == 0xFC)
+                        {
+                            switch (buffer[2])
+                            {
+                                case 1:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataChairEffect[0] = 0x01;
+                                    }
+                                    else
+                                    {
+                                        dataChairEffect[0] = 0;
+                                    }
+                                    break;
+                                case 2:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataChairEffect[1] = 0x02;
+                                    }
+                                    else
+                                    {
+                                        dataChairEffect[1] = 0;
+                                    }
+                                    break;
+                                case 3:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataChairEffect[2] = 0x04;
+                                    }
+                                    else
+                                    {
+                                        dataChairEffect[3] = 0;
+                                    }
+                                    break;
+                                case 4:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataChairEffect[3] = 0x08;
+                                    }
+                                    else
+                                    {
+                                        dataChairEffect[3] = 0;
+                                    }
+                                    break;
+                                case 5:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataChairEffect[4] = 0x10;
+                                    }
+                                    else
+                                    {
+                                        dataChairEffect[4] = 0;
+                                    }
+                                    break;
+                                case 6:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataChairEffect[5] = 0x20;
+                                    }
+                                    else
+                                    {
+                                        dataChairEffect[5] = 0;
+                                    }
+                                    break;
+                                case 7:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataChairEffect[6] = 0x40;
+                                    }
+                                    else
+                                    {
+                                        dataChairEffect[6] = 0;
+                                    }
+                                    break;
+                                case 8:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataChairEffect[7] = 0x80;
+                                    }
+                                    else
+                                    {
+                                        dataChairEffect[7] = 0;
+                                    }
+                                    break;
+                            }
+                        }
+                        //接收调试环境特效数据
+                        if (buffer[0] == 0xFF && buffer[1] == 0xFE)
+                        {
+                            switch (buffer[2])
+                            {
+                                case 1:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataEvEffect[0] = 0x01;
+                                    }
+                                    else
+                                    {
+                                        dataEvEffect[0] = 0;
+                                    }
+                                    break;
+                                case 2:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataEvEffect[1] = 0x02;
+                                    }
+                                    else
+                                    {
+                                        dataEvEffect[1] = 0;
+                                    }
+                                    break;
+                                case 3:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataEvEffect[2] = 0x04;
+                                    }
+                                    else
+                                    {
+                                        dataEvEffect[3] = 0;
+                                    }
+                                    break;
+                                case 4:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataEvEffect[3] = 0x08;
+                                    }
+                                    else
+                                    {
+                                        dataEvEffect[3] = 0;
+                                    }
+                                    break;
+                                case 5:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataEvEffect[4] = 0x10;
+                                    }
+                                    else
+                                    {
+                                        dataEvEffect[4] = 0;
+                                    }
+                                    break;
+                                case 6:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataEvEffect[5] = 0x20;
+                                    }
+                                    else
+                                    {
+                                        dataEvEffect[5] = 0;
+                                    }
+                                    break;
+                                case 7:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataEvEffect[6] = 0x40;
+                                    }
+                                    else
+                                    {
+                                        dataEvEffect[6] = 0;
+                                    }
+                                    break;
+                                case 8:
+                                    if (buffer[3] == 0xFF)
+                                    {
+                                        dataEvEffect[7] = 0x80;
+                                    }
+                                    else
+                                    {
+                                        dataEvEffect[7] = 0;
+                                    }
+                                    break;
+                            }
+                        }
+
+
+                    }
                 }
             }
         }
