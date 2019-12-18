@@ -9,9 +9,11 @@
     <sys:String x:Key="txtAboutUs">关于我们</sys:String>
     <sys:String x:Key="txtParamSet">参数设置</sys:String>
     <sys:String x:Key="txtProjectorSet">投影机设置</sys:String>
-    <sys:String x:Key="txtDelaySet">继电器模块设置</sys:String>
+    <sys:String x:Key="txtModuleSet">模块设置</sys:String>
     <sys:String x:Key="labDelay">继电器模块</sys:String>
     <sys:String x:Key="labParam">参数设置</sys:String>
+    <sys:String x:Key="labFuse">融合软件</sys:String>
+    <sys:String x:Key="labCommunicationMode">通讯模式</sys:String>
     <sys:String x:Key="txtEvEffect">环境特效</sys:String>
     <sys:String x:Key="txtChairEffect">座椅特效</sys:String>
     <sys:String x:Key="txtEquipment">设备状态</sys:String>

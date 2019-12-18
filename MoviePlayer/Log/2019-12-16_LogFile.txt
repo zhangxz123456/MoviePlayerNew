@@ -1,0 +1,488 @@
+9:02:08 2019年12月16日 
+   连接丢失
+9:08:27 2019年12月16日 
+   连接丢失
+9:15:10 2019年12月16日 
+   消息:“对类型“MoviePlayer.MainWindow”的构造函数执行符合指定的绑定约束的调用时引发了异常。”，行号为“6”，行位置为“9”。
+   在 System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   在 System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   在 System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   在 System.Windows.Application.LoadBamlStreamWithSyncInfo(Stream stream, ParserContext pc)
+   在 System.Windows.Application.LoadComponent(Uri resourceLocator, Boolean bSkipJournaledProperties)
+   在 System.Windows.Application.DoStartup()
+   在 System.Windows.Application.<.ctor>b__1_0(Object unused)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+9:15:50 2019年12月16日 
+   消息:“对类型“MoviePlayer.MainWindow”的构造函数执行符合指定的绑定约束的调用时引发了异常。”，行号为“6”，行位置为“9”。
+   在 System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   在 System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   在 System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   在 System.Windows.Application.LoadBamlStreamWithSyncInfo(Stream stream, ParserContext pc)
+   在 System.Windows.Application.LoadComponent(Uri resourceLocator, Boolean bSkipJournaledProperties)
+   在 System.Windows.Application.DoStartup()
+   在 System.Windows.Application.<.ctor>b__1_0(Object unused)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+9:17:52 2019年12月16日 
+   UDP连接有误在其上下文中，该请求的地址无效。
+9:18:44 2019年12月16日 
+   UDP连接有误在其上下文中，该请求的地址无效。
+9:27:46 2019年12月16日 
+   UDP连接有误在其上下文中，该请求的地址无效。
+9:27:52 2019年12月16日 
+   连接丢失
+9:43:38 2019年12月16日 
+   UDP连接有误在其上下文中，该请求的地址无效。
+9:43:44 2019年12月16日 
+   连接丢失
+9:45:23 2019年12月16日 
+   UDP连接有误在其上下文中，该请求的地址无效。
+10:08:11 2019年12月16日 
+   连接丢失
+10:40:07 2019年12月16日 
+   连接丢失
+11:24:15 2019年12月16日 
+   连接丢失
+11:48:54 2019年12月16日 
+   连接丢失
+12:00:01 2019年12月16日 
+   连接丢失
+13:34:55 2019年12月16日 
+   连接丢失
+13:37:29 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10000
+13:37:29 2019年12月16日 
+   消息:由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer)
+   在 MoviePlayer.MainWindow.SendRelayControl(Byte[] data1) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5486
+   在 MoviePlayer.MainWindow.RelayControlPlaySend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5506
+   在 MoviePlayer.MainWindow.btnPlayClickFun() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4056
+   在 MoviePlayer.MainWindow.btnImgPlay_MouseDown(Object sender, MouseButtonEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 2322
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+14:19:13 2019年12月16日 
+   连接丢失
+14:32:15 2019年12月16日 
+   连接丢失
+15:14:03 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.2.155:10000
+15:15:26 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.2.155:10000
+15:17:07 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:20:17 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:20:17 2019年12月16日 
+   由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+15:20:31 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:20:31 2019年12月16日 
+   消息:由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer)
+   在 MoviePlayer.MainWindow.SendRelayControl(Byte[] data1) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5486
+   在 MoviePlayer.MainWindow.RelayControlCloseSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5549
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 403
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:29:17 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:29:30 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:29:30 2019年12月16日 
+   由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+15:29:41 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:29:41 2019年12月16日 
+   消息:由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer)
+   在 MoviePlayer.MainWindow.SendRelayControl(Byte[] data1) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5486
+   在 MoviePlayer.MainWindow.RelayControlStopSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5526
+   在 MoviePlayer.MainWindow.btnStopClickFun() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4147
+   在 MoviePlayer.MainWindow.btnImgStop_MouseDown(Object sender, MouseButtonEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 2343
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:29:53 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:29:53 2019年12月16日 
+   消息:由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer)
+   在 MoviePlayer.MainWindow.SendRelayControl(Byte[] data1) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5486
+   在 MoviePlayer.MainWindow.RelayControlPlaySend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5502
+   在 MoviePlayer.MainWindow.btnPlayClickFun() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4056
+   在 MoviePlayer.MainWindow.btnImgPlay_MouseDown(Object sender, MouseButtonEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 2322
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:30:07 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:30:07 2019年12月16日 
+   消息:由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer)
+   在 MoviePlayer.MainWindow.SendRelayControl(Byte[] data1) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5486
+   在 MoviePlayer.MainWindow.RelayControlStopSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5526
+   在 MoviePlayer.MainWindow.btnStopClickFun() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4147
+   在 MoviePlayer.MainWindow.btnImgStop_MouseDown(Object sender, MouseButtonEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 2343
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:30:12 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:30:12 2019年12月16日 
+   消息:由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer)
+   在 MoviePlayer.MainWindow.SendRelayControl(Byte[] data1) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5486
+   在 MoviePlayer.MainWindow.RelayControlCloseSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5549
+   在 MoviePlayer.MainWindow.MainWindow_Closed(Object sender, EventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 403
+   在 System.Windows.Window.OnClosed(EventArgs e)
+   在 System.Windows.Window.WmDestroy()
+   在 System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:31:17 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:31:29 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:31:29 2019年12月16日 
+   由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+15:31:33 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:31:33 2019年12月16日 
+   消息:由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer)
+   在 MoviePlayer.MainWindow.SendRelayControl(Byte[] data1) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5486
+   在 MoviePlayer.MainWindow.RelayControlStopSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5526
+   在 MoviePlayer.MainWindow.btnStopClickFun() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4147
+   在 MoviePlayer.MainWindow.btnImgStop_MouseDown(Object sender, MouseButtonEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 2343
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:31:36 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:31:36 2019年12月16日 
+   由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+15:31:39 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:31:39 2019年12月16日 
+   消息:由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer)
+   在 MoviePlayer.MainWindow.SendRelayControl(Byte[] data1) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5486
+   在 MoviePlayer.MainWindow.RelayControlStopSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5526
+   在 MoviePlayer.MainWindow.btnStopClickFun() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4147
+   在 MoviePlayer.MainWindow.btnImgStop_MouseDown(Object sender, MouseButtonEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 2343
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:31:43 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:31:43 2019年12月16日 
+   消息:由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer)
+   在 MoviePlayer.MainWindow.SendRelayControl(Byte[] data1) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5486
+   在 MoviePlayer.MainWindow.RelayControlPlaySend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5502
+   在 MoviePlayer.MainWindow.btnPlayClickFun() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4056
+   在 MoviePlayer.MainWindow.btnImgPlay_MouseDown(Object sender, MouseButtonEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 2322
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:31:45 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:31:45 2019年12月16日 
+   消息:由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer)
+   在 MoviePlayer.MainWindow.SendRelayControl(Byte[] data1) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5486
+   在 MoviePlayer.MainWindow.RelayControlStopSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5526
+   在 MoviePlayer.MainWindow.btnStopClickFun() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4147
+   在 MoviePlayer.MainWindow.btnImgStop_MouseDown(Object sender, MouseButtonEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 2343
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:31:48 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:31:48 2019年12月16日 
+   消息:由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer)
+   在 MoviePlayer.MainWindow.SendRelayControl(Byte[] data1) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5486
+   在 MoviePlayer.MainWindow.RelayControlPlaySend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5502
+   在 MoviePlayer.MainWindow.btnPlayClickFun() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4056
+   在 MoviePlayer.MainWindow.btnImgPlay_MouseDown(Object sender, MouseButtonEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 2322
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:31:54 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10001
+15:31:54 2019年12月16日 
+   消息:由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer)
+   在 MoviePlayer.MainWindow.SendRelayControl(Byte[] data1) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5486
+   在 MoviePlayer.MainWindow.RelayControlStopSend() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 5526
+   在 MoviePlayer.MainWindow.btnStopClickFun() 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 4147
+   在 MoviePlayer.MainWindow.btnImgStop_MouseDown(Object sender, MouseButtonEventArgs e) 位置 D:\git\新建文件夹\MoviePlayer V7.0\MoviePlayer\MainWindow.xaml.cs:行号 2343
+   在 System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   在 System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   在 System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   在 System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   在 System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   在 System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   在 System.Windows.Input.InputManager.ProcessStagingArea()
+   在 System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   在 System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   在 System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   在 System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   在 MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+15:50:18 2019年12月16日 
+   连接丢失
+15:50:42 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+15:58:42 2019年12月16日 
+   连接丢失
+15:59:06 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+15:59:40 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+15:59:40 2019年12月16日 
+   由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+16:03:54 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:03:58 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:03:58 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:04:07 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:04:08 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:24:33 2019年12月16日 
+   连接丢失
+16:24:57 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:27:21 2019年12月16日 
+   由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+16:27:31 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:27:32 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:28:51 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:30:10 2019年12月16日 
+   由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+16:39:21 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:39:58 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:40:21 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:40:21 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:40:24 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:40:24 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:40:27 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:40:27 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:40:34 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:42:43 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:42:55 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:43:03 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:43:10 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:43:11 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:43:12 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+16:45:15 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+17:08:57 2019年12月16日 
+   连接丢失
+17:27:44 2019年12月16日 
+   由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+17:46:24 2019年12月16日 
+   由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+17:48:34 2019年12月16日 
+   由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+17:51:40 2019年12月16日 
+   由于目标计算机积极拒绝，无法连接。 192.168.0.155:10000
+17:55:31 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+17:55:34 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+17:59:43 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+17:59:50 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+17:59:55 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+17:59:57 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+18:00:00 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+18:00:05 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+18:00:13 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+18:00:15 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000
+18:00:15 2019年12月16日 
+   调用线程无法访问此对象，因为另一个线程拥有该对象。
+18:03:49 2019年12月16日 
+   由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.0.155:10000

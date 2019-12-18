@@ -227,7 +227,7 @@
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <Image Source="Resources/Icon_Delay.png" Grid.Column="0" Margin="0,5,0,5" MaxHeight="17"></Image>
-                                <TextBlock Name="txtDelaySet" Text="{DynamicResource txtDelaySet}" Foreground="White" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Name="txtModuleSet" Text="{DynamicResource txtModuleSet}" Foreground="White" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -1876,7 +1876,13 @@
                     <TabItem Name="tabItemSet4" Style="{DynamicResource TabItemStyle2}">
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="60"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
                                 <RowDefinition Height="40"></RowDefinition>
                                 <RowDefinition Height="40"></RowDefinition>
                                 <RowDefinition Height="40"></RowDefinition>
@@ -1922,6 +1928,40 @@
                                     </LinearGradientBrush>
                                 </Button.Background>
                             </Button>
+                            <Label Content="{DynamicResource labFuse}" Grid.Row="5" Margin="-1,8,0,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Left"></Label>
+                            <Label Content="{DynamicResource labParam}" Grid.Row="6"  Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Left"></Label>
+                            <Label Content="{DynamicResource labProjectorIp}" Grid.Row="7"  Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Center"></Label>
+                            <Label Content="{DynamicResource labProjectorPort}" Grid.Row="8" Margin="-1,8,0,8" Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Center"></Label>
+                            <TextBox Name="txtIpFuse" Text="" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                        <Setter Property="BorderBrush" Value="#FF999999"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <TextBox Name="txtPortFuse" Text="" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                        <Setter Property="BorderBrush" Value="#FF999999"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <Label Content="{DynamicResource labCommunicationMode}" Grid.Row="9" Margin="-1,8,0,8" Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Center"></Label>
+                            <ComboBox x:Name="comboBoxNet" HorizontalAlignment="Center" Grid.Row="9"  VerticalAlignment="Center"    Grid.Column="1"  Width="55" Background="Black" >
+                                <ComboBoxItem Content="TCP"></ComboBoxItem>
+                                <ComboBoxItem Content="UDP"></ComboBoxItem>
+                            </ComboBox>
+                            <Button x:Name="btnConfirmFuse" Content="{DynamicResource btnConfirm}" Style="{DynamicResource FilletButton}" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" Height="30"  Width="70" >
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+
                         </Grid>
                     </TabItem>
                 </TabControl>

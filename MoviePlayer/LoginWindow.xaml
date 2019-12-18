@@ -31,6 +31,6 @@
         <TextBox Name ="txtUserName" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,10,20,10" TextAlignment="Left" Foreground="White" Background="#FF737373"></TextBox>
         <!--<TextBox Name ="txtPassWord" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="10"  TextWrapping="Wrap" Foreground="White" Background="#FF737373"></TextBox>-->
         <PasswordBox Name ="txtPassWord" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,10,20,10"  Foreground="White" Background="#FF737373"></PasswordBox>
-        <Button Name="btnLogin" Content="{DynamicResource btnLogin}" Style="{DynamicResource FilletButton}" Grid.Row="2" Grid.Column="1" MaxHeight="25" Margin="43,0,92,10" Foreground="White" Click="btnLogin_Click" Grid.ColumnSpan="2"></Button>
+        <Button Name="btnLogin" Content="{DynamicResource btnLogin}" Style="{DynamicResource FilletButton}" Grid.Row="2" Grid.Column="1" MaxHeight="25" Margin="43,0,92,10" Foreground="White" Click="btnLogin_Click" Grid.ColumnSpan="2" IsDefault="True"></Button>
     </Grid>
 </Window>

@@ -9,9 +9,11 @@
     <sys:String x:Key="txtAboutUs">AboutUS</sys:String>
     <sys:String x:Key="txtParamSet">Parameters</sys:String>
     <sys:String x:Key="txtProjectorSet">ProjectorSet</sys:String>
-    <sys:String x:Key="txtDelaySet">DelayModuleSet</sys:String>
+    <sys:String x:Key="txtModuleSet">DelayModuleSet</sys:String>
     <sys:String x:Key="labDelay">DelayModule</sys:String>
     <sys:String x:Key="labParam">Parameters</sys:String>
+    <sys:String x:Key="labFuse">FuseSoftware</sys:String>
+    <sys:String x:Key="labCommunicationMode">Protocol</sys:String>
     <sys:String x:Key="txtEvEffect">EvEffect</sys:String>
     <sys:String x:Key="txtChairEffect">ChairEffect</sys:String>
     <sys:String x:Key="txtEquipment">Device Status</sys:String>

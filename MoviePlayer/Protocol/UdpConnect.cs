@@ -279,7 +279,7 @@ namespace MoviePlayer.Protocol
                 int getday = ts.Days;                //到期时间跟电脑时间对比
                 int contractDay = ts1.Days;          //写进芯片的当前时间跟现在电脑时间对比 
 
-                if (getday <= 0 || contractDay < 0)
+                if (getday < 0 || contractDay < 0)
                 {
                     //isRegistered = false;
                     Module.deadlineYY = 0;
