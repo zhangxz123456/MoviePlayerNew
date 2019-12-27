@@ -102,6 +102,8 @@
     <sys:String x:Key="lab5DPicture">5D Picture</sys:String>
     <sys:String x:Key="btnShow">Show</sys:String>
     <sys:String x:Key="btnNotShow">NotShow</sys:String>
+    <sys:String x:Key="labMacAddress">MacAddress</sys:String>
+    <sys:String x:Key="btnMac">Binding</sys:String>
 
     <sys:String x:Key="ProjectorBrandPan">Panasonic</sys:String>
     <sys:String x:Key="ProjectorBrandSony">Sony</sys:String>

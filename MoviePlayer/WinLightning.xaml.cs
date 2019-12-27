@@ -152,7 +152,7 @@ namespace MoviePlayer
                         Module.DMXLightning[5] = 0;
                         Module.DMXLightning[6] = 255;
                         Module.DMXLightning[7] = 0;
-                    }
+                     }
                     else
                     {
                         MainWindow.dataEvEffect[0] = 0;

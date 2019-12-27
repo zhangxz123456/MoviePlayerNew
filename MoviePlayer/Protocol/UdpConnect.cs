@@ -10,6 +10,8 @@ using System.Windows;
 using System.Diagnostics;
 using System.Windows.Threading;
 using System.IO;
+using System.Runtime.InteropServices;
+
 namespace MoviePlayer.Protocol
 {
     public class UdpConnect
@@ -102,7 +104,48 @@ namespace MoviePlayer.Protocol
 
         delegate void ReceiveCallback(int rlen, byte[] data);
 
-        
+        [DllImport("Iphlpapi.dll")]
+
+        static extern int SendARP(Int32 DestIP, Int32 SrcIP, ref Int64 MacAddr, ref Int32 PhyAddrLen);
+        [DllImport("Ws2_32.dll")]
+
+        static extern Int32 inet_addr(string ipaddr);
+        ///<summary>
+        /// SendArp获取MAC地址
+        ///</summary>
+        ///<param name="RemoteIP">目标机器的IP地址如(192.168.1.1)</param>
+        ///<returns>目标机器的mac 地址</returns>
+        public static string GetMacAddress(string RemoteIP)
+        {
+            StringBuilder macAddress = new StringBuilder();
+            try
+            {
+                Int32 remote = inet_addr(RemoteIP);
+                Int64 macInfo = new Int64();
+                Int32 length = 6;
+                SendARP(remote, 0, ref macInfo, ref length);
+                string temp = Convert.ToString(macInfo, 16).PadLeft(12, '0').ToUpper();
+                int x = 12;
+                for (int i = 0; i < 6; i++)
+                {
+                    if (i == 5)
+                    {
+                        macAddress.Append(temp.Substring(x - 2, 2));
+                    }
+                    else
+                    {
+                        macAddress.Append(temp.Substring(x - 2, 2) + "-");
+                    }
+
+                    x -= 2;
+                }
+                return macAddress.ToString();
+            }
+            catch
+            {
+                return macAddress.ToString();
+            }
+        }
 
         public void SetReceiveData(int rlen, byte[] data)
         {
@@ -336,9 +379,30 @@ namespace MoviePlayer.Protocol
             {
                 if (RecData[0] == 0 && RecData[1] == 0 && RecData[2] == 0x01 && RecData[3] == 0x41)
                 {
-                    flagValue = true;
-                    //要发送数据格式
-                    UdpSend.flagSend = (byte)ModbusUdp.MBFunctionCode.GetId;
+
+                    string s = UdpInit.RemotePoint.ToString();
+                    IPEndPoint i = (IPEndPoint)(UdpInit.RemotePoint);
+                    string ss = i.Address.ToString();
+                    string s1 = GetMacAddress(ss);
+                    Debug.WriteLine(s1);
+                    if (MainWindow.PlayMac.Equals("TRUE"))
+                    {
+                        if (s1.Equals(Module.macFile))
+                        {
+                            IPEndPoint ipep1 = new IPEndPoint(i.Address, 1032);
+                            UdpInit.RemotePoint = (EndPoint)(ipep1);
+                            flagValue = true;
+                            //要发送数据格式
+                            UdpSend.flagSend = (byte)ModbusUdp.MBFunctionCode.GetId;
+                        }
+                    }
+                    else
+                    {
+                        File.WriteAllText(Directory.GetCurrentDirectory() + @"\shuqeeMac.bin", s1);
+                        flagValue = true;
+                        //要发送数据格式
+                        UdpSend.flagSend = (byte)ModbusUdp.MBFunctionCode.GetId;
+                    }
                 }
 
                 if (RecData[0] == 0 && RecData[1] == 0xff && RecData[2] == 0 && RecData[3] == 0x1)

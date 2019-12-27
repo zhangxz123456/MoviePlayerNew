@@ -50,6 +50,7 @@ namespace MoviePlayer
         public static int effectLen;
         public static int vibrationLen;
         public static string uuidFile;
+        public static string macFile;
         public static DispatcherTimer timerMovie = null;
         public static bool hintShow;                   //是否显示提示信息
         public static int deadlineDay;
@@ -131,6 +132,30 @@ namespace MoviePlayer
             catch
             {
                 MessageBox.Show("The checksum file does not exist. Please put the checksum file in the current software directory");
+            }
+
+        }
+
+        /// <summary>
+        /// 读取校验文件
+        /// </summary>
+        public static void readMacFile()
+        {
+            try
+            {
+                string filePathD = Directory.GetCurrentDirectory() + @"\shuqeeMac.bin";
+                if (!File.Exists(filePathD))
+                {
+                    using (File.Create(filePathD))
+                    {
+                    }
+                }
+                macFile = File.ReadAllText(filePathD);
+            }
+            catch
+            {
+                //MessageBox.Show("动作文件不存在，请检查");
+                macFile = null;
             }
 
         }

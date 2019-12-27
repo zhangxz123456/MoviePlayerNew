@@ -107,7 +107,8 @@ namespace MoviePlayer
         public static string PlayControlServer;
         public static string PlayControlClient;
         public static int PlayFrame;                 //帧数控制
-        public static string Play5DPicture;             //设置5D画面是否显示 参数为0或1 0显示 1不显示
+        public static string Play5DPicture;          //设置5D画面是否显示 参数为0或1 0显示 1不显示
+        public static string PlayMac;                //绑定中控板mac地址 TRUE为绑定 FALSE为不绑定 
         public static string PlayProjector1IP;
         public static string PlayProjector1Port;
         public static string PlayProjector2IP;
@@ -145,6 +146,7 @@ namespace MoviePlayer
         private string curControlClient;
         private string curPlayFrame;
         private string cur5DPicture;
+        private string curMac;
 
         byte[] dataNum = new byte[6];
         public static byte[] dataEvEffect = new byte[8];
@@ -332,6 +334,8 @@ namespace MoviePlayer
         ///// </summary>
         #endregion
         #endregion
+
+
         UdpInit myUdpInit = new UdpInit();
         public bool timerStart;
         int count;
@@ -350,7 +354,8 @@ namespace MoviePlayer
             GetPlayerPath();
             myUdpInit.udpInit();
             Module.GetNowTime();
-            Module.readUuidFile();
+            Module.readMacFile();
+            Module.readUuidFile();          
             SystemParametersInfo(20, 0, Directory.GetCurrentDirectory() + @"\shuqee.bmp", 0x2);
             ReadType();
             ChangeLanguage(PlayLanguage);
@@ -544,6 +549,8 @@ namespace MoviePlayer
             btnShow.Click += Btn5DPicture_Click;
             btnNotShow.Click += Btn5DPicture_Click;
 
+            btnMac.Click += BtnMac_Click;
+
             listMenuAdd.Click += ListMenu_Click;
             listMenuPlay.Click += ListMenu_Click;
             listMenuDel.Click += ListMenu_Click;
@@ -563,6 +570,8 @@ namespace MoviePlayer
             textBoxIPProjector = new TextBox[8] { txtIpProjector1,txtIpProjector2,txtIpProjector3,txtIpProjector4,txtIpProjector5,txtIpProjector6,txtIpProjector7,txtIpProjector8};
             textBoxPortProjector = new TextBox[8] { txtPortProjector1,txtPortProjector2,txtPortProjector3,txtPortProjector4,txtPortProjector5,txtPortProjector6,txtPortProjector7,txtPortProjector8};
         }
+
+      
 
         //private void BtnBackUp4_Click(object sender, RoutedEventArgs e)
         //{
@@ -751,6 +760,7 @@ namespace MoviePlayer
                 element["Client"].InnerText = curControlClient;
                 element["Frame"].InnerText = curPlayFrame;
                 element["PlayPicture"].InnerText = cur5DPicture;
+                element["Mac"].InnerText = curMac;
                 xmlDoc.Save(path);
             }
         }
@@ -986,6 +996,15 @@ namespace MoviePlayer
                 btnNotShow.Background = Brushes.DodgerBlue;
             }
 
+            if(PlayMac.Equals("TRUE"))
+            {
+                btnMac.Background = Brushes.DodgerBlue;
+            }
+            else
+            {
+                btnMac.Background = brush;
+            }
+
             switch (PlayFrame)
             {
                 case 48:
@@ -1033,7 +1052,7 @@ namespace MoviePlayer
                 {
                     comboBoxBrand.Text = "松下";
                 }
-                if (PlayProjectorBrand.Equals("Sony"))
+                if (PlayProjectorBrand.Equals("Sony"))   
                 {
                     comboBoxBrand.Text = "索尼";
                 }
@@ -1387,6 +1406,7 @@ namespace MoviePlayer
                 PlayControlClient=element["Client"].InnerText;
                 PlayFrame = int.Parse(element["Frame"].InnerText);
                 Play5DPicture = element["PlayPicture"].InnerText;
+                PlayMac = element["Mac"].InnerText;
                 PlayProjectorBrand = element["ProjectorBrand"].InnerText;
 
                 XmlNode childNodeNext = childNodes.SelectSingleNode("Projector1");
@@ -1966,7 +1986,10 @@ namespace MoviePlayer
                     break;
                 case 4:
                     btnDelaySet.Background = Brushes.DodgerBlue;
-                    tabControlSet.SelectedIndex = 3;
+                    if (isLogin == true)
+                    {
+                        tabControlSet.SelectedIndex = 3;
+                    }
                     break;
             }
         }
@@ -2588,6 +2611,22 @@ namespace MoviePlayer
                     btnNotShow.Background = Brushes.DodgerBlue;
                     cur5DPicture = "1";
                     break;
+            }
+        }
+
+        private void BtnMac_Click(object sender, RoutedEventArgs e)
+        {
+            
+            Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
+            if(btnMac.Background==Brushes.DodgerBlue)
+            {
+                btnMac.Background = brush;
+                curMac = "FALSE";
+            }
+            else
+            {
+                btnMac.Background = Brushes.DodgerBlue;
+                curMac = "TRUE";
             }
         }
         #endregion

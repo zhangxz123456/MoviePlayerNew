@@ -1066,7 +1066,7 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                    <Image Source="Resources/Icon_Projector.png" Height="20" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="0,5,7,5" ></Image>
+                        <Image Source="Resources/Icon_Projector.png" Height="20" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="0,5,7,5" ></Image>
                         <TextBlock Name="txtProjector" Text="{DynamicResource txtProjector}" Foreground="White" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" />
                     </Grid>
                     <Grid Grid.Column="8" Grid.Row="0" >
@@ -1074,8 +1074,8 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                      <TextBlock Text="{DynamicResource txtAutomatic}" Foreground="White" Grid.Row="0"  Grid.Column="0" VerticalAlignment="Center"/>
-                     <CheckBox Name="checkProjectorAll" Style="{DynamicResource SliderCheckBox}" Grid.Row="0" Grid.Column="1"  VerticalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" />
+                        <TextBlock Text="{DynamicResource txtAutomatic}" Foreground="White" Grid.Row="0"  Grid.Column="0" VerticalAlignment="Center"/>
+                        <CheckBox Name="checkProjectorAll" Style="{DynamicResource SliderCheckBox}" Grid.Row="0" Grid.Column="1"  VerticalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" />
                     </Grid>
                     <Grid Grid.Row="1" Grid.ColumnSpan="2">
                         <Grid.ColumnDefinitions>
@@ -1091,7 +1091,7 @@
                                 </Style>
                             </TextBox.Resources>
                         </TextBox>
-                    </Grid> 
+                    </Grid>
                     <Grid Margin="0,0,0,0" Grid.Row="2" Background="#FF737373" Grid.Column="1" >
                         <Grid.RowDefinitions>
                             <RowDefinition />
@@ -1467,6 +1467,7 @@
                                 <RowDefinition Height="50"></RowDefinition>
                                 <RowDefinition Height="50"></RowDefinition>
                                 <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
                                 <RowDefinition ></RowDefinition>
                                 <RowDefinition Height="70"></RowDefinition>
                             </Grid.RowDefinitions>
@@ -1625,9 +1626,18 @@
                                 </Button.Background>
                             </Button>
 
+                            <Label Content="{DynamicResource labMacAddress}" Grid.Row="8" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                            <Button x:Name="btnMac" Content="{DynamicResource btnMac}" Grid.Row="8" Style="{DynamicResource FilletButton}" Grid.Column="1" Margin="22,10,15,10" Tag="1" >
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
 
-                            <Label Content="{DynamicResource labHeight}" Grid.Row="8" Margin="10,0,0,0"  Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
-                            <TextBox Name="txtHeight" Text="" Grid.Row="8" Grid.Column="1" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
+                            <Label Content="{DynamicResource labHeight}" Grid.Row="9" Margin="10,0,0,0"  Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                            <TextBox Name="txtHeight" Text="" Grid.Row="9" Grid.Column="1" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
                                 <TextBox.Resources>
                                     <Style TargetType="{x:Type Border}">
                                         <Setter Property="CornerRadius" Value="4"/>
@@ -1644,7 +1654,7 @@
                                     </LinearGradientBrush>
                                 </Button.Background>
                             </Button>
-                            <Button x:Name="btnConfirm" Content="{DynamicResource btnConfirm}" Style="{DynamicResource FilletButton}" Grid.Row="10" Grid.Column="7"  Margin="11,20,39,10" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" >
+                            <Button x:Name="btnConfirm" Content="{DynamicResource btnConfirm}" Style="{DynamicResource FilletButton}" Grid.Row="11" Grid.Column="7"   HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Margin="25,14,25,16" >
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="0"/>

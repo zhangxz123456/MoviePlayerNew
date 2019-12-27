@@ -105,7 +105,8 @@
     <sys:String x:Key="lab5DPicture">5D画面</sys:String>
     <sys:String x:Key="btnShow">显示</sys:String>
     <sys:String x:Key="btnNotShow">不显示</sys:String>
-
+    <sys:String x:Key="labMacAddress">Mac地址</sys:String>
+    <sys:String x:Key="btnMac">绑定</sys:String>
 
     <sys:String x:Key="ProjectorBrandPan">松下</sys:String>
     <sys:String x:Key="ProjectorBrandSony">索尼</sys:String>
