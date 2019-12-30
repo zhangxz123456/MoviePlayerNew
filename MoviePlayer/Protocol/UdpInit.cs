@@ -15,6 +15,7 @@ namespace MoviePlayer.Protocol
     class UdpInit
     {
         public static IPEndPoint ipLocalPoint;
+        public static IPEndPoint ipepBingding;
         public static EndPoint RemotePoint;
         public static EndPoint BroadcastRemotePoint;
         public static Socket mySocket;

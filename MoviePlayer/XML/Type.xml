@@ -15,7 +15,7 @@
   </PlayPicture>
   <ProjectorBrand>松下</ProjectorBrand>
   <Projector1>
-    <IP>192.168.1.121</IP>
+    <IP>192.168.0.104</IP>
     <Port>1060</Port>
   </Projector1>
   <Projector2>
@@ -47,7 +47,7 @@
     <Port>1067</Port>
   </Projector8>
   <DelayModule>
-    <IPDelay>192.168.0.155</IPDelay>
+    <IPDelay>192.168.0.104</IPDelay>
     <PortDelay>10000</PortDelay>
   </DelayModule>
   <FuseModule>

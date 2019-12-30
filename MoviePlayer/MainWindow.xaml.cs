@@ -571,8 +571,6 @@ namespace MoviePlayer
             textBoxPortProjector = new TextBox[8] { txtPortProjector1,txtPortProjector2,txtPortProjector3,txtPortProjector4,txtPortProjector5,txtPortProjector6,txtPortProjector7,txtPortProjector8};
         }
 
-      
-
         //private void BtnBackUp4_Click(object sender, RoutedEventArgs e)
         //{
         //    if (btnBackUp4.Opacity == 1)
@@ -1266,7 +1264,7 @@ namespace MoviePlayer
             rb2.IsEnabled = false;
             rb3.IsEnabled = false;
             rb4.IsEnabled = false;
-            rb6.IsEnabled = false;
+            //rb6.IsEnabled = false;
             ListView.IsEnabled = false;
             btnImgPlay.IsEnabled = false;
         }
@@ -5567,8 +5565,8 @@ namespace MoviePlayer
                 isRelayOpen = SendRelayControl(data2);
                 //Thread.Sleep(200);
                 //增压泵
-                byte[] data3 = { 0xFE, 0x05, 0x00, 0x04, 0xFF, 0x00, 0xD9, 0xF4 };
-                isRelayOpen = SendRelayControl(data3);
+                //byte[] data3 = { 0xFE, 0x05, 0x00, 0x04, 0xFF, 0x00, 0xD9, 0xF4 };
+                //isRelayOpen = SendRelayControl(data3);
                 Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
                 cbBoosterPump.Background = brushOn;
                 cbBoosterPump.Opacity = 0.9;
@@ -5725,8 +5723,8 @@ namespace MoviePlayer
                 }
                 if (dr == MessageBoxResult.OK)
                 {
-                    byte[] data1 = { 0xFE, 0x10, 0x00, 0x0D, 0x00, 0x02, 0x04, 0x00, 0x04, 0x00, 0x0A, 0xC0, 0xE7 };
-                    isRelayOpen = SendRelayControl(data1);
+                    //byte[] data1 = { 0xFE, 0x10, 0x00, 0x0D, 0x00, 0x02, 0x04, 0x00, 0x04, 0x00, 0x0A, 0xC0, 0xE7 };
+                    //isRelayOpen = SendRelayControl(data1);
                     //Thread.Sleep(200);
                     byte[] data2 = { 0xFE, 0x05, 0x00, 0x03, 0xFF, 0x00, 0x68, 0x35 };
                     isRelayOpen = SendRelayControl(data2);
@@ -5749,8 +5747,8 @@ namespace MoviePlayer
                 }
                 if (dr == MessageBoxResult.OK)
                 {
-                    byte[] data1 = { 0xFE, 0x10, 0x00, 0x0D, 0x00, 0x02, 0x04, 0x00, 0x04, 0x00, 0x0A, 0xC0, 0xE7 };
-                    isRelayOpen = SendRelayControl(data1);
+                    //byte[] data1 = { 0xFE, 0x10, 0x00, 0x0D, 0x00, 0x02, 0x04, 0x00, 0x04, 0x00, 0x0A, 0xC0, 0xE7 };
+                    //isRelayOpen = SendRelayControl(data1);
                     //Thread.Sleep(200);
                     byte[] data2 = { 0xFE, 0x05, 0x00, 0x03, 0x00, 0x00, 0x29, 0xC5 };
                     isRelayOpen = SendRelayControl(data2);
@@ -5773,15 +5771,17 @@ namespace MoviePlayer
             {
                 if (PlayLanguage.Equals("CN"))
                 {
-                    dr = MessageBox.Show("确定打开增压泵吗?", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                    //dr = MessageBox.Show("确定打开增压泵吗?", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                    dr = MessageBox.Show("确定打开空压机吗?", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
                 }
                 else
                 {
-                    dr = MessageBox.Show("Are you sure to open the BoosterPump?", "Tips", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                    dr = MessageBox.Show("Are you sure to open the air compressor?", "Tips", MessageBoxButton.OKCancel, MessageBoxImage.Question);
                 }
                 if (dr == MessageBoxResult.OK)
                 {
-                    byte[] data1 = { 0xFE, 0x05, 0x00, 0x04, 0xFF, 0x00, 0xD9, 0xF4 };
+                    //byte[] data1 = { 0xFE, 0x05, 0x00, 0x04, 0xFF, 0x00, 0xD9, 0xF4 };
+                    byte[] data1 = { 0xFE, 0x10, 0x00, 0x0D, 0x00, 0x02, 0x04, 0x00, 0x04, 0x00, 0x0A, 0xC0, 0xE7 };
                     isRelayOpen = SendRelayControl(data1);
                     if (isRelayOpen)
                     {
@@ -5794,15 +5794,16 @@ namespace MoviePlayer
             {
                 if (PlayLanguage.Equals("CN"))
                 {
-                    dr = MessageBox.Show("确定关闭增压泵吗?", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                    dr = MessageBox.Show("确定关闭空压机吗?", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
                 }
                 else
                 {
-                    dr = MessageBox.Show("Are you sure to close the BoosterPump?", "Tips", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                    dr = MessageBox.Show("Are you sure to close the air compressor?", "Tips", MessageBoxButton.OKCancel, MessageBoxImage.Question);
                 }
                 if (dr == MessageBoxResult.OK)
                 {
-                    byte[] data1 = { 0xFE, 0x05, 0x00, 0x04, 0x00, 0x00, 0x98, 0x04 };
+                    //byte[] data1 = { 0xFE, 0x05, 0x00, 0x04, 0x00, 0x00, 0x98, 0x04 };
+                    byte[] data1 = { 0xFE, 0x10, 0x00, 0x0D, 0x00, 0x02, 0x04, 0x00, 0x04, 0x00, 0x0A, 0xC0, 0xE7 };
                     isRelayOpen = SendRelayControl(data1);
                     if (isRelayOpen)
                     {

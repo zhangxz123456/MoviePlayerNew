@@ -28,6 +28,7 @@ namespace MoviePlayer.Protocol
         public static bool isDebug;                           //是否打开调试界面  
         public static bool connectFlag;                       //是否连接
         public static string valDate;                         //有效期
+        public static bool isMac;
         bool isOver39 = false;
         UdpSend mysend = new UdpSend();
 
@@ -379,18 +380,16 @@ namespace MoviePlayer.Protocol
             {
                 if (RecData[0] == 0 && RecData[1] == 0 && RecData[2] == 0x01 && RecData[3] == 0x41)
                 {
-
-                    string s = UdpInit.RemotePoint.ToString();
                     IPEndPoint i = (IPEndPoint)(UdpInit.RemotePoint);
                     string ss = i.Address.ToString();
                     string s1 = GetMacAddress(ss);
-                    Debug.WriteLine(s1);
+                    //Debug.WriteLine(s1);
                     if (MainWindow.PlayMac.Equals("TRUE"))
                     {
                         if (s1.Equals(Module.macFile))
                         {
-                            IPEndPoint ipep1 = new IPEndPoint(i.Address, 1032);
-                            UdpInit.RemotePoint = (EndPoint)(ipep1);
+                            UdpInit.ipepBingding = new IPEndPoint(i.Address, 1032);
+                            isMac = true;
                             flagValue = true;
                             //要发送数据格式
                             UdpSend.flagSend = (byte)ModbusUdp.MBFunctionCode.GetId;
@@ -441,7 +440,15 @@ namespace MoviePlayer.Protocol
                 //接收UDP数据报，引用参数RemotePoint获得源地址 
                 try
                 {
-                    int rlen = UdpInit.mySocket.ReceiveFrom(data, ref UdpInit.RemotePoint);
+                    int rlen;
+                    if (isMac == false)
+                    {
+                        rlen = UdpInit.mySocket.ReceiveFrom(data, ref UdpInit.RemotePoint);
+                    }
+                    else
+                    {
+                        rlen = UdpInit.mySocket.Receive(data);
+                    }
                     ReceiveCallback tx = SetReceiveData;
                     tx(rlen, data);
                 }
