@@ -10,7 +10,8 @@
   <Server>TRUE</Server>
   <Client>TRUE</Client>
   <Frame>48</Frame>
-  <Mac>TRUE</Mac>
+  <Mac>
+  </Mac>
   <PlayPicture>
   </PlayPicture>
   <ProjectorBrand>松下</ProjectorBrand>
@@ -47,7 +48,7 @@
     <Port>1067</Port>
   </Projector8>
   <DelayModule>
-    <IPDelay>192.168.0.104</IPDelay>
+    <IPDelay>192.168.0.232</IPDelay>
     <PortDelay>10000</PortDelay>
   </DelayModule>
   <FuseModule>

@@ -61,7 +61,7 @@ namespace MoviePlayer.TCPServer
         {
             Socket socketWatch = obj as Socket;
             while (true)
-            {
+            { 
                 //等待客户端的连接，并且创建一个用于通信的Socket
                 socketSend = socketWatch.Accept();
                 //获取远程主机的ip地址和端口号
@@ -72,7 +72,6 @@ namespace MoviePlayer.TCPServer
                 threadReceive = new Thread(new ParameterizedThreadStart(ReceiveData));
                 threadReceive.IsBackground = true;
                 threadReceive.Start(socketSend);
-
             }
         }
 

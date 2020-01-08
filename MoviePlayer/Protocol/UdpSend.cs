@@ -397,6 +397,7 @@ namespace MoviePlayer.Protocol
             byte[] data;
             ushort addr;
             ushort len;
+            int dmxLen;
             byte[] array;          //data+addr+len 
             byte[] Data;           //最终发送的数据
             switch (MainWindow.PlayFrame)
@@ -418,7 +419,7 @@ namespace MoviePlayer.Protocol
             //}
             Debug.WriteLine(pos);
             addr = 0;
-            len = 42;
+            len = 46;
             data = new byte[len];
             int num1 = 3 * (int)(pos / 50);                  //actionFile2DOF与actionFile3DOF数组下标
             int num2 = 3 * (int)(pos / 50) + 1;
@@ -536,21 +537,28 @@ namespace MoviePlayer.Protocol
 
             if (Module.dmx512File != null)
             {
-                byte[] data1 = new byte[30];
-                if (((int)(pos / 50)+1) * 30 < Module.dmx512File.Length)
+                dmxLen = 0;
+                byte[] dataDmxLen = new byte[8];
+                for (int ii = 0; ii < 8; ii++)
                 {
-
-                    for (int i = 0; i < 30; i++)
+                    dmxLen += Module.dmx512File[ii];
+                    dataDmxLen[ii] = Module.dmx512File[ii];
+                }
+                byte[] dataDmx = new byte[dmxLen];
+                if (((int)(pos / 50) + 1) * dmxLen < Module.dmx512File.Length)
+                {
+                    for (int i = 0; i < dmxLen; i++)
                     {
-                        data1[i] = (byte)Module.dmx512File[(int)(pos / 50) * 30 + i];
+                        dataDmx[i] = (byte)Module.dmx512File[(int)(pos / 50) * dmxLen + i + 8];
                     }
                 }
                 else
                 {
-                    data1 = new byte[30];
+                    dataDmx = new byte[dmxLen];
                 }
-                data1.CopyTo(data, 12);
-            }               
+                dataDmxLen.CopyTo(data, 12);
+                dataDmx.CopyTo(data, 20);
+            }
             array = ModbusUdp.ArrayAdd(addr, len, data);
             Data = ModbusUdp.MBReqWrite(array);
             UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
@@ -866,7 +874,7 @@ namespace MoviePlayer.Protocol
             //ushort addr ;      
             //ushort len ;
             //byte[] array;          //data+addr+len 
-            byte[] Data;           //最终发送的数据
+            byte[] Data;             //最终发送的数据
 
             while (true)
             {

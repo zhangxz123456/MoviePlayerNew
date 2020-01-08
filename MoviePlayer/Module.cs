@@ -37,8 +37,15 @@ namespace MoviePlayer
         public static byte[] shakeFile;
         public static byte[] shuqeeFile;
         public static byte[] dmx512File;
+        public static byte[] DMXDataLen = new byte[8];
         public static byte[] DMXLightning = new byte[10];
+        public static byte[] DMXWind = new byte[1];
+        public static byte[] DMXBubble = new byte[1];
+        public static byte[] DMXFog = new byte[1];
+        public static byte[] DMXFire = new byte[1];
         public static byte[] DMXSnow = new byte[10];
+        public static byte[] DMXLaser = new byte[1];
+        public static byte[] DMXRain = new byte[1];
         public static int DOF2StartIndex;
         public static int DOF3StartIndex;
         public static int DOF6StartIndex;
@@ -133,7 +140,6 @@ namespace MoviePlayer
             {
                 MessageBox.Show("The checksum file does not exist. Please put the checksum file in the current software directory");
             }
-
         }
 
         /// <summary>

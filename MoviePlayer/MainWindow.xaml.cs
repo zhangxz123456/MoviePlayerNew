@@ -1038,11 +1038,14 @@ namespace MoviePlayer
             txtIpFuse.Text = FuseIP;
             txtPortFuse.Text = FusePort;
             comboBoxNet.Text = FuseProtocol;
-            Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
-            cbLightning.Background = brushOn;
-            cbLightning.Opacity = 0.9;
-            cbDoor.Background = brushOn;
-            cbDoor.Opacity = 0.9;
+            if (PlayControlClient.Equals("TRUE"))
+            {
+                Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
+                cbLightning.Background = brushOn;
+                cbLightning.Opacity = 0.9;
+                cbDoor.Background = brushOn;
+                cbDoor.Opacity = 0.9;
+            }
             if (PlayLanguage.Equals("CN"))
             {
                 comboBoxBrand.Text = PlayProjectorBrand;
@@ -1130,7 +1133,7 @@ namespace MoviePlayer
                 dataEvEffect[i] = (Byte)Math.Pow(2, i);
                 if (i == 5)
                 {
-                    Module.DMXSnow = new byte[] { 0x14, 0x0, 0x5A, 0x0, 0x0, 0x2D, 0x0, 0x0, 0x0, 0x0 };
+                    Module.DMXSnow = new byte[] { 0x6E, 0x0, 0x5A, 0x0, 0x0, 0x2D, 0x0, 0x0, 0x0, 0x0 };
                 }
             }
             else
@@ -3115,7 +3118,20 @@ namespace MoviePlayer
             {
                 UserControlClass.sc2.Close();
             }
-            RelayControlStopSend();
+            if (PlayControlClient.Equals("TRUE"))
+            {
+                //bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
+                if (FuseProtocol.Equals("TCP"))
+                {
+                    bool isConnect = TcpControlClientConnect(FuseIP, FusePort);
+                    ControlStop(isConnect);
+                }
+                else
+                {
+                    FuseStop();
+                }
+                RelayControlStopSend();
+            }
             Module.timerMovie.Stop();
             UdpSend.movieStop = true;
             ClearData();
@@ -3221,19 +3237,8 @@ namespace MoviePlayer
                             {
                                 FusePlay(index);
                             }
+                            RelayControlPlaySend();
                         }
-                        //Thread thRelayPlay = new Thread(() =>
-                        //{
-                        //    bool a = TcpRelayControlClientConnect(DelayIP, DelayPort);
-                        //    if (a)
-                        //    {
-                        //        this.Dispatcher.Invoke(new Action(() =>
-                        //    {
-                                RelayControlPlaySend();
-                        //    }));
-                        //    }
-                        //});
-                        //thRelayPlay.Start();
                     }
                 }
                 catch(Exception error)
@@ -4111,19 +4116,8 @@ namespace MoviePlayer
                             {
                                 FusePlay(index);
                             }
+                            RelayControlPlaySend();
                         }
-                        //Thread thRelayPlay = new Thread(() =>
-                        //{
-                        //    bool a = TcpRelayControlClientConnect(DelayIP, DelayPort);
-                        //    if (a)
-                        //    {
-                        //        this.Dispatcher.Invoke(new Action(() =>
-                        //    {
-                                RelayControlPlaySend();
-                        //    }));
-                        //    }
-                        //});
-                        //thRelayPlay.Start();
                     }
                 }
                 else
@@ -4213,20 +4207,8 @@ namespace MoviePlayer
                         {
                             FuseStop();
                         }
+                        RelayControlStopSend();
                     }
-                    //Thread thRelayPlay = new Thread(() =>
-                    //{
-                    //    bool a = TcpRelayControlClientConnect(DelayIP, DelayPort);
-                    //    if (a)
-                    //    {
-                    //        this.Dispatcher.Invoke(new Action(() =>
-                    //   {
-                           RelayControlStopSend();
-                        
-                    //   }));
-                    //    }
-                    //});
-                    //thRelayPlay.Start();                    
                 }
                 if (Module.timerMovie != null)
                 {
@@ -4513,10 +4495,18 @@ namespace MoviePlayer
             Debug.WriteLine(eEffect.ToString());
 
             data1 = new byte[12] { dataNumOne, dataNumTwo, dataNumThree, 0, 0, 0, dataRate, dataFrame, cEffect, eEffect, 0, 0 };
-            byte[] data = new byte[data1.Length + 30];
+            byte[] data = new byte[data1.Length + 34];
             data1.CopyTo(data,0);
-            Module.DMXLightning.CopyTo(data,data1.Length);
-            Module.DMXSnow.CopyTo(data, data1.Length + Module.DMXLightning.Length);
+            Module.DMXDataLen = new byte[8] { 0x0a, 0x01, 0x01, 0x01, 0x01, 0x0a, 0x01, 0x01 };
+            Module.DMXDataLen.CopyTo(data,12);
+            Module.DMXLightning.CopyTo(data, 20);
+            Module.DMXWind.CopyTo(data, 30);
+            Module.DMXBubble.CopyTo(data, 31);
+            Module.DMXFog.CopyTo(data, 32);
+            Module.DMXFire.CopyTo(data, 33);
+            Module.DMXSnow.CopyTo(data, 34);
+            Module.DMXLaser.CopyTo(data, 44);
+            Module.DMXRain.CopyTo(data, 45);
             array = Protocol.ModbusUdp.ArrayAdd(0, (ushort)data.Length, data);
             Data = Protocol.ModbusUdp.MBReqWrite(array);
             UdpSend.UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
@@ -5553,29 +5543,32 @@ namespace MoviePlayer
         /// </summary>
         private void RelayControlInitSend()
         {
-            bool isRelayOpen;
-            //空压机 点发
-            byte[] data1 = { 0xFE, 0x10, 0x00, 0x0D, 0x00, 0x02, 0x04, 0x00, 0x04, 0x00, 0x0A, 0xC0, 0xE7 };
-            isRelayOpen = SendRelayControl(data1);
-            //Thread.Sleep(200);
-            if (isRelayOpen)
+            if (PlayControlClient.Equals("TRUE"))
             {
-                //电动球阀
-                byte[] data2 = { 0xFE, 0x05, 0x00, 0x03, 0xFF, 0x00, 0x68, 0x35 };
-                isRelayOpen = SendRelayControl(data2);
+                bool isRelayOpen;
+                //空压机 点发
+                byte[] data1 = { 0xFE, 0x10, 0x00, 0x0D, 0x00, 0x02, 0x04, 0x00, 0x04, 0x00, 0x0A, 0xC0, 0xE7 };
+                isRelayOpen = SendRelayControl(data1);
                 //Thread.Sleep(200);
-                //增压泵
-                //byte[] data3 = { 0xFE, 0x05, 0x00, 0x04, 0xFF, 0x00, 0xD9, 0xF4 };
-                //isRelayOpen = SendRelayControl(data3);
-                Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
-                cbBoosterPump.Background = brushOn;
-                cbBoosterPump.Opacity = 0.9;
-                cbRadiotube.Background = brushOn;
-                cbRadiotube.Opacity = 0.9;
-                cbLightning.Background = brushOn;
-                cbLightning.Opacity = 0.9;
-                cbDoor.Background = brushOn;
-                cbDoor.Opacity = 0.9;
+                if (isRelayOpen)
+                {
+                    //电动球阀
+                    byte[] data2 = { 0xFE, 0x05, 0x00, 0x03, 0xFF, 0x00, 0x68, 0x35 };
+                    isRelayOpen = SendRelayControl(data2);
+                    //Thread.Sleep(200);
+                    //增压泵
+                    //byte[] data3 = { 0xFE, 0x05, 0x00, 0x04, 0xFF, 0x00, 0xD9, 0xF4 };
+                    //isRelayOpen = SendRelayControl(data3);
+                    Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
+                    cbBoosterPump.Background = brushOn;
+                    cbBoosterPump.Opacity = 0.9;
+                    cbRadiotube.Background = brushOn;
+                    cbRadiotube.Opacity = 0.9;
+                    cbLightning.Background = brushOn;
+                    cbLightning.Opacity = 0.9;
+                    cbDoor.Background = brushOn;
+                    cbDoor.Opacity = 0.9;
+                }
             }
         }
 
@@ -5695,13 +5688,16 @@ namespace MoviePlayer
         /// </summary>
         private void RelayControlCloseSend()
         {
-            if (tcpRelayControlClient != null)
+            if (PlayControlClient.Equals("TRUE"))
             {
-               // if (tcpRelayControlClient.Connected == true)
-               // {
+                if (tcpRelayControlClient != null)
+                {
+                    // if (tcpRelayControlClient.Connected == true)
+                    // {
                     byte[] data1 = { 0xFE, 0x0F, 0x00, 0x00, 0x00, 0x08, 0x01, 0x00, 0xB1, 0x91 };
                     SendRelayControl(data1);
-               // }
+                    // }
+                }
             }
         }
 
@@ -5932,7 +5928,6 @@ namespace MoviePlayer
                 Module.WriteLogFile("UDP连接有误" + e.Message);
             }
         }
-
 
         private void FusePlay(int num)
         {
