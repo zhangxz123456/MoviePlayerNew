@@ -48,11 +48,11 @@
     <Port>1067</Port>
   </Projector8>
   <DelayModule>
-    <IPDelay>192.168.0.232</IPDelay>
+    <IPDelay>192.168.1.109</IPDelay>
     <PortDelay>10000</PortDelay>
   </DelayModule>
   <FuseModule>
-    <IPFuse>192.168.0.101</IPFuse>
+    <IPFuse>192.168.1.109</IPFuse>
     <PortFuse>13388</PortFuse>
     <CommunicationMode>UDP</CommunicationMode>
   </FuseModule>

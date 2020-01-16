@@ -48,7 +48,6 @@ namespace MoviePlayer
             System.Threading.Thread.Sleep(500);
             bool ret;
             mutex = new System.Threading.Mutex(true, "MoviePlayer", out ret);
-
             if (!ret)
             {
                 if (sysLang == true)

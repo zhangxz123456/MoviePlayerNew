@@ -3100,42 +3100,45 @@ namespace MoviePlayer
         /// <param name="e"></param>
         public void MPPlayer_MediaEnded(object sender, EventArgs e)
         {
-            sliderTime.Value = 0;
-            UserControlClass.MPPlayer.Position = new TimeSpan(0, 0, 0);
-            UserControlClass.MPPlayer.Stop();
-            UserControlClass.MSStatus = MediaStatus.Pause;
-            ChangeShowPlay();
-            //重复播放
+            //sliderTime.Value = 0;
+            //UserControlClass.MPPlayer.Position = new TimeSpan(0, 0, 0);
+            //UserControlClass.MPPlayer.Stop();
+            //UserControlClass.MSStatus = MediaStatus.Pause;
+            //ChangeShowPlay();
+            ////重复播放
             if (ModePlayTag == "RepeatPlay" || ModePlayTag == "LoopPlay")
             {
-                NextPlayer();
-                string Currentname = UserControlClass.FileName;
+               NextPlayer();
+               string Currentname = UserControlClass.FileName;
                 //string aa = fullPathName;
                 ListPlay(Currentname);
                 ChangeShowPlay();
             }
             else
             {
-                UserControlClass.sc2.Close();
+                //UserControlClass.sc2.Close();
+                btnStopClickFun();
             }
-            if (PlayControlClient.Equals("TRUE"))
-            {
-                //bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
-                if (FuseProtocol.Equals("TCP"))
-                {
-                    bool isConnect = TcpControlClientConnect(FuseIP, FusePort);
-                    ControlStop(isConnect);
-                }
-                else
-                {
-                    FuseStop();
-                }
-                RelayControlStopSend();
-            }
-            Module.timerMovie.Stop();
-            UdpSend.movieStop = true;
-            ClearData();
-            UdpSend.SendReset();
+            //if (PlayControlClient.Equals("TRUE"))
+            //{
+            //    //bool isConnect = TcpControlClientConnect(UdpInit.GetLocalIP(), "1037");
+            //    if (FuseProtocol.Equals("TCP"))
+            //    {
+            //        bool isConnect = TcpControlClientConnect(FuseIP, FusePort);
+            //        ControlStop(isConnect);
+            //    }
+            //    else
+            //    {
+            //        FuseStop();
+            //    }
+            //    RelayControlStopSend();
+            //}
+            //txtTime.Text = "";
+            //Module.timerMovie.Stop();
+            //UdpSend.movieStop = true;
+            //ClearData();
+            //UdpSend.SendReset();
+            //btnStopClickFun();
         }
 
         /// <summary>
@@ -3237,7 +3240,10 @@ namespace MoviePlayer
                             {
                                 FusePlay(index);
                             }
-                            RelayControlPlaySend();
+                            //RelayControlPlaySend();
+                            RelayControlPlaySendLight();
+                            RelayControlPlaySendLight();
+                            RelayControlPlaySendDoor();
                         }
                     }
                 }
@@ -3338,7 +3344,6 @@ namespace MoviePlayer
                 ChangeShowPlay();
             }
         }
-
 
         /// <summary>
         /// 显示与隐藏播放、暂停按钮
@@ -4110,13 +4115,15 @@ namespace MoviePlayer
                             {
                                 bool isConnect = TcpControlClientConnect(FuseIP, FusePort);
                                 ControlPlay(isConnect, index);
-
                             }
                             else
                             {
                                 FusePlay(index);
                             }
-                            RelayControlPlaySend();
+                            //RelayControlPlaySend();
+                            RelayControlPlaySendLight();
+                            RelayControlPlaySendLight();
+                            RelayControlPlaySendDoor();
                         }
                     }
                 }
@@ -4133,7 +4140,6 @@ namespace MoviePlayer
                             {
                                 bool isConnect = TcpControlClientConnect(FuseIP, FusePort);
                                 ControlPlayAgain(isConnect);
-
                             }
                             else
                             {
@@ -4218,6 +4224,8 @@ namespace MoviePlayer
                     UdpSend.SendReset();
                 }
             }
+
+
         }
 
         #endregion
@@ -4261,7 +4269,6 @@ namespace MoviePlayer
             //timerFilm.Tick += new EventHandler(TimerFilmTest_Tick);
             //timerFilm.Start();
         }
-
 
         /// <summary>
         /// 排片响应方法
@@ -5657,6 +5664,39 @@ namespace MoviePlayer
             }
         }
 
+        private void RelayControlPlaySendLight()
+        {
+            bool isRelayOpen;
+            if (tcpRelayControlClient != null)
+            {
+                byte[] data1 = { 0xFE, 0x05, 0x00, 0x00, 0xFF, 0x00, 0x98, 0x35 };
+                isRelayOpen = SendRelayControl(data1);
+                if (isRelayOpen)
+                {
+                    Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
+                    cbLightning.Background = brush;
+                    cbLightning.Opacity = 1;
+                }
+            }
+        }
+
+        private void RelayControlPlaySendDoor()
+        {
+            bool isRelayOpen;
+            if (tcpRelayControlClient != null)
+            {
+                //门
+                byte[] data2 = { 0xFE, 0x10, 0x00, 0x08, 0x00, 0x02, 0x04, 0x00, 0x04, 0x00, 0x0A, 0x00, 0xD8 };
+                isRelayOpen = SendRelayControl(data2);
+                if (isRelayOpen)
+                {
+                    Brush brush = new SolidColorBrush(Color.FromArgb(0xff, 0x99, 0x99, 0x99));
+                    cbDoor.Background = brush;
+                    cbDoor.Opacity = 1;
+                }
+            }
+        }
+
         /// <summary>
         /// 中控继电器停止播放电影控制的设备
         /// </summary>
@@ -5677,6 +5717,38 @@ namespace MoviePlayer
                     Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
                     cbLightning.Background = brushOn;
                     cbLightning.Opacity = 0.9;
+                    cbDoor.Background = brushOn;
+                    cbDoor.Opacity = 0.9;
+                }
+            }
+        }
+
+        private void RelayControlStopSendLight()
+        {
+            bool isRelayOpen;
+            if (tcpRelayControlClient != null)
+            {             
+                byte[] data1 = { 0xFE, 0x05, 0x00, 0x00, 0x00, 0x00, 0xD9, 0xC5 };
+                isRelayOpen = SendRelayControl(data1);
+                if (isRelayOpen)
+                {
+                    Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
+                    cbLightning.Background = brushOn;
+                    cbLightning.Opacity = 0.9;
+                }
+            }
+        }
+
+        private void RelayControlStopSendDoor()
+        {
+            bool isRelayOpen;
+            if (tcpRelayControlClient != null)
+            {                 
+                byte[] data2 = { 0xFE, 0x10, 0x00, 0x08, 0x00, 0x02, 0x04, 0x00, 0x04, 0x00, 0x0A, 0x00, 0xD8 };
+                isRelayOpen = SendRelayControl(data2);
+                if (isRelayOpen)
+                {                   
+                    Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
                     cbDoor.Background = brushOn;
                     cbDoor.Opacity = 0.9;
                 }
