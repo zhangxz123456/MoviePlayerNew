@@ -352,7 +352,6 @@ namespace MoviePlayer
         {
             InitializeComponent();      
             GetPlayerPath();
-            myUdpInit.udpInit();
             Module.GetNowTime();
             Module.readMacFile();
             Module.readUuidFile();          
@@ -378,6 +377,7 @@ namespace MoviePlayer
             NewLoaded();
             TypeShow();
             MenuModePlayTick();
+            myUdpInit.udpInit();
             MyServer();
             UDPSocketClientInit();
             SelectXmlMovie();
@@ -447,6 +447,8 @@ namespace MoviePlayer
             checkProjector6.Click += Projector_Click;
             checkProjector7.Click += Projector_Click;
             checkProjector8.Click += Projector_Click;
+
+            checkFuse.Click += CheckFuse_Click;
 
             cbDoor.Click += CbDoor_Click;
             cbLightning.Click += CbLightning_Click;
@@ -1043,8 +1045,8 @@ namespace MoviePlayer
                 Brush brushOn = new SolidColorBrush(Color.FromArgb(0xff, 0x22, 0xAC, 0x38));
                 cbLightning.Background = brushOn;
                 cbLightning.Opacity = 0.9;
-                cbDoor.Background = brushOn;
-                cbDoor.Opacity = 0.9;
+                //cbDoor.Background = brushOn;
+                //cbDoor.Opacity = 0.9;
             }
             if (PlayLanguage.Equals("CN"))
             {
@@ -1514,6 +1516,48 @@ namespace MoviePlayer
         }
 
         /// <summary>
+        /// 远程关机
+        /// </summary>
+        private void ShutDown()
+        {
+            Process commandProcess = new Process();
+            try
+            {
+                commandProcess.StartInfo.FileName = "cmd.exe";
+                commandProcess.StartInfo.UseShellExecute = false;
+                commandProcess.StartInfo.CreateNoWindow = true;
+                commandProcess.StartInfo.RedirectStandardError = true;
+                commandProcess.StartInfo.RedirectStandardInput = true;
+                commandProcess.StartInfo.RedirectStandardOutput = true;
+                commandProcess.Start();
+                string s = "shutdown /s /m" + " " + FuseIP + " /t 5 /f";
+                commandProcess.StandardInput.WriteLine(s);
+                commandProcess.StandardInput.WriteLine("exit");
+                for (; !commandProcess.HasExited;)//等待cmd命令运行完毕
+                {
+                    System.Threading.Thread.Sleep(1);
+                }
+                //错误输出
+                string tmpout = commandProcess.StandardError.ReadToEnd();
+                string tmpout1 = commandProcess.StandardOutput.ReadToEnd();
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show(e.Message);
+                Module.WriteLogFile(e.Message);
+            }
+            finally
+            {
+                if (commandProcess != null)
+                {
+                    commandProcess.Dispose();
+                    commandProcess = null;
+                }
+            }
+
+        }
+
+        /// <summary>
         /// 显示软件版本信息以及公司信息
         /// </summary>
         private void changeWinVersionLanguage()
@@ -1524,7 +1568,7 @@ namespace MoviePlayer
                               "网址：www.shuqee.cn \r\n" +
                               "电话：020 34885536  \r\n" +
                               "地址：广州市番禺区石基镇市莲路富城工业园3号楼 \r\n" +
-                              "邮箱：shueee@shuqee.com \r\n" +
+                              "邮箱：shuqee@shuqee.com \r\n" +
                               "软件归广州数祺数字科技有限公司版权所有， 任何单位和个人不得复制本程序! \r\n\r\n" +
                               "软件类型：" + MainWindow.PlayType + "\r\n" +
                               "软件语言：" + MainWindow.PlayLanguage + "\r\n" +
@@ -1534,8 +1578,9 @@ namespace MoviePlayer
                 txtUpdate.Text =
                            "shuqee版本更新信息：\r\n" +
                            "                   V7.1.8 \r\n" +
-                           "更新日期：2019/11/26 \r\n" +
+                           "更新日期：2020/3/11 \r\n" +
                            "更新内容：增加对中继继电器模块控制 \r\n" +
+                           "               整合将所有数据文件 \r\n" +
                            "/**************************************/ \r\n" +
                            "shuqee版本更新信息：\r\n" +
                            "                   V7.1.7 \r\n" +
@@ -1598,7 +1643,7 @@ namespace MoviePlayer
                                "Website：www.shuqee.com \r\n" +
                                "Telephone：0086 020-34885536 \r\n" +
                                "Address：Bldg 3.Fucheng industrial park,shilian road,shiji village,shiji town,panyu district,guangzhou,CN.\r\n" +
-                               "Email：shueee@shuqee.com \r\n" +
+                               "Email：shuqee@shuqee.com \r\n" +
                                "      Copyright by Guangzhou Shuqee Digital Tech. Co., Ltd. Any company or personal can not copy this software! \r\n\r\n" +
                                "Software Type: " + MainWindow.PlayType + "\r\n" +
                                "Software Language: " + MainWindow.PlayLanguage + "\r\n" +
@@ -1608,8 +1653,9 @@ namespace MoviePlayer
                 txtUpdate.Text =
                            "Shuqee Version Update Information：\r\n" +
                           "                   V7.1.8 \r\n" +
-                          "Updated Date：2019/11/26 \r\n" +
+                          "Updated Date：2020/3/11 \r\n" +
                           "Updated Content：Add the Delay Module \r\n" +
+                          "                            Put All data file together \r\n" +
                           "/**************************************/ \r\n" +
                           "Shuqee Version Update Information：\r\n" +
                           "                   V7.1.7 \r\n" +
@@ -2630,6 +2676,30 @@ namespace MoviePlayer
                 curMac = "TRUE";
             }
         }
+
+        private void CheckFuse_Click(object sender, RoutedEventArgs e)
+        {
+            if (checkFuse.IsChecked == false)
+            {
+                MessageBoxResult dr;
+                if (PlayLanguage.Equals("CN"))
+                {
+                    dr = MessageBox.Show("确定关闭融合主机吗?", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                else
+                {
+                    dr = MessageBox.Show("Are you sure to close fuse host?", "Tips", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                }
+                if (dr == MessageBoxResult.OK)
+                {
+                    ShutDown();
+                }
+                else
+                {
+                    checkFuse.IsChecked = true;
+                }
+            }
+        }
         #endregion
 
         #region 播放窗体
@@ -3243,7 +3313,7 @@ namespace MoviePlayer
                             //RelayControlPlaySend();
                             RelayControlPlaySendLight();
                             RelayControlPlaySendLight();
-                            RelayControlPlaySendDoor();
+                           // RelayControlPlaySendDoor();
                         }
                     }
                 }
@@ -4123,7 +4193,7 @@ namespace MoviePlayer
                             //RelayControlPlaySend();
                             RelayControlPlaySendLight();
                             RelayControlPlaySendLight();
-                            RelayControlPlaySendDoor();
+                            //RelayControlPlaySendDoor();
                         }
                     }
                 }
@@ -4758,7 +4828,6 @@ namespace MoviePlayer
             }
         }
 
-
         private void CheckProjector_Click(object sender, RoutedEventArgs e)
         {
             CheckBox checkbox = sender as CheckBox;
@@ -4880,7 +4949,6 @@ namespace MoviePlayer
             thAll.Start();
           
         }
-
 
         private bool TcpClientConnect(string ip, string port,int index)
         {
@@ -5573,8 +5641,8 @@ namespace MoviePlayer
                     cbRadiotube.Opacity = 0.9;
                     cbLightning.Background = brushOn;
                     cbLightning.Opacity = 0.9;
-                    cbDoor.Background = brushOn;
-                    cbDoor.Opacity = 0.9;
+                   // cbDoor.Background = brushOn;
+                   // cbDoor.Opacity = 0.9;
                 }
             }
         }
@@ -5768,6 +5836,9 @@ namespace MoviePlayer
                     // {
                     byte[] data1 = { 0xFE, 0x0F, 0x00, 0x00, 0x00, 0x08, 0x01, 0x00, 0xB1, 0x91 };
                     SendRelayControl(data1);
+
+                    byte[] data2 = { 0xFE, 0x10, 0x00, 0x0D, 0x00, 0x02, 0x04, 0x00, 0x04, 0x00, 0x0A, 0xC0, 0xE7 };
+                    SendRelayControl(data2);
                     // }
                 }
             }

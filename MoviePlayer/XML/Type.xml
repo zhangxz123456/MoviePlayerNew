@@ -48,7 +48,7 @@
     <Port>1067</Port>
   </Projector8>
   <DelayModule>
-    <IPDelay>192.168.1.109</IPDelay>
+    <IPDelay>192.168.0.232</IPDelay>
     <PortDelay>10000</PortDelay>
   </DelayModule>
   <FuseModule>

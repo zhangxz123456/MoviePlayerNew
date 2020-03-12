@@ -65,10 +65,12 @@
     
     <!--控制台-->
     <sys:String x:Key="txtProjector">投影机</sys:String>
+    <sys:String x:Key="txtFuse">融合主机</sys:String>
     <sys:String x:Key="txtCompressor">空压机</sys:String>
     <sys:String x:Key="txtDoor">影厅门</sys:String>
     <sys:String x:Key="txtLamp">场灯</sys:String>
     <sys:String x:Key="txtManual">手动开关</sys:String>
+    <sys:String x:Key="txtSwitch">开关</sys:String>
     <sys:String x:Key="txtAutomatic">总开关</sys:String>
     <sys:String x:Key="labProjectorCount">控制投影机总数</sys:String>
 

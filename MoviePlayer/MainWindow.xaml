@@ -1045,6 +1045,7 @@
                 <Grid x:Name="gridProjector" Margin="-1,0,0,0"  Background="#FF737373">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
                         <RowDefinition Height="50"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
@@ -1061,7 +1062,7 @@
                     </Grid.ColumnDefinitions>
                     <Grid Background="#FF878787" Grid.ColumnSpan="9">
                     </Grid>
-                    <Grid Grid.Column="0" Grid.Row="0" >
+                    <Grid Grid.Column="0" Grid.Row="1" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
@@ -1069,7 +1070,7 @@
                         <Image Source="Resources/Icon_Projector.png" Height="20" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="0,5,7,5" ></Image>
                         <TextBlock Name="txtProjector" Text="{DynamicResource txtProjector}" Foreground="White" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" />
                     </Grid>
-                    <Grid Grid.Column="8" Grid.Row="0" >
+                    <Grid Grid.Column="8" Grid.Row="1" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
@@ -1077,7 +1078,23 @@
                         <TextBlock Text="{DynamicResource txtAutomatic}" Foreground="White" Grid.Row="0"  Grid.Column="0" VerticalAlignment="Center"/>
                         <CheckBox Name="checkProjectorAll" Style="{DynamicResource SliderCheckBox}" Grid.Row="0" Grid.Column="1"  VerticalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" />
                     </Grid>
-                    <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                    <Grid Grid.Column="0" Grid.Row="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="Resources/Icon_Fuse.png" Height="20" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="0,5,7,5" ></Image>
+                        <TextBlock Name="txtFuse" Text="{DynamicResource txtFuse}" Foreground="White" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" />
+                    </Grid>
+                    <Grid Grid.Column="8" Grid.Row="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{DynamicResource txtSwitch}" Foreground="White" Grid.Row="0"  Grid.Column="0" VerticalAlignment="Center"/>
+                        <CheckBox Name="checkFuse" Style="{DynamicResource SliderCheckBox}" Grid.Row="0" Grid.Column="1"  VerticalAlignment="Center" IsChecked="True" />
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.ColumnSpan="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
@@ -1092,7 +1109,7 @@
                             </TextBox.Resources>
                         </TextBox>
                     </Grid>
-                    <Grid Margin="0,0,0,0" Grid.Row="2" Background="#FF737373" Grid.Column="1" >
+                    <Grid Margin="0,0,0,0" Grid.Row="3" Background="#FF737373" Grid.Column="1" >
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition Height="100"/>
@@ -1107,7 +1124,7 @@
                         <Image Source="Resources/Image_Projector.png" Grid.Row="4"  />
                         <CheckBox Name="checkProjector5" Style="{DynamicResource SliderCheckBox}" Grid.Row="5"  VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" Tag="5" />
                     </Grid>
-                    <Grid  Margin="0,0,0,0" Grid.Row="2" Grid.Column="3" Background="#FF737373"  >
+                    <Grid  Margin="0,0,0,0" Grid.Row="3" Grid.Column="3" Background="#FF737373"  >
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition Height="100"/>
@@ -1122,7 +1139,7 @@
                         <Image Source="Resources/Image_Projector.png" Grid.Row="4"  />
                         <CheckBox Name="checkProjector6" Style="{DynamicResource SliderCheckBox}" Grid.Row="5"  IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}"   VerticalAlignment="Center" HorizontalAlignment="Center" Tag="6" />
                     </Grid>
-                    <Grid  Margin="0,0,0,0" Grid.Row="2" Background="#FF737373" Grid.Column="5" >
+                    <Grid  Margin="0,0,0,0" Grid.Row="3" Background="#FF737373" Grid.Column="5" >
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition Height="100"/>
@@ -1137,7 +1154,7 @@
                         <Image Source="Resources/Image_Projector.png" Grid.Row="4" />
                         <CheckBox Name="checkProjector7" Style="{DynamicResource SliderCheckBox}" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WindowsAutomatically, Mode=TwoWay}" Tag="7" />
                     </Grid>
-                    <Grid  Margin="0,0,0,0" Grid.Row="2" Grid.Column="7" Background="#FF737373"  >
+                    <Grid  Margin="0,0,0,0" Grid.Row="3" Grid.Column="7" Background="#FF737373"  >
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition Height="100"/>

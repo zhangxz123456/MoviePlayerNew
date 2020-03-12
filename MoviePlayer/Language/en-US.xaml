@@ -64,11 +64,13 @@
 
     <!--控制台-->
     <sys:String x:Key="txtProjector">Projector</sys:String>
+    <sys:String x:Key="txtFuse">Fuse Host</sys:String>
     <sys:String x:Key="txtCompressor">Compressor</sys:String>
     <sys:String x:Key="txtDoor">Door</sys:String>
     <sys:String x:Key="txtLamp">Lamp</sys:String>
     <sys:String x:Key="txtManual">Manual</sys:String>
     <sys:String x:Key="txtAutomatic">All</sys:String>
+    <sys:String x:Key="txtSwitch">Switch</sys:String>
     <sys:String x:Key="labProjectorCount">ProjectorCount</sys:String>
 
 

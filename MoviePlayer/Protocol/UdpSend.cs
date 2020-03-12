@@ -539,10 +539,13 @@ namespace MoviePlayer.Protocol
             {
                 dmxLen = 0;
                 byte[] dataDmxLen = new byte[8];
-                for (int ii = 0; ii < 8; ii++)
+                if (Module.dmx512File.Length!=0)
                 {
-                    dmxLen += Module.dmx512File[ii];
-                    dataDmxLen[ii] = Module.dmx512File[ii];
+                    for (int ii = 0; ii < 8; ii++)
+                    {
+                        dmxLen += Module.dmx512File[ii];
+                        dataDmxLen[ii] = Module.dmx512File[ii];
+                    }
                 }
                 byte[] dataDmx = new byte[dmxLen];
                 if (((int)(pos / 50) + 1) * dmxLen < Module.dmx512File.Length)

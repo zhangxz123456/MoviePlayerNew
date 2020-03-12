@@ -65,22 +65,27 @@ namespace MoviePlayer.Protocol
                 //MessageBox.Show("Network ports are occupied");
                 //System.Environment.Exit(0);
             }
+            uint IOC_IN = 0x80000000;
+            uint IOC_VENDOR = 0x18000000;
+            uint SIO_UDP_CONNRESET = IOC_IN | IOC_VENDOR | 12;
+            mySocket.IOControl((int)SIO_UDP_CONNRESET, new byte[] { Convert.ToByte(false) }, null);
 
-            //设置广播地址
-            ip = IPAddress.Broadcast;
-            port = 1030;                                             //中控板端口
-            IPEndPoint ipep = new IPEndPoint(ip, port);
-            BroadcastRemotePoint = (EndPoint)(ipep);
-            //设置客户机IP，默认为广播地址
-            RemotePoint = (EndPoint)(ipep);
-            //允许广播
-            mySocket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, 1);
-
+            if (MainWindow.PlayMac != "TRUE")
+            {
+                //设置广播地址
+                ip = IPAddress.Broadcast;
+                port = 1030;                                             //中控板端口
+                IPEndPoint ipep = new IPEndPoint(ip, port);
+                BroadcastRemotePoint = (EndPoint)(ipep);
+                //设置客户机IP，默认为广播地址
+                RemotePoint = (EndPoint)(ipep);
+                //允许广播
+                mySocket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, 1);
+            }
             //portBox = 7408;                                          //驱动器端口
             //IPEndPoint ipepBox = new IPEndPoint(ip,portBox);
             //RemotePointBox = (EndPoint)(ipepBox);
-            //mySocketBox.SetSocketOption(SocketOptionLevel.Socket,SocketOptionName.Broadcast,1);
-
+            //mySocketBox.SetSocketOption(SocketOptionLevel.Socket,SocketOptionName.Broadcast,1);       
             UdpConnect myUdpConnect = new UdpConnect();
         }
    

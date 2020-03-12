@@ -308,6 +308,7 @@
     <Resource Include="Resources\Icon_RadiotubeLittle.png" />
     <Resource Include="Resources\Icon_Red.png" />
     <Resource Include="Resources\Icon_Delay.png" />
+    <Resource Include="Resources\Icon_Fuse.png" />
     <Content Include="Resources\Icon_VibrationCheck.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

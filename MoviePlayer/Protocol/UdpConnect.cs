@@ -58,9 +58,21 @@ namespace MoviePlayer.Protocol
                 if (flagValue == false)
                 {
                     data = ModbusUdp.MBReqConnect();
-                    UdpSend.UdpSendData(data, data.Length, UdpInit.BroadcastRemotePoint);
-                    Debug.WriteLine("Search server");
-                    Debug.WriteLine("连接" + data);
+                    if (MainWindow.PlayMac.Equals("TRUE"))
+                    {
+                        IPAddress ip = IPAddress.Parse(Module.macFile[1]);
+                        IPEndPoint ipep = new IPEndPoint(ip, 1030);
+                        UdpInit.RemotePoint = (EndPoint)(ipep);                       
+                        isMac = true;
+                        //flagValue = true;                  
+                        //UdpSend.flagSend = (byte)ModbusUdp.MBFunctionCode.GetId;
+                        UdpSend.UdpSendData(data, data.Length, UdpInit.RemotePoint);
+                    }
+                    else
+                    {
+                        UdpSend.UdpSendData(data, data.Length, UdpInit.BroadcastRemotePoint);
+                    }
+                    Debug.WriteLine("寻找服务器" + data);
                     //Module.WriteLogFile("重新连接");
                 }
 
@@ -78,7 +90,8 @@ namespace MoviePlayer.Protocol
                     if (monitorTickTimeOut == 5)     //计时超过5秒，重新连接
                     {
                         flagValue = false;
-                        connectFlag = false;
+                        //取消测试
+                        //connectFlag = false;
                         monitorTick = 0;
                         monitorTickRx = 0;
                         monitorTickTimeOut = 0;
@@ -288,7 +301,7 @@ namespace MoviePlayer.Protocol
                 valDate = redate;
                 //获取储存在芯片的当前时间
                 string yearWrite;
-                if (RecData[10] > 9)
+                if (RecData[10] > 9) 
                 {
                     yearWrite = "20" + RecData[10];
                 }
@@ -381,15 +394,17 @@ namespace MoviePlayer.Protocol
                 if (RecData[0] == 0 && RecData[1] == 0 && RecData[2] == 0x01 && RecData[3] == 0x41)
                 {
                     IPEndPoint i = (IPEndPoint)(UdpInit.RemotePoint);
+                    string s2 = UdpInit.RemotePoint.ToString();
                     string ss = i.Address.ToString();
                     string s1 = GetMacAddress(ss);
                     //Debug.WriteLine(s1);
                     if (MainWindow.PlayMac.Equals("TRUE"))
                     {
-                        if (s1.Equals(Module.macFile))
+                        if (s1.Equals(Module.macFile[0]))
                         {
-                            UdpInit.ipepBingding = new IPEndPoint(i.Address, 1032);
-                            isMac = true;
+                            IPAddress ip = IPAddress.Parse(Module.macFile[1]);
+                            IPEndPoint ipep = new IPEndPoint(ip, 1031);
+                            UdpInit.RemotePoint = (EndPoint)(ipep);
                             flagValue = true;
                             //要发送数据格式
                             UdpSend.flagSend = (byte)ModbusUdp.MBFunctionCode.GetId;
@@ -397,7 +412,11 @@ namespace MoviePlayer.Protocol
                     }
                     else
                     {
-                        File.WriteAllText(Directory.GetCurrentDirectory() + @"\shuqeeMac.bin", s1);
+                        //File.WriteAllText(Directory.GetCurrentDirectory() + @"\shuqeeMac.bin", s1);
+                        StreamWriter sw = new StreamWriter(Directory.GetCurrentDirectory() + @"\shuqeeMac.bin", false, System.Text.Encoding.Default);
+                        sw.WriteLine(s1);
+                        sw.WriteLine(ss);
+                        sw.Close();
                         flagValue = true;
                         //要发送数据格式
                         UdpSend.flagSend = (byte)ModbusUdp.MBFunctionCode.GetId;
@@ -441,12 +460,14 @@ namespace MoviePlayer.Protocol
                 try
                 {
                     int rlen;
+                    //这段代码需要测试
                     if (isMac == false)
                     {
                         rlen = UdpInit.mySocket.ReceiveFrom(data, ref UdpInit.RemotePoint);
                     }
                     else
                     {
+                        Thread.Sleep(50);
                         rlen = UdpInit.mySocket.Receive(data);
                     }
                     ReceiveCallback tx = SetReceiveData;
