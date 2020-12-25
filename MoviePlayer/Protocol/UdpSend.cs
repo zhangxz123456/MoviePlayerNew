@@ -25,7 +25,7 @@ namespace MoviePlayer.Protocol
         public static int timeCodeTemp;
         public static bool movieStop;
         public static byte dataLight;
-
+        public static int iii = 0;
         public UdpSend()
         {
             Thread ThreadUdpSend = new Thread(new ThreadStart(Send));
@@ -149,7 +149,7 @@ namespace MoviePlayer.Protocol
             }
 
             array = ModbusUdp.ArrayAdd(addr, len, data);
-            Data = ModbusUdp.MBReqWrite(array);
+            Data = ModbusUdp.MBReqSend_Data(array);
 
             UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
             timeCodeTemp = num1;
@@ -238,7 +238,7 @@ namespace MoviePlayer.Protocol
             }
 
             array = ModbusUdp.ArrayAdd(addr, len, data);
-            Data = ModbusUdp.MBReqWrite(array);
+            Data = ModbusUdp.MBReqSend_Data(array);
 
             UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
             timeCodeTemp = num1;
@@ -388,7 +388,7 @@ namespace MoviePlayer.Protocol
            
 
             array = ModbusUdp.ArrayAdd(addr, len, data);
-            Data = ModbusUdp.MBReqWrite(array);
+            Data = ModbusUdp.MBReqSend_Data(array);
             UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
         }
 
@@ -535,6 +535,21 @@ namespace MoviePlayer.Protocol
                 Debug.WriteLine(e.Message);
             }
 
+            //测试选座
+            //if (MainWindow.imageArray.Count == 0)
+            //{
+            //    data[9] = 0;
+            //}
+            //else
+            //{
+            //    data[9] = (byte)MainWindow.imageArray[iii];
+            //}
+            //iii = iii + 1;
+            //if (iii >= MainWindow.imageArray.Count)
+            //{
+            //    iii = 0;
+            //}
+
             if (Module.dmx512File != null)
             {
                 dmxLen = 0;
@@ -563,7 +578,7 @@ namespace MoviePlayer.Protocol
                 dataDmx.CopyTo(data, 20);
             }
             array = ModbusUdp.ArrayAdd(addr, len, data);
-            Data = ModbusUdp.MBReqWrite(array);
+            Data = ModbusUdp.MBReqSend_Data(array);
             UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
         }
 
@@ -605,10 +620,9 @@ namespace MoviePlayer.Protocol
                 data[8] = 1;
             }
             array = ModbusUdp.ArrayAdd(addr, len, data);
-            Data = ModbusUdp.MBReqWrite(array);
+            Data = ModbusUdp.MBReqSend_Data(array);
             UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
         }
-
 
         /// <summary>
         /// 影片结束发送复位指令
@@ -625,7 +639,7 @@ namespace MoviePlayer.Protocol
             len = 10;
             data = new byte[len];
             array = ModbusUdp.ArrayAdd(addr, len, data);
-            Data = ModbusUdp.MBReqWrite(array);
+            Data = ModbusUdp.MBReqSend_Data(array);
             UdpSendData(Data, Data.Length, UdpInit.RemotePoint);
         }
 

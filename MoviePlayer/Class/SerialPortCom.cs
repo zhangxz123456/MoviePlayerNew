@@ -71,7 +71,7 @@ namespace MoviePlayer.Class
             }
             Sp_com.Write(strResult);
             Console.Write(strResult);
-       }
+        }
 
     }
 }

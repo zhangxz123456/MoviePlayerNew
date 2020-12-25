@@ -94,15 +94,15 @@ namespace MoviePlayer.TCPServer
                 }
                 else
                 {
-                    if(count==5)
+                    if (count == 5)
                     {
-                        if(buffer[0]==0xff && buffer[1]==0x30 && buffer[2] == 0x4a)
+                        if (buffer[0] == 0xff && buffer[1] == 0x30 && buffer[2] == 0x4a)
                         {
                             string index = buffer[3].ToString();
-                            MessageBox.Show("播放第" + index + "部电影");                            
+                            MessageBox.Show("播放第" + index + "部电影");
                         }
                     }
-                    if(count==4)
+                    if (count == 4)
                     {
                         if (buffer[0] == 0xff && buffer[1] == 0x31 && buffer[2] == 0x4b)
                         {
@@ -120,7 +120,7 @@ namespace MoviePlayer.TCPServer
                             MessageBox.Show("恢复播放状态");
                         }
                     }
-                    
+
                 }
             }
         }

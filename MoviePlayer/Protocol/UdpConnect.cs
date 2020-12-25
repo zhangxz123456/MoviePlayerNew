@@ -168,7 +168,11 @@ namespace MoviePlayer.Protocol
             //byte[] realData;
             //realData = new byte[10];
             Array.Copy(data, 0, RecData, 0, rlen);
-            
+           
+            if (data[0]==0xff && data[1]==0x68 && data[2]==0 && data[3]==0x0A)
+            {
+
+            }
             //Module.controlCommand = System.Text.Encoding.Default.GetString(RecData);
             //Module.WriteLogFile(Module.controlCommand +"    Len:"+ Module.controlCommand.Length);
             //string str = System.Text.Encoding.ASCII.GetString(RecData);

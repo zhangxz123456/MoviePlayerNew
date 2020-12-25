@@ -45,11 +45,19 @@ namespace MoviePlayer.Protocol
             return GetADU((byte)MBAddress.Reserve, GetPDU((byte)MBFunctionCode.GetId, Data));
         }
 
-        public static byte[] MBReqWrite(byte[] Data)
+        public static byte[] MBReqSend_Data(byte[] Data)
         {
             //return GetADU((byte)MBAddress.Reserve, GetPDU((byte)MBFunctionCode.Write, Data));
 
             return GetADU((byte)MBAddress.Broadcast, GetPDU((byte)MBFunctionCode.Write, Data));
+        }
+
+        //发送到驱动器
+        public static byte[] MBReqSend_Data(byte data,byte[] Data)
+        {
+            //return GetADU((byte)MBAddress.Reserve, GetPDU((byte)MBFunctionCode.Write, Data));
+
+            return GetADU(data, GetPDU((byte)MBFunctionCode.Send_Data, Data));
         }
 
         public static byte[] MBRsp(byte[] Adu)
@@ -104,6 +112,7 @@ namespace MoviePlayer.Protocol
             WriteChip = 105,
             GetId = 106,
             GetTimeCode = 107,
+            Send_Data = 109,
             Control = 200,
         }
 
@@ -335,6 +344,17 @@ namespace MoviePlayer.Protocol
             ADU[1 + PDU.Length] = (byte)Crc16;
             ADU[1 + PDU.Length + 1] = (byte)(Crc16 >> 8);
             return ADU;
+        }
+
+        public static byte[] GetCRC(byte[] data)
+        {
+            ushort Crc16;
+            byte[] CRC = new byte[data.Length + 2];
+            Array.Copy(data, 0, CRC, 0, data.Length);
+            Crc16 = CRC16.Get(CRC, (CRC.Length-2));
+            CRC[data.Length] = (byte)Crc16;
+            CRC[1 + data.Length ] = (byte)(Crc16 >> 8);
+            return CRC;
         }
 
         public static byte[] GetConnectFrame(byte Address, byte FunctionCode, byte[] Data)

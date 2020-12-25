@@ -8,11 +8,13 @@
     <sys:String x:Key="txtUpdateLog">更新日志</sys:String>
     <sys:String x:Key="txtAboutUs">关于我们</sys:String>
     <sys:String x:Key="txtParamSet">参数设置</sys:String>
+    <sys:String x:Key="txtUserSet">用户设置</sys:String>
     <sys:String x:Key="txtProjectorSet">投影机设置</sys:String>
     <sys:String x:Key="txtModuleSet">模块设置</sys:String>
     <sys:String x:Key="labDelay">继电器模块</sys:String>
+    <sys:String x:Key="txtSeatSet">座椅控制</sys:String>
     <sys:String x:Key="labParam">参数设置</sys:String>
-    <sys:String x:Key="labFuse">融合软件</sys:String>
+    <sys:String x:Key="labFuse">远程服务器</sys:String>
     <sys:String x:Key="labCommunicationMode">通讯模式</sys:String>
     <sys:String x:Key="txtEvEffect">环境特效</sys:String>
     <sys:String x:Key="txtChairEffect">座椅特效</sys:String>
@@ -123,6 +125,11 @@
     <sys:String x:Key="labProjector8">投影机8</sys:String>
     <sys:String x:Key="labProjectorIp">IP地址</sys:String>
     <sys:String x:Key="labProjectorPort">端口号</sys:String>
+    <sys:String x:Key="labInstructionCode">指令代码</sys:String>
+    <sys:String x:Key="labPlay">播放</sys:String>
+    <sys:String x:Key="labPause">暂停</sys:String>
+    <sys:String x:Key="labStop">停止</sys:String>
+    <sys:String x:Key="labResumePlay">恢复播放</sys:String>
 
     <sys:String x:Key="btnDefault">恢复默认</sys:String>
     <sys:String x:Key="btnConfirm">确定</sys:String>
@@ -155,6 +162,7 @@
     <sys:String x:Key="tipsTest">调试</sys:String>
     <sys:String x:Key="tipsRowPiece">排片</sys:String>
     <sys:String x:Key="tipsControl">控制台</sys:String>
+    <sys:String x:Key="tipsState">座椅状态</sys:String>
     <sys:String x:Key="tipsAbout">关于</sys:String>
     <sys:String x:Key="tipsSetting">设置</sys:String>
 

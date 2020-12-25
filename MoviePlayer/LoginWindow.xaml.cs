@@ -24,7 +24,7 @@ namespace MoviePlayer
             InitializeComponent();
             this.Closed += LoginWindow_Closed;
         }
-
+        
         private void LoginWindow_Closed(object sender, EventArgs e)
         {
             
@@ -33,15 +33,28 @@ namespace MoviePlayer
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string s = txtPassWord.Password;
-            if (txtUserName.Text.Equals("shuqee") && s == "shuqee2019")
+            if (txtUserName.Text.Equals("user") && s == "shuqee2019")
             {
+                MainWindow.isLogin = true;
+                this.Close();
+            }
+            else if(txtUserName.Text.Equals("shuqee") && s == "shuqee2020")
+            {
+                MainWindow.isLoginAdmin = true;
                 MainWindow.isLogin = true;
                 this.Close();
             }
             else
             {
-                MessageBox.Show("用户名或密码错误");
-            }
+                if (MainWindow.PlayLanguage.Equals("CN"))
+                {
+                    MessageBox.Show("用户名或密码错误");
+                }
+                else
+                {
+                    MessageBox.Show("UserName or Password Wrong");
+                }
+            }           
         }
 
 

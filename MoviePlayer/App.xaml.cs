@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using MoviePlayer.Class;
+using MoviePlayer.Protocol;
 
 namespace MoviePlayer
 {
@@ -32,8 +34,22 @@ namespace MoviePlayer
             {
                 Exception ex = (System.Exception)e.ExceptionObject;
                 //MessageBox.Show(ex.Message);
+                
                 Module.WriteLogFile(ex.Message);
+
+                int intNow = Module.ConvertDateTimeInt(DateTime.Now);
+                string checkSql = string.Format("select * from hallstatus_table where McuId='{0}';", UdpConnect.uuid);
+                if (MySqlHelpFun.GetSqlRead(checkSql))
+                {
+                    string sql = string.Format("update hallstatus_table set ErrLogCode='{0}',ErrDesc='{1}',UpdateTime={2},DelFlag={3} where McuId='{4}';", "E S1", ex.Message, intNow, 0, UdpConnect.uuid);
+                    MySqlHelpFun.GetSqlCom(sql);
+                }
+                else
+                {                    
+                    MySqlHelpFun.GetSqlCom("insert into hallstatus_table(McuId,ErrLogCode,ErrDesc,UpdateTime,DelFlag) values" + "('" + UdpConnect.uuid + "','" + "E S1','"+ ex.Message +"',"+ intNow + ",0)");
+                }
             }
+
         }
         void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {

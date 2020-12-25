@@ -8,11 +8,13 @@
     <sys:String x:Key="txtUpdateLog">Udate Log</sys:String>
     <sys:String x:Key="txtAboutUs">AboutUS</sys:String>
     <sys:String x:Key="txtParamSet">Parameters</sys:String>
+    <sys:String x:Key="txtUserSet">UserSet</sys:String>
     <sys:String x:Key="txtProjectorSet">ProjectorSet</sys:String>
     <sys:String x:Key="txtModuleSet">DelayModuleSet</sys:String>
+    <sys:String x:Key="txtSeatSet">SeatControl</sys:String>
     <sys:String x:Key="labDelay">DelayModule</sys:String>
     <sys:String x:Key="labParam">Parameters</sys:String>
-    <sys:String x:Key="labFuse">FuseSoftware</sys:String>
+    <sys:String x:Key="labFuse">RemoteServer</sys:String>
     <sys:String x:Key="labCommunicationMode">Protocol</sys:String>
     <sys:String x:Key="txtEvEffect">EvEffect</sys:String>
     <sys:String x:Key="txtChairEffect">ChairEffect</sys:String>
@@ -120,6 +122,12 @@
     <sys:String x:Key="labProjector8">Projector8</sys:String>
     <sys:String x:Key="labProjectorIp">IpAddress</sys:String>
     <sys:String x:Key="labProjectorPort">Port</sys:String>
+
+    <sys:String x:Key="labInstructionCode">InstructionCode</sys:String>
+    <sys:String x:Key="labPlay">Play</sys:String>
+    <sys:String x:Key="labPause">Pause</sys:String>
+    <sys:String x:Key="labStop">Stop</sys:String>
+    <sys:String x:Key="labResumePlay">ResumePlay</sys:String>
 
 
     <!--注册窗体-->

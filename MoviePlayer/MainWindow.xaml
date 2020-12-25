@@ -31,6 +31,7 @@
                 <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="50"></RowDefinition>
             </Grid.RowDefinitions>
@@ -38,8 +39,9 @@
             <RadioButton Name="rb2" Style="{DynamicResource RadioButtonStyle2}" Grid.Row="1" Tag="2" ToolTip="{DynamicResource tipsTest}"></RadioButton>
             <RadioButton Name="rb3" Style="{DynamicResource RadioButtonStyle3}" Grid.Row="2" Tag="3" ToolTip="{DynamicResource tipsRowPiece}" Height="50" VerticalAlignment="Top"></RadioButton>
             <RadioButton Name="rb4" Style="{DynamicResource RadioButtonStyle4}" Grid.Row="3" Tag="4" ToolTip="{DynamicResource tipsControl}"></RadioButton>
-            <RadioButton Name="rb5" Style="{DynamicResource RadioButtonStyle5}" Grid.Row="4" Tag="5" ToolTip="{DynamicResource tipsAbout}"></RadioButton>
-            <RadioButton Name="rb6" Style="{DynamicResource RadioButtonStyle6}" Grid.Row="6" Tag="6" ToolTip="{DynamicResource tipsSetting}"></RadioButton>
+            <RadioButton Name="rb5" Style="{DynamicResource RadioButtonStyle5}" Grid.Row="4" Tag="5" ToolTip="{DynamicResource tipsState}"></RadioButton>
+            <RadioButton Name="rb6" Style="{DynamicResource RadioButtonStyle6}" Grid.Row="5" Tag="6" ToolTip="{DynamicResource tipsAbout}"></RadioButton>
+            <RadioButton Name="rb7" Style="{DynamicResource RadioButtonStyle7}" Grid.Row="7" Tag="7" ToolTip="{DynamicResource tipsSetting}"></RadioButton>
         </Grid>
         <!--播放操作栏-->
         <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Background="#4C4C4C">
@@ -179,6 +181,7 @@
                         <RowDefinition Height="30"></RowDefinition>
                         <RowDefinition Height="30"></RowDefinition>
                         <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <!--语言-->
@@ -207,19 +210,31 @@
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button Name="btnProjectorSet" Tag="3"  Background="#FF545454" Style="{DynamicResource ButtonStyle1}" Grid.Row="2">
+                    <Button Name="btnUserSet" Tag="3"  Background="#FF545454" Style="{DynamicResource ButtonStyle1}" Grid.Row="2">
+                        <Button.Content>
+                            <Grid Width="149" x:Name="btnUserSetGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition MaxWidth="30"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="Resources/Icon_UserSet.png" Grid.Column="0" Margin="0,5,0,5" MaxHeight="17"></Image>
+                                <TextBlock Name="txtUserSet" Text="{DynamicResource txtUserSet}" Foreground="White" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+                    <Button Name="btnProjectorSet" Tag="4"  Background="#FF545454" Style="{DynamicResource ButtonStyle1}" Grid.Row="3">
                         <Button.Content>
                             <Grid Width="149" x:Name="btnProjectorSetGrid">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition MaxWidth="30"></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Image Source="Resources/Icon_Projector.png" Grid.Column="0" Margin="0,5,0,5" MaxHeight="17"></Image>
+                                <Image Source="Resources/Icon_ProjectorSet.png" Grid.Column="0" Margin="0,5,0,5" MaxHeight="17"></Image>
                                 <TextBlock Name="txtProjectorSet" Text="{DynamicResource txtProjectorSet}" Foreground="White" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button Name="btnDelaySet" Tag="4"  Background="#FF545454" Style="{DynamicResource ButtonStyle1}" Grid.Row="3">
+                    <Button Name="btnDelaySet" Tag="5"  Background="#FF545454" Style="{DynamicResource ButtonStyle1}" Grid.Row="4">
                         <Button.Content>
                             <Grid Width="149" x:Name="btnDelaySetGrid">
                                 <Grid.ColumnDefinitions>
@@ -231,6 +246,18 @@
                             </Grid>
                         </Button.Content>
                     </Button>
+                    <!--<Button Name="btnSeatSet" Tag="5"  Background="#FF545454" Style="{DynamicResource ButtonStyle1}" Grid.Row="4">
+                        <Button.Content>
+                            <Grid Width="149" x:Name="btnSeatSetGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition MaxWidth="30"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="Resources/Icon_Delay.png" Grid.Column="0" Margin="0,5,0,5" MaxHeight="17"></Image>
+                                <TextBlock Name="txtSeatSet" Text="{DynamicResource txtSeatSet}" Foreground="White" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+                            </Grid>
+                        </Button.Content>
+                    </Button>-->
                 </Grid>
             </TabItem>
         </TabControl>
@@ -1424,6 +1451,100 @@
                     </Grid>
                 </Grid>
             </TabItem>-->
+            <TabItem Name="tabItemFC7" Style="{DynamicResource TabItemStyle2}">
+                <!--<TabControl Name="tabControlSeatState" Background="#FF737373" Style="{DynamicResource TabControlStyle2}">-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80" />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="100" />
+
+                    </Grid.ColumnDefinitions>
+
+
+                    <!--<Image Grid.Column="2" Source="/Resources/Icon_SeatStart.png" Margin="10,31,47,24" />
+                    <Label Grid.Column="2" Content="初始状态" Grid.ColumnSpan="2" Margin="63,31,83,24" RenderTransformOrigin="0.556,-0.12" />
+                    <Image Grid.Column="3" Source="/Resources/Icon_SeatConnect.png" Margin="37,31,29,24" RenderTransformOrigin="0.5,0.5" >
+
+                    </Image>
+                    <Label Grid.Column="3" Content="已连接" Margin="89,31,76.5,18" RenderTransformOrigin="-0.167,0.581" Grid.ColumnSpan="2">
+
+                    </Label>
+                    <Image Grid.Column="4" Source="/Resources/Icon_SeatSell.png" Margin="55,31,0,24" RenderTransformOrigin="0.906,0.557" HorizontalAlignment="Left" Width="34" ></Image>
+                    <Label Grid.Column="4" Content="有人" Margin="97,31,75,18" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                    
+                    </Label>-->
+                    <ComboBox x:Name="comboBoxData" HorizontalAlignment="Center" Grid.Row="0"  VerticalAlignment="Center"  Grid.Column="1" Background="Black" Margin="19,30,10,30" Width="71">
+                        <ComboBoxItem Content="读ID" Tag="1"></ComboBoxItem>
+                        <ComboBoxItem Content="写ID" Tag="2"></ComboBoxItem>
+                        <ComboBoxItem Content="透传" Tag="3"></ComboBoxItem>
+                        <ComboBoxItem Content="PC区" Tag="4"></ComboBoxItem>
+                        <ComboBoxItem Content="RAM区" Tag="5"></ComboBoxItem>
+                    </ComboBox>
+                    <Button Name="btnSendData" Content="发送" Grid.Column="5" Margin="10,20,23,0" Height="30" VerticalAlignment="Top" Click="btnSendData_Click"></Button>
+                    <CheckBox Name="checkRW" Content="读ID" Margin="20" Click="checkRW_Click" Visibility="Hidden"></CheckBox>
+                    <Button Name="btnCheck" Content="检测驱动器" Grid.Row="1" Margin="20,20,10,20" Click="btnCheck_Click" Visibility="Hidden"></Button>
+                    <Button Name="btnCheck1" Content="查询座椅" Grid.Row="2" Margin="20,20,10,20" Click="btnCheck1_Click" Visibility="Hidden"></Button>
+                    <TextBox Name="rxtxData" Grid.ColumnSpan="6" Grid.Column="1" Margin="10,32,26,10" Grid.Row="1" Grid.RowSpan="4"></TextBox>
+                    <Label Content="座椅ID" Margin="29,30,23,23" RenderTransformOrigin="3.467,0.425" Grid.Column="2"></Label>
+                    <TextBox Name="chairID" Text="1" Margin="10,30,30,23" Grid.Column="3"></TextBox>
+                    <!--<Image Name="imgSeat1" Grid.Row="1" Grid.Column="1"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" MouseLeftButtonDown="imgSeat1_MouseLeftButtonDown" ></Image>
+                    <Image Name="imgSeat2" Grid.Row="1" Grid.Column="2"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" MouseLeftButtonDown="imgSeat2_MouseLeftButtonDown" ></Image>
+                    <Image Name="imgSeat3"  Grid.Row="1" Grid.Column="3"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Name="imgSeat4" Grid.Row="1" Grid.Column="4"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Name="imgSeat5" Grid.Row="1" Grid.Column="5"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Name="imgSeat6" Grid.Row="1" Grid.Column="6"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Name="imgSeat7" Grid.Row="2" Grid.Column="1"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Name="imgSeat8" Grid.Row="2" Grid.Column="2"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Name="imgSeat9" Grid.Row="2" Grid.Column="3"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Name="imgSeat10" Grid.Row="2" Grid.Column="4"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Name="imgSeat11" Grid.Row="2" Grid.Column="5"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Name="imgSeat12" Grid.Row="2" Grid.Column="6"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+
+                    <Image Grid.Row="3" Grid.Column="1"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="3" Grid.Column="2"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="3" Grid.Column="3"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="3" Grid.Column="4"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="3" Grid.Column="5"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="3" Grid.Column="6"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="4" Grid.Column="1"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="4" Grid.Column="2"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="4" Grid.Column="3"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="4" Grid.Column="4"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="4" Grid.Column="5"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="4" Grid.Column="6"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+
+                    <Image Grid.Row="5" Grid.Column="1"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="5" Grid.Column="2"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="5" Grid.Column="3"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="5" Grid.Column="4"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="5" Grid.Column="5"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="5" Grid.Column="6"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="6" Grid.Column="1"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="6" Grid.Column="2"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="6" Grid.Column="3"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="6" Grid.Column="4"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="6" Grid.Column="5"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>
+                    <Image Grid.Row="6" Grid.Column="6"  Source="/Resources/Icon_SeatStart.png" Margin="32,25,47,25" ></Image>-->
+
+                </Grid>
+                <!--</TabControl>-->
+            </TabItem>
             <!--关于-->
             <TabItem Name="tabItemFC5" Style="{DynamicResource TabItemStyle2}">
                 <TabControl Name="tabControlAbout" Background="#FF737373" Style="{DynamicResource TabControlStyle2}">
@@ -1444,7 +1565,7 @@
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <Image Grid.Row="0" Grid.RowSpan="3" Source="/Resources/Icon_ShuQee_White.png" Stretch="Fill"/>
-                                <TextBlock x:Name="txtVersion" Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="25" Margin="20,0,0,0" Text="Version: 7.1.8" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtVersion" Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="25" Margin="20,0,0,0" VerticalAlignment="Center"><Run Text="Version: 7.1."/><Run Text="9"/></TextBlock>
                                 <TextBlock x:Name="txtRegStrTitle" Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="25" Margin="20,0,520,0" Text="{DynamicResource txtRegStrTitle}"  VerticalAlignment="Center"/>
                                 <TextBlock x:Name="txtRegStr" Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="25" Margin="110,0,0,0" Text=""  VerticalAlignment="Center"/>
                             </Grid>
@@ -1527,7 +1648,7 @@
                             </Button>
 
 
-                            <Label Content="{DynamicResource labFrame}" Grid.Row="2" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                            <!--<Label Content="{DynamicResource labFrame}" Grid.Row="2" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
                             <Button x:Name="btnFrame48" Tag="1" Content="{DynamicResource btnFrame48}" Style="{DynamicResource FilletButton}" Grid.Row="2" Grid.Column="1" Margin="22,10,15,10">
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -1551,10 +1672,10 @@
                                         <GradientStop Color="#FF999999" Offset="1"/>
                                     </LinearGradientBrush>
                                 </Button.Background>
-                            </Button>
+                            </Button>-->
 
-                            <Label Content="{DynamicResource labType}" Grid.Row="3" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
-                            <Button x:Name="btn4DM" Content="{DynamicResource btn4DM}" Style="{DynamicResource FilletButton}" Grid.Row="3" Grid.Column="1" Margin="22,10,15,10" Tag="1">
+                            <Label Content="{DynamicResource labType}" Grid.Row="2" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                            <Button x:Name="btn4DM" Content="{DynamicResource btn4DM}" Style="{DynamicResource FilletButton}" Grid.Row="2" Grid.Column="1" Margin="22,10,15,10" Tag="1">
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="0"/>
@@ -1562,25 +1683,7 @@
                                     </LinearGradientBrush>
                                 </Button.Background>
                             </Button>
-                            <Button x:Name="btn5D" Content="{DynamicResource btn5D}"  Style="{DynamicResource FilletButton}" Grid.Row="3" Grid.Column="2" Margin="13,10,20,10" Tag="2">
-                                <Button.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#FF737373" Offset="0"/>
-                                        <GradientStop Color="#FF999999" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Button.Background>
-                            </Button>
-
-                            <Label Content="{DynamicResource labProjector}" Grid.Row="4" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
-                            <Button x:Name="btnMain" Content="{DynamicResource btnMain}" Grid.Row="4" Style="{DynamicResource FilletButton}" Grid.Column="1" Margin="22,10,15,10" Tag="1" >
-                                <Button.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#FF737373" Offset="0"/>
-                                        <GradientStop Color="#FF999999" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Button.Background>
-                            </Button>
-                            <Button x:Name="btnSecond" Content="{DynamicResource btnSecond}" Style="{DynamicResource FilletButton}" Grid.Row="4" Grid.Column="2" Margin="13,10,20,10" Tag="2">
+                            <Button x:Name="btn5D" Content="{DynamicResource btn5D}"  Style="{DynamicResource FilletButton}" Grid.Row="2" Grid.Column="2" Margin="13,10,20,10" Tag="2">
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="0"/>
@@ -1589,8 +1692,8 @@
                                 </Button.Background>
                             </Button>
 
-                            <Label Content="{DynamicResource labPermission}" Grid.Row="5" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
-                            <Button x:Name="btnAdmin" Content="{DynamicResource btnAdmin}" Grid.Row="5" Style="{DynamicResource FilletButton}" Grid.Column="1" Margin="22,10,15,10" Tag="1" >
+                            <Label Content="{DynamicResource labProjector}" Grid.Row="3" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                            <Button x:Name="btnMain" Content="{DynamicResource btnMain}" Grid.Row="3" Style="{DynamicResource FilletButton}" Grid.Column="1" Margin="22,10,15,10" Tag="1" >
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="0"/>
@@ -1598,25 +1701,7 @@
                                     </LinearGradientBrush>
                                 </Button.Background>
                             </Button>
-                            <Button x:Name="btnUser" Content="{DynamicResource btnUser}" Style="{DynamicResource FilletButton}" Grid.Row="5" Grid.Column="2" Margin="13,10,20,10" Tag="2">
-                                <Button.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#FF737373" Offset="0"/>
-                                        <GradientStop Color="#FF999999" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Button.Background>
-                            </Button>
-
-                            <Label Content="{DynamicResource labControl}" Grid.Row="6" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
-                            <Button x:Name="btnServer" Content="{DynamicResource btnServer}" Grid.Row="6" Style="{DynamicResource FilletButton}" Grid.Column="1" Margin="22,10,15,10" Tag="1" >
-                                <Button.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#FF737373" Offset="0"/>
-                                        <GradientStop Color="#FF999999" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Button.Background>
-                            </Button>
-                            <Button x:Name="btnClient" Content="{DynamicResource btnClient}" Style="{DynamicResource FilletButton}" Grid.Row="6" Grid.Column="2" Margin="13,10,20,10" Tag="2">
+                            <Button x:Name="btnSecond" Content="{DynamicResource btnSecond}" Style="{DynamicResource FilletButton}" Grid.Row="3" Grid.Column="2" Margin="13,10,20,10" Tag="2">
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="0"/>
@@ -1625,8 +1710,8 @@
                                 </Button.Background>
                             </Button>
 
-                            <Label Content="{DynamicResource lab5DPicture}" Grid.Row="7" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
-                            <Button x:Name="btnShow" Content="{DynamicResource btnShow}" Grid.Row="7" Style="{DynamicResource FilletButton}" Grid.Column="1" Margin="22,10,15,10" Tag="1" >
+                            <Label Content="{DynamicResource labPermission}" Grid.Row="4" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                            <Button x:Name="btnAdmin" Content="{DynamicResource btnAdmin}" Grid.Row="4" Style="{DynamicResource FilletButton}" Grid.Column="1" Margin="22,10,15,10" Tag="1" >
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="0"/>
@@ -1634,17 +1719,7 @@
                                     </LinearGradientBrush>
                                 </Button.Background>
                             </Button>
-                            <Button x:Name="btnNotShow" Content="{DynamicResource btnNotShow}" Style="{DynamicResource FilletButton}" Grid.Row="7" Grid.Column="2" Margin="13,10,20,10" Tag="2">
-                                <Button.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#FF737373" Offset="0"/>
-                                        <GradientStop Color="#FF999999" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Button.Background>
-                            </Button>
-
-                            <Label Content="{DynamicResource labMacAddress}" Grid.Row="8" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
-                            <Button x:Name="btnMac" Content="{DynamicResource btnMac}" Grid.Row="8" Style="{DynamicResource FilletButton}" Grid.Column="1" Margin="22,10,15,10" Tag="1" >
+                            <Button x:Name="btnUser" Content="{DynamicResource btnUser}" Style="{DynamicResource FilletButton}" Grid.Row="4" Grid.Column="2" Margin="13,10,20,10" Tag="2">
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="0"/>
@@ -1653,8 +1728,54 @@
                                 </Button.Background>
                             </Button>
 
-                            <Label Content="{DynamicResource labHeight}" Grid.Row="9" Margin="10,0,0,0"  Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
-                            <TextBox Name="txtHeight" Text="" Grid.Row="9" Grid.Column="1" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
+                            <Label Content="{DynamicResource labControl}" Grid.Row="5" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                            <Button x:Name="btnServer" Content="{DynamicResource btnServer}" Grid.Row="5" Style="{DynamicResource FilletButton}" Grid.Column="1" Margin="22,10,15,10" Tag="1" >
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                            <Button x:Name="btnClient" Content="{DynamicResource btnClient}" Style="{DynamicResource FilletButton}" Grid.Row="5" Grid.Column="2" Margin="13,10,20,10" Tag="2">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+
+                            <Label Content="{DynamicResource lab5DPicture}" Grid.Row="6" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                            <Button x:Name="btnShow" Content="{DynamicResource btnShow}" Grid.Row="6" Style="{DynamicResource FilletButton}" Grid.Column="1" Margin="22,10,15,10" Tag="1" >
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                            <Button x:Name="btnNotShow" Content="{DynamicResource btnNotShow}" Style="{DynamicResource FilletButton}" Grid.Row="6" Grid.Column="2" Margin="13,10,20,10" Tag="2">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+
+                            <Label Content="{DynamicResource labMacAddress}" Grid.Row="7" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                            <Button x:Name="btnMac" Content="{DynamicResource btnMac}" Grid.Row="7" Style="{DynamicResource FilletButton}" Grid.Column="1" Margin="22,10,15,10" Tag="1" >
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+
+                            <Label Content="{DynamicResource labHeight}" Grid.Row="8" Margin="10,0,0,0"  Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                            <TextBox Name="txtHeight" Text="" Grid.Row="8" Grid.Column="1" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
                                 <TextBox.Resources>
                                     <Style TargetType="{x:Type Border}">
                                         <Setter Property="CornerRadius" Value="4"/>
@@ -1663,7 +1784,7 @@
                                 </TextBox.Resources>
                             </TextBox>
 
-                            <Button x:Name="btnDefault" Content="{DynamicResource btnDefault}" Style="{DynamicResource FilletButton}" Grid.Row="10" Grid.Column="6"  Margin="33,20,16,10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="101" Height="40" Visibility="Hidden">
+                            <Button x:Name="btnDefault" Content="{DynamicResource btnDefault}" Style="{DynamicResource FilletButton}" Grid.Row="9" Grid.Column="6"  Margin="33,20,16,10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="101" Height="40" Visibility="Hidden">
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="0"/>
@@ -1682,6 +1803,71 @@
                         </Grid>
                     </TabItem>
                     <TabItem Name="tabItemSet3" Style="{DynamicResource TabItemStyle2}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition ></RowDefinition>
+                                <RowDefinition Height="70"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110"></ColumnDefinition>
+                                <ColumnDefinition Width="90"></ColumnDefinition>
+                                <ColumnDefinition Width="90"></ColumnDefinition>
+                                <ColumnDefinition Width="90"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="{DynamicResource labProperty}" Grid.Row="0" Margin="10,8,10,8" Foreground="White" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Left"></Label>
+
+                            <Label Content="{DynamicResource labFrame}" Grid.Row="1" Margin="10,0,0,0" FontSize="15" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                            <Button x:Name="btnFrame48" Tag="1" Content="{DynamicResource btnFrame48}" Style="{DynamicResource FilletButton}" Grid.Row="1" Grid.Column="1" Margin="22,10,15,10">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                            <Button x:Name="btnFrame60" Tag="2"  Content="{DynamicResource btnFrame60}" Style="{DynamicResource FilletButton}" Grid.Row="1" Grid.Column="2" Margin="13,10,20,10"  Width="59" >
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                            <Button Name="btnFrame120" Tag="3" Content="{DynamicResource btnFrame120}" Style="{DynamicResource FilletButton}" Grid.Row="1" Grid.Column="3" Margin="7,10,25,10">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+
+                            <Button x:Name="btnUserConfirm" Content="{DynamicResource btnConfirm}" Style="{DynamicResource FilletButton}" Grid.Row="11" Grid.Column="7"   HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Margin="25,14,25,16" >
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF737373" Offset="0"/>
+                                        <GradientStop Color="#FF999999" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Name="tabItemSet4" Style="{DynamicResource TabItemStyle2}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="60"></RowDefinition>
@@ -1880,7 +2066,6 @@
                                 </TextBox.Resources>
                             </TextBox>
 
-
                             <Button x:Name="btnDefaultProjector" Content="{DynamicResource btnDefault}" Style="{DynamicResource FilletButton}" Grid.Row="14"  Height="35" Width="70" Grid.Column="8" >
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -1900,7 +2085,7 @@
 
                         </Grid>
                     </TabItem>
-                    <TabItem Name="tabItemSet4" Style="{DynamicResource TabItemStyle2}">
+                    <TabItem Name="tabItemSet5" Style="{DynamicResource TabItemStyle2}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50"></RowDefinition>
@@ -1909,6 +2094,9 @@
                                 <RowDefinition Height="40"></RowDefinition>
                                 <RowDefinition Height="50"></RowDefinition>
                                 <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
                                 <RowDefinition Height="40"></RowDefinition>
                                 <RowDefinition Height="40"></RowDefinition>
                                 <RowDefinition Height="40"></RowDefinition>
@@ -1959,6 +2147,45 @@
                             <Label Content="{DynamicResource labParam}" Grid.Row="6"  Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Left"></Label>
                             <Label Content="{DynamicResource labProjectorIp}" Grid.Row="7"  Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Center"></Label>
                             <Label Content="{DynamicResource labProjectorPort}" Grid.Row="8" Margin="-1,8,0,8" Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Center"></Label>
+
+                            <Label Content="{DynamicResource labInstructionCode}" Grid.Row="6" Grid.Column="4" Margin="-1,8,0,8" Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Left" Visibility="Hidden"></Label>
+                            <TextBox Name="txtPlayFuse" Text="" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" Visibility="Hidden" >
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                        <Setter Property="BorderBrush" Value="#FF999999"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <Label Content="{DynamicResource labPlay}" Grid.Row="7" Grid.Column="4" Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden"></Label>
+                            <TextBox Name="txtPauseFuse" Text="" Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="2" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" Visibility="Hidden" >
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                        <Setter Property="BorderBrush" Value="#FF999999"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <Label Content="{DynamicResource labPause}" Grid.Row="8" Grid.Column="4" Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden"></Label>
+                            <TextBox Name="txtStopFuse" Text="" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="2" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" Visibility="Hidden" >
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                        <Setter Property="BorderBrush" Value="#FF999999"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <Label Content="{DynamicResource labStop}" Grid.Row="9" Grid.Column="4" Margin="-1,8,0,8" Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden"></Label>
+                            <TextBox Name="txtResumePlayFuse" Text="" Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="2" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" Visibility="Hidden" >
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                        <Setter Property="BorderBrush" Value="#FF999999"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <Label Content="{DynamicResource labResumePlay}" Grid.Row="10" Grid.Column="4" Margin="-1,8,0,8" Foreground="White" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden"></Label>
+
                             <TextBox Name="txtIpFuse" Text="" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Margin="20,10,16,10" Background="#FF999999" FontSize="15" BorderBrush="#FF999999" Foreground="White" >
                                 <TextBox.Resources>
                                     <Style TargetType="{x:Type Border}">
@@ -1980,7 +2207,7 @@
                                 <ComboBoxItem Content="TCP"></ComboBoxItem>
                                 <ComboBoxItem Content="UDP"></ComboBoxItem>
                             </ComboBox>
-                            <Button x:Name="btnConfirmFuse" Content="{DynamicResource btnConfirm}" Style="{DynamicResource FilletButton}" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" Height="30"  Width="70" >
+                            <Button x:Name="btnConfirmFuse" Content="{DynamicResource btnConfirm}" Style="{DynamicResource FilletButton}" Grid.Row="12" Grid.Column="4" Grid.ColumnSpan="2" Height="30"  Width="70" >
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="0"/>
@@ -1991,6 +2218,21 @@
 
                         </Grid>
                     </TabItem>
+                    <!--<TabItem Name="tabItemSet5" Style="{DynamicResource TabItemStyle2}">
+                        <Grid Name="LayoutRoot">
+                            <Image Name="image1" Tag="1" Source="Resources/green1.gif" Height="50" Width="50"  HorizontalAlignment="Left" Margin="311,50,0,0"  VerticalAlignment="Top"></Image>
+                            <Image Name="image2" Tag="2" Source="Resources/green2.gif" Height="50" Width="50"  HorizontalAlignment="Left" Margin="311,100,0,0"  VerticalAlignment="Top"></Image>
+                            <Image Name="image3" Tag="3" Source="Resources/green3.gif" Height="50" Width="50"  HorizontalAlignment="Left" Margin="311,150,0,0"  VerticalAlignment="Top"></Image>
+                            <Image Name="image4" Tag="4" Source="Resources/green4.gif" Height="50" Width="50"  HorizontalAlignment="Left" Margin="311,200,0,0"  VerticalAlignment="Top"></Image>
+                            <Image Name="image5" Tag="5" Source="Resources/green5.gif" Height="50" Width="50"  HorizontalAlignment="Left" Margin="311,250,0,0"  VerticalAlignment="Top"></Image>
+                            <Image Name="image6" Tag="6" Source="Resources/green6.gif" Height="50" Width="50"  HorizontalAlignment="Left" Margin="311,300,0,0"  VerticalAlignment="Top"></Image>
+                            <Image Name="image7" Tag="7" Source="Resources/green7.gif" Height="50" Width="50"  HorizontalAlignment="Left" Margin="311,350,0,0"  VerticalAlignment="Top"></Image>
+                            <Image Name="image8" Tag="8" Source="Resources/green8.gif" Height="50" Width="50"  HorizontalAlignment="Left" Margin="311,400,0,0"  VerticalAlignment="Top"></Image>
+                            <Button Name="btnimage" Width="50" Height="50" Content="确定" Click="btnimage_Click"></Button>
+                        </Grid>
+                    </TabItem>-->
+
+
                 </TabControl>
 
             </TabItem>

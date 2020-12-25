@@ -29,6 +29,7 @@ namespace MoviePlayer
         private void WinLightning_Closed(object sender, EventArgs e)
         {
             MainWindow.dataEvEffect[0] = 0;
+            MainWindow.btnEvEffect[0].Opacity = 1;
             Module.DMXLightning = new byte[10];
         }
 
@@ -61,13 +62,16 @@ namespace MoviePlayer
                         btnGreen.Opacity = 1; ;
                         MainWindow.dataEvEffect[0] = 1;
                         Module.DMXLightning[0] = 10;
-                        Module.DMXLightning[1] = 255;
-                        Module.DMXLightning[2] = 255;
+                        Module.DMXLightning[1] = byte.Parse(textBox1.Text);
+                        Module.DMXLightning[2] = byte.Parse(textBox2.Text);
                         Module.DMXLightning[3] = 0;
                         Module.DMXLightning[4] = 0;
-                        Module.DMXLightning[5] = 255;
-                        Module.DMXLightning[6] = 255;
-                        Module.DMXLightning[7] = 100;
+                        Module.DMXLightning[5] = 0;
+                        Module.DMXLightning[6] = byte.Parse(textBox3.Text);
+                        Module.DMXLightning[7] = byte.Parse(textBox4.Text);
+                        Module.DMXLightning[8] = byte.Parse(textBox5.Text);
+                        Module.DMXLightning[9] = byte.Parse(textBox6.Text);
+
                     }
                     else
                     {
@@ -93,9 +97,11 @@ namespace MoviePlayer
                         Module.DMXLightning[2] = 0;
                         Module.DMXLightning[3] = 0;
                         Module.DMXLightning[4] = 0;
-                        Module.DMXLightning[5] = 255;
-                        Module.DMXLightning[6] = 0;
+                        Module.DMXLightning[5] = 0;
+                        Module.DMXLightning[6] = 255;
                         Module.DMXLightning[7] = 0;
+                        Module.DMXLightning[8] = 0;
+                        Module.DMXLightning[9] = 0;
                     }
                     else
                     {
@@ -123,7 +129,9 @@ namespace MoviePlayer
                         Module.DMXLightning[4] = 0;
                         Module.DMXLightning[5] = 0;
                         Module.DMXLightning[6] = 0;
-                        Module.DMXLightning[7] = 255;
+                        Module.DMXLightning[7] = 0;
+                        Module.DMXLightning[8] = 255;
+                        Module.DMXLightning[9] = 0;
                     }
                     else
                     {
@@ -150,9 +158,11 @@ namespace MoviePlayer
                         Module.DMXLightning[3] = 0;
                         Module.DMXLightning[4] = 0;
                         Module.DMXLightning[5] = 0;
-                        Module.DMXLightning[6] = 255;
-                        Module.DMXLightning[7] = 0;
-                     }
+                        Module.DMXLightning[6] = 0;
+                        Module.DMXLightning[7] = 255;
+                        Module.DMXLightning[8] = 0;
+                        Module.DMXLightning[9] = 0;
+                    }
                     else
                     {
                         MainWindow.dataEvEffect[0] = 0;
@@ -165,5 +175,7 @@ namespace MoviePlayer
 
             }
         }
+
+      
     }
 }

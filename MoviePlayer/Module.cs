@@ -39,9 +39,12 @@ namespace MoviePlayer
         public static byte[] dmx512File;
         public static byte[] DMXDataLen = new byte[8];
         public static byte[] DMXLightning = new byte[10];
-        public static byte[] DMXWind = new byte[1];
-        public static byte[] DMXBubble = new byte[1];
-        public static byte[] DMXFog = new byte[1];
+        //public static byte[] DMXWind = new byte[1];
+        public static byte[] DMXWind = new byte[3];
+        //public static byte[] DMXBubble = new byte[1];
+        public static byte[] DMXBubble = new byte[3];
+        //public static byte[] DMXFog = new byte[1];
+        public static byte[] DMXFog = new byte[10];
         public static byte[] DMXFire = new byte[1];
         public static byte[] DMXSnow = new byte[10];
         public static byte[] DMXLaser = new byte[1];
@@ -59,12 +62,12 @@ namespace MoviePlayer
         public static int vibrationLen;
         public static int dmxLen;
         public static string uuidFile;
-        public static string[] macFile=new string[2];
+        public static string[] macFile = new string[2];
         public static DispatcherTimer timerMovie = null;
         public static bool hintShow;                   //是否显示提示信息
         public static int deadlineDay;
         public static string controlCommand;            //控制指令
-        public static string nowTimeStr;               //系统当前时间格式为字符串
+        public static string nowTimeStr;                //系统当前时间格式为字符串
 
         /// <summary>
         /// udp发送动作数据与特效数据函数
@@ -104,7 +107,7 @@ namespace MoviePlayer
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "send data failed");
+                MessageBox.Show(err.Message, "send data failed");   
             }
         }
 
@@ -393,7 +396,6 @@ namespace MoviePlayer
             //sendData(last1,last2,last3,lastt1,lastt2);
         }
 
-
         /// <summary>
         /// 串口初始化
         /// </summary>
@@ -420,7 +422,6 @@ namespace MoviePlayer
                 MessageBox.Show("open erro");
             }
         }
-
 
         /// <summary>
         /// 读取动作文件跟特效文件
@@ -799,6 +800,14 @@ namespace MoviePlayer
                     }
                     else
                     {
+                        if (MainWindow.PlayLanguage.Equals("CN"))
+                        {
+                            MessageBox.Show("动作包与ID不匹配");
+                        }
+                        else
+                        {
+                            MessageBox.Show("The action package does not match the ID");
+                        }
                         actionFile2DOF = null;
                         actionFile3DOF = null;
                         actionFile6DOF = null;
@@ -830,6 +839,7 @@ namespace MoviePlayer
 
         public static void ReadFileDEVData()
         {
+           // byte fileAmount;
             byte[] data2DOF = new byte[4];
             byte[] data3DOF = new byte[4];
             byte[] data6DOF = new byte[4];
@@ -855,6 +865,7 @@ namespace MoviePlayer
             {
                 if (shuqeeFile != null)
                 {
+                    //fileAmount = shuqeeFile[17];
                     Array.Copy(shuqeeFile, 18, data2DOF, 0, 4);
                     Array.Reverse(data2DOF);
                     DOF2StartIndex = System.BitConverter.ToInt32(data2DOF, 0);
@@ -941,6 +952,124 @@ namespace MoviePlayer
 
         }
 
+        public static void ReadFileDEVDataNew()
+        {
+            byte fileAmount;
+            byte[] data2DOF = new byte[4];
+            byte[] data3DOF = new byte[4];
+            byte[] data6DOF = new byte[4];
+            byte[] dataEffect = new byte[4];
+            byte[] dataVibration = new byte[4];
+
+            byte[] dataDmx = new byte[4];
+
+            //byte[] data2DOFLen = new byte[3];
+            //byte[] data3DOFLen = new byte[3];
+            //byte[] data6DOFLen = new byte[3];
+            //byte[] dataEffectLen = new byte[3];
+            //byte[] dataVibrationLen = new byte[3];
+
+            byte[] data2DOFLen = new byte[4];
+            byte[] data3DOFLen = new byte[4];
+            byte[] data6DOFLen = new byte[4];
+            byte[] dataEffectLen = new byte[4];
+            byte[] dataVibrationLen = new byte[4];
+            byte[] dataDmxLen = new byte[4];
+
+            try
+            {
+                if (shuqeeFile != null)
+                {
+                    fileAmount = shuqeeFile[17];
+
+                    Array.Copy(shuqeeFile, 18, data2DOF, 0, 4);
+                    Array.Reverse(data2DOF);
+                    DOF2StartIndex = System.BitConverter.ToInt32(data2DOF, 0);
+
+                    Array.Copy(shuqeeFile, 22, data3DOF, 0, 4);
+                    Array.Reverse(data3DOF);
+                    DOF3StartIndex = System.BitConverter.ToInt32(data3DOF, 0);
+
+                    Array.Copy(shuqeeFile, 26, data6DOF, 0, 4);
+                    Array.Reverse(data6DOF);
+                    DOF6StartIndex = System.BitConverter.ToInt32(data6DOF, 0);
+
+                    Array.Copy(shuqeeFile, 30, dataEffect, 0, 4);
+                    Array.Reverse(dataEffect);
+                    effectStartIndex = System.BitConverter.ToInt32(dataEffect, 0);
+
+                    Array.Copy(shuqeeFile, 34, dataVibration, 0, 4);
+                    Array.Reverse(dataVibration);
+                    vibrationStartIndex = System.BitConverter.ToInt32(dataVibration, 0);
+
+                    Array.Copy(shuqeeFile, 38, dataDmx, 0, 4);
+                    Array.Reverse(dataDmx);
+                    dmxStartIndex = System.BitConverter.ToInt32(dataDmx, 0);
+
+
+
+                    Array.Copy(shuqeeFile, 42, data2DOFLen, 0, 4);
+                    Array.Reverse(data2DOFLen);
+                    DOF2Len = System.BitConverter.ToInt32(data2DOFLen, 0);
+
+                    Array.Copy(shuqeeFile, 46, data3DOFLen, 0, 4);
+                    Array.Reverse(data3DOFLen);
+                    DOF3Len = System.BitConverter.ToInt32(data3DOFLen, 0);
+
+                    Array.Copy(shuqeeFile, 50, data6DOFLen, 0, 4);
+                    Array.Reverse(data6DOFLen);
+                    DOF6Len = System.BitConverter.ToInt32(data6DOFLen, 0);
+
+                    Array.Copy(shuqeeFile, 54, dataEffectLen, 0, 4);
+                    Array.Reverse(dataEffectLen);
+                    effectLen = System.BitConverter.ToInt32(dataEffectLen, 0);
+
+                    Array.Copy(shuqeeFile, 58, dataVibrationLen, 0, 4);
+                    Array.Reverse(dataVibrationLen);
+                    vibrationLen = System.BitConverter.ToInt32(dataVibrationLen, 0);
+
+                    Array.Copy(shuqeeFile, 62, dataDmxLen, 0, 4);
+                    Array.Reverse(dataDmxLen);
+                    dmxLen = System.BitConverter.ToInt32(dataDmxLen, 0);
+
+                    //Array.Copy(shuqeeFile, 38, data2DOFLen, 0, 3);
+                    //DOF2Len = byteArrayToInt(data2DOFLen);
+
+                    //Array.Copy(shuqeeFile, 41, data3DOFLen, 0, 3);
+                    //DOF3Len = byteArrayToInt(data3DOFLen);
+
+                    //Array.Copy(shuqeeFile, 44, data6DOFLen, 0, 3);
+                    //DOF6Len = byteArrayToInt(data6DOFLen);
+                    ////三个字节的不能使用此转换方法
+                    ////DOF6Len = System.BitConverter.ToInt32(data6DOFLen, 0);
+
+                    //Array.Copy(shuqeeFile, 47, dataEffectLen, 0, 3);
+                    //effectLen = byteArrayToInt(dataEffectLen);
+
+                    //Array.Copy(shuqeeFile, 50, dataVibrationLen, 0, 3);
+                    //vibrationLen = byteArrayToInt(dataVibrationLen);
+
+                    actionFile2DOF = new byte[DOF2Len];
+                    actionFile3DOF = new byte[DOF3Len];
+                    actionFile6DOF = new byte[DOF6Len];
+                    effectFile = new byte[effectLen];
+                    shakeFile = new byte[vibrationLen];
+                    dmx512File = new byte[dmxLen];
+                    Array.Copy(shuqeeFile, DOF2StartIndex, actionFile2DOF, 0, DOF2Len);
+                    Array.Copy(shuqeeFile, DOF3StartIndex, actionFile3DOF, 0, DOF3Len);
+                    Array.Copy(shuqeeFile, DOF6StartIndex, actionFile6DOF, 0, DOF6Len);
+                    Array.Copy(shuqeeFile, effectStartIndex, effectFile, 0, effectLen);
+                    Array.Copy(shuqeeFile, vibrationStartIndex, shakeFile, 0, vibrationLen);
+                    Array.Copy(shuqeeFile, dmxStartIndex, dmx512File, 0, dmxLen);
+                }
+            }
+            catch (Exception e)
+            {
+                Module.WriteLogFile(e.Message);
+            }
+
+        }
+
         /// <summary>
         /// 字节数组转换成int整型
         /// </summary>
@@ -955,6 +1084,14 @@ namespace MoviePlayer
                 value += (bytes[i] & 0xFF) << shift; 
             }
             return value;
+        }
+
+        public static int ConvertDateTimeInt(System.DateTime time)
+        {
+            double intResult = 0;
+            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
+            intResult = (time - startTime).TotalSeconds;
+            return (int)intResult;
         }
 
 
@@ -978,6 +1115,8 @@ namespace MoviePlayer
                 ps[i] = (byte)(sum / p);
                 sum = 0;
             }
+
+           
 
             for (j = 0; j < p; j++)
             {

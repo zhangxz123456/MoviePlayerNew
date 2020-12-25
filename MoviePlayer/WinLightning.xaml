@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoviePlayer"
         mc:Ignorable="d"
-        Title="闪电" Height="300" Width="300" ResizeMode="NoResize" Icon="Resources/Icon_Lightning.png">
+        Title="闪电" Height="300" Width="500" ResizeMode="NoResize" Icon="Resources/Icon_Lightning.png">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -21,6 +21,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
+            <ColumnDefinition />
+
         </Grid.ColumnDefinitions>
         <Button x:Name="btnWhite"  Style="{DynamicResource FilletButton}" Margin="30" Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"  Background="#FF939393" FontSize="24" Tag="1">
             <Button.Content>
@@ -70,6 +72,18 @@
                 </Grid>
             </Button.Content>
         </Button>
+        <TextBox x:Name="textBox1" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="48,17,0,0" TextWrapping="Wrap" Text="255" VerticalAlignment="Top" Width="58"/>
+        <TextBox x:Name="textBox2" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="49,57,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58"/>
+        <TextBox x:Name="textBox3" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="50,93,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58"/>
+        <TextBox x:Name="textBox4" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="53,17,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58" Grid.Row="1"/>
+        <TextBox x:Name="textBox5" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="53,58,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58" Grid.Row="1"/>
+        <TextBox x:Name="textBox6" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="55,98,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="58" Grid.Row="1"/>
+        <Label x:Name="label1" Content="总调光" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="4,17,0,0" VerticalAlignment="Top" Width="26" FontSize="8"/>
+        <Label x:Name="label2" Content="频闪" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="5,57,0,0" VerticalAlignment="Top" Width="26" FontSize="8"/>
+        <Label x:Name="label3" Content="红" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="6,93,0,0" VerticalAlignment="Top" Width="26" FontSize="8"/>
+        <Label x:Name="label4" Content="绿" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="9,17,0,0" VerticalAlignment="Top" Width="26" Grid.Row="1" FontSize="8"/>
+        <Label x:Name="label5" Content="蓝" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="9,58,0,0" VerticalAlignment="Top" Width="26" Grid.Row="1" FontSize="8"/>
+        <Label x:Name="label6" Content="白" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="11,98,0,0" VerticalAlignment="Top" Width="26" Grid.Row="1" FontSize="8"/>
 
     </Grid>
 </Window>
